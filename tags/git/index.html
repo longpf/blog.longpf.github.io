@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; abcde</title>
+  <title>Git &middot; abcde</title>
 
   
   
@@ -215,33 +215,120 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Git</h1>
 </div>
+
 <div class="content">
-  <ul>
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Dec 2016, 14:52</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    
+  </div>
   
-    <li>
-      <a href="ios">ios</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+</div>
+
+  </header>
+
+  <p>
+  git flow feature start branchname
+ 开始一个featuer分支,feature分支的名字一般为功能+人名,如capture.xiaoming  git flow feature publish branchname
+ 将一个featuer分支推到远程,多人开发  git checkout -b feature/branchname origin/feature/branchname * 将远程的featuer分支下到本地开发
+git flow feature finish branchname * 合并至本地develop * 删除任务分支
+git pull --rebase
+git flow release start v6.6.3 * 开始release分支
+git flow release publish v6.6.3
+git flow release finish v6.6.3 * 合并release分支到master * 在master上打上tag * 合并release到develop * 删除release
+git flow hotfix start v6.6.4 * 开始修复分支
+git flow hotfix finish v6.
+  </p>
+
   
-  </ul>
+  <footer>
+    <a href="http://blog.longpengfei.com/post/git-flow-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Dec 2016, 14:51</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  前:HEAD关键字是指当前分支的最新一次提交,就是版本库中该分支上的最新版本
+git init git init 初始化一个repo,创建一个.git文件夹
+git clone git clone url newname nenamew 可以不要
+git log git log --oneline 每条log显示一行
+git log --oneline --graph 图形化
+git log branchname 指定分支log
+git log --oneline branch1 ^branch2 在分支1,不在分支2,^为排除
+git log --author=[author name]指定作者
+git log --grep=keywords筛选commit信息
+git log --grep=keywords --author=authorname 是OR的关系,如果想为AND则添加&ndash;all-match
+git reflog 对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化 当git reflog 不指定引用的时候,默认列出HEAD的reflog git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,分支的reflog文件都放在.git/logs/refs目录下的子目录中.
+git reflog 可以看到reset的commit
+git add git add file
+git add . 递归添加工作区的修改到暂缓区
+git commit git commit -m &quot;message&quot;
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/git-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
 </div>
 
 </div>

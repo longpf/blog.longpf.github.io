@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; abcde</title>
+  <title>Git Flow 常用命令 &middot; abcde</title>
 
   
   
@@ -215,33 +215,134 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Git Flow 常用命令</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Dec 2016, 14:52</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    
+  </div>
   
-    <li>
-      <a href="ios">ios</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+</div>
+
+  <p><code>git flow feature start branchname</code></p>
+
+<ul>
+<li>开始一个featuer分支,feature分支的名字一般为功能+人名,如capture.xiaoming</li>
+</ul>
+
+<p><code>git flow feature publish branchname</code></p>
+
+<ul>
+<li>将一个featuer分支推到远程,多人开发</li>
+</ul>
+
+<p><code>git checkout -b feature/branchname origin/feature/branchname</code>
+* 将远程的featuer分支下到本地开发</p>
+
+<p><code>git flow feature finish branchname</code>
+* 合并至本地develop
+* 删除任务分支</p>
+
+<p><code>git pull --rebase</code></p>
+
+<p><code>git flow release start v6.6.3</code>
+* 开始release分支</p>
+
+<p><code>git flow release publish v6.6.3</code></p>
+
+<p><code>git flow release finish v6.6.3</code>
+* 合并release分支到master
+* 在master上打上tag
+* 合并release到develop
+* 删除release</p>
+
+<p><code>git flow hotfix start v6.6.4</code>
+* 开始修复分支</p>
+
+<p><code>git flow hotfix finish v6.6.4</code>
+* 合并到master
+* 合并到develop
+* 在master上打tag</p>
+
+<p><code>git push --tags</code></p>
+
+<p><img src="https://longpf.github.io/uploads/git-flow-command/flow.png" alt="" /></p>
+
+
   
-  </ul>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/git-command/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/aspectscocoa/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -281,3 +382,4 @@
 
 </body>
 </html>
+

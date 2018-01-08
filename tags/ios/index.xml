@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on abcde</title>
+    <link>http://blog.longpengfei.com/tags/ios/</link>
+    <description>Recent content in Ios on abcde</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 10 Jan 2017 01:49:52 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AspectsCocoa</title>
+      <link>http://blog.longpengfei.com/post/aspectscocoa/</link>
+      <pubDate>Tue, 10 Jan 2017 01:49:52 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/aspectscocoa/</guid>
+      <description>前言 : 本来是想写一个简易高效的rac, 不过在写信号传递的时候没找到好的解决方法,又不想像rac那样在传递的时候不断创建信号,因为要高效嘛.如果大家有啥好的方法麻烦告诉我下QQ466142249,如果发现什么错误,或者某个部分可以有更好的实现也麻烦告诉我下,哈哈哈哈.这里的全部代码在github的这里.
+如何使用AspectsCocoa? 添加 :
+ [self.label addObserver:self forSelector:@selector(setText:) withBlock:^(AOPObserverInfo *info,NSString *text){ NSLog(@&amp;quot;text = %@&amp;quot;,text); }]; [self.label addObserver:self forSelector:@selector(drawTextInRect:) withBlock:^(AOPObserverInfo *info,NSValue *rectValue){ NSLog(@&amp;quot;rectValue = %@&amp;quot;,rectValue); }];  移除 :
+[self.label removeObserver:self forSelector:@selector(setText:)];
+or
+[self.label removeObserver:self];
+详细可以参看demo 
+大概思路 其实和KVO的原理有点相似,衍生出来一个中间类,重写setter方法做到键值监听.不过这里不是只有setter方法还有其他普通的方法.再就是普通方法的变化参数需要好好处理下.
+ 1 . 判断该类是否有这个监听方法 (这里我就直接取这个方法的类方法和实例方法,如果都不存在,则抛出异常) 2 . 判断是否生成过中间类,没生成则生成一个 3 . 查看中间类是否有要监听的方法,没有添加方法 (有关于普通方法的变参问题,我这里是用va_list来处理的) 4 . 储存监听信息和回调  具体实现  1 . 判断该类是否有这个监听方法   Method method = class_getInstanceMethod([self class], selector); if (!</description>
+    </item>
+    
+  </channel>
+</rss>
