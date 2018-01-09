@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>整理一些ios面试题(偏简单的) &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>整理一些ios面试题(偏简单的)</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>10 Jan 2017, 01:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p><font size=3 color="#CD5C5C"><a href="https://github.com/ChenYilong/iOSInterviewQuestions/tree/master/01《招聘一个靠谱的iOS》面试题参考答案">这里是一位别的同学整理的</a></font></p>
+
+<p><strong>1.MVC 具有什么样的优势，各个模块之间怎么通信，比如点击 Button 后 怎么通知 Model？</strong>
+<img src="http://upload-images.jianshu.io/upload_images/1539204-7fc79112c1ea2374.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" height="280" width="400"></img></p>
+
+<p>MVC 模式的优点。</p>
+
+<p>1.低耦合性</p>
+
+<p>2.有利于开发分工</p>
+
+<p>3.有利于组件重用</p>
+
+<p>4.可维护性</p>
+
+<p>button可以通过target-action高速controller,controller通过kvo告诉model</p>
+
+<p><strong>2.两个无限长度链表（也就是可能有环） 判断有没有交点</strong> <a href="http://www.jianshu.com/p/aca78216210d">看这里</a></p>
+
+<p><strong>3.UITableView 的相关优化</strong></p>
+
+<p>看<strong>UIKit性能优化,印象笔记</strong> 和 <a href="http://blog.sunnyxx.com/2015/05/17/cell-height-calculation/">这个</a></p>
+
+<p><strong>4. KVO、Notification、delegate 各自的优缺点，效率还有使用场景</strong> <a href="http://www.jianshu.com/p/d57b055ae5c3">看这里</a></p>
+
+<p><strong>5.如何手动通知 KVO</strong> <a href="http://www.jianshu.com/p/82c587239675">看这里</a>;</p>
+
+<p><strong>6.Objective-C 中的 copy 方法</strong></p>
+
+<p><a href="http://blog.csdn.net/jobtong/article/details/8453927">Objective-c中对象的Copy、MutableCopy、浅拷贝、深拷贝</a></p>
+
+<p><a href="http://www.cnblogs.com/chenyg32/p/5167194.html">浅析Objective-C的copy</a></p>
+
+<p><strong>7. runtime 中，SEL 和 IMP 的区别</strong></p>
+
+<p>SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。</p>
+
+<p>IMP:一个函数指针,保存了方法的地址</p>
+
+<p><strong>8 . autoreleasepool 的使用场景和原理</strong></p>
+
+<p>如果你编写的程序不是基于 UI 框架的，比如说命令行工具；
+如果你编写的循环中创建了大量的临时对象；
+如果你创建了一个辅助线程。</p>
+
+<p><a href="http://blog.sunnyxx.com/2014/10/15/behind-autorelease/">原理解析1</a></p>
+
+<p><a href="http://blog.leichunfeng.com/blog/2015/05/31/objective-c-autorelease-pool-implementation-principle/">解析2</a></p>
+
+<p><strong>9 . RunLoop 的实现原理和数据结构，什么时候会用到</strong></p>
+
+<p><a href="http://www.cocoachina.com/ios/20150601/11970.html">深入理解runloop</a></p>
+
+<p><a href="http://www.jianshu.com/p/37ab0397fec7">runloop小结</a></p>
+
+<p><span id="10.block"><strong>10 . block 为什么会有循环引用</strong> </span></p>
+
+<p><a href="http://www.jianshu.com/p/d911cd16c100">认识block</a></p>
+
+<p>这里有一点没有说明 : arc和mrc中block的区别,就是block内访问或者修改外部变量的时候,arc自动将block处于堆中,mrc栈中</p>
+
+<p>还有一点这篇文章中感觉不对,block作为返回值时mrc不回复制到堆</p>
+
+<p>在 ARC 开启的情况下，将只会有 NSConcreteGlobalBlock 和 NSConcreteMallocBlock 类型的 block。</p>
+
+<p><a href="http://blog.devtang.com/2013/07/28/a-look-inside-blocks/">唐巧block实现</a></p>
+
+<p><a href="http://www.jianshu.com/p/492be28d63c4">block循环引用看这里</a></p>
+
+<p><a href="http://www.tuicool.com/articles/NVNrMv7">若引用</a></p>
+
+<p><a href="http://www.360doc.com/content/14/0912/10/11681374_408861771.shtml">五大内存区</a></p>
+
+<blockquote>
+<p>_NSConcreteGlobalBlock 全局的静态 block，不会访问任何外部变量。</p>
+
+<p>_NSConcreteStackBlock 保存在栈中的 block，当函数返回时会被销毁。</p>
+
+<p>_NSConcreteMallocBlock 保存在堆中的 block，当引用计数为 0 时会被销毁。</p>
+</blockquote>
+
+<p><strong>11 . 使用 GCD 如何实现这个需求：A、B、C 三个任务并发，完成后执行任务 D</strong></p>
+
+<pre><code>
+dispatch_group_t group = dispatch_group_create();
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH,0);
+dispatch_group_async(group,queue,^{
+	执行任务A;
+});
+dispatch_group_async(group,queue,^{
+	执行任务B;
+});
+dispatch_group_async(group,queue,^{
+	执行任务C;
+});
+dispatch_group_notify(group,dispatch_get_main_queue(),^{
+	任务D;
+});
+
+</code></pre>
+
+<pre><code>dispatch_group_wait(group,DISPATCH_TIME_FOREVER);
+第二个参数指定为等待时间（超时）dispatch_time_t类型的值，上面用的是一直等待。
+   dispatch_group_t group = dispatch_group_create();
+   dispatch_time_ttime =dispatch_time(DISPATCH_TIME_NOW,1ull *NSEC_PER_SEC);
+   longresult =dispatch_group_wait(group, time);
+   if(!result) {
+           //属于Dispatch Group全部处理执行结束
+   }else{
+           //属于Dispatch Group的某一个处理还在执行
+   }
+</code></pre>
+
+<p><strong>12 . NSOperation 和 GCD 的区别</strong></p>
+
+<p>GCD是基于c的地城api,NSOperation属于object-c的类.ios首先引入的是NSOperation,iOS 4之后引入的GCD和NSOperationQueue并且其内部是用gcd实现的.</p>
+
+<p>相对于gcd:</p>
+
+<ol>
+<li>nsoperation拥有更多的函数可用,</li>
+<li>在nsoperationqueue中,可以建立各个nsoperation之间的以来关系</li>
+<li>有kvo,可以检测operation是否在执行(isExecuted),是否结束(isFinished),是否取消(isCanceld)</li>
+<li>nsoperationqueue可以方便的管理并发,nsoperation之间的优先级</li>
+</ol>
+
+<p>gcd主要与block结合使用.代码简洁高效.</p>
+
+<p>gcd也可以实现负责的多线程应用,主要是建立各个线程之间的以来关系这类的情况,需要自己来实现,相比nsoperation要负责</p>
+
+<p>具体使用哪个,根据需求来定.从个人使用感觉来看,比较合适的用法是:除了依赖关系尽量使用gcd,以为苹果专门为gcd做了性能上的永华</p>
+
+<p><a href="http://www.jianshu.com/p/d09e2638eb27">NSOprationQueue 与 GCD 的区别与选用</a></p>
+
+<p><a href="http://www.jianshu.com/p/ccb42d50c4f8">GCD和NSOperation的区别</a></p>
+
+<p><strong>13 . CoreData 的使用，如何处理多线程问题</strong></p>
+
+<p><a href="http://www.jianshu.com/p/c0e12a897971">coredata初始</a></p>
+
+<p><a href="http://www.jianshu.com/p/0ddfa35c7898">coredata基础</a></p>
+
+<p><a href="http://www.jianshu.com/p/a4710356244d">coredata进阶</a></p>
+
+<p><a href="http://www.jianshu.com/p/01f36026da7d">coredata迁移</a></p>
+
+<p><a href="http://www.jianshu.com/p/283e67ba12a3">coredata多线程</a></p>
+
+<p><a href="http://blog.csdn.net/nokiaxjw/article/details/26161657">sqlite外键</a></p>
+
+<p><strong>14 . 如何设计图片缓存 ？</strong></p>
+
+<ul>
+<li>1 . 把图片保存到沙盒中,然后再把路径储存起来.等到用图片的时候先获取图片路径,在通过路径拿到图片</li>
+<li>2 . 把图片转为base64的字符串存到数据库中或者plist,然后用的时候在取出来</li>
+</ul>
+
+<pre><code>NSData *imageData = UIImagePNGRepresentation(image);
+
+NSString *encodeStirng = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+
+NSData *img_copy_data = [[NSData alloc]initWithBase64EncodedString:encodeStirng options:NSDataBase64DecodingIgnoreUnknownCharacters];
+
+UIImage *img_copy_image = [UIImage imageWithData:img_copy_data];
+
+</code></pre>
+
+<p><strong>15 . 有没有自己设计过网络控件？</strong></p>
+
+<p><strong>16 . 怎么判断某个 cell 是否显示在屏幕上</strong></p>
+
+<p>可以判断cell相对于屏幕的坐标是否在可视范围之内</p>
+
+<pre><code>CGRect rectInTableView = [tableView rectForRowAtIndexPath:indexPath];
+CGRect rect = [tableView convertRect:rectInTableView toView:[tableView superview]];
+</code></pre>
+
+<p><strong>17 . 进程和线程的区别</strong></p>
+
+<p><strong>CPU</strong>它承担了所有的计算任务；而<strong>操作系统</strong>是计算机的管理者，它负责任务的调度、资源的分配和管理，统领整个计算机硬件；<strong>应用程序</strong>侧是具有某种功能的程序，程序是运行于操作系统之上的。</p>
+
+<p><strong>进程</strong>  是一个具有一定独立功能的程序在一个数据集上的一次动态的执行的过程,是操作系统进行资源分配和调度的一个独立单位,是用用程序运行的载体.进程一般由程序,数据集合和进程控制块三部分组成.程序用于描述进程要完成的功能,是控制进程执行的指令集;数据集合是程序在执行时所需要的数据和工作区;程序控制块(program control block),包含进程的描述信息和控制信息,是进程存在的唯一标志;</p>
+
+<p>进程具有的特征 :</p>
+
+<p>动态性 : 进程是程序的一次执行过程,是临时的,有生命期的,是动态产生,动态消亡的;</p>
+
+<p>并发性 : 任何进程都可以同其他进程一起并发执行;</p>
+
+<p>独立性 : 进程是系统进行资源分配和调度的一个独立的单位;</p>
+
+<p>结构性 : 进程有程序 , 数据和进程控制块三部分组成</p>
+
+<p><strong>线程</strong> 线程是进程的一个实体,是一个可执行的代码路径.线程是程序执行中一个单一的书序控制流程,是程序执行流的最小单位,是处理器调度和分派的基本单位.一个进程可以有一个或多个线程,各个线程之间共享程序的内存空间(也就是所在进程的内存空间).一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.一个标准的线程由线程ID,当前指令指针(PC),寄存器和堆栈组成.而进程由内存空间(代码,数据,进程空间,打开的文件)和一个或者多个线程组成.</p>
+
+<p><strong>进程和线程的区别 :</strong></p>
+
+<p>1 .线程是程序执行的最小单位,而进程是操作系统分配资源的最小单位</p>
+
+<p>2 .一个进程由一个或多个线程组成,线程是一个进程中代码的不同执行路线</p>
+
+<p>3 .进程之间相互独立,单同一个进程下的各个线程之间共享内存空间(包括代码段,数据集,堆等)及一些进程级的资源(如打开文件和信号),某进程内的线程在其他进程不可见.</p>
+
+<p>4 .调度和切换: 线程上下文切换比进程上下文奇幻要快得多.</p>
+
+<p>线程和进程都是一种抽象的概念,线程是一种比进程更小的抽象,线程和进程都可用于实现并发.</p>
+
+<p><a href="http://blog.csdn.net/luoweifu/article/details/46595285">以操作系统的角度述说线程与进程</a></p>
+
+<p><span id="18.tcp,udp"><strong>18 . TCP 与 UDP 区别</strong></span></p>
+
+<p>开放系统互连参考模型OSI :低到高分别是：物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。</p>
+
+<p><a href="http://baike.baidu.com/item/开放系统互连参考模型?fromtitle=OSI七层模型&amp;fromid=9763441&amp;type=syn">开放系统互连参考模型OSI</a></p>
+
+<p>TCP/IP协议:采用了4层的层级,网络接口层,网络层,传输层,应用层</p>
+
+<p><a href="http://baike.baidu.com/link?url=fGmmSg1U-bC74GRA7DFbruHDmb98bGOrcoe1z_vFvug1A7hDE4zQCLPsir-bvQu5FE7NGMdsWp9ja4MVmNi0KBT9PxVR6ag15NcxRY0c35zT-78fn9Y3d086RO5g2oa9">TCP/IP协议</a></p>
+
+<p>TCP (transfer conrol protocol):传输控制协议,面向连接的协议,也就是说,在收发数据前,必须和对方简历可靠的连接.这是一个全双工,面向连接的,可靠的并且是精确控制的协议.主要是用在那些实时性不强,但要求不能出错的应用.比如说,网页的浏览,文件的下载(不是bt,电驴下载),邮件的收发等场合, 就需要tcp协议进行传输(因为不会出错).当然他在网络方面的开销是昂贵的.</p>
+
+<p>UDP (user datagram protocol) : 用户数据报协议.一个非连接的协议,传输数据之前源端和终端不建立连接,当它想传送时就简单地区抓取来自应用程序的数据,并尽可能快地把它扔到网络上.它不排序说要发送的数据段,不关心这些数据段到达目的方的顺序(所以它不可靠),所以它在网络的开销要比tcp小很多.因此udp适合用在那些实时性强,允许出错的场合.比如说: 及时通信(msn,qq), 视频,语音等方面.</p>
+
+<p><a href="http://www.cnblogs.com/bizhu/archive/2012/05/12/2497493.html">TCP和UDP的区别,TCP三次握手</a></p>
+
+<p><strong>19 . TCP 流量控制</strong></p>
+
+<p>所谓流量控制就是让发送速率不要过快,让接收方来得及接收.利用<strong>滑动窗口机制</strong>就可以实施流量控制.</p>
+
+<p>原理就是运用TCP包头中的窗口大小字段来控制,发送方的发送窗口不可以大于接受方发回的窗口大小.</p>
+
+<blockquote>
+<p>考虑一种特殊的情况,就是接受方若没有缓存足够使用,就会发送零窗口大小的保温,此时发送将发送窗口设置为0,停止发送数据.之后接收方有足够的缓存,发送了非零窗口大小的报文,但这个报文在中途丢失了,那么法功方的发送窗口就一直为零导致死锁.</p>
+
+<p>解决这个问题,TCP为每一个连接设置一个持续计时器(persistence timer).只要TCP的一方收到对方的零窗口通知,就启动该计时器,周期性的发送一个零窗口探测报文字段.对方就在确认这个报文的时候给出现在的窗口大小(注意 : TCP规定,及时设置为零窗口,也必须接收一下集中报文段 : 零窗口探测报文段,确认报文段和携带紧急数据的报文段).</p>
+</blockquote>
+
+<p><strong>20 . 数组和链表的区别</strong></p>
+
+<p>二者都属于一种数据结构.</p>
+
+<p>从逻辑结构来看 :</p>
+
+<p>1 . 数组必须实现定义固定的长度(元素个数),不能适应数据动态地增减的情况.当数据增加时,可能超出原先定义的元素个数;当数据减少时,早能内存浪费;数组可以根据下标直接存取.</p>
+
+<p>2 . 链表动态地进行存储分配, 可以适应数据动态地增减的情况,且可以方便的插入,删除数据项. (数组中插入,删除数据项时,需要移动其他数据项,非常繁琐)链表必须根据next指针找到下一个元素</p>
+
+<p>从内存存储来看</p>
+
+<p>1 . (静态)数组NSArray从栈中分配空间,对应程序员方便快速,但是自由度小</p>
+
+<p>2 . 链表从堆中分配空间,自由度大,但是申请管理比较麻烦</p>
+
+<p>从上面的比较可以看出,如果需要快速访问数据,很少或者不插入和删除元素,就应该使用数组;相反,如果需要经常插入和删除元素就需要用链表数据结构了.</p>
+
+<p>链表是动态进行存储分配,不连续.数组是固定好数组长度,存储空间是静态连续的.</p>
+
+<p><strong>21 . UIViewController 生命周期</strong></p>
+
+<p><a href="http://www.jianshu.com/p/85c98a9e93eb">看这里</a></p>
+
+<p><strong>22 . 如果页面 A 跳转到 页面 B，A 的 viewDidDisappear 方法和 B 的 viewDidAppear 方法哪个先调用？</strong></p>
+
+<p>push : viewDidDisappear 先调用</p>
+
+<p>present : viewDidAppear 先调用</p>
+
+<p><span id="22.arc"><strong>22 . ARC 的本质</strong></span></p>
+
+<p>ARC是编译器(时)特性,而不是运行时特性,更不是垃圾回收器.ARC只是相对于MRC的一次改进,但它和之前的技术本质上没有区别.</p>
+
+<p><a href="http://www.tuicool.com/articles/aaaEFvB">iOS-ARC你看我就够了</a></p>
+
+<p><a href="http://www.cnblogs.com/flyFreeZn/p/4264220.html">iOS开发ARC内存管理技术要点</a></p>
+
+<p>最好还是看看 ios高级编程那本书..有点迷..</p>
+
+<p><strong>注意 :</strong></p>
+
+<p><code>NSString * __weak str = @&quot;&quot;;</code>  <strong>正确</strong></p>
+
+<p><code>__weak NSString *str = @&quot;&quot;;</code> <strong>错误</strong> 因为编译器处理,所以才没出错</p>
+
+<p><strong>23 .RunLoop 的基本概念，它是怎么休眠的</strong></p>
+
+<p>可以看看<strong>9</strong></p>
+
+<p><strong>24 . 如何找到字符串中第一个不重复的字符</strong></p>
+
+<pre><code>char findCommon(const char *str)
+{
+    for (int i = 0; i &lt; strlen(str); i++) {
+        for (int j = 0; j &lt; strlen(str); j++) {
+            if (i == j) {
+                if (i != strlen(str)-1) {
+                    continue;
+                }else{
+                    return str[i];
+                }
+            }
+            if (str[i] == str[j]) {
+                break;
+            }
+            if (j==strlen(str)-1) {
+                return str[i];
+            }
+        }
+    }
+    return '\0';
+}
+
+</code></pre>
+
+<p><a href="http://blog.csdn.net/jiadebin890724/article/details/7936432">查找第一个不重复的字母</a></p>
+
+<p><strong>25 . 哈希表如何处理冲突</strong></p>
+
+<p><a href="http://longpengfei.com/2017/01/11/understanding-hashTable/">了解哈希表,解决冲突</a></p>
+
+<p><strong>26 . 不用临时变量怎么实现 swap(a, b)</strong></p>
+
+<p>1 . 加减法</p>
+
+<pre><code>a = a + b;
+b = a - b;
+a = a - b;
+
+</code></pre>
+
+<p>2 . 异或 (相同为0,不同为1.X^0=X,整型)</p>
+
+<pre><code>a = a^b;
+b = a^b;
+a = a^b;
+</code></pre>
+
+<p>3 . 乘除法</p>
+
+<pre><code>a = a * b;
+b = a / b;
+a = a / b;
+</code></pre>
+
+<p><font color=#DC143C><strong>27 . 二维有序数组查找数字</strong></font></p>
+
+<p>剑指offer第3题</p>
+
+<p><font color=#DC143C><strong>28 . 亿级日志中，查找登陆次数最多的十个用户</strong></font></p>
+
+<p>先用哈希表保存登陆次数和ID，然后用红黑树保存最大的十个数。剑指 offer 第30题,回去看看</p>
+
+<p><font color=#DC143C><strong>29 . 简述排序算法</strong></font></p>
+
+<p>快排， partion 函数的原理，堆排（不稳定），归并排序，基数排序。</p>
+
+<p><a href="https://zhidao.baidu.com/question/232978955.html?qbl=relate_question_0&amp;word=%C1%D4%C8%CB%2C%C4%D0%C8%CB%2C%C5%AE%C8%CB%2C%C0%C7%2C%BA%A2%D7%D3"><strong>30 . 一个智力题</strong></a></p>
+
+<p><strong>31 . 说说你对 OC 中 load 方法和 initialize 方法的异同</strong></p>
+
+<ul>
+<li>1. load和initialize方法都会在实例化对象之前调用,load在main函数之前调用,initialize的main函数之后调用.load是在函数被装载的时候调用compile sources中的顺序就是装载的顺序.</li>
+<li>2. load 和 initalize都不用显式的调用父类的方法而是自动调用及时子类没有initialize也会调用父类的方法,而load方法则不会调用父类.parant load -&gt; child load -&gt; category load.  parant initialize -&gt; child initialize</li>
+</ul>
+
+<pre><code>+ (void)initialize {
+    if (self == [Parent class]) {
+        // 不方便编译期复制的对象在这里赋值
+        someObjects = [[NSMutableArray alloc] init];
+    }
+}
+</code></pre>
+
+<ul>
+<li>3. load方法通常用来进行method swizzle,initialize方法一般用于初始化全局变量或静态变量</li>
+<li>4. load和initialize方法内部使用了锁,因此他们是线程安全的.实现时要尽可能保持简单,避免阻塞线程.不要再使用锁.</li>
+</ul>
+
+<p>详细可以看看<a href="http://www.jianshu.com/p/d25f691f0b07">细说OC中的load和initialize方法</a></p>
+
+<p><span id="32.mvc-mvvm"><strong>32 . 说说你对 MVC 和 MVVM 的理解</strong></span></p>
+
+<p>C太臃肿, 用VM来处理V和M之间的关系将M转化成V能用的数据,减少C的代码,但是类的数量增加了,调用增加了.</p>
+
+<p><strong>33 . 野指针是什么，iOS 开发中什么情况下会有野指针</strong></p>
+
+<p>野指针是指向已经释放的内存的指针. 在被assign修饰的指针指向的内存被释放时候可以回看 <a href="#10.block">问题10</a></p>
+
+<p><strong>34 . 内存抖动问题</strong></p>
+
+<p>现代操作系统都有一个叫虚拟内存的概念.操作系统如果只是用物理内存作为可用内存的话会很受限制,于是就提出一种以廉价硬盘代替昂贵内存的方法,&ldquo;扩充&rdquo;可用内存.</p>
+
+<p>于是,就在硬盘上划出一部分的硬盘空间用来暂时存放内存数据.当系统进程发现物理内存不够了,就在内存空间上找一些不活跃的进程,把它占用的内存复制到硬盘上,空出来的内存就可以重新使用.而这些内存被空出来的进程不知道其实他们其实已经被停下来了.当这些被停下来的进程重新激活,就需要在找一块不那么活跃的进程占用的内存空间,把它们的内存拷贝出来,把原来硬盘上的数据再拷贝回去.</p>
+
+<p>假如内存相对应用程序要求严重不足,就会导致这种数据的内存/硬盘频繁切换,反而占用了大量CPU时间,而这些CPU时间应该是用来运行程序的.这就是抖动.</p>
+
+<p>安卓的内存抖动一般是大量创建对象.没合理回收.</p>
+
+<p><strong>35 . 给一个字符串，如何判断它是否是合法的 IP 地址，比如 “192.168.1.1” 就是合法的</strong></p>
+
+<p>ipv4:</p>
+
+<pre><code>//大数相加的关键点是通过字符串来实现相加，以串最长的作为基准，将串短的高位补0，然后对位相加，并做好进位处理。
+
+int isValidIP(char *ipString){
+    int len = (int)strlen(ipString);
+    if (len &lt; 7 || len &gt; 15) {
+        return 0;
+    }
+    int itemValue = 0;
+    int index = 1;
+    for (int i = len-1; i &gt;= 0; --i) {
+        char ch = ipString[i];
+        if (ch &gt;= '0' &amp;&amp; ch &lt;= '9') {
+            itemValue += (ch-'0')*pow(10,index-1);
+            index++;
+        }else if (ch == '.'){
+            index = 1;
+            if (itemValue &lt; 0 || itemValue &gt; 255) {
+                return 0;
+            }
+            itemValue = 0;
+        } else {
+            return 0;
+        }
+    }
+    if (itemValue &lt; 0||itemValue&gt;255) {
+        return 0;
+    }
+    return 1;
+}
+</code></pre>
+
+<p><a href="http://www.yiibai.com/ipv6/ipv6_address_types.html">IPv6地址类型与格式</a></p>
+
+<p><strong>36 . 说说大数相加的思路，动手写代码实现</strong></p>
+
+<pre><code>void addBigNumbers(char *lhsSource,char *rhsSource,char *result){
+    
+    int lhsLen = (int)strlen(lhsSource);
+    int rhsLen = (int)strlen(rhsSource);
+    int len = lhsLen &gt; rhsLen ? lhsLen : rhsLen;
+    
+    char *temp = malloc(sizeof(char *)*(len+2));
+    int i = lhsLen - 1;
+    int j = rhsLen - 1;
+    int k = 0;
+    char lhsChar = '0';
+    char rhsChar = '0';
+    
+    //进位
+    int carryBit = 0;
+    int z = 0;
+    
+    while (i &gt;= 0 || j &gt;=0) {
+        //串短的就以'0'补位,用于做加法运算
+        if (i&lt;0) {
+            lhsChar = '0';
+        }else{
+            lhsChar = lhsSource[i];
+        }
+        
+        if (j&lt;0) {
+            rhsChar = '0';
+        }else{
+            rhsChar = rhsSource[j];
+        }
+        
+        //对位相加,再加上进位值
+        z = lhsChar-'0' + rhsChar-'0'+carryBit;
+        //有可能&gt;=10,需要取余进位处理
+        temp[k++] = z%10+'0';
+        //更新进位
+        carryBit = z/10;
+        
+        i--;
+        j--;
+    }
+    
+    //全部相加之后,有可能还有进位,需要将进位订到高位
+    while (carryBit &gt; 0) {
+        temp[k++] = carryBit%10+'0';
+        carryBit /= 10;
+    }
+    
+    //我们借助了临时字符数组来存储计算结果,但是计算结果还是倒序的
+    //我们需要将计算结果变成正序
+    k--;
+    i=0;
+    while (k &gt;= 0) {
+        result[i++] = temp[k--];
+    }
+    
+    //别忘了添加上字符串结束标记符
+    result[i] = '\0';
+    
+    //temp是自己在堆上申请的内存,记得释放
+    free(temp);
+}
+
+</code></pre>
+
+<p><strong>37 . 简述TCP建立和关闭连接时，握手的过程。为什么前者是三次握手，后者需要四次？</strong></p>
+
+<p>TCP奖励连接时,握手的过程大概如下:</p>
+
+<ul>
+<li>客户端发送SYN到服务端</li>
+<li>服务端发布SYN/ACK到客户端,此时开始建立连接</li>
+<li>客户端发布ACK到服务端,此时正是建立好连接</li>
+</ul>
+
+<p>客户端发送SYN到服务端,而服务端返回了客户端发过来的SYN,同时也返回ACK,那么客户端接收到之后,就可以确定服务端接收到了SYN信号.而客户端接收到服务端返回来的ACK信号后，再将ACK信号发送到服务端，服务端就明确客户端收到了服务端发过去的信号。因此，这三次握手就可以确定了双方的身份。</p>
+
+<p>TCP关闭连接时,握手的过程大致如下:</p>
+
+<ul>
+<li>客户端发送FIN包到服务端: 此时客户端进入FIN_WAIT_1等待对方确认状态</li>
+<li>服务端返回ACK包到客户端: 此时客户端结束FIN_WAIT_1状态,等待服务端发送过来的关闭请求.</li>
+<li>服务端发送FIN包到客户端 : 此时服务端进入CLOSE_WAIT状态,等待客户端确认关闭请求</li>
+<li>客户端返回ACK包到服务端 : 此时服务端正式关闭,结束CLOSE_WAIT状态</li>
+</ul>
+
+<p>TCP关闭连接之所以需要四次握手,是因为TCP连接是全双工,是双向的.</p>
+
+<p>更详细的部分,可以看<a href="http://blog.chinaunix.net/uid-25018796-id-94900.html">TCP连接建立、关闭</a></p>
+
+<p><a href="#18.tcp,udp">可以回看问题18</a></p>
+
+<p><font color="#DC143C"><strong>38 . 假设有10W条电话号码，如何通过输入电话号码的某一段内容，快速搜索出来。比如输入234 以下两个号码都会显示在搜索结果中(123456789000, 188888823400)</strong></font></p>
+
+<p>其实最简单的解决方案是遍历所有字符串，然后用KMP算法。但是这样的问题是需要遍历 10W 个元素，效率比较低。我想到的是办法是使用索引。建立100个索引（00 到 99），比如输入 234 时只需要在索引23对应的区域查找即可，可以加快100倍速度。但是缺点是插入数据时，需要更新多个索引，数据量会是原来的10倍。</p>
+
+<p>我能想到的也是建立索引，几乎所有大批量数据中查找信息，应该都需要建立索引的。索引如何建立才能查找快，这是也需要分析的。我想公司里面的数据，也是建立好索引来检索的，至于更新、插入操作，应该不会马上去更新索引吧，可以通过定时脚本来更新索引。比如夜黑风高的时候再跑一下脚本更新一下索引库~</p>
+
+<p><font color="#DC143C"><strong>39 . 把 “www.zhidao.baidu.com” 这样的字符串改成 “com/baidu/zhidao/www”</strong></font></p>
+
+<p>剑指 offer 的，两次逆序排列即可</p>
+
+<p><strong>40 . 求数组中和为某个值的所有子数组，比如数组是 [5,5,10,2,3] 一共有四个子数组的和是 15，比如 [5,10]，[5,10]，[10,2,3]，[5,5,2,3]。这个就是简单的递归了，分两种情况，当前位置的数字在子数组中，以及不在子数组中</strong></p>
+
+<pre><code>//很多数排列组合问题可以用递归法来解决. 
+//这里对应数组中任意一个元素,先将其放入结果集中,如果当前和不超过给定和,那就继续考察下一个元素,如果超出,则舍弃.如此往复.  
+//flag[i]=1,表示a[i]在当前的解中.
+
+int flag[100];
+
+//[5,5,10,2,3]
+void FixedSum(int a[],int n,int t,int sum){
+    if (sum==0) {
+        Output(a, t);
+    }
+    else
+    {
+        if (t==n) {
+            return;
+        }
+        else
+        {
+            flag[t] = 1;
+            if (sum-a[t] &gt;= 0) {
+                FixedSum(a, n, t+1, sum-a[t]);
+            }
+            
+            flag[t] = 0;
+            if (sum &gt;= 0) {
+                FixedSum(a, n, t+1, sum);
+            }
+        }
+    }
+}
+
+void Output(int a[],int n)
+{
+    for (int i = 0; i &lt; n; i++) {
+        if (flag[i]==1) {
+            printf(&quot;%d&quot;,a[i]);
+            printf(&quot;,&quot;);
+        }
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+
+<p><strong>41 .ARC 会对代码做什么优化</strong></p>
+
+<p><a href="#22.arc">可以回看问题22</a></p>
+
+<p><strong>42 . 介绍一下 MVVM 和 RAC</strong></p>
+
+<p><a href="#32.mvc-mvvm">回看问题32</a></p>
+
+<p>rac:函数式编程,响应式编程,可以方便的实现数据绑定</p>
+
+<p>RACChannelTo()实现双向绑定</p>
+
+<p><strong>43 .输出结果</strong></p>
+
+<pre><code> int main() {
+     int a[5]={1,2,3,4,5};
+     int *ptr=(int *)(&amp;a+1);  
+     printf(“%d,%d”,*(a+1),*(ptr-1));
+  }
+</code></pre>
+
+<p>答案是 2 和 5。a 是指向数组开头元素的指针，a + 1 就是指向下一个元素的指针，所以星号求值以后是 2。&amp;a 相当于是数组的指针，&amp;a + 1 是数组后面一个数组的指针，然后转换成int *类型是 5 这个数字后面的一个数字的指针。再减一就是指向 5 的指针，所以星号求值以后是 5。</p>
+
+<p><strong>44 .数学概率题</strong></p>
+
+<p>某个地方天气有如下规律：如果第一天和第二天都不下雨，则第三天下雨的概率为30%；如果第一天和第二天中有任 意一天下雨,则第三天下雨的概率为60%。问如果周一周二都没下雨，那么周四下雨的概率为</p>
+
+<p>30% * 60% + 70% * 30% = 39%</p>
+
+<p><strong>45 .某痴迷扑克的小团体喜欢用23456789TJQKA来计数，A后面是22,23,…,2A,32,…,AA,222,… 依次类推。请用C/C++或Java写个程序，将用字符串表示这种计数法转换成字符串表示的10进制整数。其中，该计数法的2就对应于十进制的2，之后依 次递增。C/C++函数接口： <code>char* pokToDec(char *)</code></strong></p>
+
+<p>思路是进制转换，类似于 16 进制转换 10 进制这种，最后再把数字转成 char * 类型</p>
+
+<pre><code>char* pokToDec(char *input)
+{
+    int length = (int)strlen(input);
+    int weight = 0; //16进制的权重,指数
+    int result = 0;
+    
+    for (int i = length - 1; i &gt;= 0; i--) {
+        char current = input[i];
+        if (current-'0' &gt;=2 || current-'0' &lt;= 9)
+        {
+            result += (current-'0') * pow(16,weight++);
+        }
+        else
+        {
+            switch (current-'A') {
+                case 19: //T
+                    result += 10*pow(16, weight++);
+                    break;
+                case 9: //J
+                    result += 11*pow(16, weight++);
+                    break;
+                case 16: //Q
+                    result += 12*pow(16, weight++);
+                    break;
+                case 10: //K
+                    result += 13*pow(16, weight++);
+                    break;
+                case 0:  //A
+                    result += 14*pow(16, weight++);
+                    break;
+                default:
+                    return &quot;&quot;; //输入有误
+            }
+        }
+    }
+    //将int转转string
+    //计算字符串的长度
+    int resultLength = 1;
+    int resultCopy = result;
+    while (resultCopy /10 &gt;= 1) {
+        resultLength ++;
+        resultCopy /= 10;
+    }
+    
+    char resultStr[resultLength+1];
+    resultStr[resultLength] = '\0';
+    
+    for (int i = resultLength-1; i &gt;= 0; i--) {
+        resultStr[i] = result%10 + '0';
+        result /= 10;
+    }
+    return resultStr;
+}
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/git-flow-command/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/aspectscocoa/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>哈希表简记 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>哈希表简记</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Jan 2017, 05:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法&amp;数据结构</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<h1 id="哈希表">哈希表</h1>
+
+<p>散列表(哈希表),是根据键而直接访问在内存存储位置的数据结构.也就是说,他通过计算一个关于键值的函数,将所需查询的数据映射到表中一个位置来访问记录,这加快了查找速度,这个映射函数称作散列函数,存放的数组称作散列表.</p>
+
+<p>一个通俗的例子是,通讯录,通过字母w来查找&rsquo;王&rsquo;,这里用人名作关键字.</p>
+
+<h1 id="基本概念">基本概念</h1>
+
+<ul>
+<li><p>若关键字为k,则其值存放在f(k)的存储位置上.由此,不需要比较便可直接取得所查记录.f为散列函数,按这个思想简历的表为散列表.</p></li>
+
+<li><p>对不同搞得关键字可能得到同一散列地址,即k1!=k2,f(k1)=f(k2),这种现象叫冲突,k1,k2称为同义词.综上所述根据散列函数f和处理冲突的方法将一组关键字映射到一个有限的连续的地址集(区间)上,并以关键字在地址集中的&rsquo;像&rsquo;作为记录在表中的存储位置,这种表便称为<strong>散列表</strong>,这一映射过程称为<strong>散列造表</strong>或散列,所得的存储位置称<strong>散列地址</strong>.</p></li>
+
+<li><p>若对于关键字集合中的任一个关键字,经散列函数映像到地址结合中任何一个地址的概率是相等的,则称此类散列函数为<strong>均匀散列函数</strong>,这就是使关键字经过散列函数得到一个&rsquo;随机的地址&rsquo;,从而减少冲突.</p></li>
+</ul>
+
+<h1 id="构造散列函数">构造散列函数</h1>
+
+<p>散列函数能使一个数据序列的访问过程更加迅速有效,通过散列函数,数据元素将被更快定位.</p>
+
+<ul>
+<li><strong>1. 直接定址法 :</strong> 取关键字或关键字的某个线性函数值为散列地址.即hash(k)=a*k+b,其中ab为常数.这种散列函数叫做自身函数.</li>
+<li><strong>2. 数字分析法 :</strong> 假设关键字是以r为基的数,并且哈希表中可能出现的关键字都是事先知道的,则可取关键字的若干数位组成哈希地址.</li>
+<li><strong>3. 平方取中法 :</strong> 取关键字平方后的中间几位为哈希地址.一个数平方后的中间几位数和数的每一位都相关,由此使随机分布的关键字得到的哈希地址也是随机的.取得位数由表长决定</li>
+<li><strong>4. 折叠法 :</strong> 将关键字分割成位数相同的几部分(最后一部分的位数可以不同),然后取这几部分的叠加和(舍去进位)最为哈希地址</li>
+<li><strong>5. 随机数法</strong></li>
+<li><strong>6. 除留余数法 :</strong>取关键字被某个不大于散列表表长m的数p除后所得的余数为散列地址.即hash(k)=k mod p, p&lt;=m.不仅可以对关键字直接取模,也可以在<strong>折叠法</strong>,平方取中法等运算之后取模.对p的选择很重要,一般取素数或m,若p选择不好,容易产生冲突</li>
+</ul>
+
+<h1 id="处理冲突">处理冲突</h1>
+
+<p>为了知道冲突产生的相同散列函数地址所对应的关键字,必须选用另外的散列函数,或者对冲突结果进行处理.而不发生冲突的可能性是非常之小的,所以通常对冲突进行处理.</p>
+
+<ul>
+<li><font color=#CD5C5C ><strong>开放定址法</strong></font>(open addressing) : hash<sub>i</sub> = (hash(key) + d<sub>i</sub>) mod m  ,其中hash(key)为散列函数,m为散列表长,d<sub>i</sub>为增量序列,i为已发生冲突次数.增量序列可有下列取法:</li>
+</ul>
+
+<p>d<sub>i</sub> = 1,2,3&hellip;(m-1)称为线性探测;即 d<sub>i</sub> = i,或者为其他线性函数.相当于诸葛探测粗放地址的表,知道查到一个空单元,把散列地址存放在该空单元.</p>
+
+<p>d<sub>i</sub> = &plusmn;1&sup2;,&plusmn;2&sup2;,&plusmn;3&sup2;&hellip;&plusmn;k&sup2;,(k&le;m/2),称为平方探测,相对线性探测,相对于发生冲突时探测间隔d<sub>i</sub> = i&sup2;个单元的位置是否为空,如果为空,降低至存放进去</p>
+
+<p>d<sub>i</sub> = 伪随机数,称为 伪随机探测</p>
+
+<p>显示线性探测填装一个散列表的过程 :</p>
+
+<p>关键字为 {89, 18, 49, 58, 69} 插入到一个散列表中的情况.此时线性探测的方法是取 d<sub>i</sub> = i .并嘉定取关键字除以10的余数为散列函数法则.</p>
+
+<table>
+<thead>
+<tr>
+<th>散列地址</th>
+<th>空表</th>
+<th>插入89</th>
+<th>插入18</th>
+<th>插入49</th>
+<th>插入58</th>
+<th>插入69</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>49</td>
+<td>49</td>
+<td>49</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>58</td>
+<td>58</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>69</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+<td>18</td>
+<td>18</td>
+<td>18</td>
+<td>18</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td></td>
+<td>89</td>
+<td>89</td>
+<td>89</td>
+<td>89</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+
+<p>第一次冲突发生在填装发生在填装49的时候.地址为9的单元已经填装了89这个关键字,所以取 i = 1, 往下查找一个单位,发现为空,说以将49填装在地址为0的空单元.第二次的冲突则发生在58上,取 i = 2,往下查找两个单位,将58填装在地址为1的空单元. 69同理.</p>
+
+<p>表的大小玄子至关重要,此处取10作为大小,发生冲突的几率比选择质数11作为到校的可能性大.越是质数,mod取余就月可能均匀分布在表的各处.</p>
+
+<p><strong>聚集</strong>散列函数的结果不均匀地占据表的单元.散列到区块中的任何关键字需要查找多次试选单元才能插入表中,解决冲突,造成时间浪费.对于开放定址法,聚集会造成性能的灾难性损失,是必须避免的.</p>
+
+<p><font color = #CD5C5C><strong>单独链表法 :</strong></font> 将散列到同一个储存位置的所有元素保存在一个链表中.实现时,一种策略是散列表同一位置的所有冲突结果都是用栈存放的,新元素被插入到表的前端还是后段完全取决于怎么方便.</p>
+
+<p><font color=#CD5C5C><strong>双散列 .</strong></font></p>
+
+<p><font color=#CD5C5C><strong>再散列 :</strong></font> hash<sub>i</sub> = hash<sub>i</sub>(key) , i = 1,2,..k. hash<sub>i</sub>是一些散列函数.即在上次散列计算冲突时,利用该次冲突的散列函数地址产生新的散列函数地址,直到冲突不在发生.这种方法不易产生 聚集 ,但增加了计算时间.</p>
+
+<p><font color=#CD5C5C><strong>建立一个公共溢出区 :</strong></font> 这种方法的基本思想是: 将哈希表分为基本表和溢出表两部分, 凡是和基本表发生冲突的元素,一律填入溢出表.</p>
+
+<p><font color=#cd5c5c><strong>拉链法和开放定址法比较 :</strong></font></p>
+
+<p><strong>拉链法的优点 :</strong></p>
+
+<ul>
+<li>1. 拉链法处理冲突简单,且无堆积现象,即非同义词绝不会发生冲突,因此平均查找长度较短;</li>
+<li>2. 由于拉链法中各链表上的结点空间是动态申请的,故它更适合于造表前无法确定表长的情况.</li>
+<li>3. 开放定址法为减少冲突,要求填充因子&alpha;较小,故当结点规模较大时会浪费很多空间.而拉链法中可取&alpha;&ge;1且结点较大时,拉链发中增加的指针域可忽略不计,一次节省空间.</li>
+<li>4. 在用拉链法构造的散列表中,删除结点的操作易于实现.只要简单地删去链表上相对应的结点即可.</li>
+</ul>
+
+<p><strong>拉链法的去电 :</strong></p>
+
+<p>指针需要额外的空间,故当结点规模较小时,开放定址法较为节省空间,而若节省的指针空间用来扩大散列表的规模,可使装填椅子变小,这又减少了开放定址法中的冲突,从而提高平均查找速度.</p>
+
+<h1 id="c语言实现实现">C语言实现实现</h1>
+
+<ul>
+<li>开放定址法 :</li>
+</ul>
+
+<pre><code>初始化 
+
+HashTable (int TableSize)
+{
+	HashTable H;
+	int i;
+	/* 为散列分配空间 */
+	H = malloc( sizeof( struct HashTable ) );
+	
+	/* 散列表大小为一个质数 */
+	H-&gt;TableSize = Prime;
+	
+	/* 分配表所有地址的空间. */
+	H-&gt;Cells = malloc( sizeof( cell ) * H-&gt;TableSize );
+	
+	/*  地址初始为空 */
+	for ( i = 0; i &lt; H-&gt;TableSize; i++ )
+		 H-&gt;Cells[i].info = Empty;
+	
+	return H;
+}
+
+</code></pre>
+
+<pre><code>查找空单元并插入
+
+Position Find ( ElementType Key, HashTable H )
+{
+	Position Current;
+	int CollisionNum;
+	
+	/* 冲突次数初始为0 */
+	/* 通过表的大小对关键字进行处理. */
+	CollisionNum = 0;
+	Current = Hash( Key, H-&gt;TableSize );
+	
+	/* 不为空时进行查找 */
+	while( H-&gt;Cells[Current].info != Empty &amp;&amp; H-&gt;Cells[Current].Element != Key )
+	{
+		Current = ++CollisionNum * ++CollisionNum;
+		
+		/* 向下查找超过范围时回到表开头 */
+		if (Current &gt;= H-&gt;TableSize)
+			Current -= H-&gt;TableSize;
+	}
+	return Current;
+}
+
+</code></pre>
+
+<h1 id="查找效率">查找效率</h1>
+
+<p>散列表的查找过程基本上和造表过程相同.一些关键码可通过散列函数转换的地址直接找到,另一些关键码在散列函数得到的地址上产生了冲突,需要按处理冲突的方法进行查找.在介绍三种处理冲突的方法中,产生冲突后的查找任然是给定值与关键码进行比较过程.所以,对散列表查找效率的量度,依然用平均查找长度来衡量.</p>
+
+<p>查找过程中,关键码的比较次数,取决于产生冲突的多少,产生的冲突少,查找效率就高,产生的冲突多,查找效率就低.因此,印象产生冲突多少的因素,就是影响查找效率的因素.影响产生冲突度多少有一下三个因素 :</p>
+
+<ol>
+<li>散列函数是否均匀;</li>
+<li>处理冲突的方法;</li>
+<li>散列表的载荷因子.</li>
+</ol>
+
+<h1 id="载荷因子">载荷因子</h1>
+
+<p>散列表的载荷因子定义为 : &alpha; = 填入表中的元素个数 / 散列表的长度</p>
+
+<p>&alpha;越大产生冲突的可能性就越大.散列表的平均查找长度是载荷因子&alpha;的函数,只是不同处理冲突的方法又不同的函数.</p>
+
+<p>对于卡房定址法,载荷因子是特别重要要素,应严格限制在0.7-0.8一下.超过0.8,查表的cpu缓存不命中按指数曲线上升.因此,一些采用开放定址法的hash库,如java的系统限制了载荷因子为0.75,超过此值将resize散列表.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/aspectscocoa/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

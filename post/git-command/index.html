@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>Git 常用命令简记 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Git 常用命令简记</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Dec 2016, 14:51</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>前:<strong>HEAD</strong>关键字是指当前分支的最新一次提交,就是版本库中该分支上的最新版本</p>
+
+<h3 id="git-init">git init</h3>
+
+<p><code>git init</code> 初始化一个repo,创建一个.git文件夹</p>
+
+<h3 id="git-clone">git clone</h3>
+
+<p><code>git clone url newname</code> nenamew 可以不要</p>
+
+<h3 id="git-log">git log</h3>
+
+<p><code>git log --oneline</code> 每条log显示一行</p>
+
+<p><code>git log --oneline --graph</code> 图形化</p>
+
+<p><code>git log branchname</code> 指定分支log</p>
+
+<p><code>git log --oneline branch1 ^branch2</code> 在分支1,不在分支2,^为排除</p>
+
+<p><code>git log --author=[author name]</code>指定作者</p>
+
+<p><code>git log --grep=keywords</code>筛选commit信息</p>
+
+<p><code>git log --grep=keywords --author=authorname</code> 是OR的关系,如果想为AND则添加&ndash;all-match</p>
+
+<h3 id="git-reflog">git reflog</h3>
+
+<p>对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化
+当git reflog 不指定引用的时候,默认列出HEAD的reflog
+git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,分支的reflog文件都放在.git/logs/refs目录下的子目录中.</p>
+
+<p><code>git reflog</code> 可以看到reset的commit</p>
+
+<h3 id="git-add">git add</h3>
+
+<p><code>git add file</code></p>
+
+<p><code>git add .</code> 递归添加工作区的修改到暂缓区</p>
+
+<h3 id="git-commit">git commit</h3>
+
+<p><code>git commit -m &quot;message&quot;</code></p>
+
+<p><code>git commit -amend -m &quot;message&quot;</code>取消上一次提交为新的提交信息</p>
+
+<h3 id="git-reset">git reset</h3>
+
+<p><code>git reset HEAD filename</code> 将staged(暂缓去)中的撤销到工作区,filename 不加则撤销全部staged</p>
+
+<p><code>git reset --hard id</code> HEAD指向变了,工作区,暂缓去修改都没了</p>
+
+<p><code>git reset --mixed id</code> HEAD指向变了,工作区有修改,暂缓区没有</p>
+
+<p><code>git reset --soft id</code> 相当于<code>git reset --mixed id</code>执行了add,HEAD指向变了,工作区没修改,暂缓去有修改</p>
+
+<p>不加参数默认为<code>git reset --mixed id</code></p>
+
+<h3 id="git-revert">git revert</h3>
+
+<p><code>git revert commitid</code> 反转撤销提交,撤销一个提交,(临时新建)一个提交,该提交是commitid的parent commit,这时候会有confict,需要解决再 add,commit,&hellip;</p>
+
+<p><code>git revert -u id</code> 创建一个反向的提交,不回提交</p>
+
+<p><strong>git revert</strong> : 生成一个新的提交来撤销某次提交,push的时候不会有影响,HEAD指向新生成的commit</p>
+
+<p><strong>git reset</strong> : 回到历史的某一次提交,这次提交之后的内容会被删除,push的时候可能会有冲突,HEAD指向历史的某次commit</p>
+
+<h3 id="git-rm">git rm</h3>
+
+<p><code>git rm</code></p>
+
+<h3 id="git-stash">git stash</h3>
+
+<p><code>git stash</code> 将工作区,暂缓区的内容压栈,即货到上一次最新的提交</p>
+
+<p>在哪个分支入栈,则在哪个分支找回</p>
+
+<p><code>git stash list</code> 显示栈的list</p>
+
+<p><code>git stash pop</code> 出栈</p>
+
+<p><code>git stash apply ...</code> 取出栈内指定的快照(list不会删除)</p>
+
+<p><code>git stash drop ...</code> 删除指定的快照</p>
+
+<p><code>git stash clear</code> 删除整个list</p>
+
+<h3 id="git-branch">git branch</h3>
+
+<p><code>git push -u orgin branchname</code>将一个分支推到远程</p>
+
+<p><code>git branch</code> 列出本地的分支</p>
+
+<p><code>git branch -a</code> 列出远程和本地的分支</p>
+
+<p><code>git branch -r</code> 列出远程的分支</p>
+
+<p><code>git branch -d branchname</code> 删除本地分支</p>
+
+<p><code>git push origin --delete branchname</code> 删除远程分支</p>
+
+<p><code>git branch -r -d origin/branchname</code> 删除远程分支</p>
+
+<h3 id="git-checkout">git checkout</h3>
+
+<p><code>git checkout -b branchname</code> 创建并切换到该分支</p>
+
+<p><code>git checkout -b localbranchname origin/branchname</code>将远程分支拉到本地</p>
+
+<p><code>git checkout filename</code>删除工作区某个文件的修改</p>
+
+<h3 id="git-merge">git merge</h3>
+
+<p><code>git merge branchname</code> 合并分支到当前分支</p>
+
+<h3 id="git-tag">git tag</h3>
+
+<p><code>git tag -a 6.6.3 -m &quot;6.6.3版本&quot; commitid</code>  -a会允许你添加一些信息</p>
+
+<p><code>git show tagname</code></p>
+
+<p><code>git tag -d</code></p>
+
+<p><code>git push origin :refs/tags/tagname</code> 删除远程的tag</p>
+
+<p>&lsquo;git push origin tagname&rsquo; 将tag推到远程</p>
+
+<p><code>git push origin --tags</code> 将tag推到远程</p>
+
+<h3 id="git-fetch">git fetch</h3>
+
+<p>将远程新的分支和数来下载下来</p>
+
+<p><code>git fetch</code> 获取当前仓库</p>
+
+<p><code>git fetch reponame</code></p>
+
+<p><code>git fetch --all</code>取到远程全部的repo</p>
+
+<h3 id="git-pull">git pull</h3>
+
+<p><code>git pull</code> = <code>git fetch</code> + <code>git merge</code> 把取下来的分支的head merge到当前的分支,产生一个新的commit</p>
+
+<p><code>git pull --rebase</code> 这个会让 tree是一条直线,不回出现并行的tree,方便 reset和revert
+&ndash;rebae ,将会执行 git rebase来取代原来的git merge</p>
+
+<h3 id="git-rebase">git rebase</h3>
+
+<p>&ndash;rebase 不会产生合并的提交,它将会将本地的所有提交临时保存为补丁(patch),放在&rsquo;.git/rebase&rsquo;目录中,然后将当前分支更新到最新的分支尖端,最后把保存的不定应用到分支上.</p>
+
+<p>rebase过程中,可能会出现冲突,git会停止rebse让你解决冲突,解决后在git add去更新这些内容,然后无需执行commit,只需要:</p>
+
+<p><code>git rebase --continue</code>就会继续打余下的补丁</p>
+
+<p><code>git rebase --abort</code>将会终止rebase,当前分支将会回到rebase之前的状态</p>
+
+<h3 id="git-push">git push</h3>
+
+<p><code>git push origin branchname</code>将当前分支推到远程origin的某个分支</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/swift-simple-notes/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/git-flow-command/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

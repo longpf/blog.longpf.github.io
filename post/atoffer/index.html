@@ -1,0 +1,4045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>刷一哈剑指Offer &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>刷一哈剑指Offer</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Jan 2018, 21:18</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法&amp;数据结构</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E5%89%91%E6%8C%87offer">剑指Offer</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>这是前一阵用c++刷过的剑指offer题,做个记录.我的<a href="https://github.com/longpf/AtOffer">github</a>上有每个题的Xcode项目,方便调试.</p>
+
+<h2 id="目录">目录</h2>
+
+<ul>
+<li><a href="#二维数组中的查找">1. 二维数组中的查找</a></li>
+<li><a href="#字符串中的空格替换">2. 字符串中的空格替换</a></li>
+<li><a href="#从尾到头打印链表">3. 从尾到头打印链表</a></li>
+<li><a href="#重建二叉树">4. 重建二叉树</a></li>
+<li><a href="#两个栈实现队列">5. 两个栈实现队列</a></li>
+<li><a href="#旋转数组的最小数字">6. 旋转数组的最小数字</a></li>
+<li><a href="#斐波那契数列">7. 斐波那契数列</a></li>
+<li><a href="#跳台阶">8. 跳台阶</a></li>
+<li><a href="#变态跳台阶">9. 变态跳台阶</a></li>
+<li><a href="#矩形覆盖">10. 矩形覆盖</a></li>
+<li><a href="#位运算tip">位运算tip</a></li>
+<li><a href="#二进制中1的个数">11. 二进制中1的个数</a></li>
+<li><a href="#数值的整数次方">12. 数值的整数次方</a></li>
+<li><a href="#调整数组顺序使奇数位于偶数前面">13. 调整数组顺序使奇数位于偶数前面</a></li>
+<li><a href="#链表中倒数第k个结点">14. 链表中倒数第k个结点</a></li>
+<li><a href="#反转链表">15. 反转链表</a></li>
+<li><a href="#合并两个排序的列表">16. 合并两个排序的列表</a></li>
+<li><a href="#树的子结构">17. 树的子结构</a></li>
+<li><a href="#二叉树的镜像">18. 二叉树的镜像</a></li>
+<li><a href="#顺时针打印矩阵">19. 顺时针打印矩阵</a></li>
+<li><a href="#包含min函数的栈">20. 包含min函数的栈</a></li>
+<li><a href="#栈的压入、弹出序列">21. 栈的压入、弹出序列</a></li>
+<li><a href="#从上到下打印二叉树">22. 从上到下打印二叉树</a></li>
+<li><a href="#二叉搜索树的后序遍历序列">23. 二叉搜索树的后序遍历序列</a></li>
+<li><a href="#二叉树中和为某一值的路径">24. 二叉树中和为某一值的路径</a></li>
+<li><a href="#复杂链表的复制">25. 复杂链表的复制</a></li>
+<li><a href="#二叉树的前中后序遍历">二叉树的前中后序遍历</a></li>
+<li><a href="#二叉搜索树与双向链表">26. 二叉搜索树与双向链表</a></li>
+<li><a href="#字符串的排列">27. 字符串的排列</a></li>
+<li><a href="#数组中出现次数超过一半的数字">28. 数组中出现次数超过一半的数字</a></li>
+<li><a href="#红黑树,快排,堆排">红黑树,快排,堆排</a></li>
+<li><a href="#最小的K个数">29. 最小的K个数</a></li>
+<li><a href="#连续子数组的最大和">30. 连续子数组的最大和</a></li>
+<li><a href="#整数中1出现的次数(从1到n整数中1出现的次数)">31. 整数中1出现的次数(从1到n整数中1出现的次数)</a></li>
+<li><a href="#把数组排成最小的数">32. 把数组排成最小的数</a></li>
+<li><a href="#丑数">33. 丑数</a></li>
+<li><a href="#第一个只出现依次的字符">34. 第一个只出现依次的字符</a></li>
+<li><a href="#数组中的逆序对">35. 数组中的逆序对</a></li>
+<li><a href="#两个链表的第一个公共结点">36. 两个链表的第一个公共结点</a></li>
+<li><a href="#数字在排序数组中出现的次数">37. 数字在排序数组中出现的次数</a></li>
+<li><a href="#二叉树的深度">38. 二叉树的深度</a></li>
+<li><a href="#平衡二叉树">39. 平衡二叉树</a></li>
+<li><a href="#数组中只出现一次的数字">40. 数组中只出现一次的数字</a></li>
+<li><a href="#和为S的两个数字">41. 和为S的两个数字</a></li>
+<li><a href="#和为S的连续正数序列">42. 和为S的连续正数序列</a></li>
+<li><a href="#翻转单词顺序">43. 翻转单词顺序</a></li>
+<li><a href="#左旋转字符串">44. 左旋转字符串</a></li>
+<li><a href="#扑克牌的顺子">45. 扑克牌的顺子</a></li>
+<li><a href="#圆圈中最后剩下的数字">46. 圆圈中最后剩下的数字</a></li>
+<li><a href="#求1+2+3+...+n">47. 求1+2+3+&hellip;+n</a></li>
+<li><a href="#不用加减乘除做加法">48. 不用加减乘除做加法</a></li>
+<li><a href="#把字符串转换成整数">49. 把字符串转换成整数</a></li>
+<li><a href="#数组中重复的数字">50. 数组中重复的数字</a></li>
+<li><a href="#构建乘积数组">51. 构建乘积数组</a></li>
+<li><a href="#正则表达式匹配">52. 正则表达式匹配</a></li>
+<li><a href="#表示数值的字符串">53. 表示数值的字符串</a></li>
+<li><a href="#字符流中第一个不重复的字符">54. 字符流中第一个不重复的字符</a></li>
+<li><a href="#链表中环的入口结点">55. 链表中环的入口结点</a></li>
+<li><a href="#删除链表中重复的结点">56. 删除链表中重复的结点</a></li>
+<li><a href="#二叉树的下一个结点">57. 二叉树的下一个结点</a></li>
+<li><a href="#对称的二叉树">58. 对称的二叉树</a></li>
+<li><a href="#把二叉树打印成多行">59. 把二叉树打印成多行</a></li>
+<li><a href="#按之字形顺序打印二叉树">60. 按之字形顺序打印二叉树</a></li>
+<li><a href="#序列化二叉树">61. 序列化二叉树</a></li>
+<li><a href="#二叉搜索树的第k个结点">62. 二叉搜索树的第k个结点</a></li>
+<li><a href="#数据流中的中位数">63. 数据流中的中位数</a></li>
+<li><a href="#滑动窗口的最大值">64. 滑动窗口的最大值</a></li>
+<li><a href="#矩阵中的路径">65. 矩阵中的路径</a></li>
+
+<li><p><a href="#机器人的运动范围">66. 机器人的运动范围</a></p></li>
+
+<li><p><a href="https://www.nowcoder.com/practice/d77d11405cc7470d82554cb392585106?tpId=13&amp;tqId=11174&amp;rp=1&amp;ru=/ta/coding-interviews&amp;qru=/ta/coding-interviews/question-ranking">学习地址1:牛客网</a></p></li>
+
+<li><p><a href="http://blog.csdn.net/hubeidaxuesanqi3012/article/details/74090645?locationNum=3&amp;fps=1">学习地址2:鼠标CS的博客</a></p></li>
+
+<li><p><a href="http://www.cnblogs.com/edisonchou/p/3843287.html">学习地址3:周旭龙的博客</a></p></li>
+</ul>
+
+<p><a id="二维数组中的查找"></a></p>
+
+<h3 id="1-二维数组中的查找">1. 二维数组中的查找</h3>
+
+<p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool find(int target, int arr[3][3])
+{
+	int rows = 3;
+	int cols = 3;
+	int i = 0,j = cols-1;
+	while(i &lt; rows &amp;&amp; j &gt;= 0)
+	{
+		if (arr[i][i] == target)
+			return true;
+		else if (arr[i][j] &gt; target)
+			j --;
+		else
+			i ++;
+	}
+	return false;
+}
+
+int main()
+{
+	int arr[3][3] = {1,2,3,4,5,6,7,8,9};
+	bool result = find(10,arr);
+	if (result)
+		printf(&quot;Existent\n&quot;);
+	else
+		printf(&quot;Non-existent\n&quot;);
+
+	return 0;
+}
+
+</code></pre>
+
+<p><a id="字符串中的空格替换"></a></p>
+
+<h3 id="2-字符串中的空格替换">2. 字符串中的空格替换</h3>
+
+<p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+
+void replaceSpace(char *str, int length)
+{
+	if (str == NULL || length &lt;= 0)
+		return;
+	int count = 0;
+	for(int i = 0;i&lt;strlen(str);i++)
+	{
+		if (str[i] == ' ')
+			count++;
+	}
+	int newLength = strlen(str)+count*2+1;
+	if (newLength&gt;length)
+		return;
+
+	int i = strlen(str) + 1;
+	int j = newLength;
+
+	// 直接用str 会报错 /bin/sh: line : Bus error: 10
+	char *tmpStr = str;
+	str = malloc(strlen(tmpStr)+1);
+
+	while(i &gt;= 0 &amp;&amp; j &gt;= i)
+	{
+		if (tmpStr[i] == ' ')
+		{
+			str[j--] = '0';
+			str[j--] = '2';
+			str[j--] = '%';
+		}
+		else
+		{
+			str[j--] = tmpStr[i];
+		}
+		i--;
+	}
+
+	printf(&quot;%s\n&quot;, tmpStr);
+	printf(&quot;%s\n&quot;, str);
+}
+
+
+int main()
+{
+	char *str = &quot;We Are Happy.&quot;;
+	replaceSpace(str,13+6);
+	return 0;
+}
+</code></pre>
+
+<p><a id="从尾到头打印链表"></a></p>
+
+<h3 id="3-从尾到头打印链表">3. 从尾到头打印链表</h3>
+
+<p>输入一个链表，从尾到头打印链表每个节点的值</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;stack&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+class Solution
+{
+public:
+    vector&lt;int&gt;printListFromTail(struct ListNode* head){
+        vector&lt;int&gt; result;
+        stack&lt;struct ListNode*&gt;nodes;
+        struct ListNode *pNode = head;
+        while (pNode != NULL) {
+            nodes.push(pNode);
+            pNode = pNode-&gt;next;
+        }
+        while (!nodes.empty()) {
+            pNode = nodes.top();
+            if (pNode-&gt;val != -1)
+            {
+                result.push_back(pNode-&gt;val);
+            }
+            nodes.pop();
+        }
+        //        reverse(result.begin(), result.end());  //如果允许使用就不用上面的stack了
+        return result;
+    }
+
+    ListNode *createList(){
+        
+        int i;
+        int len;
+        int val;
+        
+        ListNode * phead = (ListNode *)malloc(sizeof(ListNode*));
+        phead-&gt;val = -1;
+        ListNode *ptail = phead;
+        ptail-&gt;next = NULL;
+        
+        len = 3;
+        
+        for(i = 0; i &lt; len; i++)
+        {
+            printf(&quot;第 %d 个节点的数值: &quot;,i+1);
+            // scanf(&quot;%d&quot;,&amp;val);
+            val = 5;
+            ListNode *pnew = (ListNode *)malloc(sizeof(ListNode*));
+            pnew-&gt;val = val;
+            ptail-&gt;next = pnew;
+            pnew-&gt;next = NULL;
+            ptail = pnew;
+        }
+        return phead;
+    }
+};
+
+int main() {
+    
+    cout &lt;&lt; &quot;Hello, World!\n&quot;;
+    
+    Solution sol;
+    
+    ListNode *head = sol.createList();
+    sol.printListFromTail(head);
+    
+    return 0;
+}
+</code></pre>
+
+<p><a id="重建二叉树"></a></p>
+
+<h3 id="4-重建二叉树">4. 重建二叉树</h3>
+
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x),left(NULL),right(NULL) {}
+};
+
+class Solution {
+    
+public:
+    TreeNode* reConstructBinaryTree(vector&lt;int&gt;pre,vector&lt;int&gt;vin)
+    {
+        if (pre.size()==0 || vin.size()==0) {
+            return NULL;
+        }
+        return constructTree(pre, 0, pre.size()-1, vin, 0, vin.size()-1);
+    }
+    TreeNode* constructTree(const vector&lt;int&gt;&amp; pre,long s1,long e1,const vector&lt;int&gt;&amp; vin,long s2,long e2)
+    {
+        long i;
+        for (i=s2; i&lt;=e2; i++) {
+            if (pre[s1]==vin[i])
+                break;
+        }
+        if (i &gt; e2)
+            return NULL;
+        TreeNode* head = new TreeNode(pre[s1]);
+        head-&gt;left = constructTree(pre, s1+1, s1+i-s2, vin, s2, i-1); //s1+i-s2减s2是因为i是从s2开始for循环
+        head-&gt;right = constructTree(pre, s1+i-s2+1, e1, vin, i+1, e2);
+        return head;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    vector&lt;int&gt;pre = {1,2,4,7,3,5,6,8};
+    vector&lt;int&gt;vin = {4,7,2,1,5,3,8,6};
+    Solution sol;
+    TreeNode* head = sol.reConstructBinaryTree(pre, vin);
+    return 0;
+}
+</code></pre>
+
+<p><a id="两个栈实现队列"></a></p>
+
+<h3 id="5-两个栈实现队列">5. 两个栈实现队列</h3>
+
+<p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+class Solution
+{
+public:
+    void push(int node){
+        stack1.push(node);
+    }
+    int pop(){
+        if (stack2.empty()) {
+            while (!stack1.empty()) {
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+        }
+        int res = -1;
+        if (!stack2.empty()) {
+            res = stack2.top();
+            stack2.pop();
+        }
+        return res;
+    }
+    
+private:
+    stack&lt;int&gt; stack1;
+    stack&lt;int&gt; stack2;
+};
+
+int main(int argc, const char * argv[]) {
+    
+    Solution sol;
+    sol.push(1);
+    sol.push(2);
+    
+    int a = sol.pop();
+    
+    return 0;
+}
+</code></pre>
+
+<p><a id="旋转数组的最小数字"></a></p>
+
+<h3 id="6-旋转数组的最小数字">6. 旋转数组的最小数字</h3>
+
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
+NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution{
+public:
+    int Min(vector&lt;int&gt;rotateArray)
+    {
+        if (rotateArray.size()==0) {
+            return 0;
+        }
+        int i = 0,j=(int)rotateArray.size()-1;
+        int mid = i;
+        while (rotateArray[i] &gt;= rotateArray[j]) {
+            if (j-i==1) {
+                mid = j;
+                break;
+            }
+            mid = (i+j)/2;
+            //如果i,j,mid指向的数相等,则只能顺序查找
+            if (rotateArray[i]==rotateArray[mid]&amp;&amp;rotateArray[mid]==rotateArray[j]) {
+                return MinInOrder(rotateArray, i, j);
+            }
+            if (rotateArray[mid]&gt;=rotateArray[i]) {
+                i = mid;
+            }
+            else if (rotateArray[mid]&lt;rotateArray[j])
+            {
+                j = mid;
+            }
+        }
+        return rotateArray[mid];
+    }
+    
+    int MinInOrder(const vector&lt;int&gt;rotateArray,int start,int end)
+    {
+        int min = rotateArray[start];
+        for (int i=start+1; i&lt;=end; i++)
+        {
+            if (rotateArray[i]&lt;min) {
+                min = rotateArray[i];
+            }
+        }
+        return min;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    Solution sol;
+    vector&lt;int&gt; rotateArray = {3,4,5,1,2};
+    int result = sol.Min(rotateArray);
+    return 0;
+}
+</code></pre>
+
+<p><a id="斐波那契数列"></a></p>
+
+<h3 id="7-斐波那契数列">7. 斐波那契数列</h3>
+
+<p>现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&lt;=39</p>
+
+<pre><code class="language-cpp">class Solution{
+public:
+    int Fibonacci(int n){
+        if (n&lt;2)
+            return n;
+        int a = 0,b = 1;
+        int c = 0;
+        for (int i = 2; i&lt;=n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    
+    Solution sol;
+    int reuslt = sol.Fibonacci(39);
+    
+    return 0;
+}
+</code></pre>
+
+<p><a id="跳台阶"></a></p>
+
+<h3 id="8-跳台阶">8. 跳台阶</h3>
+
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法</p>
+
+<pre><code class="language-cpp">/*
+ 如果n级为f(n)
+ 当n&gt;2时,如果第一次跳一级,则剩下的n-1为f(n-1)
+ 如果第一次跳两级,则剩下的为f(n-2)
+ 则f(n)=f(n-1)+f(n-2)
+ */
+
+class Solution{
+public:
+    int jumpFloor(int number){
+        if (number==1)
+            return 1;
+        else if (number==2)
+            return 2;
+        int a = 1,b = 2,c = 3;
+        for (int i = 3; i &lt;=number; i++) {
+            c = a+b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    Solution sol;
+    int result = sol.jumpFloor(10);
+    return 0;
+}
+</code></pre>
+
+<p><a id="变态跳台阶"></a></p>
+
+<h3 id="9-变态跳台阶">9. 变态跳台阶</h3>
+
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class Solution {
+public:
+    int jumpFloorII(int number) {
+        // f(n) = 2^(n-1)
+        // 1左移(number-1)相当2^(n-1)
+        return 1 &lt;&lt; (number -1);
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    
+    Solution sol;
+    int result = sol.jumpFloorII(10);
+    
+    return 0;
+}
+
+</code></pre>
+
+<p><a id="矩形覆盖"></a></p>
+
+<h3 id="10-矩形覆盖">10. 矩形覆盖</h3>
+
+<p>我们可以用<code>2*1</code>的小矩形横着或者竖着去覆盖更大的矩形。请问用n个<code>2*1</code>的小矩形无重叠地覆盖一个<code>2*n</code>的大矩形，总共有多少种方法</p>
+
+<p>解析：用第一个1×2小矩形去覆盖大矩形的最左边时有两个选择，竖着放和横着放，当竖着放时右边还剩下2×(n-1)的区域，这种情况下的覆盖方法记为f(n-1)
+当横着放在左上角的时候，左下角必须横着放一个1×2的小矩形，而右边还剩下2×6的区域，这种情况下的覆盖方法记为f(n-2)</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+class Solution {
+public:
+    int rectCover(int number) {
+        if(number &lt;= 2)
+            return number;
+        int a = 1, b = 2;
+        int c = 3;
+        for(int i=3; i&lt;=number; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return c;
+    }
+};
+
+int main(int argc, const char * argv[]) {
+    
+    Solution sol;
+    int result = sol.rectCover(10);
+    return 0;
+}
+</code></pre>
+
+<p><a id="位运算tip"></a></p>
+
+<h3 id="位运算tip">位运算tip</h3>
+
+<ul>
+<li>原码:最高位表示符号位,1位负,0为正.其他为存二进制的绝对值.<code>1010为-2</code></li>
+<li>反码:正数的反码还是等于原码.负数的反码就是他的原码除符号位外,安位取反.例:3当反码与原码相同,则可以表示为0011.-3的原码是1011,反码为1100</li>
+<li>补码:正数的补码等于他的原码.负数的补码等于反码+1.</li>
+<li>负数的补码=模-负数的绝对值.例:10000(模为2^4=16)-0100=1100(-4的补码)</li>
+<li>左移:左边移出的部分丢弃,右边补0. <code>00001010&lt;&lt;2=00101000</code>,<code>10001010&lt;&lt;3=01010000</code></li>
+<li>正数右移:左边补0.<code>00001010&gt;&gt;2=00000010</code></li>
+<li>负数右移:左边补1.<code>10001010&gt;&gt;3=11110001</code></li>
+<li>把正数右移一位和把正数除以2在数学上都是等价的,但是位运算比乘除法效率高很多</li>
+</ul>
+
+<p><a id="二进制中1的个数"></a></p>
+
+<h3 id="11-二进制中1的个数">11. 二进制中1的个数</h3>
+
+<p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示</p>
+
+<pre><code class="language-cpp">//解法1
+class Solution1{
+public:
+    int NumberOf1(int n){
+        int count = 0;
+        unsigned int flag = 1;
+        while (flag) {
+            //将类似0001,0010,0100,...(应该为32位)和n做位与运算,如果不为0,则n的该位为1
+            if (n &amp; flag) {
+                count ++;
+            }
+            //32位的整数要循环32次,
+            //当左移后超出32位则1存在寄存器进位器中,剩下部分为0,跳出循环
+            flag = flag &lt;&lt; 1;
+        }
+        return count;
+    }
+};
+
+//解法2: 1100,减1后为1011,1100和1011做与运算为1000,相当将最右边的1取反为0.
+class Solution2{
+public:
+    int NumberOf1(int n){
+        int count = 0;
+        while (n) {
+            count++;
+            n = (n-1) &amp; n;
+        }
+        return count;
+    }
+};
+</code></pre>
+
+<p><a id="数值的整数次方"></a></p>
+
+<h3 id="12-数值的整数次方">12. 数值的整数次方</h3>
+
+<pre><code class="language-cpp">class Solution{
+public:
+    double Power(double base,int exponent)
+    {
+        if (equal(base, 0.0) &amp;&amp; exponent &lt; 0) {
+            return 0.0;
+        }
+        unsigned int absExponent = abs(exponent);
+        double result = PowerWithUnsignedExponent(base, absExponent);
+        if (exponent&lt;0) {
+            result = 1.0/result;
+        }
+        return result;
+    }
+    
+    bool equal(double num1,double num2)
+    {
+        if (num1-num2 &lt; 0.0000001 &amp;&amp; num1-num2 &gt; -0.0000001)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    double PowerWithUnsignedExponent(double base,unsigned int exponent)
+    {
+        if (exponent==0) {
+            return 1;
+        }
+        else if (exponent==1)
+        {
+            return base;
+        }
+        double result = PowerWithUnsignedExponent(base,exponent&gt;&gt;1);
+        result *= result;
+        //判断奇偶 位运算判断奇偶比取余效率高,奇数左移1位后相当除2,所以还有余数1
+        if((exponent &amp; 0x1) == 1)
+        {
+            result *= base;
+        }
+        return result;
+    }
+};
+</code></pre>
+
+<p><a id="调整数组顺序使奇数位于偶数前面"></a></p>
+
+<h3 id="13-调整数组顺序使奇数位于偶数前面">13. 调整数组顺序使奇数位于偶数前面</h3>
+
+<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变</p>
+
+<pre><code class="language-cpp">class Solution{
+public:
+    void reOrderArray(vector&lt;int&gt;array){
+        int n = (int)array.size();
+        if(n &lt;= 1)
+            return;
+        vector&lt;int&gt;tmp;
+        for (int i = 0; i&lt;n; i++) {
+            //奇数
+            if (array[i] &amp; 0x1) {
+                tmp.push_back(array[i]);
+            }
+        }
+        for (int i = 0; i&lt;n; i++) {
+            //偶数
+            if ((array[i] &amp; 0x1)==0) {
+                tmp.push_back(array[i]);
+            }
+        }
+        array = tmp;
+    }
+};
+</code></pre>
+
+<p><a id="链表中倒数第k个结点"></a></p>
+
+<h3 id="14-链表中倒数第k个结点">14. 链表中倒数第k个结点</h3>
+
+<p>输入一个链表，输出该链表中倒数第k个结点</p>
+
+<pre><code class="language-cpp">struct ListNode{
+    int val;
+    struct ListNode* next;
+    ListNode(int x):
+    val(x),next(NULL){
+    }
+};
+
+class Solution{
+public:
+    ListNode* FindKthToTail(ListNode* pListHead,unsigned int k){
+        if (pListHead == NULL || k == 0)
+        {
+            return NULL;
+        }
+        ListNode* pFast = pListHead;
+        ListNode* pSlow = pListHead;
+        for (unsigned int i = 0; i &lt; k-1; i++)
+        {
+            if (pFast-&gt;next==NULL)
+            {
+                return NULL;
+            }
+            pFast = pFast-&gt;next;
+        }
+        while (pFast-&gt;next!=NULL)
+        {
+            pSlow = pSlow-&gt;next;
+            pFast = pFast-&gt;next;
+        }
+        return pSlow;
+    }
+};
+</code></pre>
+
+<p><a id="反转链表"></a></p>
+
+<h3 id="15-反转链表">15. 反转链表</h3>
+
+<p>输入一个链表，反转链表后，输出链表的所有元素</p>
+
+<pre><code class="language-cpp">struct ListNode {
+    int val;
+    struct ListNode* next;
+    ListNode(int x):
+    val(x),next(NULL){
+    }
+};
+
+class Solution{
+public:
+    ListNode* ReverseList(ListNode* pHead){
+        ListNode* pre = NULL;
+        ListNode* p = pHead;
+        ListNode* pn = NULL;
+        
+        while (p) {
+            pn = p-&gt;next;
+            p-&gt;next = pre;
+            pre = p;
+            p = pn;
+        }
+        return pre;
+    }
+};
+
+</code></pre>
+
+<p><a id="合并两个排序的列表"></a></p>
+
+<h3 id="16-合并两个排序的列表">16. 合并两个排序的列表</h3>
+
+<p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则</p>
+
+<pre><code class="language-cpp">struct ListNode{
+    int val;
+    struct ListNode* next;
+    ListNode(int x):
+        val(x),next(NULL){
+    }
+};
+
+class Solution{
+public:
+    ListNode* Merge(ListNode* pHead1,ListNode* pHead2)
+    {
+        if (pHead1 == NULL)
+            return pHead2;
+        else if (pHead2==NULL)
+            return pHead1;
+        ListNode* newHead = NULL;
+        if (pHead1-&gt;val&lt;pHead2-&gt;val)
+        {
+            newHead = pHead1;
+            newHead-&gt;next = Merge(pHead1-&gt;next, pHead2);
+        }
+        else
+        {
+            newHead = pHead2;
+            newHead-&gt;next = Merge(pHead1, pHead2-&gt;next);
+        }
+        return newHead;
+    }
+};
+</code></pre>
+
+<p><a id="树的子结构"></a></p>
+
+<h3 id="17-树的子结构">17. 树的子结构</h3>
+
+<pre><code class="language-cpp">/*
+ step1: 在树A中找到和B的根结点一样的结点R
+ step2: 判断树A中以R为根结点的子树是不是包含和树B一样的结构
+ 这是一个递归的过程
+ */
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){}
+};
+
+class Solution {
+public:
+    bool HasSubtree(TreeNode* pRoot1,TreeNode* pRoot2)
+    {
+        if (pRoot1 == NULL || pRoot2 == NULL)
+            return false;
+        bool res = false;
+        if (pRoot1-&gt;val == pRoot2-&gt;val)
+            return IsSubtree(pRoot1, pRoot2);
+        if (!res)
+            res = HasSubtree(pRoot1-&gt;left, pRoot2) || HasSubtree(pRoot1-&gt;right, pRoot2);
+        return res;
+    }
+    
+    bool IsSubtree(TreeNode* pRoot1,TreeNode* pRoot2)
+    {
+        if (pRoot2 == NULL)
+            return true;
+        if (pRoot1 == NULL)
+            return false;
+        if (pRoot1-&gt;val != pRoot2-&gt;val)
+            return false;
+        return IsSubtree(pRoot1-&gt;left, pRoot2-&gt;left) &amp;&amp; IsSubtree(pRoot1-&gt;right, pRoot2-&gt;right);
+    }
+};
+</code></pre>
+
+<p><a id="二叉树的镜像"></a></p>
+
+<h3 id="18-二叉树的镜像">18. 二叉树的镜像</h3>
+
+<pre><code class="language-cpp">struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){};
+};
+
+class Solution {
+public:
+    void Mirror(TreeNode* pRoot)
+    {
+        if (pRoot == NULL)
+            return;
+        TreeNode* tmp = pRoot-&gt;left;
+        pRoot-&gt;left = pRoot-&gt;right;
+        pRoot-&gt;right = tmp;
+        if (pRoot-&gt;left)
+            Mirror(pRoot-&gt;left);
+        if (pRoot-&gt;right)
+            Mirror(pRoot-&gt;right);
+    }
+};
+</code></pre>
+
+<p><a id="顺时针打印矩阵"></a></p>
+
+<h3 id="19-顺时针打印矩阵">19. 顺时针打印矩阵</h3>
+
+<p>解法1:</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; printMatrix(vector&lt;vector&lt;int&gt; &gt; matrix) {
+        vector&lt;int&gt; result;
+        vector&lt;vector&lt;int&gt; &gt;  tmp = matrix;
+        while(tmp.size() &gt;= 1)
+        {
+            vector&lt;int&gt; r = tmp[0];
+            for(int i = 0;i&lt;r.size();i++){
+                result.push_back(r[i]);
+            }
+            tmp.erase(tmp.begin());
+            if (tmp.size()&gt;0) {
+                tmp = reverseMatrix(tmp);
+            }
+            else{
+                break;
+            }
+        }
+        return result;
+    }
+    
+    vector&lt;vector&lt;int&gt;&gt; reverseMatrix(vector&lt;vector&lt;int&gt;&gt; matrix){
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+        vector&lt;vector&lt;int&gt;&gt; result;
+        for (int i = cols-1;i &gt;= 0;i--)
+        {
+            vector&lt;int&gt; r;
+            for (int j = 0;j&lt;rows;j++)
+            {
+                r.push_back(matrix[j][i]);
+            }
+            result.push_back(r);
+        }
+        return result;
+    }
+};
+</code></pre>
+
+<p>解法2:</p>
+
+<pre><code class="language-cpp">class Solution2 {
+public:
+    vector&lt;int&gt; printMatrix(vector&lt;vector&lt;int&gt;&gt; matrix){
+        vector&lt;int&gt; res;
+        int rows = matrix.size();
+        int cols = matrix[0].size();
+        if (rows==0||cols==0) {
+            return res;
+        }
+        int left = 0,top = 0;
+        int right = cols-1,bottom = rows-1;
+        while (top&lt;=bottom &amp;&amp; left &lt;= right)
+        {
+            int i,j;
+            for (j=left;j&lt;=right;j++)
+                res.push_back(matrix[top][j]);
+            for (i = top+1;i&lt;=bottom;i++)
+                res.push_back(matrix[i][right]);
+            if (top &lt; bottom) {
+                for(j=right-1;j&gt;left;j--)
+                    res.push_back(matrix[bottom][j]);
+            }
+            if (left&lt;right) {
+                for (i=bottom;i&gt;top;i--)
+                    res.push_back(matrix[i][left]);
+            }
+            top++;
+            left++;
+            right--;
+            bottom--;
+            
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="包含min函数的栈"></a></p>
+
+<h3 id="20-包含min函数的栈">20. 包含min函数的栈</h3>
+
+<p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数</p>
+
+<pre><code class="language-cpp">#include &lt;stack&gt;
+using namespace std;
+
+class Solution {
+private:
+    stack&lt;int&gt; s1,s2;
+public:
+    void push(int value) {
+        if (s1.size()&gt;0 &amp;&amp; s1.top()&lt;value)
+        {
+            s2.push(s1.top());
+        }
+        else
+        {
+            s2.push(value);
+        }
+        s1.push(value);
+    }
+    void pop() {
+        s1.pop();
+        s2.pop();
+    }
+    int top() {
+        return s1.top();
+    }
+    int min() {
+        return s2.top();
+    }
+};
+</code></pre>
+
+<p><a id="栈的压入、弹出序列"><a></p>
+
+<h3 id="21-栈的压入-弹出序列">21. 栈的压入、弹出序列</h3>
+
+<p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列  4, 5, 3, 2, 1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    bool IsPopOrder(vector&lt;int&gt; pushV,vector&lt;int&gt; popV) {
+        
+        stack&lt;int&gt; st;
+        
+        for (int i = 0,j=0; i &lt; pushV.size(); )
+        {
+            st.push(pushV[i++]);
+            while (j&lt;popV.size() &amp;&amp; st.top()==popV[j])
+            {
+                st.pop();
+                j++;
+            }
+        }
+        return st.empty();
+    }
+};
+</code></pre>
+
+<p><a id="从上到下打印二叉树"></a></p>
+
+<h3 id="22-从上到下打印二叉树">22. 从上到下打印二叉树</h3>
+
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;queue&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){
+            
+        }
+};
+
+class Solution {
+public:
+    vector&lt;int&gt; PrintFromTopToBottom(TreeNode* root)
+    {
+        vector&lt;int&gt; result;
+        if (root==NULL)
+            return result;
+        queue&lt;TreeNode*&gt; q;
+        q.push(root);
+        
+        while (!q.empty())
+        {
+            TreeNode* node = q.front();
+            result.push_back(node-&gt;val);
+            q.pop();
+            if (node-&gt;left)
+            {
+                q.push(node-&gt;left);
+            }
+            if (node-&gt;right)
+            {
+                q.push(node-&gt;right);
+            }
+        }
+        return result;
+    }
+};
+</code></pre>
+
+<p><a id="二叉搜索树的后序遍历序列"></a></p>
+
+<h3 id="23-二叉搜索树的后序遍历序列">23. 二叉搜索树的后序遍历序列</h3>
+
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+    bool VerifySquenceOfBST(vector&lt;int&gt; sequence) {
+        if (sequence.size() == 0)
+            return false;
+        return VerifyBST(sequence, 0, (int)sequence.size()-1);
+    }
+    
+    bool VerifyBST(vector&lt;int&gt; sequence,int start,int end)
+    {
+        int i,j;
+        for (i=start;i&lt;end;i++)
+        {
+            if (sequence[i] &gt; sequence[end])
+                break;
+        }
+        j = i - 1;
+        while (i &lt; end)
+        {
+            if (sequence[i] &lt; sequence[end])
+                return false;
+            i++;
+        }
+        bool left = true;
+        if (j &gt; start)
+            left = VerifyBST(sequence, start, j);
+        bool right = true;
+        if (j+1 &lt; end-1)
+            right = VerifyBST(sequence, j+1, end-1);
+        return left &amp;&amp; right;
+    }
+};
+</code></pre>
+
+<p><a id="二叉树中和为某一值的路径"></a></p>
+
+<h3 id="24-二叉树中和为某一值的路径">24. 二叉树中和为某一值的路径</h3>
+
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){
+        }
+};
+
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt; &gt; FindPath(TreeNode* root,int expectNumber) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        if (root == NULL)
+            return res;
+        vector&lt;int&gt; solution;
+        findPath(root, expectNumber, solution, res);
+        return res;
+    }
+    void findPath(TreeNode* root,int expectNumber,vector&lt;int&gt;&amp; solution,vector&lt;vector&lt;int&gt;&gt;&amp;res)
+    {
+        int sum = expectNumber - root-&gt;val;
+        solution.push_back(root-&gt;val);
+        //判断是否为叶结点,并且sum是否加满了
+        if (root-&gt;left == NULL &amp;&amp; root-&gt;right==NULL &amp;&amp; sum==0)
+        {
+            res.push_back(solution);
+        }
+        if (root-&gt;left)
+            findPath(root-&gt;left, sum, solution, res);
+        if (root-&gt;right)
+            findPath(root-&gt;right, sum, solution, res);
+        //往后推一个
+        solution.pop_back();
+    }
+};
+</code></pre>
+
+<p><a id="复杂链表的复制"></a></p>
+
+<h3 id="25-复杂链表的复制">25. 复杂链表的复制</h3>
+
+<p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）</p>
+
+<pre><code class="language-cpp">#include &lt;map&gt;
+
+using namespace std;
+
+struct RandomListNode {
+    int label;
+    struct RandomListNode* next,* random;
+    RandomListNode(int x):
+        label(x),next(NULL),random(NULL){
+    }
+};
+
+/*
+ 方法1:
+ 复制原始链表上的每个节点N创建N',然后把这些创建出来的结点用next连接起来,
+ A--&gt;B--&gt;C--&gt;D
+ A'-&gt;B'-&gt;C'-&gt;D'.
+ 同时把&lt;N,N'&gt;的配对信息放一个哈希表中.
+ 然后设置复制链表中的每个结点的random指针,如果原始列表中的N的random指向的结点为S,
+ 那么在赋值链表中,对应的N'应该指向S'.
+ 时间复杂度: O(N)
+ */
+
+typedef map&lt;RandomListNode*,RandomListNode*&gt; MAP;
+
+class Solution1 {
+public:
+    
+    RandomListNode* CloneNodes(RandomListNode* pHead,MAP &amp;hashNode)
+    {
+        RandomListNode* pNode = new RandomListNode(0);
+        RandomListNode* p = pNode;
+        RandomListNode* tmp;
+        while (pHead != NULL) {
+            tmp = new RandomListNode(0);
+            tmp-&gt;label = pHead-&gt;label;
+            p-&gt;next = tmp;
+            hashNode[pHead] = tmp;
+            pHead = pHead-&gt;next;
+            p=p-&gt;next; //就是当前的tmp
+        }
+        return pNode-&gt;next;
+    }
+    
+    void setRandomNodes(RandomListNode* pHead,RandomListNode* pCopy,MAP &amp;hashNode)
+    {
+        while (pCopy!=NULL) {
+            pCopy-&gt;random = hashNode[pHead-&gt;random];
+            pCopy = pCopy-&gt;next;
+            pHead = pHead-&gt;next;
+        }
+    }
+    
+    RandomListNode* Clone(RandomListNode* pHead)
+    {
+        RandomListNode* pCopy;
+        MAP hashNode;
+        pCopy = CloneNodes(pHead, hashNode);
+        setRandomNodes(pHead, pCopy, hashNode);
+        return pCopy;
+    }
+};
+
+/*
+ 方法2
+ 在不使用辅助空间的情况下实现O(N)的时间效率
+ 第一步：根据原始链表的每个结点N创建对应的N',然后将N‘通过pNext接到N的后面
+ 第二步：设置复制出来的结点的random,假设原始链表上的N的random指向结点S,那么其对应复制出来的N'是N-&gt;pNext指向的结点,同样S'也是结点S-&gt;pNext指向的结点
+ 第三步：把长链表拆分成两个链表,把奇数位置的结点用pNext连接起来的就是原始链表,把偶数位置的结点通过pNext连接起来的就是复制链表
+ */
+
+class Solution2{
+    
+    void CloneNodes(RandomListNode* pHead)
+    {
+        RandomListNode* pNode = pHead;
+        RandomListNode* pCloned;
+        while (pNode!=NULL) {
+            pCloned = new RandomListNode(pNode-&gt;label);
+            pCloned-&gt;next = pNode-&gt;next;
+            pNode-&gt;next = pCloned;
+            pNode = pCloned-&gt;next;
+        }
+    }
+    
+    void ConnectRandomNodes(RandomListNode* pHead)
+    {
+        RandomListNode* pNode = pHead;
+        RandomListNode* pCloned;
+        while (pNode!=NULL) {
+            pCloned = pNode-&gt;next;
+            if (pNode-&gt;random!=NULL) {
+                pCloned-&gt;random = pNode-&gt;random-&gt;next;
+            }
+            pNode=pCloned-&gt;next;
+        }
+    }
+    
+    RandomListNode* ReconnectNodes(RandomListNode* pHead)
+    {
+        RandomListNode* pNode = pHead;
+        RandomListNode* pClonedHead = NULL;
+        RandomListNode* pClonedNode = NULL;
+        if (pNode!=NULL) {
+            pClonedHead = pClonedNode = pNode-&gt;next;
+            pNode-&gt;next = pClonedNode-&gt;next;
+            pNode = pNode-&gt;next;
+        }
+        while (pNode!=NULL) {
+            pClonedNode-&gt;next=pNode-&gt;next;
+            pClonedNode=pClonedNode-&gt;next;
+            pNode-&gt;next=pClonedNode-&gt;next;
+            pNode = pNode-&gt;next;
+        }
+        return pClonedHead;
+    }
+    
+    RandomListNode* Clone(RandomListNode* pHead)
+    {
+        CloneNodes(pHead);
+        ConnectRandomNodes(pHead);
+        return ReconnectNodes(pHead);
+    }
+};
+</code></pre>
+
+<p><a id="二叉树的前中后序遍历"></a></p>
+
+<h3 id="二叉树的前中后序遍历">二叉树的前中后序遍历</h3>
+
+<ul>
+<li>前序遍历：根节点-&gt;左子树-&gt;右子树</li>
+<li>中序遍历：左子树-&gt;根节点-&gt;右子树</li>
+<li>后序遍历：左子树-&gt;右子树-&gt;根节点</li>
+</ul>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x) :
+        val(x),left(NULL),right(NULL){}
+};
+
+
+//前序递归遍历
+vector&lt;int&gt; preVector;
+void PreOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        preVector.push_back(root-&gt;val);
+        PreOrder(root-&gt;left);
+        PreOrder(root-&gt;right);
+    }
+}
+
+//前序非递归遍历
+void PreOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    TreeNode* p = root;
+    vector&lt;int&gt; result;
+    while (p || !s.empty())
+    {
+        if (p)
+        {
+            result.push_back(p-&gt;val);
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            p = s.top();
+            p = p-&gt;right;
+            s.pop();
+        }
+    }
+}
+
+//中序递归遍历
+vector&lt;int&gt; inResult;
+void InOrder(TreeNode* root)
+{
+    if (root != NULL) {
+        InOrder(root-&gt;left);
+        inResult.push_back(root-&gt;val);
+        InOrder(root-&gt;right);
+    }
+}
+
+//中序非递归遍历
+void InOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    vector&lt;int&gt; result;
+    TreeNode* p = root;
+    while (p || !s.empty())
+    {
+        if (p)
+        {
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            p = s.top();
+            result.push_back(p-&gt;val);
+            s.pop();
+            p = p-&gt;right;
+        }
+    }
+}
+
+//后序递归遍历
+vector&lt;int&gt; postResult;
+void PostOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        PostOrder(root-&gt;left);
+        PostOrder(root-&gt;right);
+        postResult.push_back(root-&gt;val);
+    }
+}
+
+//后序非递归遍历
+void PostOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    vector&lt;int&gt; result;
+    TreeNode* p = root;
+    TreeNode* r =new TreeNode(0);
+    while (p || !s.empty())
+    {
+        //走到最左边
+        if (p)
+        {
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            //取栈顶结点
+            p  = s.top();
+            //如果右子树存在,且未被输出
+            if (p-&gt;right&amp;&amp;p-&gt;right!=r)
+            {
+                p = p-&gt;right;
+                s.push(p);
+                //在走到最左
+                p = p-&gt;left;
+            }
+            //否则,访问栈顶结点并弹出
+            else
+            {
+                result.push_back(p-&gt;val);
+                //记录该结点
+                r = p;
+                s.pop();
+                //结点访问完后,重置p指针
+                p = NULL;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><a id="二叉搜索树与双向链表"></a></p>
+
+<h3 id="26-二叉搜索树与双向链表">26. 二叉搜索树与双向链表</h3>
+
+<p>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向</p>
+
+<pre><code class="language-cpp">
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+using namespace std;
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x) :
+        val(x),left(NULL),right(NULL){}
+};
+
+class Solution {
+public:
+    
+    //中序遍历后为排序结果
+    void Order(TreeNode* root,vector&lt;TreeNode*&gt;&amp; result)
+    {
+        if (root != NULL) {
+            Order(root-&gt;left,result);
+            result.push_back(root);
+            Order(root-&gt;right,result);
+        }
+    }
+    
+    TreeNode* Convert(TreeNode* pRootOfTree)
+    {
+        if (pRootOfTree == NULL) {
+            return NULL;
+        }
+        vector&lt;TreeNode*&gt; result;
+        Order(pRootOfTree, result);
+        TreeNode* tmp;
+        for (int i = 0;i &lt; result.size();i++)
+        {
+            if (i != 0)
+            {
+                TreeNode* p = result[i];
+                tmp-&gt;right = p;
+                p-&gt;left = tmp;
+            }
+            tmp = result[i];
+        }
+        return result[0];
+    }
+};
+</code></pre>
+
+<p><a id="字符串的排列"></a></p>
+
+<h3 id="27-字符串的排列">27. 字符串的排列</h3>
+
+<p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。</p>
+
+<p>例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</p>
+
+<p>输入描述:  输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    
+    void Permutation2(string&amp; str,int k,int n,vector&lt;string&gt;&amp; res)
+    {
+        if (k==n) {
+            res.push_back(str);
+            return;
+        }
+        for (int i = k; i &lt; n; i++) {
+            if (str[i] == str[k] &amp;&amp; i != k)
+                continue;
+            swap(str[k], str[i]);
+            Permutation2(str, k+1, n, res);
+            swap(str[k], str[i]);
+        }
+    }
+    
+    vector&lt;string&gt; Permutation(string str){
+        vector&lt;string&gt; res;
+        int n = str.length();
+        if (n == 0)
+            return res;
+        Permutation2(str, 0, n, res);
+        sort(res.begin(), res.end());
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="数组中出现次数超过一半的数字"></a></p>
+
+<h3 id="28-数组中出现次数超过一半的数字">28. 数组中出现次数超过一半的数字</h3>
+
+<p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字.</p>
+
+<p>例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。</p>
+
+<p>由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。</p>
+
+<p>如果不存在则输出0</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;map&gt;
+
+using namespace std;
+typedef map&lt;int,int&gt; MAP;
+
+class Solution {
+public:
+    int MoreThanHalfNum_Solution(vector&lt;int&gt; numbers)
+    {
+        MAP hashInt;
+        for (int i = 0; i &lt; numbers.size(); i++) {
+            hashInt[numbers[i]] = hashInt.find(numbers[i])==hashInt.end()?1:hashInt[numbers[i]]+1;
+        }
+        MAP::iterator it = hashInt.begin();
+        int max = it-&gt;second;
+        int key = it-&gt;first;
+        while (it != hashInt.end()) {
+            if (it-&gt;second &gt; max)
+            {
+                max = it-&gt;second;
+                key = it-&gt;first;
+            }
+            it++;
+        }
+        if (max &gt; numbers.size()/2)
+        {
+            return key;
+        }
+        return 0;
+    }
+};
+
+class Solution2 {
+public:
+    int MoreThanHalfNum_Solution(vector&lt;int&gt; numbers)
+    {
+        int res = 0;
+        int count = 0;
+        //找到数量最多的数字
+        for (int i = 0;i &lt; numbers.size();i++)
+        {
+            if (count == 0)
+            {
+                res = numbers[i];
+                count++;
+            }
+            else if(numbers[i] == res)
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+            }
+        }
+        if (res)
+        {
+            count = 0;
+            for (int i = 0; i &lt; numbers.size(); i++) {
+                if (numbers[i] == res)
+                    count++;
+            }
+            if (count * 2 &lt;= numbers.size())
+                res = 0;
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="红黑树,快排,堆排"></a></p>
+
+<h3 id="红黑树-快排-堆排">红黑树,快排,堆排</h3>
+
+<p><a href="https://www.cnblogs.com/skywang12345/p/3245399.html">红黑树</a></p>
+
+<p><a href="https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin">快排</a></p>
+
+<p><a href="https://www.cnblogs.com/jingmoxukong/p/4303826.html">堆排</a></p>
+
+<p><a id="最小的K个数"></a></p>
+
+<h3 id="29-最小的k个数">29. 最小的K个数</h3>
+
+<p>输入n个整数，找出其中最小的K个数。</p>
+
+<p>例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;set&gt;
+using namespace std;
+/*
+ 解法1:
+ 运用快排的思想
+ 把数组的元素分成两组,右边比左边的都要大
+ 数据都读到内存,并且修改数组
+ */
+class Solution {
+public:
+    vector&lt;int&gt; GetLeastNumbers_Solution(vector&lt;int&gt;input,int k)
+    {
+        vector&lt;int&gt; res;
+        int n = input.size();
+        if (n == 0 || k &gt; n || k &lt;= 0) {
+            return res;
+        }
+        int start = 0,end = n-1;
+        int mid = partition(input, start, end);
+        while (mid != k-1)
+        {
+            if (mid &gt; k-1)
+            {
+                end = mid - 1;
+                mid = partition(input, start, end);
+            }
+            else
+            {
+                start = mid + 1;
+                mid = partition(input, start, end);
+            }
+        }
+        for (int i = 0; i &lt; k; i++) {
+            res.push_back(input[i]);
+        }
+        return res;
+    }
+    
+    int partition(vector&lt;int&gt;&amp; input,int start,int end)
+    {
+        int key = input[start];
+        while (start &lt; end)
+        {
+            while (start &lt; end &amp;&amp; input[end] &gt;= key)
+                end --;
+            input[start] = input[end];
+            while (start &lt; end &amp;&amp; input[start] &lt;= key)
+                start++;
+            input[end] = input[start];
+        }
+        input[start] = key;
+        return start;
+    }
+};
+/*
+ 解法2
+ 用大根堆的思想
+ 这里用multiset(内部红黑树,查找快(Ologn))保存k个元素,greater排序保证首个元素为最大
+ k个元素之后每个与multiset首个元素比较
+ 适合海量数据,不修改原数组,修改都在multiset中
+ */
+class Solution2 {
+    vector&lt;int&gt; GetLeastNumbers_Solution(vector&lt;int&gt; input, int k)
+    {
+        int n = input.size();
+        if (n == 0 || n &lt; k || k &lt;= 0)
+            return vector&lt;int&gt;();
+        multiset&lt;int,greater&lt;int&gt;&gt; leastNumbers;
+        for (int i = 0;i &lt; n;i++)
+        {
+            if (i &lt; k)
+                leastNumbers.insert(input[i]);
+            else
+            {
+                multiset&lt;int,greater&lt;int&gt;&gt; ::const_iterator iter = leastNumbers.begin();
+                if (*iter &gt; input[i]) {
+                    leastNumbers.erase(iter);
+                    leastNumbers.insert(input[i]);
+                }
+            }
+        }
+        vector&lt;int&gt; res(leastNumbers.begin(),leastNumbers.end());
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="连续子数组的最大和"></a></p>
+
+<h3 id="30-连续子数组的最大和">30. 连续子数组的最大和</h3>
+
+<p>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8 ( 从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+    int FindGreatestSumOfSubArray(vector&lt;int&gt;array)
+    {
+        int n = (int)array.size();
+        if (n == 0)
+            return 0;
+        int maxSum = INT_MIN;
+        int sum = 0;
+        for (int i = 0; i &lt; n; i++)
+        {
+            if (sum &lt;= 0)
+                sum = array[i];
+            else
+                sum += array[i];
+            if (sum &gt; maxSum)
+                maxSum = sum;
+        }
+        return maxSum;
+    }
+};
+</code></pre>
+
+<p><a id="整数中1出现的次数(从1到n整数中1出现的次数)"></a></p>
+
+<h3 id="31-整数中1出现的次数-从1到n整数中1出现的次数">31. 整数中1出现的次数(从1到n整数中1出现的次数)</h3>
+
+<p>求出<code>1~13</code>的整数中1出现的次数,并算出<code>100~1300</code>的整数中1出现的次数？为此他特别数了一下<code>1~13</code>中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数</p>
+
+<pre><code class="language-cpp">/*
+ 以534为例:
+ 个位中1出现的次数为53*1+1
+ 十位中1出现的次数为5*10+10
+ 百位中1出现的次数为0*100+100
+ 
+ 以514为例:
+ 个位中1出现的次数为53*1+1
+ 十位中1出现的次数为5*10+4+1 (5*10位0~500,4+1为501~514中十位为1)
+ 百位中1出现的次数为0*100+100
+ */
+
+class Solution {
+public:
+    int NumberOf1Between1AndN_Solution(int n)
+    {
+        if (n &lt; 1)
+            return 0;
+        int count = 0;
+        int base = 1;
+        int round = n;
+        while (round &gt; 0) {
+            int weight = round%10;
+            round /= 10;
+            count += base*round;
+            if (weight==1)
+                count += (n%base)+1;
+            else if(weight&gt;1)
+                count += base;
+            base *= 10;
+        }
+        return count;
+    }
+};
+</code></pre>
+
+<p><a id="把数组排成最小的数"></a></p>
+
+<h3 id="32-把数组排成最小的数">32. 把数组排成最小的数</h3>
+
+<p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    string PrintMinNumber(vector&lt;int&gt; numbers)
+    {
+        vector&lt;string&gt; strNum;
+        for (int i = 0; i &lt; numbers.size(); i++)
+        {
+            string s = to_string(numbers[i]);
+            strNum.push_back(s);
+        }
+        sort(strNum.begin(), strNum.end(), cmp);
+        string res = &quot;&quot;;
+        for (int i = 0;i &lt; strNum.size();i++)
+            res += strNum[i];
+        return res;;
+    }
+    
+    static bool cmp(const string s1,const string s2)
+    {
+        string num1 = s1 + s2;
+        string num2 = s2 + s1;
+        return num1 &lt; num2;
+    }
+};
+</code></pre>
+
+<p><a id="丑数"></a></p>
+
+<h3 id="33-丑数">33. 丑数</h3>
+
+<p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    int GetUglyNumber_Solution(int index) {
+        if (index &lt;= 0)
+            return 0;
+        int i = 1;
+        int two = 0;
+        int three = 0;
+        int five = 0;
+        vector&lt;int&gt; ugly(index,0);
+        ugly[0] = 1;
+        while (i &lt; index)
+        {
+            ugly[i] = min(min(ugly[two]*2, ugly[three]*3), ugly[five]*5);
+            while (ugly[two]*2 &lt;= ugly[i])
+                two++;
+            while (ugly[three]*3 &lt;= ugly[i])
+                three++;
+            while (ugly[five]*5 &lt;= ugly[i])
+                five++;
+            i++;
+        }
+        return ugly[index-1];
+    }
+};
+</code></pre>
+
+<p><a id="第一个只出现依次的字符"></a></p>
+
+<h3 id="34-第一个只出现依次的字符">34. 第一个只出现依次的字符</h3>
+
+<p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    int FirstNotRepeatingChar(string str) {
+        //由于字符(char)是一个长度为8的数据类型,因此总共有可能256种可能.
+        vector&lt;int&gt; num(256,0);
+        int n = (int)str.length();
+        if (n == 0)
+            return -1;
+        for (int i = 0; i &lt; n; i++)
+        {
+            int c = str[i];
+            num[c] ++;
+        }
+        int res = -1;
+        for (int i = 0 ; i &lt; n; i++)
+        {
+            if (num[str[i]] == 1)
+            {
+                res = i;
+                break;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="数组中的逆序对"></a></p>
+
+<h3 id="35-数组中的逆序对">35. 数组中的逆序对</h3>
+
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007</p>
+
+<p><strong>输入描述</strong>:题目保证输入的数组中没有的相同的数字</p>
+
+<p><strong>数据范围：</strong></p>
+
+<p>对于%50的数据,size&lt;=10^4</p>
+
+<p>对于%75的数据,size&lt;=10^5</p>
+
+<p>对于%100的数据,size&lt;=2*10^5</p>
+
+<pre><code class="language-cpp">/*
+ 归并排序
+ 1. 先按顺序拆成一个个
+ 2. 相邻的比较并计数,比较后排序成小-&gt;大(正序)
+ 3. 相邻的两两比较并排序,比较后排序(4个数正序)
+ 3. 相邻两组比较(每组4个)...
+ */
+#include &lt;vector&gt;
+using namespace std;
+class Solution {
+public:
+    int InversePairs(vector&lt;int&gt; data) {
+        int n = (int)data.size();
+        if (n==0)
+            return 0;
+        int count = 0;
+        MergeSort(data, 0, n-1, count);
+        return count % 1000000007;
+    }
+    void MergeSort(vector&lt;int&gt;&amp; data,int start,int end,int&amp; count)
+    {
+        if (start &lt; end)
+        {
+            int mid = (start + end)/2;
+            MergeSort(data, start, mid, count);
+            MergeSort(data, mid+1, end, count);
+            Merge(data, start, mid, mid+1, end, count);
+        }
+    }
+    void Merge(vector&lt;int&gt;&amp; data,int lbegin,int lend,int rbegin,int rend,int&amp; count)
+    {
+        int i = lend,j = rend;
+        int n = rend - lbegin + 1;
+        int k = n - 1 ;
+        vector&lt;int&gt; tmp(n,0);
+        while (i &gt;= lbegin &amp;&amp; j &gt;= rbegin)
+        {
+            if (data[i] &gt; data[j])
+            {
+                count += j - rbegin + 1;
+                count %= 1000000007;
+                tmp[k] = data[i];
+                k--;
+                i--;
+            }
+            else
+            {
+                tmp[k] = data[j];
+                k--;
+                j--;
+            }
+        }
+        while (i &gt;= lbegin)
+        {
+            tmp[k] = data[i];
+            k--;
+            i--;
+        }
+        while (j &gt;= rbegin)
+        {
+            tmp[k] = data[j];
+            k--;
+            j--;
+        }
+        for (i = lbegin,k = 0; i &lt;= rend; i++,k++)
+        {
+            data[i] = tmp[k];
+        }
+    }
+};
+</code></pre>
+
+<p><a id="两个链表的第一个公共结点"></a></p>
+
+<h3 id="36-两个链表的第一个公共结点">36. 两个链表的第一个公共结点</h3>
+
+<p>输入两个链表，找出它们的第一个公共结点</p>
+
+<pre><code class="language-cpp">/*
+ 因为每个节点只有一个next结点,所以如果有公共结点,那从改结点后都为相同结点
+ 呈现为Y形状
+ */
+
+#include &lt;iostream&gt;
+
+struct ListNode {
+    int val;
+    struct ListNode* next;
+    ListNode(int x) :
+    val(x),next(NULL) {}
+};
+
+class Solution {
+public:
+    ListNode* FindFirstCommonNode(ListNode* pHead1,ListNode* pHead2)
+    {
+        if (pHead1 == NULL || pHead2 == NULL) {
+            return NULL;
+        }
+        int len1 = getLength(pHead1);
+        int len2 = getLength(pHead2);
+        int dist = 0;
+        ListNode* pLong = NULL;
+        ListNode* pShort = NULL;
+        if (len1 &gt; len2) {
+            pLong = pHead1;
+            pShort = pHead2;
+            dist = len1 - len2;
+        }
+        else
+        {
+            pLong = pHead2;
+            pShort = pHead1;
+            dist = len2 - len1;
+        }
+        for (int i = 0; i&lt;dist;i++)
+        {
+            pLong = pLong-&gt;next;
+        }
+        while (pLong)
+        {
+            if (pLong-&gt;val==pShort-&gt;val) {
+                return pLong;
+            }
+            pLong = pLong-&gt;next;
+            pShort = pShort-&gt;next;
+        }
+        return NULL;
+    }
+    
+    int getLength(ListNode* head)
+    {
+        ListNode* p = head;
+        int count = 0;
+        while (p) {
+            count ++;
+            p = p-&gt;next;
+        }
+        return count;
+    }
+};
+</code></pre>
+
+<p><a id="数字在排序数组中出现的次数"></a></p>
+
+<h3 id="37-数字在排序数组中出现的次数">37. 数字在排序数组中出现的次数</h3>
+
+<p>统计一个数字在排序数组中出现的次数</p>
+
+<pre><code class="language-cpp">/*
+ 因为有序数组,想到二分查找
+ 修改二分查找
+ 因为可能有重复出现
+ 找到左边的第一个索引和右边的最后一个索引即可
+ */
+
+#include &lt;vector&gt;
+using namespace std;
+class Solution {
+public:
+    int GetNumberOfK(vector&lt;int&gt;data, int k)
+    {
+        int n = (int)data.size();
+        if (n == 0)
+            return 0;
+        int left = leftEqual(data, k);
+        int right = rightEqual(data, k);
+        if (left!=-1&amp;&amp;right!=-1)
+            return right-left+1;
+        return 0;
+    }
+    
+    int leftEqual(vector&lt;int&gt;&amp; data,int k)
+    {
+        int left = 0,right = (int)data.size()-1;
+        int mid;
+        while (left &lt;= right)
+        {
+            mid = (left+right) / 2;
+            if (data[mid]==k)
+            {
+                if (mid==left || (mid-1&gt;=left &amp;&amp; data[mid-1] != k))
+                    return mid;
+                right = mid - 1;
+            }
+            else if (data[mid]&gt;k)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+        return  -1;
+    }
+    
+    int rightEqual(vector&lt;int&gt;&amp; data,int k)
+    {
+        int left = 0,right=(int)data.size()-1;
+        int mid;
+        while (left &lt;= right) {
+            mid = (left+right)/2;
+            if (data[mid]==k) {
+                if (mid == right || (mid+1 &lt;= right &amp;&amp; data[mid+1] != k))
+                    return mid;
+                left = mid + 1;
+            }
+            else if(data[mid] &gt; k)
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+        return -1;
+    }
+};
+</code></pre>
+
+<p><a id="二叉树的深度"></a></p>
+
+<h3 id="38-二叉树的深度">38. 二叉树的深度</h3>
+
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度</p>
+
+<pre><code class="language-cpp">#include &lt;algorithm&gt;
+using namespace std;
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){
+            
+        }
+};
+
+class Solution {
+public:
+    int TreeDepth(TreeNode* pRoot)
+    {
+        if (pRoot == NULL)
+            return 0;
+        int left = 0;
+        int right = 0;
+        if (pRoot-&gt;left)
+            left = TreeDepth(pRoot-&gt;left);
+        if (pRoot-&gt;right)
+            right = TreeDepth(pRoot-&gt;right);
+        return 1 + max(left, right);
+    }
+};
+</code></pre>
+
+<p><a id="平衡二叉树"></a></p>
+
+<h3 id="39-平衡二叉树">39. 平衡二叉树</h3>
+
+<p>输入一棵二叉树，判断该二叉树是否是平衡二叉树</p>
+
+<pre><code class="language-cpp">
+/**
+ 平衡二叉树,左右字数都是平衡二叉树
+ 左右字数深度最多相差1
+*/
+
+#include &lt;iostream&gt;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){
+            
+        }
+};
+
+class Solution {
+public:
+    bool IsBalanced_Solution(TreeNode* pRoot){
+        if (pRoot == NULL)
+            return true;
+        int depth = 0;
+        return Balance(pRoot, depth);
+    }
+    
+    //后序遍历保证每个结点只被遍历一次
+    bool Balance(TreeNode* pRoot,int&amp; depth)
+    {
+        if (pRoot == NULL)
+            return true;
+        int left = 0,right = 0;
+        if (Balance(pRoot-&gt;left, left) &amp;&amp; Balance(pRoot-&gt;right, right))
+        {
+            int dif = left - right;
+            if (dif &gt;= -1 &amp;&amp; dif &lt;= 1)
+            {
+                depth = left &gt; right ? left + 1 : right + 1;
+                return true;
+            }
+        }
+        return false;
+    }
+};
+</code></pre>
+
+<p><a id="数组中只出现一次的数字"></a></p>
+
+<h3 id="40-数组中只出现一次的数字">40. 数组中只出现一次的数字</h3>
+
+<p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字</p>
+
+<pre><code class="language-cpp">/**
+ 两个相同的数异或为0,0异或5等于5
+ 先对数组中每个数进行异或,将得到的数的第一个为1的位作为分割位n,
+ 再对原数组分组,以分割位n的0,1分为两个子数组
+ 例:{2,4,3,6,3,2,5,5}
+ 1. 0^=2^=4^=3^=6^=3^=2^=5^=5 = 010
+ 2. 再以分割位的0或者1进行分组,得到{2,3,6,3,2},{4,5,5}
+ 因为4和6的倒数第二位不一样,所以以倒数第二位分组
+ 所以在对两个子数组分别从头到尾异或运算分别得到6和4
+ */
+
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    void FindNumsAppearOnce(vector&lt;int&gt;data,int* num1,int* num2)
+    {
+        int n = (int)data.size();
+        if(n==0||n&lt;2)
+            return;
+        int res = 0;
+        *num1 = 0;
+        *num2 = 0;
+        for (int i = 0;i &lt; n;i++)
+            res ^= data[i];
+        int k = firstBit(res);
+        for (int i = 0; i &lt; n; i ++)
+        {
+            if (IsEqualOne(data[i], k))
+            {
+                *num1 ^= data[i];
+            }
+            else
+            {
+                *num2 ^= data[i];
+            }
+        }
+    }
+    
+    int firstBit(int res)
+    {
+        int count = 0;
+        while ((res &amp; 0x1)==0 &amp;&amp; (count &lt; 8 * sizeof(int)))
+        {
+            res &gt;&gt;= 1;
+            count ++;
+        }
+        return count;
+    }
+    bool IsEqualOne(int num,int k)
+    {
+        return (num &gt;&gt; k) &amp; 0x1;
+    }
+};
+</code></pre>
+
+<p><a id="和为S的两个数字"></a></p>
+
+<h3 id="41-和为s的两个数字">41. 和为S的两个数字</h3>
+
+<p>输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。</p>
+
+<p>输出描述：对应每个测试案例，输出两个数，小的先输出</p>
+
+<pre><code class="language-cpp">/*
+ 两个指针从数组两侧遍历相加比较
+ */
+
+#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+    vector&lt;int&gt; FindNumbersWithSum(vector&lt;int&gt; array,int sum)
+    {
+        int n = (int)array.size();
+        if (n == 0 || n &lt; 2)
+            return vector&lt;int&gt;();
+        vector&lt;int&gt; res;
+        int small = 0,big = n - 1;
+        while (small &lt; big)
+        {
+            int curSum = array[small] + array[big];
+            if (curSum == sum)
+            {
+                res.push_back(array[small]);
+                res.push_back(array[big]);
+                break;
+            }
+            else if (curSum &gt; sum)
+                big --;
+            else
+                small ++;
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="和为S的连续正数序列"></a></p>
+
+<h3 id="42-和为s的连续正数序列">42. 和为S的连续正数序列</h3>
+
+<p>小明很喜欢数学,有一天他在做数学作业时,要求计算出9~16的和,他马上就写出了正确答案是100。但是他并不满足于此,他在想究竟有多少种连续的正数序列的和为100(至少包括两个数)。没多久,他就得到另一组连续正数和为100的序列:18,19,20,21,22。现在把问题交给你,你能不能也很快的找出所有和为S的连续正数序列? Good Luck!</p>
+
+<p>输出描述：输出所有和为S的连续正数序列。序列内按照从小至大的顺序，序列间按照开始数字从小到大的顺序</p>
+
+<pre><code class="language-cpp">/*
+ small=1,big=2开始.
+ 如果等于S.从small到big进行for加和.
+ 如果比S大,减去small并把small前进一位
+ 如果比S小,big前进一位并加big
+ */
+
+#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt; &gt; FindContinuousSequence(int sum) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        if (sum &lt;= 0)
+            return res;
+        int start = 1,end = 2;
+        int curSum = start + end;
+        vector&lt;int&gt; solution;
+        while (start &lt;= sum/2)
+        {
+            if (curSum == sum)
+            {
+                for (int i = start;i &lt;= end;i ++)
+                    solution.push_back(i);
+                res.push_back(solution);
+                solution.clear();
+                end++;
+                curSum += end;
+            }
+            else if (curSum &gt; sum)
+            {
+                curSum -= start;
+                start++;
+            }
+            else
+            {
+                end ++;
+                curSum += end;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="翻转单词顺序"></a></p>
+
+<h3 id="43-翻转单词顺序">43. 翻转单词顺序</h3>
+
+<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    string ReverseSentence(string str) {
+        int length = (int)str.length();
+        if (length == 0)
+            return str;
+        Reverse(str, 0, length-1);
+        int start = 0;
+        int end = 0;
+        for (int i = 0;i &lt; length;i++)
+        {
+            if (str[i] == ' ')
+            {
+                end = i - 1;
+                Reverse(str, start, end);
+                start = i + 1;
+            }
+            if (i == length -1)
+            {
+                end = i;
+                Reverse(str, start, end);
+            }
+        }
+        return str;
+    }
+    
+    void Reverse(string&amp; str,int start,int end)
+    {
+        while (start &lt; end)
+        {
+            char tmp = str[start];
+            str[start] = str[end];
+            str[end] = tmp;
+            start++;
+            end --;
+        }
+    }
+};
+</code></pre>
+
+<p><a id="左旋转字符串"></a></p>
+
+<h3 id="44-左旋转字符串">44. 左旋转字符串</h3>
+
+<p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
+
+<pre><code class="language-cpp">/*
+ 例:'helloworld' =&gt; 'worldhello'
+ 可以先翻转前一部分,再翻转后一部分,最后在翻转整个字符串即可
+ 1. 'ollehworld'
+ 2. 'ollehdlrow'
+ 3. 'worldhello'
+ */
+
+#include &lt;string&gt;
+using namespace std;
+class Solution {
+public:
+    string LeftRotateString(string str, int n)
+    {
+        int length = (int)str.length();
+        if (length == 0 || n &lt; 0)
+            return str;
+        n %= length;
+        
+        Reverse(str, 0, n-1);
+        Reverse(str, n, length-1);
+        Reverse(str, 0, length-1);
+        return str;
+    }
+    
+    void Reverse(string&amp; str,int start,int end)
+    {
+        while (start &lt; end)
+        {
+            char tmp = str[start];
+            str[start] = str[end];
+            str[end] = tmp;
+            start ++;
+            end --;
+        }
+    }
+};
+</code></pre>
+
+<p><a id="扑克牌的顺子"></a></p>
+
+<h3 id="45-扑克牌的顺子">45. 扑克牌的顺子</h3>
+
+<p>LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)&hellip;他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子&hellip;..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何。为了方便起见,你可以认为大小王是0</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+using namespace std;
+
+class Solution {
+public:
+    bool IsContinuous( vector&lt;int&gt; numbers )
+    {
+        int n = (int)numbers.size();
+        if (n == 0)
+            return false;
+        sort(numbers.begin(), numbers.end());
+        int zero = 0;
+        int dif = 0;
+        for (int i = 0; i &lt; n;i++)
+        {
+            if (numbers[i] == 0)
+                zero++;
+            else if (i+1 &lt; n)
+            {
+                //如果含有对子,则不是顺子
+                if (numbers[i]==numbers[i+1])
+                    return false;
+                dif += numbers[i+1] - numbers[i] - 1;
+            }
+        }
+        if (zero &gt;= dif)
+            return true;
+        return false;
+    }
+};
+</code></pre>
+
+<p><a id="圆圈中最后剩下的数字"></a></p>
+
+<h3 id="46-圆圈中最后剩下的数字">46. 圆圈中最后剩下的数字</h3>
+
+<p>0,1,&hellip;,n-1这n个数字排成一个圆圈,从数字0开始每次从这个圆圈里删除第m个数字.
+求出这个圆圈里剩下的最后一个数字</p>
+
+<pre><code class="language-cpp">#include &lt;list&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+class Solution {
+public:
+    int LastRemaining_Solution(int n, int m)
+    {
+        if (n &lt; 1 || m &lt; 1)
+            return -1;
+        list&lt;int&gt; numbers;
+        int i = 0;
+        for (;i &lt; n;i++)
+            numbers.push_back(i);
+        list&lt;int&gt;::iterator iter = numbers.begin();
+        while (numbers.size() &gt; 1)
+        {
+            for (i = 1; i &lt; m ;i++)
+            {
+                iter++;
+                if (iter == numbers.end())
+                    iter = numbers.begin();
+            }
+            
+            list&lt;int&gt;::iterator next = ++iter;
+            --iter;
+            numbers.erase(iter);
+            iter = next;
+            if (iter == numbers.end())
+                iter = numbers.begin();
+        }
+        return *iter;
+    }
+};
+</code></pre>
+
+<p><a id="求1+2+3+...+n"></a></p>
+
+<h3 id="47-求1-2-3-n">47. 求1+2+3+&hellip;+n</h3>
+
+<p>求1+2+3+&hellip;+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）</p>
+
+<pre><code class="language-cpp">/*
+ // 方法一: 利用构造函数
+class A
+{
+public:
+    A()
+    {
+        ++i;
+        sum += i;
+    }
+    static int getsum()
+    {
+        return sum;
+    }
+    static void reset()
+    {
+        i = 0;
+        sum = 0;
+    }
+    
+private:
+    static int i ;
+    static int sum;
+};
+
+int A::i = 0;
+int A::sum = 0;
+
+class Solution{
+public:
+    int Sum_Solution(int n)
+    {
+        A::reset();
+        A* a = new A[n];
+        int res = A::getsum();
+        delete[] a;
+        return res;
+    }
+};
+
+//方法二: 利用虚函数
+class A;
+A* array[2];
+
+class A
+{
+public:
+    virtual int sum(int n)
+    {
+        return 0;
+    }
+};
+class B: public A
+{
+public:
+    virtual int sum(int n)
+    {
+        return ::array[!!n]-&gt;sum(n-1)+n;
+    }
+};
+
+class Solution
+{
+public:
+    int Sum_Solution(int n)
+    {
+        A a;
+        B b;
+        ::array[0] = &amp;a;
+        ::array[1] = &amp;b;
+        
+        return ::array[1]-&gt;sum(n);
+    }
+};
+
+&lt;a id=&quot;不用加减乘除做加法&quot;&gt;&lt;/a&gt;
+
+### 48. 不用加减乘除做加法
+
+写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号
+
+```cpp
+/*
+ 对于数字除了四则运算只能用位运算了
+ 两个整数之和可分解两个数相加(不带进位)+进位,5+17=5+7+10=2+10(进位)+10=22
+ 二进制不带进位的相加可看做异或
+ 进位可用与运算的结果左移一位表示
+ */
+
+
+class Solution
+{
+public:
+    int Add(int num1,int num2)
+    {
+        int sum,carray;
+        do
+        {
+            sum = num1 ^ num2;
+            carray = (num1 &amp; num2) &lt;&lt; 1;
+            
+            num1 = sum;
+            num2 = carray;
+        }while (carray);
+        return sum;
+    }
+};
+</code></pre>
+
+<p><a id="把字符串转换成整数"></a></p>
+
+<h3 id="49-把字符串转换成整数">49. 把字符串转换成整数</h3>
+
+<p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0</p>
+
+<p>输入描述：输入一个字符串,包括数字字母符号,可以为空</p>
+
+<p>输出描述：如果是合法的数值表达则返回该数字，否则返回0</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt;
+using namespace std;
+class Solution
+{
+public:
+    int StrToInt(string str)
+    {
+        int length = (int)str.length();
+        if (length == 0)
+            return 0;
+        int res = 0;
+        bool flag = false;
+        for (int i = 0; i &lt; length; i++)
+        {
+            if (i == 0 &amp;&amp; str[i] == '-')
+                flag = true;
+            else if (i == 0 &amp;&amp; str[i]== '+')
+                continue;
+            else if (i == 9 &amp;&amp; str[i] == '+')
+                continue;
+            else if (str[i] &gt;= '0' &amp;&amp; str[i] &lt;= '9')
+            {
+                res = res*10+str[i]-'0';
+                if ((!flag &amp;&amp; res &gt; 0x7FFFFFFF)||(flag &amp;&amp; -res &lt; 0x80000000))
+                    return 0;
+            }
+            else
+                return 0;
+        }
+        if (flag)
+            res *= -1;
+        return res;
+    }
+    
+};
+</code></pre>
+
+<p><a id="数组中重复的数字"></a></p>
+
+<h3 id="50-数组中重复的数字">50. 数组中重复的数字</h3>
+
+<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。</p>
+
+<p>数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。</p>
+
+<p>例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2</p>
+
+<pre><code class="language-cpp">/**
+ 方法1: 先排序(快,堆),后遍历一遍  时间复杂度O(nlogn)  空间复杂度O(1)
+ 方法2: 用哈希表存,取 比较  时间O(n) 空间O(n)
+ 方法3: 遍历数组,假设第i个位置的数字为j,比较下标j的位置数字相同则直接返回,否则交换j到下标为j的位置.下标i之前的数为0到i-1.
+        如果第i个位置小于i则直接返回结果
+        时间O(n),空间O(1)
+ */
+
+class Solution {
+public:
+    // Parameters:
+    //        numbers:     an array of integers
+    //        length:      the length of array numbers
+    //        duplication: (Output) the duplicated number in the array number
+    //        Return value: true if the input is valid, and there are some duplications in the array number
+    //         otherwise false
+    bool duplicate(int numbers[], int length, int* duplication) {
+        if (numbers == NULL ||length == 0)
+            return false;
+        int i = 0;
+        for (i = 0;i &lt; length;i++)
+        {
+            if (numbers[i] &lt; 0 || numbers[i] &gt; length - 1)
+                return false;
+        }
+        while (i &lt; length)
+        {
+            if (numbers[i] == i)
+                i++;
+            else if (numbers[i] &gt; i)
+            {
+                if (numbers[i] == numbers[numbers[i]])
+                {
+                    *duplication = numbers[i];
+                    return true;
+                }
+                swap(numbers[i], numbers[numbers[i]]);
+            }
+            else
+            {
+                *duplication = numbers[i];
+                return true;
+            }
+        }
+        return false;
+    }
+};
+</code></pre>
+
+<p><a id="构建乘积数组"></a></p>
+
+<h3 id="51-构建乘积数组">51. 构建乘积数组</h3>
+
+<p>给定一个数组A[0,1,&hellip;,n-1],请构建一个数组B[0,1,&hellip;,n-1],其中B中的元素B[i]=A[0]<em>A[1]</em>&hellip;*A[i-1]<em>A[i+1]</em>&hellip;*A[n-1]。不能使用除法</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    vector&lt;int&gt; multiply(const vector&lt;int&gt;&amp; A)
+    {
+        int n = (int)A.size();
+        if (n == 0)
+            return vector&lt;int&gt; ();
+        vector&lt;int&gt; B(n,1);
+        //存储i之前的数的乘积
+        for (int i = 1;i &lt; n ; i++)
+            B[i] = B[i-1] * A[i-1];
+        
+        int tmp = 1;
+        for (int i = n-2;i &gt;=0; i--)
+        {
+            //tmp存储i之后的乘积
+            tmp *= A[i+1];
+            B[i] *= tmp;
+        }
+        return B;
+    }
+};
+</code></pre>
+
+<p><a id="正则表达式匹配"></a></p>
+
+<h3 id="52-正则表达式匹配">52. 正则表达式匹配</h3>
+
+<p>请实现一个函数用来匹配包括<code>'.'</code>和<code>'*'</code>的正则表达式。模式中的字符<code>'.'</code>表示任意一个字符，而<code>'*'</code>表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串<code>&quot;aaa&quot;</code>与模式<code>&quot;a.a&quot;</code>和<code>&quot;ab*ac*a&quot;</code>匹配，但是与<code>&quot;aa.a&quot;</code>和<code>&quot;ab*a&quot;</code>均不匹配</p>
+
+<pre><code class="language-cpp">/*
+ 如果模式串此时是'.',那么只需要模式串匹配串都往后移动一个位置
+ 如果现在这位的字符能匹配且模式串的下一位是'*',我们则需要分情况讨论
+ 1. 匹配串往后移动1位,模式串跳过'*'
+ 2. 匹配串往后移动1位,模式串不动
+ 3. 匹配串不动,模式串跳过'*'
+ */
+
+#include &lt;iostream&gt;
+
+class Solution {
+public:
+    bool match(char* str,char* pattern)
+    {
+        if (str == NULL || pattern == NULL)
+            return false;
+        if (*str == '\0' &amp;&amp; *pattern == '\0')
+            return true;
+        if (*str != '\0' &amp;&amp; *pattern == '\0')
+            return false;
+        
+        if (*(pattern+1)=='*')
+        {
+            if (*str == *pattern || (*str != '\0' &amp;&amp; *pattern == '.'))
+                return match(str+1, pattern+2)||match(str+1, pattern)||match(str, pattern+2);
+            return match(str, pattern+2);
+        }
+        if (*str==*pattern || (*pattern=='.' &amp;&amp; *str!='\0'))
+            return match(str+1, pattern+1);
+        return false;
+    }
+};
+</code></pre>
+
+<p><a id="表示数值的字符串"></a></p>
+
+<h3 id="53-表示数值的字符串">53. 表示数值的字符串</h3>
+
+<p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串&rdquo;+100&rdquo;,&ldquo;5e2&rdquo;,&ldquo;-123&rdquo;,&ldquo;3.1416&rdquo;和&rdquo;-1E-16&rdquo;都表示数值。 但是&rdquo;12e&rdquo;,&ldquo;1a3.14&rdquo;,&ldquo;1.2.3&rdquo;,&ldquo;+-5&rdquo;和&rdquo;12e+4.3&rdquo;都不是。</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+class Solution {
+public:
+    bool isNumeric(char* string)
+    {
+        if (string == NULL || *string == '\0')
+            return false;
+        if (*string == '+' || *string == '-')
+            string ++;
+        if (*string == '\0')
+            return false;
+        scanDigit(string);
+        if (*string != '\0')
+        {
+            if (*string == '.')
+            {
+                string++;
+                scanDigit(string);
+                if (*string == 'e' || *string == 'E')
+                    return isExponent(string);
+            }
+            else if (*string == 'e' || *string == 'E')
+                return isExponent(string);
+            else
+                return false;
+        }
+        return *string == '\0' ? true : false;
+    }
+    
+    void scanDigit(char*&amp; str)
+    {
+        while (*str != '\0' &amp;&amp; *str &gt;= '0' &amp;&amp; *str &lt;= '9')
+            str++;
+    }
+    
+    bool isExponent(char*&amp; str)
+    {
+        if (*str != 'e' &amp;&amp; *str != 'E')
+            return false;
+        str++;
+        if (*str=='+' || *str=='-')
+            str++;
+        if (*str == '\0')
+            return false;
+        scanDigit(str);
+        return *str == '\0' ? true : false;
+    }
+};
+</code></pre>
+
+<p><a id="字符流中第一个不重复的字符"></a></p>
+
+<h3 id="54-字符流中第一个不重复的字符">54. 字符流中第一个不重复的字符</h3>
+
+<p>请实现一个函数用来找出字符流中第一个只出现一次的字符。例如，当从字符流中只读出前两个字符&rdquo;go&rdquo;时，第一个只出现一次的字符是&rdquo;g&rdquo;。当从该字符流中读出前六个字符“google&rdquo;时，第一个只出现一次的字符是&rdquo;l&rdquo;</p>
+
+<p>输入描述：如果当前字符流没有存在出现一次的字符，返回#字符</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class Solution1
+{
+public:
+    string str;
+    //Insert one char from stringstream
+    void Insert(char ch)
+    {
+        str += string(1,ch);
+    }
+    //return the first appearence once char in current stringstream
+    char FirstAppearingOnce()
+    {
+        vector&lt;int&gt; hash(256,0); //char长度为8,所以256中可能
+        char res = '#';
+        int n = (int)str.length();
+        for (int i = 0;i &lt; n;i++)
+        {
+            if (hash[str[i]] == 0)
+                hash[str[i]] = 1;
+            else
+                hash[str[i]] = -1;
+        }
+        for (int i = 0; i &lt; n;i++)
+        {
+            if (hash[str[i]]==1)
+            {
+                res = str[i];
+                break;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="链表中环的入口结点"></a></p>
+
+<h3 id="55-链表中环的入口结点">55. 链表中环的入口结点</h3>
+
+<p>一个链表中包含环，请找出该链表的环的入口结点
+<div align="center">
+<img src=https://raw.githubusercontent.com/LongPF/AtOffer/master/执行文件/55__链表中环的入口结点/55__链表中环的入口结点/有环的链表.png width="250" height = 125>
+</div></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+/*
+ 解法1 :
+ 快慢指针,快指针每次走2个节点,慢指针每次走1个节点
+ 如图 相遇时候 fast走 a+b+c+b
+ slow 走 a+b
+ 那么 2*(a+b) = a+b+c+b ==&gt; a = c
+ 然后让fast指向head,fast和slow都每次走1个节点
+ 相遇点就是环的起始点
+ */
+
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x):
+        val(x),next(NULL){}
+};
+
+class Solution {
+public:
+    ListNode* EntryNodeOfLoop(ListNode* pHead)
+    {
+        if (pHead == NULL)
+            return NULL;
+        ListNode* pSlow = pHead-&gt;next;
+        ListNode* pFast = pHead-&gt;next;
+        if (pFast)
+            pFast = pFast-&gt;next;
+        else
+            return NULL;
+        while (pFast-&gt;next &amp;&amp; pSlow != pFast)
+        {
+            pSlow = pSlow-&gt;next;
+            pFast = pFast-&gt;next;
+            if (pFast)
+                pFast = pFast-&gt;next;
+            else
+                break;
+        }
+        if (pSlow != pFast)
+            return NULL;
+        pFast = pHead;
+        while (pFast != pSlow)
+        {
+            pFast = pFast-&gt;next;
+            pSlow = pSlow-&gt;next;
+        }
+        return pFast;
+    }
+};
+
+/*
+ 解法 2
+ 如果使用set的话思路就简单许多
+ 因为set不能插入相同的数,所以判断插入成功与否即可
+ */
+class Solution
+{
+public:
+    ListNode* EntryNodeOfLoop(ListNode* pHead)
+    {
+        if (pHead == NULL)
+            return NULL;
+        set&lt;int&gt; s;
+        ListNode* n = pHead;
+        while (n)
+        {
+            pair&lt;set&lt;int&gt;::iterator, bool&gt; p = s.insert(n-&gt;val);
+            if (p.second == false)
+                return n;
+            n = n-&gt;next;
+        }
+        return NULL;
+    }
+};
+
+
+</code></pre>
+
+<p><a id="删除链表中重复的结点"></a></p>
+
+<h3 id="56-删除链表中重复的结点">56. 删除链表中重复的结点</h3>
+
+<p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。</p>
+
+<p>例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    struct ListNode* next;
+    ListNode(int x):
+        val(x),next(NULL){}
+};
+
+class Solution
+{
+public:
+    ListNode* deleteDuplication(ListNode*&amp; pHead)
+    {
+        if (pHead == NULL)
+            return NULL;
+        ListNode* pre = NULL;
+        ListNode* p = pHead;
+        while (p != NULL &amp;&amp; p-&gt;next != NULL)
+        {
+            if (p-&gt;val == p-&gt;next-&gt;val)
+            {
+                int key = p-&gt;val;
+                while (p != NULL &amp;&amp; p-&gt;val == key)
+                {
+                    ListNode* pToDelete = p;
+                    p = p-&gt;next;
+                    delete pToDelete;
+                    pToDelete = NULL;
+                }
+                
+                if (pre == NULL)
+                    pHead = p;
+                else
+                    pre-&gt;next = p;
+            }
+            else
+            {
+                pre = p;
+                p = p-&gt;next;
+            }
+        }
+        return pHead;
+    }
+};
+</code></pre>
+
+<p><a id="二叉树的下一个结点"></a></p>
+
+<h3 id="57-二叉树的下一个结点">57. 二叉树的下一个结点</h3>
+
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针</p>
+
+<div align="center">
+<img src="https://github.com/LongPF/AtOffer/blob/master/执行文件/57__二叉树的下一个结点/57__二叉树的下一个结点/二叉树.png?raw=true" width="230" height="200">
+</div>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    TreeLinkNode* GetNext(TreeLinkNode* pNode)
+    {
+        if (pNode == NULL)
+            return NULL;
+        if (pNode-&gt;right)
+        {
+            pNode = pNode-&gt;right;
+            while (pNode-&gt;left)
+            {
+                pNode = pNode-&gt;left;
+            }
+            return pNode;
+        }
+        TreeLinkNode* pParent = pNode-&gt;next;
+        while (pParent != NULL &amp;&amp; pParent-&gt;right == pNode)
+        {
+            pNode = pParent;
+            pParent = pParent-&gt;next;
+        }
+        return pParent;
+    }
+};
+</code></pre>
+
+<p><a id="对称的二叉树"></a></p>
+
+<h3 id="58-对称的二叉树">58. 对称的二叉树</h3>
+
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){}
+};
+
+
+/*
+ 从根结点开始遍历
+ 如果左右有一个为NULL,那么可定不是对称二叉树
+ 如果左右子结点都不为空,但不相等,那么不是堆成二叉树
+ 如果左右子结点都不为空,但不相等,那么
+ 遍历左子树,遍历顺序为: 当前结点,左子树,右子树
+ 遍历右子树,遍历顺序为: 当前结点,右子树,左子树
+ 如果遍历左子树的序列和遍历右子树的序列一样,那么该二叉树为对称的二叉树
+ */
+
+class Solution {
+public:
+    bool isSymmetrical(TreeNode* pRoot)
+    {
+        if (pRoot == NULL)
+            return true;
+        return isSym(pRoot, pRoot);
+    }
+    bool isSym(TreeNode* pLeft,TreeNode* pRight)
+    {
+        if (pLeft == NULL &amp;&amp; pRight == NULL)
+            return true;
+        if (pLeft == NULL || pRight == NULL)
+            return false;
+        if (pLeft-&gt;val != pRight-&gt;val)
+            return false;
+        return isSym(pLeft-&gt;left, pRight-&gt;right) &amp;&amp; isSym(pLeft-&gt;right, pRight-&gt;left);
+    }
+};
+</code></pre>
+
+<p><a id="把二叉树打印成多行"></a></p>
+
+<h3 id="59-把二叉树打印成多行">59. 把二叉树打印成多行</h3>
+
+<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){}
+};
+
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; Print(TreeNode* pRoot){
+        vector&lt;vector&lt;int&gt;&gt; res;
+        if (pRoot == NULL)
+            return res;
+        queue&lt;TreeNode*&gt;q;
+        q.push(pRoot);
+        int toBePrint = 1; //记录当前层还有几个未被打印
+        int nextLevel = 0; //记录下一层有多少个需要被打印
+        vector&lt;int&gt; numbers;
+        while (!q.empty())
+        {
+            TreeNode* pNode = q.front();
+            numbers.push_back(pNode-&gt;val);
+            if (pNode-&gt;left)
+            {
+                q.push(pNode-&gt;left);
+                ++nextLevel;
+            }
+            if (pNode-&gt;right)
+            {
+                q.push(pNode-&gt;right);
+                ++nextLevel;
+            }
+            q.pop();
+            toBePrint--;
+            
+            //当前层打印完成
+            if (toBePrint == 0)
+            {
+                toBePrint = nextLevel;
+                nextLevel = 0;
+                res.push_back(numbers);
+                numbers.clear();
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="按之字形顺序打印二叉树"></a></p>
+
+<h3 id="60-按之字形顺序打印二叉树">60.按之字形顺序打印二叉树</h3>
+
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){};
+};
+
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; Print(TreeNode* pRoot)
+    {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        if (pRoot == NULL)
+            return res;
+        vector&lt;int&gt; numbers;
+        stack&lt;TreeNode*&gt; odd,even; //奇偶栈
+        odd.push(pRoot);
+        while (!odd.empty() || !even.empty())
+        {
+            while (!odd.empty())
+            {
+                TreeNode* pNode = odd.top();
+                numbers.push_back(pNode-&gt;val);
+                //为下一层的偶数栈存数据
+                if (pNode-&gt;left)
+                    even.push(pNode-&gt;left);
+                if (pNode-&gt;right)
+                    even.push(pNode-&gt;right);
+                odd.pop();
+            }
+            if (numbers.size() &gt; 0)
+            {
+                res.push_back(numbers);
+                numbers.clear();
+            }
+            while (!even.empty())
+            {
+                TreeNode* pNode = even.top();
+                numbers.push_back(pNode-&gt;val);
+                //为下一层的奇数栈存数据
+                if (pNode-&gt;right)
+                    odd.push(pNode-&gt;right);
+                if (pNode-&gt;left)
+                    odd.push(pNode-&gt;left);
+                even.pop();
+            }
+            if (numbers.size()&gt;0)
+            {
+                res.push_back(numbers);
+                numbers.clear();
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="序列化二叉树"></a></p>
+
+<h3 id="61-序列化二叉树">61. 序列化二叉树</h3>
+
+<p>请实现两个函数，分别用来序列化和反序列化二叉树</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){};
+};
+
+class Solution {
+public:
+    char* Serialize(TreeNode* root){
+        if (root == NULL)
+            return &quot;$&quot;;
+        string str = to_string(root-&gt;val);
+        str += &quot;,&quot;;
+        str += Serialize(root-&gt;left);
+        str += Serialize(root-&gt;right);
+        char* s = new char[str.length()+1];
+        strcpy(s, str.c_str());
+        str += s;
+        return s;
+    }
+    TreeNode* Deserialize(char*&amp; str){
+        if (str == NULL)
+            return NULL;
+        if (*str == '$')
+        {
+            str++;
+            return NULL;
+        }
+        int val = 0;
+        while (*str != ',')
+        {
+            val = val * 10 + (*str-'0');
+            str ++;
+        }
+        str++;
+        TreeNode* pRoot = new TreeNode(val);
+        pRoot-&gt;left = Deserialize(str);
+        pRoot-&gt;right = Deserialize(str);
+        return pRoot;
+    }
+};
+</code></pre>
+
+<p><a id="二叉搜索树的第k个结点"></a></p>
+
+<h3 id="62-二叉搜索树的第k个结点">62. 二叉搜索树的第k个结点</h3>
+
+<p>给定一颗二叉搜索树，请找出其中的第k大的结点。例如， 5 / \ 3 7 /\ /\ 2 4 6 8 中，按结点数值大小顺序第三个结点的值为4</p>
+
+<pre><code class="language-cpp">/*
+ 二叉搜索树的特点是左子结点小于根结点,根结点小于右子结点
+ 所以进行一次中序查找即可
+ */
+
+#include &lt;iostream&gt;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){}
+};
+
+class Solution {
+public:
+    TreeNode* KthNode(TreeNode* pRoot,int k)
+    {
+        if (pRoot == NULL || k &lt;= 0)
+        {
+            return NULL;
+        }
+        return KthNodeCore(pRoot, k);
+    }
+    TreeNode* KthNodeCore(TreeNode* pRoot,int&amp; k)
+    {
+        if (pRoot == NULL || k &lt;=0)
+            return NULL;
+        TreeNode* res = NULL;
+        if (pRoot-&gt;left != NULL)
+            res = KthNodeCore(pRoot-&gt;left, k);
+        if (res == NULL)
+        {
+            if (k == 1)
+            {
+                res = pRoot;
+                return res;
+            }
+            k --;
+        }
+        //res!=NULL时候则找到了结果
+        if (res == NULL &amp;&amp; pRoot-&gt;right != NULL)
+            res = KthNodeCore(pRoot-&gt;right, k);
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="数据流中的中位数"></a></p>
+
+<h3 id="63-数据流中的中位数">63. 数据流中的中位数</h3>
+
+<p>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值</p>
+
+<pre><code class="language-cpp">/*
+ 头文件 #include &lt;algorithm&gt;
+       #include &lt;functional&gt;
+ make_heap()建立堆,默认建立的是最大堆,建最小堆的话第三个参数传greater&lt;int&gt;()
+ push_heap()在堆中添加数据
+ pop_heap()在堆中删除数据
+ sort_heap()堆排序
+ */
+
+/*
+ 可以使用一个大根堆,一个小根堆配合
+ 为了实现平均分配,当前总数是偶数的时候插入小跟堆,奇数的时候插入大根堆.
+ 那么中位数就是最小堆的堆顶(插入前是偶数,插入后为奇数),或是两堆顶的平均值.
+ */
+
+#include &lt;vector&gt;
+#include &lt;algorithm&gt; // sort
+#include &lt;functional&gt; //greater
+using namespace std;
+
+class Solution {
+public:
+    void Insert(int num)
+    {
+        //偶
+        if (((min.size()+max.size()) &amp; 0x1)==0)
+        {
+            //为了保证新进入的流元素在插入最小堆的时候为最大堆的最大值,所以先插入最大堆并筛选下
+            if (max.size() &gt; 0 &amp;&amp; max[0] &gt; num)
+            {
+                max.push_back(num);
+                push_heap(max.begin(), max.end(), less&lt;int&gt;());
+                num = max[0];
+                pop_heap(max.begin(), max.end(), less&lt;int&gt;());
+                max.pop_back();
+            }
+            //插入到最小堆
+            min.push_back(num);
+            push_heap(min.begin(), min.end(), greater&lt;int&gt;());
+        }
+        //奇
+        else
+        {
+            if (min.size() &gt; 0 &amp;&amp; min[0] &lt; num)
+            {
+                min.push_back(num);
+                push_heap(min.begin(), min.end(), greater&lt;int&gt;());
+                num = min[0];
+                pop_heap(min.begin(), min.end(), greater&lt;int&gt;());
+                min.pop_back();
+            }
+            max.push_back(num);
+            push_heap(max.begin(), max.end(), less&lt;int&gt;());
+        }
+    }
+    
+    double GetMedian()
+    {
+        if (((min.size()+max.size()) &amp; 0x1)==1)
+        {
+            return min[0];
+        }
+        else
+            return (max[0]+min[0]) / 2.0;
+    }
+    
+private:
+    vector&lt;int&gt; min; //小根堆
+    vector&lt;int&gt; max; //大根堆
+};
+</code></pre>
+
+<p><a id="滑动窗口的最大值"></a></p>
+
+<h3 id="64-滑动窗口的最大值">64. 滑动窗口的最大值</h3>
+
+<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。
+例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}，{2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}</p>
+
+<pre><code class="language-cpp">/*
+ 这里用一个双向队列的方法
+ 最大值在队首,并保持从大到小的排列,每次新加入的从队尾到队首比较
+ 如果比队中已有的数大,则移除队
+ 每次移动要判断最大值(队首)元素是不是在有效范围内
+ */
+
+#include &lt;vector&gt;
+#include &lt;deque&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    vector&lt;int&gt; maxInWindows(const vector&lt;int&gt;&amp; num,unsigned int size)
+    {
+        vector&lt;int&gt; res;
+        int n = (int)num.size();
+        if (n == 0 || size == 0 || n &lt; size)
+            return res;
+        int i;
+        deque&lt;int&gt; index;
+        for (i = 0; i &lt; size;i ++)
+        {
+            //从队尾到队首比较大小
+            while (!index.empty() &amp;&amp; num[index.back()] &lt;= num[i])
+            {
+                //如果新数比对尾数大 移除对尾元素
+                index.pop_back();
+            }
+            //添加新数
+            index.push_back(i);
+        }
+        res.push_back(num[index.front()]);
+        for (i = size; i &lt; n; i++)
+        {
+            //从队尾到队首比较大小
+            while (!index.empty() &amp;&amp; num[index.back()] &lt;= num[i])
+                index.pop_back();
+            //判断队首元素是否在有效范围
+            if (!index.empty() &amp;&amp; i - index.front() &gt;= size)
+                index.pop_front();
+            
+            index.push_back(i);
+            res.push_back(num[index.front()]);
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="矩阵中的路径"></a></p>
+
+<h3 id="65-矩阵中的路径">65. 矩阵中的路径</h3>
+
+<p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。</p>
+
+<p>例如</p>
+
+<pre><code>  a b c e 
+  s f c s 
+  a d e e
+</code></pre>
+
+<p>矩阵中包含一条字符串&rdquo;bcced&rdquo;的路径，但是矩阵中不包含&rdquo;abcb&rdquo;路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子</p>
+
+<pre><code class="language-cpp">/*
+ 这是一个回溯法的典型题.
+ 从一个任何一个点开始,下一个点可能位于该点的上下左右4个方位
+ 需要一个与输入矩阵同样大小的矩阵用来保存某个点是否被访问过
+ 由于回溯法的递归特性,路径可以被看成一个栈.当定位了前n个位置后,找不到第n+1个位置,
+ 则应该退回到第n-1个位置.
+ */
+
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    bool hasPath(char* matrix,int rows,int cols,char* str)
+    {
+        if (matrix == NULL || rows &lt; 1 || cols &lt; 1 || str == NULL)
+            return false;
+        vector&lt;bool&gt; visited(rows*cols,0);
+        int pathLength = 0;
+        for (int row=0;row &lt; rows;row++)
+        {
+            for(int col=0;col&lt;cols;col++)
+            {
+                if (hasPathCore(matrix, rows, cols, row, col, str, pathLength, visited))
+                    return true;
+            }
+        }
+        return false;
+    }
+    
+    bool hasPathCore(char* matrix,int rows,int cols,int row,int col,char* str,int&amp; pathLenght,vector&lt;bool&gt;&amp; visited)
+    {
+        //判断是否遍历寻找完毕
+        if (str[pathLenght] == '\0')
+            return true;
+        bool res = false;
+        if (row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; col &gt;=0 &amp;&amp; col &lt; cols &amp;&amp;
+            matrix[row*cols+col]==str[pathLenght] &amp;&amp; !visited[row*cols+col])
+        {
+            visited[row*cols+col] = true;
+            ++pathLenght;
+            //上下左右 寻找下一个位置
+            res = hasPathCore(matrix, rows, cols, row, col-1, str, pathLenght, visited) ||
+                  hasPathCore(matrix, rows, cols, row, col+1, str, pathLenght, visited) ||
+                  hasPathCore(matrix, rows, cols, row-1, col, str, pathLenght, visited) ||
+                  hasPathCore(matrix, rows, cols, row+1, col, str, pathLenght, visited) ;
+            //如果找不到下一个位置,则退回
+            if (!res)
+            {
+                visited[row*cols+col] = false;
+                pathLenght--;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<p><a id="机器人的运动范围"></a></p>
+
+<h3 id="66-机器人的运动范围">66. 机器人的运动范围</h3>
+
+<p>地上有一个m行和n列的方格。一个机器人从坐标0,0的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于k的格子。 例如，当k为18时，机器人能够进入方格（35,37），因为3+5+3+7 = 18。但是，它不能进入方格（35,38），因为3+5+3+8 = 19。请问该机器人能够达到多少个格子</p>
+
+<div align=center>
+<img src="https://github.com/LongPF/AtOffer/blob/master/执行文件/66__机器人的运动范围/66__机器人的运动范围/K=4-RES=15.png?raw=true" width=180 height=180>
+</div>
+
+<pre><code class="language-cpp">/*
+ K=4,格子数为15,如图黄色区域
+ 回溯法,机器人从(0,0)开始移动,当移动到下一个位置时候
+ 通过格子数位和判断是否可以进入
+ 如果可以进入则判断其上下左右4个相邻位置是否可以进入
+ */
+
+#include &lt;vector&gt;
+
+using namespace std;
+
+class Solution {
+public:
+    
+    int movingCount(int threshold,int rows,int cols)
+    {
+        if (threshold &lt;0 || rows &lt; 1 || cols &lt; 1)
+            return 0;
+        vector&lt;bool&gt; visited(rows*cols,0);
+        int res= movingCore(threshold, rows, cols, 0, 0, visited);
+        return res;
+    }
+    
+    int movingCore(int threshold,int rows,int cols,int row,int col,vector&lt;bool&gt;&amp; visited)
+    {
+        int res = 0;
+        if (canMove(threshold, rows, cols, row, col) &amp;&amp; !visited[row*cols+col])
+        {
+            visited[row*cols+col] = true;
+            res = 1 + movingCore(threshold, rows, cols, row, col-1, visited) +
+                    movingCore(threshold, rows, cols, row, col+1, visited) +
+                    movingCore(threshold, rows, cols, row-1, col, visited) +
+                    movingCore(threshold, rows, cols, row+1, col, visited);
+        }
+        
+        return res;
+    }
+    
+    bool canMove(int threshold,int rows,int cols,int row,int col)
+    {
+        int sum = 0;
+        if (row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; col &gt;= 0 &amp;&amp; col &lt; cols)
+        {
+            while (row)
+            {
+                sum += row % 10;
+                row /= 10;
+            }
+            while (col)
+            {
+                sum += col % 10;
+                col /= 10;
+            }
+            if (sum &lt;= threshold)
+                return true;
+            return false;
+        }
+        return false;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/python-note/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/python-note/">Python笔记</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

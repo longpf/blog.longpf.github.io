@@ -1,0 +1,4607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>Python笔记 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Python笔记</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Jul 2017, 20:03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/python">python</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<h1 id="python学习笔记">Python学习笔记</h1>
+
+<p>这里是我学习<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">廖雪峰python</a>做的笔记.比较长,主要方便回看</p>
+
+<h2 id="关键目录">关键目录</h2>
+
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#sublime开发python">sublime开发python</a></li>
+<li><a href="#py基础">py基础</a></li>
+<li><a href="#list和tuple">list和tuple</a></li>
+<li><a href="#dict和set">dict和set</a></li>
+<li><a href="#函数">函数</a></li>
+<li><a href="#函数的参数">函数的参数</a></li>
+<li><a href="#递归函数">递归函数</a></li>
+<li><a href="#高级特性">高级特性</a></li>
+<li><a href="#切片">切片,迭代,列表生成,生成器</a></li>
+<li><a href="#函数式编程">函数式编程</a></li>
+<li><a href="#map/reduce">map/reduce</a></li>
+<li><a href="#filter">filter,sort</a></li>
+<li><a href="#返回函数">返回函数,闭包,装饰器,匿名函数</a></li>
+<li><a href="#偏函数">偏函数</a></li>
+<li><a href="#模块">模块</a></li>
+<li><a href="#面向对象编程">面向对象编程</a></li>
+<li><a href="#获取对象信息">获取对象信息</a></li>
+<li><a href="#实例属性和类属性">实例属性和类属性</a></li>
+<li><a href="#面向对象高级编程">面向对象高级编程</a></li>
+<li><a href="#slots">slots限制class绑定的属性</a></li>
+<li><a href="#@property">@property</a></li>
+<li><a href="#多重继承">多重继承</a></li>
+<li><a href="#定制类">定制类</a></li>
+<li><a href="#使用元类">使用元类</a></li>
+<li><a href="#错误调试和测试">错误,调试和测试</a></li>
+<li><a href="#IO编程">IO编程</a></li>
+<li><a href="#进程和线程">进程和线程</a></li>
+<li><a href="#正则表达式">正则表达式</a></li>
+<li><a href="#常用内建模块">常用内建模块</a></li>
+<li><a href="#常用第三方模块">常用第三方模块</a></li>
+<li><a href="#virtualenv">virtualenv</a></li>
+<li><a href="#图形界面">图形界面</a></li>
+<li><a href="#网络编程">网络编程</a></li>
+<li><a href="#电子邮件">电子邮件</a></li>
+</ul>
+
+<h2 id="正文">正文</h2>
+
+<h3 id="第一个py程序">第一个py程序</h3>
+
+<h4 id="安装">安装</h4>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316090478912dab2a3a9e8f4ed49d28854b292f85bb000">安装</a></p>
+
+<p><span id="sublime开发python"></span></p>
+
+<h4 id="sublime开发python">sublime开发python</h4>
+
+<h4 id="python3-build">python3 build</h4>
+
+<ul>
+<li>1 <code>type -a python3</code>查看pythons路径</li>
+<li>2 Sublime-&gt;Tools-&gt;build system-&gt;new build system</li>
+
+<li><p>3 修改为</p>
+
+<pre><code>{
+    &quot;cmd&quot;: [&quot;python3路径&quot;,&quot;-u&quot;,&quot;$file&quot;],
+}
+</code></pre></li>
+
+<li><p>4 保存为Python3.sublime-build</p></li>
+</ul>
+
+<h5 id="macos用terminal打开sublime">macOS用Terminal打开sublime</h5>
+
+<pre><code>ln -s &quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl&quot; /usr/local/bin/subl
+subl .
+</code></pre>
+
+<h5 id="sublime-text-3-unicodeencodeerror-ascii-codec">sublime text 3, UnicodeEncodeError: &lsquo;ascii&rsquo; codec</h5>
+
+<p>Python3.sublime-build文件添加<code>&quot;env&quot;:{&quot;PYTHONIOENCODING&quot;:&quot;utf8&quot;}</code></p>
+
+<h4 id="使用文本编辑器">使用文本编辑器</h4>
+
+<ul>
+<li><p>1 <code>python3</code>进入交互模式,<code>exit()</code>退出</p></li>
+
+<li><p>2 能不能像.exe文件那样直接运行.py文件呢？方法是在.py文件的第一行加上一个特殊的注释</p>
+
+<pre><code class="language-py">#!/usr/bin/env python3
+    
+print('hello, world')
+</code></pre>
+
+<p>然后，通过命令给hello.py以执行权限：</p>
+
+<p><code>$ chmod a+x hello.py</code></p>
+
+<p>之后      <code>./hello.py</code></p></li>
+
+<li><p>3 直接运行.py文件是一次执行很多行命令,交互模式只能一次一行命令</p></li>
+</ul>
+
+<h4 id="输入和输出">输入和输出</h4>
+
+<ul>
+<li>1 name = input()</li>
+<li>2 name = input(&lsquo;please enter your name&rsquo;)</li>
+</ul>
+
+<p><span id="py基础"></span></p>
+
+<h3 id="py基础">py基础</h3>
+
+<p>py使用缩进来组织代码块</p>
+
+<h4 id="数据类型和变量">数据类型和变量</h4>
+
+<ul>
+<li><p>1</p>
+
+<p>py允许用<code>r''</code>表示<code>''</code>内部的字符串默认不转义</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; print('\\\t\\')
+\       \
+&gt;&gt;&gt; print(r'\\\t\\')
+\\\t\\
+</code></pre>
+
+<p>用<code>/n</code>写在一行里不好阅读,为了简化,py允许用<code>'''...'''</code>的格式表示多行内容</p>
+
+<p><code>print('''line</code> + 回车 <code>line2</code> + 回车 + <code>line3''')</code> + 回车</p></li>
+
+<li><p>2 not非运算</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; not True
+False
+</code></pre>
+
+<pre><code>if age &gt;= 18:
+    print('adult')
+else:
+    print('teenager')
+</code></pre></li>
+
+<li><p>3 空值 none</p></li>
+
+<li><p>4 常量 py根本没有任何机制保证PI不会被改变，所以，用全部大写的变量名表示常量只是一个习惯上的用法，如果你一定要改变变量常量的值，也没人能拦住你</p></li>
+
+<li><p>5 除法</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; 9 / 3
+3.0 (浮点)
+    
+&gt;&gt;&gt; 10 // 3
+3   (整数)
+</code></pre></li>
+</ul>
+
+<h4 id="字符串和字符编码">字符串和字符编码</h4>
+
+<ul>
+<li><p>1 Python 3版本中，字符串是以Unicode编码的，也就是说，Python的字符串支持多语言</p></li>
+
+<li><p>2 对于单个字符的编码，Python提供了ord()函数获取字符的整数表示，chr()函数把编码  转换为对应的字符：</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; ord('A')
+65
+&gt;&gt;&gt; ord('中')
+20013
+&gt;&gt;&gt; chr(66)
+'B'
+&gt;&gt;&gt; chr(25991)
+'文'
+    
+&gt;&gt;&gt; a = 'abc'
+&gt;&gt;&gt; a.replace('a', 'A')
+</code></pre>
+
+<p>还可以写成十六进制,完全等价</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; '\u4e2d\u6587'
+'中文'
+</code></pre></li>
+
+<li><p>3 纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; 'ABC'.encode('ascii')
+b'ABC'
+&gt;&gt;&gt; '中文'.encode('utf-8')
+b'\xe4\xb8\xad\xe6\x96\x87'
+&gt;&gt;&gt; '中文'.encode('ascii')
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+UnicodeEncodeError: 'ascii' codec can't encode characters in    position 0-1: ordinal not in range(128)
+</code></pre>
+
+<p>反过来</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; b'ABC'.decode('ascii')
+'ABC'
+&gt;&gt;&gt; b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+'中文'    
+</code></pre></li>
+
+<li><p>4 字符数</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; len('ABC')
+3
+</code></pre></li>
+
+<li><p>5 字节数</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; len('中文'.encode('utf-8'))
+6
+</code></pre></li>
+
+<li><p>6 由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：</p>
+
+<pre><code class="language-py">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+</code></pre>
+
+<p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；</p>
+
+<p>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。</p></li>
+
+<li><p>7 格式化</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; 'hi, %s,you have $%d.' % ('xiaoming',10000) 
+'hi, xiaoming,you have $10000.'
+    
+&gt;&gt;&gt; 'growth rate: %d %%' % 7  (%转义)
+'growth rate: 7 %'
+    
+'name:{},title:{},salary:{},manager:{}'.format(self.name,self.title,self.salary,'' if self.manager==None else self.manager)
+</code></pre>
+
+<p>%s,%d,%f,%x(十六进制整数)</p></li>
+</ul>
+
+<p><span id="list和tuple"></span></p>
+
+<h4 id="list和tuple">list和tuple</h4>
+
+<h5 id="list">list</h5>
+
+<p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。</p>
+
+<pre><code class="language-py">classmates = ['Michael', 'Bob', 'Tracy']
+classmates[0]
+classmates[-1] 取最后一个元素
+classmates[-2] 倒数第二个元素
+classmates.append('Adam')
+classmates.insert(1, 'Jack')
+classmates.pop()
+classmates.pop(1)
+classmates[1] = 'Sarah'
+len(classmates)
+classmates.sort()
+</code></pre>
+
+<h5 id="tuple">tuple</h5>
+
+<p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改,所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
+
+<pre><code class="language-py">t = (1,2)
+t = (1) //t是数字1
+t = (1,) //t是tuple
+</code></pre>
+
+<h4 id="条件判断">条件判断</h4>
+
+<ul>
+<li><p>1</p>
+
+<pre><code class="language-py">age = 3
+if age &gt;= 18:
+    print('adult')
+elif age &gt;= 6:
+    print('teenager')
+else:
+    print('kid')
+</code></pre></li>
+
+<li><p>2</p>
+
+<pre><code class="language-py">if x:
+    print('True')
+</code></pre></li>
+
+<li><p>3  <code>int()</code>字符串转int</p>
+
+<pre><code class="language-py">s = input('birth: ')
+    birth = int(s)
+if birth &lt; 2000:
+    print('00前')
+else:
+    print('00后')
+</code></pre></li>
+</ul>
+
+<h4 id="循环">循环</h4>
+
+<ul>
+<li><p>1</p>
+
+<pre><code class="language-py">names = ['aaaa','bbbb','cccc']
+for name in names:
+    print(name)
+</code></pre></li>
+
+<li><p>2 <code>range()</code>生成一个整数序列,再通过<code>list()</code>函数可以转换为list</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; list(range(5))
+[0, 1, 2, 3, 4]
+</code></pre></li>
+
+<li><p>3</p>
+
+<pre><code class="language-py">sum = 0
+n = 99
+while n &gt; 0:
+    sum = sum + n
+n = n - 2
+    print(sum)
+</code></pre></li>
+</ul>
+
+<p><span id="dict和set"></span></p>
+
+<h4 id="dict和set">dict和set</h4>
+
+<h5 id="dict字典">dict字典</h5>
+
+<ul>
+<li><p>1</p>
+
+<pre><code class="language-py">d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
+print(d['Michael'])
+d['Michael'] = 100
+    
+很随意
+d = dict({('a',1),('b',2),('c',3)})
+d = dict([('a',1),('b',2),('c',3)])
+
+    
+</code></pre></li>
+
+<li><p>2 判断key是否存在</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; 'Thomas' in d
+False
+    
+&gt;&gt;&gt; d.get('Thomas')
+None
+    
+d.get('Thomas', -1)
+-1
+</code></pre></li>
+
+<li><p>3</p>
+
+<pre><code class="language-py">d.pop('Bob')
+</code></pre></li>
+
+<li><p>4 dict的key是不可变对象,通过key找位置的算法为hash,Python中字符串,整数都是不可变的,都可用作key</p></li>
+</ul>
+
+<h5 id="set">set</h5>
+
+<ul>
+<li><p>1 要创建一个set，需要提供一个list作为输入集合,set中无固定的顺序,set中不可放入可变的对象</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; s = s = set([1, 1, 2, 2, 3, 3])
+&gt;&gt;&gt; s
+{1, 2, 3}
+    
+s.add(4)
+s.remove(4)
+</code></pre></li>
+
+<li><p>2</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; s1 = set([1, 2, 3])
+&gt;&gt;&gt; s2 = set([2, 3, 4])
+&gt;&gt;&gt; s1 &amp; s2
+{2, 3}
+&gt;&gt;&gt; s1 | s2
+{1, 2, 3, 4}
+</code></pre>
+
+<p><span id="函数"></span></p></li>
+</ul>
+
+<h3 id="函数">函数</h3>
+
+<p><a href="https://docs.python.org/3/library/functions.html#abs">官网文档</a></p>
+
+<h4 id="函数调用">函数调用</h4>
+
+<pre><code class="language-py">&gt;&gt;&gt; int('123')
+123
+&gt;&gt;&gt; int(12.34)
+12
+&gt;&gt;&gt; float('12.34')
+12.34
+&gt;&gt;&gt; str(1.23)
+'1.23'
+&gt;&gt;&gt; str(100)
+'100'
+&gt;&gt;&gt; bool(1)
+True
+&gt;&gt;&gt; bool('')
+False
+</code></pre>
+
+<h4 id="定义函数">定义函数</h4>
+
+<p>在py中,定义一个函数要使用<code>def</code>语句,依次写出函数名,括号,括号中的参数和冒号<code>:</code>,然受在缩进块中编写函数体,函数的返回值用<code>return</code>语句返回</p>
+
+<pre><code class="language-py">def my_abs(x):
+	if x &gt;=0 :
+		return x
+	else:
+		return -x
+
+</code></pre>
+
+<p>如果没有<code>return</code>语句,函数执行后也会返回结果,只是结果为<code>None</code>.<code>return None</code>可以简写为<code>return</code>.</p>
+
+<p>如果你已经把<code>my_abs()</code>的函数定义保存为abstest.py文件了，那么，可以在该文件的当前目录下启动Python解释器，用<code>from abstest import my_abs</code>来导入<code>my_abs()</code>函数，注意abstest是文件名（不含.py扩展名）</p>
+
+<h5 id="空函数">空函数</h5>
+
+<pre><code class="language-py">def nop():
+    pass
+</code></pre>
+
+<p><code>pass</code>用作占位符,不写会有语法错误</p>
+
+<h5 id="参数检查">参数检查</h5>
+
+<pre><code class="language-py">def my_abs(x):
+
+if not isinstance(x,(int ,float)):
+	raise TypeError('bad operand type')
+if x &gt;=0 :
+	return x
+else:
+	return -x
+</code></pre>
+
+<p><code>isinstance()</code>类型检查函数</p>
+
+<h5 id="返回多个值">返回多个值</h5>
+
+<pre><code class="language-py">import math
+
+def move(x,y,step,angle=0):
+	nx = x + step * math.cos(angle)
+	ny = y - step * math.sin(angle)
+	return nx,ny
+
+
+
+x,y = move(100,100,60,math.pi/6)
+print(x,y) //151.96152422706632 70.0
+
+r = move(100,100,60,math.pi/6)
+print(r) 	//(151.96152422706632, 70.0)
+
+</code></pre>
+
+<p>python函数返回值其实就是返回一个tuple</p>
+
+<p><span id="函数的参数"></span></p>
+
+<h4 id="函数的参数">函数的参数</h4>
+
+<h5 id="位置参数">位置参数</h5>
+
+<pre><code class="language-py">def power(x):
+	return x * x
+	
+power(x)  //参数x就是一个位置参数
+</code></pre>
+
+<pre><code class="language-py">def power(x,n):
+	s = 1
+	while  n &gt; 0:
+		n = n - 1
+		s = s * x
+	return s
+	
+	x,n都是位置参数
+</code></pre>
+
+<h5 id="默认参数">默认参数</h5>
+
+<pre><code class="language-py">def power(x,n=2):
+	s = 1
+	while  n &gt; 0:
+		n = n - 1
+		s = s * x
+	return s
+
+
+enroll('Adam', 'M', city='Tianjin')
+</code></pre>
+
+<p>需要注意: 必选参数在前,变化大的参数放在前面,变化小的方在后边,可考虑设为默认参数</p>
+
+<pre><code class="language-py">def add_end(L=None):
+	if L is None:
+		L = []
+	L.append('END')
+	return L
+</code></pre>
+
+<p>默认参数必须指向不变对象</p>
+
+<h5 id="可变参数">可变参数</h5>
+
+<pre><code class="language-py">def  calc(*numbers):
+	sum = 0
+	for n in numbers:
+		sum = sum + n * n
+	return sum
+	
+num = [1,2,3,4,5]
+a =  calc(*num)
+
+</code></pre>
+
+<p><code>numbers</code>接受到的是一个<strong>tuple</strong>,<code>*nums</code>表示把list的所有元素作为可变参数传进去</p>
+
+<h5 id="关键字参数">关键字参数</h5>
+
+<p>可变参数允许你传入0个或任意个参数,这些可变参数在函数调用时自动组装为一个tuple.而关键字参数允许你出阿如0个或任意个含参数名的参数,这些关键字参数在函数内部自动组装成一个<strong>dict</strong>.</p>
+
+<pre><code class="language-py">def person(name, age, **kw):
+	print('name:',name,'age:',age,'other:',kw)
+	
+person('xiaomiong',22,job=888,gender='m')
+name: xiaomiong age: 22 other: {'job': 888, 'gender': 'm'}
+
+extra = {'city':'beijing','job':'engineer'}
+person('jack',24,**extra)
+name: jack age: 24 other: {'city': 'beijing', 'job': 'engineer'}
+</code></pre>
+
+<h5 id="命名关键字参数">命名关键字参数</h5>
+
+<pre><code class="language-py">def  person(name,age,*,city,job):
+	print('name:',name,'age:',age,city,job)
+
+person('jack',24,city='beijign',job='engineer')
+name: jack age: 24 beijign engineer
+</code></pre>
+
+<p>限制关键字参数的名字,只接收city和job作为关键字参数,<code>*</code>后面的参数被视为命名关键字参数</p>
+
+<p>如果函数定义中已经有了一个可变参数,后面跟着的命名关键字参数就不再需要一个特殊分隔符<code>*</code></p>
+
+<pre><code class="language-py">def person(name,age,*args,city,job):
+	print(name,age,args,city,job)
+</code></pre>
+
+<p>命名关键字参数必须传入参数名,这个和位置参数不同,如果没有传入参数名,出错</p>
+
+<h5 id="参数组合">参数组合</h5>
+
+<p>参数定义的顺序必须是: 必选参数,默认参数,可变参数,命名关键字参数和关键字参数</p>
+
+<pre><code class="language-py">def f1(a, b, c=0, *args, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'args =', args, 'kw =', kw)
+
+def f2(a, b, c=0, *, d, **kw):
+    print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'kw =', kw)
+</code></pre>
+
+<p>上面的调用 &amp; 输出</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; args = (1, 2, 3, 4)
+&gt;&gt;&gt; kw = {'d': 99, 'x': '#'}
+&gt;&gt;&gt; f1(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {'d': 99, 'x': '#'}
+&gt;&gt;&gt; args = (1, 2, 3)
+&gt;&gt;&gt; kw = {'d': 88, 'x': '#'}
+&gt;&gt;&gt; f2(*args, **kw)
+a = 1 b = 2 c = 3 d = 88 kw = {'x': '#'}
+</code></pre>
+
+<p>所以,对于<strong>任意函数,都可以</strong>通过类似<code>func(*args,**kw)</code>的形式调用它,无论他的参数是如何定义的</p>
+
+<p><span id="递归函数"></span></p>
+
+<h4 id="递归函数">递归函数</h4>
+
+<pre><code class="language-py">def fact(n):
+	if n ==1:
+		return 1
+	return n * fact(n-1)
+
+</code></pre>
+
+<ul>
+<li><p>1 递归函数的优点是定义简单,逻辑清晰.理论上,所有的递归函数都可以写成循环的方式,但是循环的逻辑不如递归清晰</p></li>
+
+<li><p>2 递归函数需要注意防止栈溢出,函数调用是通过stack这种数据结构实现的,每当进入一个hansh调用,栈就是增加一层栈帧,每当函数返回,栈就会减一层栈帧.因为栈的大小不是无限的,所以递归调用的次数过多,会导致栈溢出.</p></li>
+
+<li><p>3 解决递归调用栈溢出的方法是通过尾递归,事实上尾递归和循环的效果是一样的,把循环看成是一种特殊的尾递归也是可以的.</p></li>
+</ul>
+
+<pre><code class="language-py">def fact(n):
+	r = 1;
+	while n &gt; 1:
+		n = n - 1
+		r  = r * n; 
+	return r
+	
+这样fact(1000)不会溢出
+</code></pre>
+
+<p><span id="高级特性"></span></p>
+
+<h3 id="高级特性">高级特性</h3>
+
+<p><span id="切片"></span></p>
+
+<h4 id="切片">切片</h4>
+
+<ul>
+<li><p>1 list</p>
+
+<pre><code class="language-py">L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
+L[1:3]  //从索引1取到索引3
+L[-2:]  //从倒数第二个取值
+</code></pre>
+
+<pre><code class="language-py">L = list(range(100))  //创建0-99的数列
+    
+L[:10:2] //前10个数，每两个取一个,
+[0, 2, 4, 6, 8]
+    
+L[::5]  //所有数，每5个取一个
+[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+    
+L[:]
+[0, 1, 2, 3, ..., 99]
+    
+a = list(range(1,11))
+b = a[::-1]
+c = a[::-2]
+print(a)
+print(b)
+print(c)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+[10, 8, 6, 4, 2]
+
+</code></pre></li>
+
+<li><p>2 tuple也可以做切片,结果仍然是tuple</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; (0, 1, 2, 3, 4, 5)[:3]
+(0, 1, 2)
+</code></pre></li>
+
+<li><p>3 字符串做切片结果仍然是字符串</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; 'ABCDEFG'[:3]
+'ABC'
+&gt;&gt;&gt; 'ABCDEFG'[::2]
+'ACEG'
+</code></pre></li>
+</ul>
+
+<h4 id="迭代">迭代</h4>
+
+<ul>
+<li><p>1 如果给定一个list或tuple,我们可以通过for循环来便利这个list或tuple,这种遍历我称为迭代(Iteration)</p></li>
+
+<li><p>2 dict的遍历</p>
+
+<pre><code class="language-py">for key in d:  //遍历key
+for value in d.values() //遍历value
+for k, v in d.items() //遍历k,v
+</code></pre></li>
+
+<li><p>3 判断一个对象是否为可迭代对象,通过collections模块的Iterable类型判断</p>
+
+<pre><code class="language-py">from collections import Iterable
+    
+a = isinstance('abc',Iterable)
+    
+True
+</code></pre></li>
+
+<li><p>4 py内置的<code>enumerate</code>函数可以把一个list变成索引-元素对</p>
+
+<pre><code class="language-py">for i, value in enumerate(['A', 'B', 'C']):
+</code></pre></li>
+
+<li><p>5 同事引用两个变量</p>
+
+<pre><code class="language-py">for x, y in [(1, 1), (2, 4), (3, 9)]:
+    print(x,y)
+</code></pre></li>
+</ul>
+
+<h4 id="列表生成式">列表生成式</h4>
+
+<ul>
+<li><p>1</p>
+
+<pre><code class="language-py">list(range(1, 11))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre></li>
+
+<li><p>2 生成[1x1, 2x2, 3x3, &hellip;, 10x10]</p>
+
+<pre><code class="language-py">l = []
+for x in range(1,11):
+    l.append(x*x)
+</code></pre>
+
+<p><code>[x * x for x in range(1, 11)]</code></p>
+
+<p>添加if判断
+<code>[x * x for x in range(1, 11) if x % 2 == 0]</code></p></li>
+
+<li><p>3 双层循环</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; [m + n for m in 'ABC' for n in 'XYZ']
+['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+</code></pre></li>
+
+<li><p>4 打印当前目录下的文件和目录名</p>
+
+<pre><code class="language-py">&gt;&gt;&gt; import os 
+&gt;&gt;&gt; [d for d in os.listdir('.')]
+</code></pre></li>
+
+<li><p>5 dict</p>
+
+<pre><code>&gt;&gt;&gt; d = {'x': 'A', 'y': 'B', 'z': 'C' }
+&gt;&gt;&gt; [k + '=' + v for k, v in d.items()]
+['y=B', 'x=A', 'z=C']
+</code></pre></li>
+</ul>
+
+<h4 id="生成器">生成器</h4>
+
+<p>通过列表生成式可以直接创建一个列表,但受到内存限制不能无限大,而且如果只取部分元素,浪费空间</p>
+
+<ul>
+<li><p>1 要创建一个generator,第一种方法把一个列表生成式的[]改成()</p>
+
+<pre><code>&gt;&gt;&gt; L = [x * x for x in range(10)]
+&gt;&gt;&gt; L
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+&gt;&gt;&gt; g = (x * x for x in range(10))
+&gt;&gt;&gt; g
+&lt;generator object &lt;genexpr&gt; at 0x1022ef630&gt;
+    
+</code></pre></li>
+
+<li><p>2</p>
+
+<pre><code>&gt;&gt;&gt; next(g)
+0
+&gt;&gt;&gt; next(g)
+1
+</code></pre>
+
+<pre><code>for n in g:
+    print(n)
+</code></pre></li>
+
+<li><p>3 斐波拉契数列1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;除了第一第二数外,其他都是前两个数相加得到</p>
+
+<pre><code>def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+</code></pre>
+
+<pre><code>a, b = b, a + b
+相当于
+t = (b, a + b) # t是一个tuple
+a = t[0]
+b = t[1]
+</code></pre>
+
+<p>将print(b)变成yield b就把fib函数变成generator</p>
+
+<pre><code>def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+        
+&gt;&gt;&gt; f = fib(6)
+&gt;&gt;&gt; f
+&lt;generator object fib at 0x104feaaa0&gt;
+</code></pre>
+
+<p>generator和函数执行流程不一样.函数是顺序执行,遇到return或是最后一行函数语句就返回,generator的函数,每次调用next()的时候返回,遇到yield语句返回,再次执行next()从上次返回的yield语句继续执行.</p>
+
+<pre><code>f = fib(6)
+    
+while  True:
+    try:
+        x = next(f)
+        print('f:',x)
+    except StopIteration as e:
+        print('generator return value:',e.value)
+        break;
+</code></pre></li>
+</ul>
+
+<h4 id="迭代器">迭代器</h4>
+
+<ul>
+<li><p>1 使用isinstance()判断一个对象是否是Iterable对象</p>
+
+<pre><code>&gt;&gt;&gt; from collections import Iterable
+&gt;&gt;&gt; isinstance([], Iterable)
+True
+&gt;&gt;&gt; isinstance({}, Iterable)
+True
+&gt;&gt;&gt; isinstance('abc', Iterable)
+True
+&gt;&gt;&gt; isinstance((x for x in range(10)), Iterable)
+True
+&gt;&gt;&gt; isinstance(100, Iterable)
+False
+</code></pre></li>
+
+<li><p>2 使用isinstance()判断一个对象是否是Iterator对象</p>
+
+<pre><code>&gt;&gt;&gt; from collections import Iterator
+&gt;&gt;&gt; isinstance((x for x in range(10)), Iterator)
+True
+&gt;&gt;&gt; isinstance([], Iterator)
+False
+&gt;&gt;&gt; isinstance({}, Iterator)
+False
+&gt;&gt;&gt; isinstance('abc', Iterator)
+False
+</code></pre></li>
+
+<li><p>3 生成器都是Iterator对象,但list,dict,str虽然是Iterable,却不是Iterator</p>
+
+<pre><code>from collections import Iterator
+    
+b = iter('abc')
+a = isinstance(b,Iterator)
+    
+print(next(b))
+print(a)
+    
+</code></pre></li>
+
+<li><p>4 for循环本质上就是通过不断调用next()函数实现的</p></li>
+</ul>
+
+<p><span id='函数式编程'></span></p>
+
+<h3 id="函数式编程">函数式编程</h3>
+
+<p>函数式编程是一种抽象很高的编程范式,纯粹的函数式编程语言编写的函数没有变量.输入确定,输出确定称为没副作用.函数式编程的一个特点是,允许把函数本身作为参数,还允许作为返回值.py对函数式编程提供部分支持.</p>
+
+<h4 id="高阶函数">高阶函数</h4>
+
+<h5 id="变量可以指向函数">变量可以指向函数</h5>
+
+<pre><code>f = abs
+</code></pre>
+
+<p><span id="map/reduce"></span></p>
+
+<h4 id="map-reduce">map/reduce</h4>
+
+<h5 id="map">map</h5>
+
+<p>map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。</p>
+
+<pre><code>&gt;&gt;&gt; def f(x):
+...     return x * x
+...
+&gt;&gt;&gt; r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+&gt;&gt;&gt; list(r)
+[1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre>
+
+<p>结果r是一个Iterator,Iterator是惰性序列,因此通过list()函数让它把整个序列都计算出来并返回一个list</p>
+
+<pre><code>&gt;&gt;&gt; list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+['1', '2', '3', '4', '5', '6', '7', '8', '9']
+</code></pre>
+
+<h5 id="reduce">reduce</h5>
+
+<pre><code>reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+
+</code></pre>
+
+<p>把序列[1, 3, 5, 7, 9]变换成整数13579</p>
+
+<pre><code>&gt;&gt;&gt; from functools import reduce
+&gt;&gt;&gt; def fn(x, y):
+...     return x * 10 + y
+...
+&gt;&gt;&gt; reduce(fn, [1, 3, 5, 7, 9])
+13579
+</code></pre>
+
+<pre><code>from functools import reduce
+
+def str2int(s):
+	def fn(x,y):
+		return x * 10 + y
+	def char2num(s):
+		return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+	return reduce(fn, map(char2num,s))
+
+a = str2int('1234')
+
+</code></pre>
+
+<p><span id="filter"></span></p>
+
+<h5 id="filter">filter</h5>
+
+<p>filter()函数用于过滤序列</p>
+
+<pre><code>def  is_odd(n):
+	return n % 2 == 1
+
+a = list(filter(is_odd,[1,2,4,5,6,9,10,15]))
+</code></pre>
+
+<p>把一个序列中的空字符串删掉</p>
+
+<pre><code>def not_empty(s):
+    return s and s.strip()
+
+list(filter(not_empty, ['A', '', 'B', None, 'C', '  ']))
+</code></pre>
+
+<p>求素数</p>
+
+<pre><code>//先构造一个从3开始的奇数序列：
+def _odd_iter():
+    n = 1
+    while True:
+        n = n + 2
+        yield n
+
+//定义一个筛选函数
+def _not_divisible(n):
+    return lambda x: x % n &gt; 0
+    
+//最后，定义一个生成器，不断返回下一个素数
+def primes():
+    yield 2
+    it = _odd_iter() # 初始序列
+    while True:
+        n = next(it) # 返回序列的第一个数
+        yield n
+        it = filter(_not_divisible(n), it) # 构造新序列
+        
+//打印1000以内的素数:
+for n in primes():
+    if n &lt; 1000:
+        print(n)
+    else:
+        break
+</code></pre>
+
+<p>回数是指从左向右读和从右向左读都是一样的数，例如12321，909。用filter()滤掉非回数</p>
+
+<pre><code>def is_palindrome(n):
+    return n == int(str(n)[::-1])
+output = filter(is_palindrome, range(1, 1000))
+print(list(output))  
+</code></pre>
+
+<h5 id="sorted">sorted</h5>
+
+<ul>
+<li><p>1</p>
+
+<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+</code></pre></li>
+
+<li><p>2 sorted()函数也是一个高阶函数,他可以接收一个key函数来实现自定义的排序</p>
+
+<pre><code>&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]
+</code></pre></li>
+
+<li><p>3 字符串  &lsquo;Z&rsquo; &lt; &lsquo;a&rsquo;</p></li>
+</ul>
+
+<pre><code>&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'])
+['Credit', 'Zoo', 'about', 'bob']
+
+&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower)
+['about', 'bob', 'Credit', 'Zoo']
+
+&gt;&gt;&gt; sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+['Zoo', 'Credit', 'bob', 'about']
+</code></pre>
+
+<p><span id="返回函数"></span></p>
+
+<h4 id="返回函数">返回函数</h4>
+
+<pre><code>def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum
+</code></pre>
+
+<p>lazy_sum() 返回的是求和函数</p>
+
+<pre><code>&gt;&gt;&gt; f = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f
+&lt;function lazy_sum.&lt;locals&gt;.sum at 0x101c6ed90&gt;
+
+&gt;&gt;&gt; f()
+25
+</code></pre>
+
+<p>lazy_sum中定义了函数sum,sum可引用外部函数lazy_sum的参数和局部变量,,当lazy_sum返回函数sum时,相关参数和变量都保存在返回的函数中,这种称为&rsquo;闭包&rsquo;(closure)</p>
+
+<pre><code>&gt;&gt;&gt; f1 = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f2 = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f1==f2
+False
+</code></pre>
+
+<h5 id="闭包">闭包</h5>
+
+<pre><code>def count():
+	fs = []
+	for i in range(1,4):
+		def f():
+			return i * i
+		fs.append(f)
+	return fs
+
+f1 = count()[0]
+
+print(f1())
+9
+</code></pre>
+
+<p>输出的是9,愿意在于返回的函数引用了变量i,但它并非立刻执行.执行f1()的时候i的值已经为3</p>
+
+<p>**闭包注意的: **返回函数不要引用任何循环变量,或者后续会发生变化的变量.</p>
+
+<p>**解决办法: ** 在创建一个函数,用改改函数的参数绑定循环变量当前的值,无论该循环变量后续如何更改,已绑定到函数参数的值不变</p>
+
+<pre><code>def count():
+	fs = []
+	for i in range(1,4):
+		def f(i):
+			def g():
+				return i * i
+			return g
+		fs.append(f(i))
+	return fs
+
+f1 = count()[0]
+
+print(f1())
+1
+</code></pre>
+
+<h4 id="匿名函数">匿名函数</h4>
+
+<pre><code>a = list(map(lambda x: x * x ,[1,2,3,4,5]))
+print(a)
+[1, 4, 9, 16, 25]
+</code></pre>
+
+<p>关键字lambda表示匿名函数,匿名函数有个限制,就是只能有一个表达式,不用谢return,返回值就是该表达式的值,匿名函数有个好处就是函数没有名字,不必担心函数名冲突.匿名函数也是一个对象</p>
+
+<pre><code>f = lambda x: x * x
+
+def build(x, y):
+    return lambda: x * x + y * y
+</code></pre>
+
+<h4 id="装饰器">装饰器</h4>
+
+<p>函数对象有一个<code>__name__</code>属性,可以拿到函数名字</p>
+
+<pre><code>def now():
+	print('666')
+
+f = now
+
+a = f.__name__
+</code></pre>
+
+<p><strong>装饰器 :</strong> 假设我们要增强now()函数的功能,比如,在函数调用前后自动打印日志,但又不希望修改now()函数的定义,这种在代码运行期间动态增加功能的方式,称之为&rsquo;装饰器&rsquo;(Decorator). decorator本质上就是一个返回函数的高阶函数.</p>
+
+<pre><code>def log(func):
+	def wrapper(*args,**kw):
+		print('call %s():' % func.__name__)
+		return func(*args,**kw)
+	return wrapper
+</code></pre>
+
+<p>log是一个decorator,所以接受一个函数作为参数,并返回一个函数借助Python的@语法,把decorator置于函数的定义处</p>
+
+<pre><code>@log
+def now():
+	print('666')
+</code></pre>
+
+<pre><code>call now():
+666
+</code></pre>
+
+<p>把@log放到now()定义处,相当于执行了语句</p>
+
+<p><code>now = log(now)</code></p>
+
+<p>由于log()是一个decorator,返回一个函数,所以原来的now()仍然存在,只是现在同名的now变量指向了新的函数,于是调用now()将执行新函数,即在log()函数中返回的wrapper()函数</p>
+
+<p>如果decorator本身需要传入参数,那就需要编写一个返回decorator的高阶函数,写出来会更复杂.比如要自定义log的文本.</p>
+
+<pre><code>def log(text):
+	def decorator(func):
+		def wrapper(*args,**kw):
+			print('%s %s():' % (text,func.__name__))
+			return func(*args,**kw)
+		return wrapper
+	return decorator
+	
+@log('execute')
+def now():
+    print('2015-3-25')
+    
+&gt;&gt;&gt; now()
+execute now():
+2015-3-25
+</code></pre>
+
+<p><code>now = log('execute')(now)</code></p>
+
+<p>上面的语句,首先执行的<code>log('execute')</code>返回的是<code>decorator</code>函数,在调用返回的话术,参数的now函数,返回值最终是wrapper函数.</p>
+
+<pre><code>&gt;&gt;&gt; now.__name__
+'wrapper'
+</code></pre>
+
+<p>因为返回的额那个wrapper()函数名字就是wrapper,所有需要把原始函数的<strong>name</strong>等属性复制到wrapper(),不需要编写<code>wrapper.__name__ = func.__name__</code>这样的代码,Python内置的functools.wraps就是干这个事的</p>
+
+<pre><code>import functools
+
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+</code></pre>
+
+<pre><code>import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print('%s %s():' % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+</code></pre>
+
+<p>面向对象(OOP)中decorator被称为装饰模式,OOP中通过集成和组合来实现.python的decorator可以用函数实现,也可以用类实现.</p>
+
+<p>实现一个@log的decorator参数可有可无,并在被log函数的调用前后打印befor call,after call</p>
+
+<pre><code>import functools
+
+def log(*args):
+	def decorator(func):
+		@functools.wraps(func)
+		def wrapper(*argus,**kw):
+			print('funcName: %s' % func.__name__)
+			print('arguments: ',args)
+			print('before call')
+			r = func(*argus,**kw)
+			print('after call')
+			return r
+		return wrapper
+	return decorator
+
+@log('ssssss')
+def  now():
+	print('func now implementation')
+
+
+now()
+</code></pre>
+
+<pre><code>funcName: now
+arguments:  ('ssssss',)
+before call
+func now implementation
+after call
+</code></pre>
+
+<p><span id="偏函数"></span></p>
+
+<h4 id="偏函数">偏函数</h4>
+
+<p><code>int()</code>把字符串转换为整数,默认是十进制.</p>
+
+<pre><code>int('10')   //10
+int('10',base=8)  //8
+int('10',16) //16
+</code></pre>
+
+<pre><code>def int2(x,base=2):
+	return int(x,base)
+
+a = int2('10000')
+print(a)
+16
+</code></pre>
+
+<p><code>functools.partial</code>就是帮助我们创建一个偏函数,不需要我们自己定义int2(),可以直接使用下面代码创建一个新的函数int2</p>
+
+<pre><code>import functools
+
+int2 = functools.partial(int,base=2)
+
+a = int2('10000')
+</code></pre>
+
+<p><code>functools.partial</code>的作用就是,把一个函数的某些参数给固定住(也就是设置默认值),返回一个新的函数,调用这个新函数会更简单.</p>
+
+<pre><code>int2('10010')
+相当于:
+kw = { 'base': 2 }
+int('10010', **kw)
+</code></pre>
+
+<pre><code>max2 = functools.partial(max, 10)
+max2(5, 6, 7)
+相当于:
+args = (10, 5, 6, 7)
+max(*args)
+</code></pre>
+
+<p><span id="模块"></span></p>
+
+<h3 id="模块">模块</h3>
+
+<p>在Python中,一个.py文件就称之为一个模块(Module),为了避免模块名冲突,Python又引入了按目录来组织模块的方法,称为包(Package)</p>
+
+<p>为避免两个模块名字冲突,选择一个顶级包名, 比如mycompany如图,图片来自<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318447437605e90206e261744c08630a836851f5183000">廖雪峰python教程
+</a>
+<img src="https://www.liaoxuefeng.com/files/attachments/00138836605526535c9bebcbf414c3dae2430c50bbeef29000/0" alt="" />abc.py模块的名字就变成了mycompany.abc,注意，每一个包目录下面都会有一个<code>__init__.py</code>的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。<code>__init__.py</code>可以是空文件，也可以有Python代码，因为<code>__init__.py</code>本身就是一个模块，而它的模块名就是mycompany</p>
+
+<h4 id="使用模块">使用模块</h4>
+
+<h5 id="作用域">作用域</h5>
+
+<p>正常的函数和变量是公开的,<code>_xxx</code>和<code>__xxx</code>这样的函数和变量就是非公开私有的,但也可以被引用,只是规范上的写法</p>
+
+<h4 id="安装第三方模块">安装第三方模块</h4>
+
+<p>Pillow是图片处理的库,安装Pillow</p>
+
+<p><code>pip3 install Pillow</code></p>
+
+<p>处理图片</p>
+
+<pre><code>&gt;&gt;&gt; from PIL import Image
+&gt;&gt;&gt; im = Image.open('test.png')
+&gt;&gt;&gt; print(im.format, im.size, im.mode)
+PNG (400, 300) RGB
+&gt;&gt;&gt; im.thumbnail((200, 100))
+&gt;&gt;&gt; im.save('thumb.jpg', 'JPEG')
+</code></pre>
+
+<p>默认情况下,Python解释器会搜索当前目录,所有已安装的内置模块和第三方模块,搜索路径放在sys模块的path变量中</p>
+
+<pre><code>print(sys.path)
+
+['/Users/longpengfei/Desktop/7777', '/Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip', '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6', '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages']
+</code></pre>
+
+<p>添加自己的搜索目录,有两种方法:</p>
+
+<ul>
+<li><p>1 运行时修改</p>
+
+<pre><code>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path.append('/Users/michael/my_py_scripts')
+</code></pre></li>
+
+<li><p>2 设置环境变量PYTHONPATH，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。<a href="http://blog.csdn.net/fyh2003/article/details/6837624">Python环境变量PYTHONPATH设置和easy_install简单使用</a></p></li>
+</ul>
+
+<p><span id="面向对象编程"></span></p>
+
+<h3 id="面向对象编程">面向对象编程</h3>
+
+<p>在Python中,所有数据类型都可以视为对象.自定义的对象类型就是面向对象中的类(Class)的概念,object是要继承的类,没有的话就写object,这是所有类都会集成的类
+<strong>init前后有两个下划线</strong>,第一个参数永远是self</p>
+
+<pre><code>class Student(object):
+	def __init__(self, name,score):
+		self.name = name
+		self.score = score
+		
+	def print_score(self):
+		print('%s: %s' % (self.name,self.score))
+
+lilei = Student('lilie',59)
+hanmeimei = Student('hanmeimei',87)
+
+lilei.print_score()
+hanmeimei.print_score()
+</code></pre>
+
+<h4 id="访问限制">访问限制</h4>
+
+<p>在Python中,实例的变量名如果以<code>__</code>开头,就变成了一个私有变量,只有内部可以访问,外部不能访问.__name变量改成了_Student_name</p>
+
+<pre><code>class Student(object):
+
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+
+    def print_score(self):
+        print('%s: %s' % (self.__name, self.__score))
+</code></pre>
+
+<p>需要注意的是在Python中,变量名类似以<code>__xxx__</code>,是特殊变量,特殊变量时可以直接访问的,不是private变量.</p>
+
+<h4 id="集成和多态">集成和多态</h4>
+
+<pre><code>class Animal(object):
+	def run(self):
+		print('Animal is running')
+
+class Dog(Animal):
+	pass
+
+class Cat(Animal):
+	def run(self):
+		print('cat is running..')
+
+</code></pre>
+
+<p>判断一个变量是否是某个类型可以用isinstance()判断</p>
+
+<p><span id="获取对象信息"></span></p>
+
+<h4 id="获取对象信息">获取对象信息</h4>
+
+<p><strong>使用type()</strong>来判断对象类型type()返回的是Class类型,</p>
+
+<pre><code>&gt;&gt;&gt; type(123)
+&lt;class 'int'&gt;
+&gt;&gt;&gt; type('str')
+&lt;class 'str'&gt;
+
+&gt;&gt;&gt; type(123)==type(456)
+True
+&gt;&gt;&gt; type(123)==int
+True
+</code></pre>
+
+<p>判断一个对象是否是函数</p>
+
+<pre><code>import types
+
+def fn():
+	pass
+
+a = type(fn)==types.FunctionType
+
+b = type(abs)==types.BuiltinFunctionType
+
+c = type(lambda x: x)==types.LambdaType
+
+d = type((x for x in range(10)))==types.GeneratorType
+</code></pre>
+
+<p>能用type()判断的基本类型也可以用isinstance()判断</p>
+
+<pre><code>&gt;&gt;&gt; isinstance('a', str)
+True
+&gt;&gt;&gt; isinstance(123, int)
+True
+&gt;&gt;&gt; isinstance(b'a', bytes)
+True
+</code></pre>
+
+<p><strong>判断一个变量是否是某些类型中的一种</strong>,比如下面的代码就可以判断是否是list或者tuple</p>
+
+<h5 id="dir">dir()</h5>
+
+<p>获取一个对象的所有属性和方法,可以使用dir()函数,返回一个字符串的list</p>
+
+<pre><code>&gt;&gt;&gt; dir('ABC')
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+</code></pre>
+
+<p>下面的代码是等价的</p>
+
+<pre><code>&gt;&gt;&gt; len('ABC')
+3
+&gt;&gt;&gt; 'ABC'.__len__()
+3
+</code></pre>
+
+<p>如果自己写的类,想用len(myObj)的话,就需要自己实现一个<strong>len</strong>()方法</p>
+
+<pre><code>class MyDog(object):
+	def __len__(sefl):
+		return 100
+		
+dog = MyDog()
+a = len(dog)
+
+</code></pre>
+
+<p><strong>getattr()、setattr()以及hasattr()</strong></p>
+
+<pre><code>&gt;&gt;&gt; class MyObject(object):
+...     def __init__(self):
+...         self.x = 9
+...     def power(self):
+...         return self.x * self.x
+...
+&gt;&gt;&gt; obj = MyObject()
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; hasattr(obj, 'x') # 有属性'x'吗？
+True
+&gt;&gt;&gt; obj.x
+9
+&gt;&gt;&gt; hasattr(obj, 'y') # 有属性'y'吗？
+False
+&gt;&gt;&gt; setattr(obj, 'y', 19) # 设置一个属性'y'
+&gt;&gt;&gt; hasattr(obj, 'y') # 有属性'y'吗？
+True
+&gt;&gt;&gt; getattr(obj, 'y') # 获取属性'y'
+19
+&gt;&gt;&gt; obj.y # 获取属性'y'
+19
+
+&gt;&gt;&gt; getattr(obj, 'z', 404) # 获取属性'z'，如果不存在，返回默认值404
+404
+
+&gt;&gt;&gt; hasattr(obj, 'power') # 有属性'power'吗？
+True
+</code></pre>
+
+<p><span id="实例属性和类属性"></span></p>
+
+<h4 id="实例属性和类属性">实例属性和类属性</h4>
+
+<p>类属性如下:</p>
+
+<pre><code>class Student(object):
+    name = 'Student'
+</code></pre>
+
+<p><strong>注意下面 :</strong></p>
+
+<pre><code>&gt;&gt;&gt; class Student(object):
+...     name = 'Student'
+...
+&gt;&gt;&gt; s = Student() # 创建实例s
+&gt;&gt;&gt; print(s.name) # 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性
+Student
+&gt;&gt;&gt; print(Student.name) # 打印类的name属性
+Student
+&gt;&gt;&gt; s.name = 'Michael' # 给实例绑定name属性
+&gt;&gt;&gt; print(s.name) # 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性
+Michael
+&gt;&gt;&gt; print(Student.name) # 但是类属性并未消失，用Student.name仍然可以访问
+Student
+&gt;&gt;&gt; del s.name # 如果删除实例的name属性
+&gt;&gt;&gt; print(s.name) # 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了
+Student
+</code></pre>
+
+<p><span id=面向对象高级编程></span></p>
+
+<h3 id="面向对象高级编程">面向对象高级编程</h3>
+
+<p><span id="slots"></span></p>
+
+<h4 id="使用-slots">使用<strong>slots</strong></h4>
+
+<p>给实例绑定一个属性:</p>
+
+<pre><code>class Student(object):
+	pass
+
+s = Student()
+s.name = 'xiaoming'
+</code></pre>
+
+<p>给实例绑定一个方法:</p>
+
+<pre><code>def set_age(self,age):
+	self.age = age	
+
+from types import MethodType
+
+s.set_age = MethodType(set_age,s)
+
+s.set_age(25)
+</code></pre>
+
+<p>但是对另外一个实例是不起作用:</p>
+
+<pre><code>s2 = Student()
+# s2.set_age(25) 出错
+</code></pre>
+
+<p>为了对所有实例都绑定方法,可以给class绑定方法:</p>
+
+<pre><code>def set_score(self,score):
+	self.score = score
+
+Student.set_score = set_score
+
+s.set_score(100)		
+</code></pre>
+
+<p>如果我们想要限制实例的属性怎么办？比如，只允许对Student实例添加name和age属性。,Python允许在定义class的时候，定义一个特殊的<strong><code>__slots__</code></strong>变量，来限制该class实例能添加的属性</p>
+
+<pre><code>class Student(object):
+    __slots__ = ('name', 'age') # 用tuple定义允许绑定的属性名称
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; s = Student() # 创建新的实例
+&gt;&gt;&gt; s.name = 'Michael' # 绑定属性'name'
+&gt;&gt;&gt; s.age = 25 # 绑定属性'age'
+&gt;&gt;&gt; s.score = 99 # 绑定属性'score'
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: 'Student' object has no attribute 'score'
+</code></pre>
+
+<p><strong>注意 :</strong> <code>__slots</code>定义的属性仅对当前实例起作用,对继承的子类是不起作用的:</p>
+
+<pre><code>&gt;&gt;&gt; class GraduateStudent(Student):
+...     pass
+...
+&gt;&gt;&gt; g = GraduateStudent()
+&gt;&gt;&gt; g.score = 9999
+</code></pre>
+
+<p><span id="@property"></span></p>
+
+<h4 id="property">@property</h4>
+
+<p>Python内置的@property装饰器就是负责把一个方法变成属性调用</p>
+
+<pre><code>class Student(object):
+
+	@property
+	def score(self):
+		return self._score
+
+	@score.setter
+	def score(self,value):
+		if not isinstance(value,int):
+			raise ValueError('scroe must be an integer')
+		if value &lt; 0 or vlaue &gt; 100:
+			raise ValueError('score must betweent 0-100')
+		self._score = vlaue
+</code></pre>
+
+<p>@property的实现比较复杂.先看如何使用.把一个getter方法变成属性,只需要加上@property就可以.@property本身又创建了另一个装饰器@score.setter,负责把一个setter方法变成属性赋值,于是,就拥有了一个可控的属性操作:</p>
+
+<pre><code>&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; s.score = 60 # OK，实际转化为s.set_score(60)
+&gt;&gt;&gt; s.score # OK，实际转化为s.get_score()
+60
+&gt;&gt;&gt; s.score = 9999
+Traceback (most recent call last):
+  ...
+ValueError: score must between 0 ~ 100!
+</code></pre>
+
+<p>注意到这个神奇的@property,我们在堆实例属性操作的时候,就知道该属性很可能不是直接暴露的,而是通过getter和setter方法来实现的.</p>
+
+<p>还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性</p>
+
+<pre><code>class Student(object):
+
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2015 - self._birth
+</code></pre>
+
+<p><span id="多重继承"></span></p>
+
+<h4 id="多重继承">多重继承</h4>
+
+<p><strong>MixIn</strong>在设计继承关系时,通常,主线都是单一的继承下来的.比如Ostrich(鸵鸟)继承Bird,但是同时要混入额外的功能,通过多重继承就可以实现,比如，让Ostrich除了继承自Bird外，再同时继承Runnable。这种设计通常称之为MixIn。</p>
+
+<p>MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系</p>
+
+<p>Python自带的很多库也使用了MixIn. 举个例子，Python自带了TCPServer和UDPServer这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由ForkingMixIn和ThreadingMixIn提供。通过组合，我们就可以创造出合适的服务来。</p>
+
+<p>比如，编写一个多进程模式的TCP服务，定义如下</p>
+
+<pre><code>class MyTCPServer(TCPServer, ForkingMixIn):
+    pass
+</code></pre>
+
+<p><span id="定制类"></span></p>
+
+<h4 id="定制类">定制类</h4>
+
+<p>python的class允许定义许多定制方法,可以让我们非常方便地生成特定的类.
+下面是几个常用的定制方法,其他<a href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Python的官方文档</a></p>
+
+<p><strong><code>__str__</code></strong></p>
+
+<pre><code>class Student(object):
+	def  __init__(self, name):
+		self.name = name
+
+	def __str__(self):
+		return 'Student object (name: %s)' % self.name
+		
+print(Student('xiaoming'))
+Student object (name: xiaoming)
+</code></pre>
+
+<p>定义<code>__str__()</code>方法可以定制print打印内容</p>
+
+<pre><code>&gt;&gt;&gt;(Student('xiaoming'))
+&lt;__main__.Student object at 0x109afb310&gt;
+</code></pre>
+
+<p>这是因为直接显示变量调用的不是<code>__str__()</code>,而是<code>__repr__()</code>,前者返回的是用户看的字符串,后者返回的是开发者看到的字符串</p>
+
+<p>解决办法是再定义一个<code>__repr__()</code>.但通常<code>__str__()</code>和<code>__repr__()</code>代码都是一样的,所以可以:</p>
+
+<pre><code>class Student(object):
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return 'Student object (name=%s)' % self.name
+    __repr__ = __str__
+</code></pre>
+
+<p><strong><code>__iter__</code></strong></p>
+
+<p>如果一个类想被用于for &hellip; in循环，类似list或tuple那样，就必须实现一个<code>__iter__()</code>方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的<code>__next__()</code>方法拿到循环的下一个值，直到遇到StopIteration错误时退出循环。</p>
+
+<pre><code>class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a &gt; 100000: # 退出循环的条件
+            raise StopIteration()
+        return self.a # 返回下一个值
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; for n in Fib():
+...     print(n)
+...
+1
+1
+2
+3
+5
+...
+46368
+75025
+</code></pre>
+
+<p><strong><code>__getitem__</code></strong></p>
+
+<pre><code>class Fib(object):
+	def __getitem__(self,n):	
+		a,b = 1,1
+		for x in range(n):
+			a,b = b,a+b
+		return a
+		
+
+r = Fib()[5]
+8
+</code></pre>
+
+<p><code>__getitem__()</code>传入切片对象slice处理</p>
+
+<pre><code>class Fib(object):
+	def __getitem__(self,n):	
+		if isinstance(n,int):
+			a,b = 1,1
+			for x in range(n):
+				a,b = b,a+b
+			return a
+		
+		if isinstance(n,slice):
+			start = n.start
+			stop = n.stop
+			if start is None:
+				start = 0
+			a,b = 1,1
+			L = []
+			for x in range(stop):
+				if x &gt;= start:
+					L.append(a)
+				a,b = b,a+b
+			return L
+
+f = Fib()
+r = f[0:5]
+</code></pre>
+
+<p>上面的step,负数没实现.通过<code>__getitem__()</code>,<code>__setitem__()</code>,<code>__delitem__()</code>我们可以使自己定义的类表现的和list,tuple,dict没什么区别</p>
+
+<p><strong><strong>getattr</strong></strong></p>
+
+<pre><code>class Student(object):
+
+	def __init__(self):
+		self.name = 'xiaoming'
+
+	def __getattr__(self,attr):
+		if attr=='score':
+			return 99
+		if attr=='age':
+			return lambda:25
+		 raise AttributeError('\'Student\' object has no attribute \'%s\'' % attr)
+
+s = Student()
+a = s.name
+b = s.score
+c = s.age()
+
+
+print(a)
+print(b)			
+print(c)
+</code></pre>
+
+<p>当调用不存在的属性时,比如score,Python解释器会视图调用<code>__getattr__(self, 'score')</code>来尝试获得属性.函数age也是这样</p>
+
+<pre><code>class Chain(object):
+
+	def __init__(self,path=''):
+		self._path = path
+
+	def __getattr__(self,path):
+		return Chain('%s/%s' % (self._path,path)) #初始化一个对象,会走__init__方法
+
+	def __str__(self):
+		return self._path
+
+	__repr__ = __str__
+
+
+a = Chain().status.user.timeline.list
+print(a)
+</code></pre>
+
+<p>** <strong>call</strong>**</p>
+
+<p>直接调用实例本身</p>
+
+<pre><code>class Student(object):
+	def __init__(self,name):
+		self.name = name
+
+	def __call__(self):
+		print('my name is %s.' % self.name)
+
+
+s = Student('xiaoming')
+s()
+my name is xiaoming.
+</code></pre>
+
+<p>判断一个是对象是否能被调用使用<code>callable()</code>,能被调用的对象就是一个Callable对象</p>
+
+<pre><code>&gt;&gt;&gt; callable(Student())
+True
+&gt;&gt;&gt; callable(max)
+True
+&gt;&gt;&gt; callable([1, 2, 3])
+False
+&gt;&gt;&gt; callable(None)
+False
+&gt;&gt;&gt; callable('str')
+False
+</code></pre>
+
+<p><span id="使用元类"></span></p>
+
+<h4 id="使用元类">使用元类</h4>
+
+<p><strong>type()</strong></p>
+
+<p>python的类是动态创建的.type()函数可以返回一个对象的类,又可以创建出新的类型</p>
+
+<pre><code>def fn(self,name='world'):
+	print('Hello, %s.' % name)
+
+Hello = type('Hello',(object,),dict(hello=fn))
+
+h = Hello()
+h.hello()
+
+print(type(Hello))
+print(type(h))
+
+Hello, world.
+&lt;class 'type'&gt;
+&lt;class '__main__.Hello'&gt;
+</code></pre>
+
+<p>要创建一个class对象,type()函数一次传入3个参数:</p>
+
+<ul>
+<li>1 class的名称</li>
+<li>2 继承的父类集合,注意Python支持多重继承,如果只有一个父类,别忘了tuple的单元素写法</li>
+<li>3 class的方法名称与函数绑定,这里我们把函数fn绑定到方法名hello上</li>
+</ul>
+
+<p>通过type()函数创建的类和直接写class是完全一样的，因为Python解释器遇到class定义时，仅仅是扫描一下class定义的语法，然后调用type()函数创建出class。</p>
+
+<p>正常情况下，我们都用class xxx&hellip;来定义类，但是，type()函数也允许我们动态创建出类来，也就是说，动态语言本身支持运行期动态创建类，这和静态语言有非常大的不同，要在静态语言运行期创建类，必须构造源代码字符串再调用编译器，或者借助一些工具生成字节码实现，本质上都是动态编译，会非常复杂</p>
+
+<p><strong>metaclass</strong></p>
+
+<p>元类metaclass允许你创建或者修改类,可以把类看成是metaclass创建出来的实例</p>
+
+<p>一个简单的列子: 给我们自己自定义的MyList增加一个add方法,定义ListMetaclass,通常以Metaclass结尾以表明是一个metaclass</p>
+
+<pre><code>#metaclass是类的模板,所以必须从'type'类型派生
+class ListMetaclass(type):
+	def __new__(cls,name,bases,attrs):
+		attrs['add'] = lambda self,value:self.append(value)
+		return type.__new__(cls,name,bases,attrs)
+
+#需要传入关键字metaclass
+class MyList(list,metaclass=ListMetaclass):
+	pass
+
+a = MyList()
+a.add('hahaha')
+print(a)
+
+['hahaha']
+</code></pre>
+
+<p>当传入关键字参数metaclass时,它只是python解释器在穿件MyList时,要通过<code>ListMetaclass.__new__()</code>来创建,在此,可以修改类的定义,比如加上新的方法,然后返回修改后的定义.</p>
+
+<p><code>__new__()</code>方法接收到的参数一次是:</p>
+
+<ul>
+<li>1 当前准备创建的类的对象</li>
+<li>2 类的名字</li>
+<li>3 类继承的父类集合</li>
+<li>4 类的方法集合</li>
+</ul>
+
+<p>ORM全称“Object Relational Mapping”，即对象-关系映射，就是把关系数据库的一行映射为一个对象，也就是一个类对应一个表，这样，写代码更简单，不用直接操作SQL语句.
+编写一个ORM框架</p>
+
+<p>编写底层模块的第一步，就是先把调用接口写出来。比如，使用者如果使用这个ORM框架，想定义一个User类来操作对应的数据库表User，我们期待他写出这样的代码：</p>
+
+<pre><code>class User(Model):
+    # 定义类的属性到列的映射：
+    id = IntegerField('id')
+    name = StringField('username')
+    email = StringField('email')
+    password = StringField('password')
+
+# 创建一个实例：
+u = User(id=12345, name='Michael', email='test@orm.org', password='my-pwd')
+# 保存到数据库：
+u.save()
+</code></pre>
+
+<p>其中，父类Model和属性类型StringField、IntegerField是由ORM框架提供的，剩下的魔术方法比如save()全部由metaclass自动完成。虽然metaclass的编写会比较复杂，但ORM的使用者用起来却异常简单。</p>
+
+<p>首先来定义Field类，它负责保存数据库表的字段名和字段类型：</p>
+
+<pre><code>class Field(object):
+
+    def __init__(self, name, column_type):
+        self.name = name
+        self.column_type = column_type
+
+    def __str__(self):
+        return '&lt;%s:%s&gt;' % (self.__class__.__name__, self.name)
+</code></pre>
+
+<p>在Field的基础上，进一步定义各种类型的Field，比如StringField，IntegerField</p>
+
+<pre><code>class StringField(Field):
+
+    def __init__(self, name):
+        super(StringField, self).__init__(name, 'varchar(100)')
+
+class IntegerField(Field):
+
+    def __init__(self, name):
+        super(IntegerField, self).__init__(name, 'bigint')
+</code></pre>
+
+<p>下一步，就是编写最复杂的ModelMetaclass以及基类Model：</p>
+
+<pre><code>class ModelMetaclass(type):
+
+    def __new__(cls, name, bases, attrs):
+        if name=='Model':
+            return type.__new__(cls, name, bases, attrs)
+        print('Found model: %s' % name)
+        mappings = dict()
+        for k, v in attrs.items():
+            if isinstance(v, Field):
+                print('Found mapping: %s ==&gt; %s' % (k, v))
+                mappings[k] = v
+        for k in mappings.keys():
+            attrs.pop(k)
+        attrs['__mappings__'] = mappings # 保存属性和列的映射关系
+        attrs['__table__'] = name # 假设表名和类名一致
+        return type.__new__(cls, name, bases, attrs)
+</code></pre>
+
+<pre><code>class Model(dict, metaclass=ModelMetaclass):
+
+    def __init__(self, **kw):
+        super(Model, self).__init__(**kw)
+
+    def __getattr__(self, key):
+        try:
+            return self[key]
+        except KeyError:
+            raise AttributeError(r&quot;'Model' object has no attribute '%s'&quot; % key)
+
+    def __setattr__(self, key, value):
+        self[key] = value
+
+    def save(self):
+        fields = []
+        params = []
+        args = []
+        for k, v in self.__mappings__.items():
+            fields.append(v.name)
+            params.append('?')
+            args.append(getattr(self, k, None))
+        sql = 'insert into %s (%s) values (%s)' % (self.__table__, ','.join(fields), ','.join(params))
+        print('SQL: %s' % sql)
+        print('ARGS: %s' % str(args))
+</code></pre>
+
+<p>当用户定义一个class User(Model)时,Python解释器首先在当前User的定义中查找metaclass,如果没有找到,就继续在父类Model中查找metaclass,找到了,就使用Model中定义的metaclass的ModelMetaclass来创建User类,也就是说,metaclass可以隐式地继承到子类,但子类自己却感觉不到.</p>
+
+<p>在ModelMetaclass中,一共做了几件事情:</p>
+
+<ul>
+<li>1 排除掉对Model类的修改</li>
+<li>2 在当前类(比如User)中查找定义的类的所有属性,如果找到一个Field属性,就把它保存到一个<code>__mappings__</code>的底朝天中,同事从类属性中删除该Field属性,否则,容易造成运行时错误(实例的属性会遮盖类的同名属性)</li>
+<li>3 把表明保存到<code>__table__</code>中,这里简化为表明默认为类名</li>
+</ul>
+
+<p>在Model类中,就可以定义各种操作数据库的方法,比如save(),delete(),find(),update()</p>
+
+<p>输出</p>
+
+<pre><code>Found model: User
+Found mapping: email ==&gt; &lt;StringField:email&gt;
+Found mapping: password ==&gt; &lt;StringField:password&gt;
+Found mapping: id ==&gt; &lt;IntegerField:uid&gt;
+Found mapping: name ==&gt; &lt;StringField:username&gt;
+SQL: insert into User (password,email,username,id) values (?,?,?,?)
+ARGS: ['my-pwd', 'test@orm.org', 'Michael', 12345]
+</code></pre>
+
+<p><span id='错误调试和测试'></span></p>
+
+<h3 id="错误-调试和测试">错误,调试和测试</h3>
+
+<h4 id="错误处理">错误处理</h4>
+
+<pre><code>try:
+    print('try...')
+    r = 10 / int('2')
+    print('result:', r)
+except ValueError as e:
+    print('ValueError:', e)
+except ZeroDivisionError as e:
+    print('ZeroDivisionError:', e)
+else: #这里可以加一个else
+    print('no error!')
+finally:
+    print('finally...')
+print('END')
+</code></pre>
+
+<p>Python的错误其实也是class,所有的错误类型都继承自BaseException,所有在使用except时需要注意的是,它不但捕获该类型的错误,还把其子类也&rsquo;一网打尽&rsquo;</p>
+
+<h4 id="记录错误">记录错误</h4>
+
+<p>打印错误堆栈,同时让程序执行下去</p>
+
+<pre><code>import logging
+
+def foo(s):
+    return 10 / int(s)
+
+def bar(s):
+    return foo(s) * 2
+
+def main():
+    try:
+        bar('0')
+    except Exception as e:
+        logging.exception(e)
+
+main()
+print('END')
+
+
+ERROR:root:division by zero
+Traceback (most recent call last):
+  File &quot;/Users/longpengfei/Desktop/7777/aaab.py&quot;, line 16, in main
+    bar('0')
+  File &quot;/Users/longpengfei/Desktop/7777/aaab.py&quot;, line 12, in bar
+    return foo(s) * 2
+  File &quot;/Users/longpengfei/Desktop/7777/aaab.py&quot;, line 9, in foo
+    return 10 / int(s)
+ZeroDivisionError: division by zero
+END
+</code></pre>
+
+<h4 id="抛出错误">抛出错误</h4>
+
+<p>捕获的错误是一个实例, 可以自定义一个错误</p>
+
+<p><a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">常见错误类型和继承关系</a></p>
+
+<pre><code>class FooError(ValueError):
+    pass
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise FooError('invalid value: %s' % s)
+    return 10 / n
+
+foo('0')
+</code></pre>
+
+<pre><code>def foo(s):
+    n = int(s)
+    if n==0:
+        raise ValueError('invalid value: %s' % s)
+    return 10 / n
+
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        raise
+
+bar()
+</code></pre>
+
+<p>在bar()函数中,捕获错误目的只是记录一下，便于后续追踪。但是，由于当前函数不知道应该怎么处理该错误，所以，最恰当的方式是继续往上抛，让顶层调用者去处理。raise语句如果不带参数，就会把当前错误原样抛出。此外，在except中raise一个Error，还可以把一种类型的错误转化成另一种类型：</p>
+
+<pre><code>try:
+    10 / 0
+except ZeroDivisionError:
+    raise ValueError('input error!')
+</code></pre>
+
+<h4 id="调试">调试</h4>
+
+<p><strong>断言</strong></p>
+
+<pre><code>def foo(s):
+    n = int(s)
+    assert n != 0, 'n is zero!'
+    return 10 / n
+
+def main():
+    foo('0')
+
+main()
+</code></pre>
+
+<p>启动Python解释器时可以用-O参数来关闭assert,<code>$ python3 -O err.py</code>关闭后，你可以把所有的assert语句当成pass来看</p>
+
+<p><strong>logging</strong></p>
+
+<pre><code>import logging
+logging.basicConfig(level=logging.INFO)
+
+
+s = '0'
+n = int(s)
+logging.info('n=%d' % n)
+print(10/n)
+
+
+INFO:root:n=0
+Traceback (most recent call last):
+  File &quot;/Users/longpengfei/Desktop/7777/aaab.py&quot;, line 82, in &lt;module&gt;
+    print(10/n)
+ZeroDivisionError: division by zero
+</code></pre>
+
+<p>这就是logging的好处，它允许你指定记录信息的级别，有debug，info，warning，error等几个级别，当我们指定level=INFO时，logging.debug就不起作用了。同理，指定level=WARNING后，debug和info就不起作用了。这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。</p>
+
+<p>logging的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。</p>
+
+<p><strong>pdb</strong></p>
+
+<p>Python调试器pdb,让程序以但不方式运行,可以随时产看状态</p>
+
+<pre><code>python3 -m pdb err.py
+
+l 查看代码
+n 但不执行
+p + 变量名来查看变量
+q 退出
+</code></pre>
+
+<pre><code>import pdb
+
+s = '0'
+n = int(s)
+pdb.set_trace() # 程序会自动在pdb.set_trace()暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续运行
+print(10 / n)
+
+python3 err.py
+</code></pre>
+
+<p><strong>IDE</strong></p>
+
+<p><a href="http://www.jetbrains.com/pycharm/">PyCharm</a></p>
+
+<p>虽然用IDE调试起来比较方便，但是最后你会发现，logging才是终极武器,<strong>据说</strong>。</p>
+
+<h4 id="单元测试">单元测试</h4>
+
+<p>编写一个Dict类,这个类和dict一致,但是可以通过属性来访问</p>
+
+<p>mydict.py代码如下</p>
+
+<pre><code>class Dict(dict):
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+
+    def __getattr__(self, key):
+        try:
+            return self[key]
+        except KeyError:
+            raise AttributeError(r&quot;'Dict' object has no attribute '%s'&quot; % key)
+
+    def __setattr__(self, key, value):
+        self[key] = value
+</code></pre>
+
+<p>为了编写单元测试，我们需要引入Python自带的unittest模块，编写mydict_test.py如下</p>
+
+<pre><code>import unittest
+
+from mydict import Dict
+
+class TestDict(unittest.TestCase):
+
+    def test_init(self):
+        d = Dict(a=1, b='test')
+        self.assertEqual(d.a, 1)
+        self.assertEqual(d.b, 'test')
+        self.assertTrue(isinstance(d, dict))
+
+    def test_key(self):
+        d = Dict()
+        d['key'] = 'value'
+        self.assertEqual(d.key, 'value')
+
+    def test_attr(self):
+        d = Dict()
+        d.key = 'value'
+        self.assertTrue('key' in d)
+        self.assertEqual(d['key'], 'value')
+
+    def test_keyerror(self):
+        d = Dict()
+        with self.assertRaises(KeyError):
+            value = d['empty']
+
+    def test_attrerror(self):
+        d = Dict()
+        with self.assertRaises(AttributeError):
+            value = d.empty
+</code></pre>
+
+<p>编写单元测试时,我们需要编写一个测试类,从unittest.TestCase继承</p>
+
+<p>以test开头的方法就是测试方法,不以test开头的方法不被认为是测试方法,测试的时候不会被执行.</p>
+
+<p>对每一类测试都需要编写一个test_xxx()方法.由于unittest.TestCase提供了很多内置的条件判断.我们只需要调用这些方法机会可以断言输出是否是我们所期望的.最常用的断言就是assertEqual()</p>
+
+<p>运行单元测试</p>
+
+<pre><code>$ python3 -m unittest mydict_test
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK
+</code></pre>
+
+<p><strong>setUp与tearDown</strong></p>
+
+<p>可以在单元测试中编写两个特殊的setUp()和tearDown().这两个方法会分别在每调用一个测试方法的前后被执行.</p>
+
+<p>设想你的测试需要启动一个数据库,这时,就可以在setUp()方法中连接数据库,tearDown()方法中关闭数据库</p>
+
+<pre><code>class TestDict(unittest.TestCase):
+
+    def setUp(self):
+        print('setUp...')
+
+    def tearDown(self):
+        print('tearDown...')
+</code></pre>
+
+<p>输出</p>
+
+<pre><code>python3 -m unittest mydict_test.py
+setUp...
+tearDown
+.setUp...
+tearDown
+.setUp...
+tearDown
+.setUp...
+tearDown
+.setUp...
+tearDown
+.
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+</code></pre>
+
+<h4 id="文档测试">文档测试</h4>
+
+<p>python解释器会自动执行注释的代码</p>
+
+<pre><code>def abs(n):
+    '''
+    Function to get absolute value of number.
+
+    Example:
+
+    &gt;&gt;&gt; abs(1)
+    1
+    &gt;&gt;&gt; abs(-1)
+    1
+    &gt;&gt;&gt; abs(0)
+    0
+    '''
+    return n if n &gt;= 0 else (-n)
+</code></pre>
+
+<pre><code>#aabc.py
+def fact(n):
+    '''
+	&gt;&gt;&gt; fact(1)
+	1
+	&gt;&gt;&gt; fact(2)
+	2
+    '''
+    if n &lt; 1:
+        raise ValueError()
+    if n == 1:
+        return 1
+    return n * fact(n - 1)
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+</code></pre>
+
+<p><code>python3 aabc.py</code></p>
+
+<p>doctest非常有用，不但可以用来测试，还可以直接作为示例代码。通过某些文档生成工具，就可以自动把包含doctest的注释提取出来。用户看文档的时候，同时也看到了doctest。</p>
+
+<p><span id='IO编程'></span></p>
+
+<h3 id="io编程">IO编程</h3>
+
+<h4 id="文件读写">文件读写</h4>
+
+<p>由于文件读写时都有可能产生IOError，一旦出错，后面的f.close()就不会调用。所以，为了保证无论是否出错都能正确地关闭文件，我们可以使用try &hellip; finally来实现</p>
+
+<pre><code>try:
+    f = open('/path/to/file', 'r')
+    print(f.read()) #Python把内容读到内存，用一个str对象表示
+finally:
+    if f:
+        f.close()
+</code></pre>
+
+<p>但是每次都这么写实在太繁琐，所以，Python引入了with语句来自动帮我们调用close()方法：</p>
+
+<pre><code>with open('/path/to/file', 'r') as f:
+    print(f.read())
+</code></pre>
+
+<p>调用read()会一次性读取文件的全部内容，如果文件有10G，内存就爆了，所以，要保险起见，可以反复调用read(size)方法，每次最多读取size个字节的内容。另外，调用readline()可以每次读取一行内容，调用readlines()一次读取所有内容并按行返回list</p>
+
+<pre><code>for line in f.readlines():
+    print(line.strip()) # 把末尾的'\n'删掉
+</code></pre>
+
+<p><strong>二进制文件</strong></p>
+
+<pre><code>with open('/Users/longpengfei/Desktop/test.png','rb') as f:
+	print(f.read())
+</code></pre>
+
+<p><strong>字符编码</strong></p>
+
+<pre><code>&gt;&gt;&gt; f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
+&gt;&gt;&gt; f.read()
+</code></pre>
+
+<p>遇到有些编码不规范的文件，你可能会遇到UnicodeDecodeError，因为在文本文件中可能夹杂了一些非法编码的字符。遇到这种情况，open()函数还接收一个errors参数，表示如果遇到编码错误后如何处理。最简单的方式是直接忽略：</p>
+
+<p><code>&gt;&gt;&gt; f = open('/Users/michael/gbk.txt', 'r', encoding='gbk', errors='ignore')</code></p>
+
+<p><strong>写文件</strong></p>
+
+<pre><code>f = open('/Users/longpengfei/Desktop/4545.txt','w')
+f.write('hello,world')
+f.close
+</code></pre>
+
+<p>你可以反复调用write()来写入文件,但务必要调用f.close()来关闭文件.操作系统在写文件的时候不回立刻写入,而是放到内存,空闲时候再慢慢写入.调用close()方法保证把没有写入的数据全部写入磁盘.</p>
+
+<pre><code>with open('/Users/michael/test.txt', 'w') as f:
+    f.write('Hello, world!')
+</code></pre>
+
+<p>要写入特定编码的文本文件,给open()函数传入encoding参数,将字符串自动转换成指定编码</p>
+
+<h4 id="stringio和bytesio">StringIO和BytesIO</h4>
+
+<p><strong>StringIO</strong></p>
+
+<p>很多时候,数据读写不一定是文件,也可以在内存中读写.StringIO顾名思义就是内存中读写str</p>
+
+<pre><code>&gt;&gt;&gt; from io import StringIO
+&gt;&gt;&gt; f = StringIO()
+&gt;&gt;&gt; f.write('hello')
+5
+&gt;&gt;&gt; f.write(
+&gt;&gt;&gt; ' ')
+1
+&gt;&gt;&gt; f.write('world!')
+6
+&gt;&gt;&gt; print(f.getvalue())
+hello world!
+</code></pre>
+
+<pre><code>g = StringIO('Hello!\nhi!\ngoodbye')
+while True:
+	s = g.readline()
+	if s == '':
+		break
+	print(s.strip())
+</code></pre>
+
+<p><strong>BytesIO</strong></p>
+
+<p>BytesIO实现了内存中读写bytes</p>
+
+<pre><code>from io import BytesIO
+
+a = '哈哈'.encode('utf8')
+print(a)
+
+f = BytesIO(a)
+print(f.read())
+
+b'\xe5\x93\x88\xe5\x93\x88'
+b'\xe5\x93\x88\xe5\x93\x88'
+</code></pre>
+
+<h4 id="操作文件和目录">操作文件和目录</h4>
+
+<pre><code>&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.name # 操作系统类型 如果是posix，说明系统是Linux、Unix或Mac OS X，如果是nt，就是Windows系统。
+'posix'
+
+
+# 查看当前目录的绝对路径:
+&gt;&gt;&gt; os.path.abspath('.')
+'/Users/michael'
+# 在某个目录下创建一个新目录，首先把新目录的完整路径表示出来:
+&gt;&gt;&gt; os.path.join('/Users/michael', 'testdir')
+'/Users/michael/testdir'
+# 然后创建一个目录:
+&gt;&gt;&gt; os.mkdir('/Users/michael/testdir')
+# 删掉一个目录:
+&gt;&gt;&gt; os.rmdir('/Users/michael/testdir')
+</code></pre>
+
+<p>把两个路径合成一个时,不要直接拼接字符串,而要通过os.path.join()函数,这样可以正确处理不同系统的路径分隔符.在Linux/Unix/Mac下,os.path.join()返回这样的字符串</p>
+
+<p><code>part-1/part-2</code></p>
+
+<p>而Windows下会返回这样的字符串:</p>
+
+<p><code>part-1\part-2</code></p>
+
+<p>拆分路径的时候要通过os.path.split()函数,把一个路径分为两部分,后一部分总是最后级别的目录或文件名</p>
+
+<pre><code>&gt;&gt;&gt; os.path.split('/Users/michael/testdir/file.txt')
+('/Users/michael/testdir', 'file.txt')
+</code></pre>
+
+<p>os.path.splitext()可以直接让你得到文件扩展名</p>
+
+<pre><code>&gt;&gt;&gt; os.path.splitext('/path/to/file.txt')
+('/path/to/file', '.txt')
+</code></pre>
+
+<pre><code># 对文件重命名:
+&gt;&gt;&gt; os.rename('test.txt', 'test.py')
+# 删掉文件:
+&gt;&gt;&gt; os.remove('test.py')
+</code></pre>
+
+<p>但是复制文件的函数os模块中不存在.原因是复制文件并非由操作系统提供的系统调用.理论上可以通过读写文件可以完成文件复制.</p>
+
+<p>幸运的是shutil模块提供了copyfile()函数.可以看成os模块的补充</p>
+
+<h4 id="序列化">序列化</h4>
+
+<p>我们把变量从内存中变成可存储或传输的过程称之为序列化,在Python中叫pickling,在其他语言中称之为serialization,marshalling,flattening等序列化后的内容可以写入磁盘或者通过网络传输到别的机器上.反序列化叫unpickling.python提供了pickle
+模块来实现序列化</p>
+
+<pre><code>&gt;&gt;&gt; import pickle
+&gt;&gt;&gt; d = dict(name='Bob', age=20, score=88)
+&gt;&gt;&gt; pickle.dumps(d)
+b'\x80\x03}q\x00(X\x03\x00\x00\x00ageq\x01K\x14X\x05\x00\x00\x00scoreq\x02KXX\x04\x00\x00\x00nameq\x03X\x03\x00\x00\x00Bobq\x04u.'
+</code></pre>
+
+<p>pickle.dumps()方法把任意对象序列化成一个bytes，然后，就可以把这个bytes写入文件。或者用另一个方法pickle.dump()直接把对象序列化后写入一个file-like Object：</p>
+
+<pre><code>
+&gt;&gt;&gt; f = open('dump.txt', 'wb')
+&gt;&gt;&gt; pickle.dump(d, f)
+&gt;&gt;&gt; f.close()
+</code></pre>
+
+<p>当我们要把对象从磁盘读到内存时，可以先把内容读到一个bytes，然后用pickle.loads()方法反序列化出对象，也可以直接用pickle.load()方法从一个file-like Object中直接反序列化出对象</p>
+
+<pre><code>&gt;&gt;&gt; f = open('dump.txt', 'rb')
+&gt;&gt;&gt; d = pickle.load(f)
+&gt;&gt;&gt; f.close()
+&gt;&gt;&gt; d
+{'age': 20, 'score': 88, 'name': 'Bob'}
+</code></pre>
+
+<p>Pickle的问题和所有其他编程语言特有的序列化问题一样，就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，因此，只能用Pickle保存那些不重要的数据，不能成功地反序列化也没关系</p>
+
+<p><strong>JSON</strong></p>
+
+<pre><code>&gt;&gt;&gt; import json
+&gt;&gt;&gt; d = dict(name='Bob', age=20, score=88)
+&gt;&gt;&gt; json.dumps(d)
+'{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}'
+</code></pre>
+
+<pre><code>f = open('/Users/longpengfei/Desktop/aabstest.py','w')
+json.dump(d,f)
+</code></pre>
+
+<p>dumps()方法返回一个str,内容就是标准的JSON.dump()方法可以直接把JSON写入一个file-like Object</p>
+
+<p>要把JSON反序列化为Python对象，用loads()或者对应的load()方法，前者把JSON的字符串反序列化，后者从file-like Object中读取字符串并反序列化：</p>
+
+<pre><code>&gt;&gt;&gt; json_str = '{&quot;age&quot;: 20, &quot;score&quot;: 88, &quot;name&quot;: &quot;Bob&quot;}'
+&gt;&gt;&gt; json.loads(json_str)
+{'age': 20, 'score': 88, 'name': 'Bob'}
+
+g = open('/Users/longpengfei/Desktop/aabstest.py','r')
+m = json.load(g)
+</code></pre>
+
+<p>JSON标准规定JSON编码是UTF-8,所有我们总是能正确的再python的str与JSON的字符串之间的转换</p>
+
+<p><a href="https://docs.python.org/3/library/json.html#json.dumps">dumps()的参数列表</a>,这些参数是让我们来定制JSON序列化.可选参数default就是把任意一个对象变成一个可序列为JSON的对象</p>
+
+<pre><code>import json
+
+class Student(object):
+	def __init__(self,name,age,score):
+		self.name = name
+		self.age = age
+		self.score = score
+
+s = Student('bob',20,88)
+
+def student2dict(std):
+	return {'name':std.name,'age':std.age,'score':std.score}
+
+a = json.dumps(s,default=student2dict) #字符串
+
+</code></pre>
+
+<p>但如果有来了一个Teacher类student2dict函数就不再适用.可修改为:</p>
+
+<p><code>a = json.dumps(s,default=lambda obj:obj.__dict__)</code></p>
+
+<p>因为class的实例都有一个<code>__dict__</code>属性,它就是一个dict,用来储存实例变量.也有少数例外,比如定义了<code>__slots__</code>的class</p>
+
+<p>反序列化</p>
+
+<pre><code>def dict2student(d):
+	return Student(d['name'],d['age'],d['score'])
+
+b = json.loads(a,object_hook=dict2student)
+print(b)
+
+&lt;__main__.Student object at 0x102244a20&gt;
+</code></pre>
+
+<p><span id='进程和线程'></span></p>
+
+<h3 id="进程和线程">进程和线程</h3>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014319272686365ec7ceaeca33428c914edf8f70cca383000">一点进程和线程的基本概念忘了可看</a></p>
+
+<h4 id="多进程">多进程</h4>
+
+<p>Unix/Linux操作系统提供了一个fork()系统调用，它非常特殊。普通的函数调用，调用一次，返回一次，但是fork()调用一次，返回两次，因为操作系统自动把当前进程（称为父进程）复制了一份（称为子进程），然后，分别在父进程和子进程内返回。</p>
+
+<p>子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用getppid()就可以拿到父进程的ID。</p>
+
+<p>Python的os模块封装了常见的系统调用，其中就包括fork，可以在Python程序中轻松创建子进程：</p>
+
+<pre><code>import os
+
+print('Process (%s) start...' % os.getpid())
+# Only works on Unix/Linux/Mac:
+pid = os.fork()
+if pid == 0:
+    print('I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid()))
+else:
+    print('I (%s) just created a child process (%s).' % (os.getpid(), pid))
+    
+
+Process (876) start...
+I (876) just created a child process (877).
+I am child process (877) and my parent is 876.
+</code></pre>
+
+<p>由于Windows没有fork调用,Python是跨平台的，自然也应该提供一个跨平台的多进程支持。multiprocessing模块就是跨平台版本的多进程模块。</p>
+
+<pre><code>from multiprocessing import Process
+import os
+
+# 子进程要执行的代码
+def run_proc(name):
+    print('Run child process %s (%s)...' % (name, os.getpid()))
+
+if __name__=='__main__':
+    print('Parent process %s.' % os.getpid())
+    p = Process(target=run_proc, args=('test',))
+    print('Child process will start.')
+    p.start()
+    p.join()
+    print('Child process end.')
+</code></pre>
+
+<pre><code>Parent process 928.
+Process will start.
+Run child process test (929)...
+Process end.
+</code></pre>
+
+<p>创建子进程时,只需要传入一个执行函数和函数的参数,创建一个Process实例,用start()方法,这样创建进程比fork()还要简单.join()方法可以等待子进程结束后在继续往下运行,通常用于进程间的同步.</p>
+
+<p><strong>Pool</strong></p>
+
+<p>如果要启动大量的子进程,可以用进程池的方式批量创建子进程:</p>
+
+<pre><code>from multiprocessing import Pool
+import os, time, random
+
+def long_time_task(name):
+    print('Run task %s (%s)...' % (name, os.getpid()))
+    start = time.time()
+    time.sleep(random.random() * 3)
+    end = time.time()
+    print('Task %s runs %0.2f seconds.' % (name, (end - start)))
+
+if __name__=='__main__':
+    print('Parent process %s.' % os.getpid())
+    p = Pool(4)
+    for i in range(5):
+        p.apply_async(long_time_task, args=(i,))
+    print('Waiting for all subprocesses done...')
+    p.close()
+    p.join()
+    print('All subprocesses done.')
+</code></pre>
+
+<pre><code>Parent process 669.
+Waiting for all subprocesses done...
+Run task 0 (671)...
+Run task 1 (672)...
+Run task 2 (673)...
+Run task 3 (674)...
+Task 2 runs 0.14 seconds.
+Run task 4 (673)...
+Task 1 runs 0.27 seconds.
+Task 3 runs 0.86 seconds.
+Task 0 runs 1.41 seconds.
+Task 4 runs 1.91 seconds.
+All subprocesses done.
+</code></pre>
+
+<p>对Pool对象调用join()方法会等待所有子进程执行完毕,调用join()之前必先调用close,调用close()之后就不能继续添加新的Process了.</p>
+
+<p><code>p = Pool(5)</code>就能同时跑5个进程.</p>
+
+<p><code>p = Pool()</code>默认的个数是CPU个数</p>
+
+<p>查看cpu个数</p>
+
+<pre><code>from multiprocessing import cpu_count
+print(cpu_count())
+</code></pre>
+
+<p><strong>进程间通信</strong></p>
+
+<p>Process之间可定是需要通信的,操作系统提供了很多机制来实现进程间通信,Python的multiprocessing模块包装了底层的机制,提供Queue,Pipes等多种方式来交换数据.</p>
+
+<p>以Queue为例,在父进程中创建两个子进程,一个往Queue里写数据,一个从Queue读数据:</p>
+
+<pre><code>from multiprocessing import Process, Queue
+import os, time, random
+
+# 写数据进程执行的代码:
+def write(q):
+    print('Process to write: %s' % os.getpid())
+    for value in ['A', 'B', 'C']:
+        print('Put %s to queue...' % value)
+        q.put(value)
+        time.sleep(random.random())
+
+# 读数据进程执行的代码:
+def read(q):
+    print('Process to read: %s' % os.getpid())
+    while True:
+        value = q.get(True)
+        print('Get %s from queue.' % value)
+
+if __name__=='__main__':
+    # 父进程创建Queue，并传给各个子进程：
+    q = Queue()
+    pw = Process(target=write, args=(q,))
+    pr = Process(target=read, args=(q,))
+    # 启动子进程pw，写入:
+    pw.start()
+    # 启动子进程pr，读取:
+    pr.start()
+    # 等待pw结束:
+    pw.join()
+    # pr进程里是死循环，无法等待其结束，只能强行终止:
+    pr.terminate()
+</code></pre>
+
+<pre><code>Process to write: 50563
+Put A to queue...
+Process to read: 50564
+Get A from queue.
+Put B to queue...
+Get B from queue.
+Put C to queue...
+Get C from queue.
+</code></pre>
+
+<p>父进程所有Python对象都必须通过pickle序列化再传到子进程去,所以,如果multiprocessing在Windows下调用失败了,要先考虑是不是pickle失败了.</p>
+
+<h4 id="多线程">多线程</h4>
+
+<p>Python的线程是真正的Posix Thread(操作系统级线程)，而不是模拟出来的线程</p>
+
+<p>python的标准库提供了两个模块:_thread和threading,_thread是低级模块,threading是高级模块,对_thread进行了封装.绝大多数情况下, ,我们只需要使用threading这个高级模块.</p>
+
+<p>启动一个线程就是把一个函数传入并创建Thread实例,然后调用start()开始执行:</p>
+
+<pre><code>import time,threading
+
+def loop():
+	print('thread %s is running..' % threading.current_thread().name)
+	n = 0
+	while  n &lt; 5:
+		n = n + 1
+		print('thread % s &gt;&gt;&gt; %s' % (threading.current_thread().name,n))
+		time.sleep(1)
+	print('thread %s ended' % threading.current_thread().name)
+
+print('thread %s is running...' % threading.current_thread().name)
+
+t = threading.Thread(target=loop,name='LoopThread')
+t.start()
+t.join()
+print('thread %s ended' % threading.current_thread().name)
+
+</code></pre>
+
+<pre><code>thread MainThread is running...
+thread LoopThread is running...
+thread LoopThread &gt;&gt;&gt; 1
+thread LoopThread &gt;&gt;&gt; 2
+thread LoopThread &gt;&gt;&gt; 3
+thread LoopThread &gt;&gt;&gt; 4
+thread LoopThread &gt;&gt;&gt; 5
+thread LoopThread ended.
+thread MainThread ended.
+</code></pre>
+
+<p>任何进程都会默认启动一个线程,我们把该进程称为主线程</p>
+
+<p><strong>Lock</strong></p>
+
+<p>多线程和多进程最大的不同在于,多进程中,同一个变量,各自有一份拷贝存在每个进程中,互不影响.而多线程中,所有变量都由所有线程共享.</p>
+
+<p>通过threading.Lock()来创建一个锁,由于锁只有一个,无论多少线程,同一时刻最多只有一个线程持有该锁,所以不会造成修改冲突.</p>
+
+<pre><code>balance = 0
+lock = threading.Lock()
+
+def run_thread(n):
+    for i in range(100000):
+        # 先要获取锁:
+        lock.acquire()
+        try:
+            # 放心地改吧:
+            change_it(n)
+        finally:
+            # 改完了一定要释放锁:
+            lock.release()
+</code></pre>
+
+<p>获得锁的线程用完后一定要释放锁,否则那些咳咳等待锁的线程将永远等待下去,成为死线程.所以用try&hellip;finally来确保锁一定会释放.</p>
+
+<p>锁的好处就是确保了某段代码只能由一个线程从头到尾完整执行,坏处当然也很多,首先是组织了多线程并发执行,包含锁的某段代码实际上只能以单线程模式执行,效率大大地下降了.其次,由于可以存在多个锁,不同的线程持有不同的锁,并试图获取对方持有的锁时,可能会造成死锁,导致多个线程全部挂起,既不能执行,也无法结束,只能靠操作系统强制终止.</p>
+
+<p><strong>多核CPU</strong></p>
+
+<p>打开Mac OSX的活动监视器 可以见识到一个死循环线程会100%占用一个CPU.如果有两个死循环线程,在多核cpu中,可以监控到占用200%的cpu,也就是占用了两个cpu核心</p>
+
+<p>用Python写个死循环</p>
+
+<pre><code>import threading, multiprocessing
+
+def loop():
+    x = 0
+    while True:
+        x = x ^ 1
+
+for i in range(multiprocessing.cpu_count()):
+    t = threading.Thread(target=loop)
+    t.start()
+</code></pre>
+
+<p>运行发现Python的cpu占用只有102%也就是仅使用了一核.但是用C,C++,JAVA就会全部占满</p>
+
+<p>因为Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。</p>
+
+<p>GIL是Python解释器设计的历史遗留问题，通常我们用的解释器是官方实现的CPython，要真正利用多核，除非重写一个不带GIL的解释器。</p>
+
+<p>所以，在Python中，可以使用多线程，但不要指望能有效利用多核。如果一定要通过多线程利用多核，那只能通过C扩展来实现，不过这样就失去了Python简单易用的特点。</p>
+
+<p>不过，也不用过于担心，Python虽然不能利用多线程实现多核任务，但可以通过多进程实现多核任务。多个Python进程有各自独立的GIL锁，互不影响</p>
+
+<h4 id="threadlocal">ThreadLocal</h4>
+
+<pre><code>import threading
+
+# 创建全局ThreadLocal对象:
+local_school = threading.local()
+
+def process_student():
+    # 获取当前线程关联的student:
+    std = local_school.student
+    print('Hello, %s (in %s)' % (std, threading.current_thread().name))
+
+def process_thread(name):
+    # 绑定ThreadLocal的student:
+    local_school.student = name
+    process_student()
+
+t1 = threading.Thread(target= process_thread, args=('Alice',), name='Thread-A')
+t2 = threading.Thread(target= process_thread, args=('Bob',), name='Thread-B')
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+</code></pre>
+
+<pre><code>Hello, Alice (in Thread-A)
+Hello, Bob (in Thread-B)
+</code></pre>
+
+<p>全局变量local_school就是一个ThreadLocal对象，每个Thread对它都可以读写student属性，但互不影响。你可以把local_school看成全局变量，但每个属性如local_school.student都是线程的局部变量，可以任意读写而互不干扰，也不用管理锁的问题，ThreadLocal内部会处理。</p>
+
+<p>可以理解为全局变量local_school是一个dict，不但可以用local_school.student，还可以绑定其他变量，如local_school.teacher等等。</p>
+
+<p>ThreadLocal最常用的地方就是为每个线程绑定一个数据库连接，HTTP请求，用户身份信息等，这样一个线程的所有调用到的处理函数都可以非常方便地访问这些资源。</p>
+
+<h4 id="进程-vs-线程">进程 vs 线程</h4>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014319292979766bd3285c9d6b4942a8ea9b4e9cfb48d8000">看这里</a></p>
+
+<h4 id="分布式进程">分布式进程</h4>
+
+<p>在Thread和Process中,应当优选Process,因为Process更稳定,而且Process可以分布到多台机器上.Python的multiprocessing模块不但支持多进程,其中manager子模块还支持把多进程分布到多台机器上.一个服务进程可以作为调度者,将任务分布到其他多个进程中,</p>
+
+<p>举个例子：如果我们已经有一个通过Queue通信的多进程程序在同一台机器上运行，现在，由于处理任务的进程任务繁重，希望把发送任务的进程和处理任务的进程分布到两台机器上</p>
+
+<pre><code># task_master.py
+
+import random, time, queue
+from multiprocessing.managers import BaseManager
+
+# 发送任务的队列:
+task_queue = queue.Queue()
+# 接收结果的队列:
+result_queue = queue.Queue()
+
+# 从BaseManager继承的QueueManager:
+class QueueManager(BaseManager):
+    pass
+
+# 把两个Queue都注册到网络上, callable参数关联了Queue对象:
+QueueManager.register('get_task_queue', callable=lambda: task_queue)
+QueueManager.register('get_result_queue', callable=lambda: result_queue)
+# 绑定端口5000, 设置验证码'abc':
+manager = QueueManager(address=('', 5000), authkey=b'abc')
+# 启动Queue:
+manager.start()
+# 获得通过网络访问的Queue对象:
+task = manager.get_task_queue()
+result = manager.get_result_queue()
+# 放几个任务进去:
+for i in range(10):
+    n = random.randint(0, 10000)
+    print('Put task %d...' % n)
+    task.put(n)
+# 从result队列读取结果:
+print('Try get results...')
+for i in range(10):
+    r = result.get(timeout=10)
+    print('Result: %s' % r)
+# 关闭:
+manager.shutdown()
+print('master exit.')
+</code></pre>
+
+<p>然后在另一台机器上启动任务进程(本机上启动也可以)</p>
+
+<pre><code># task_worker.py
+
+import time, sys, queue
+from multiprocessing.managers import BaseManager
+
+# 创建类似的QueueManager:
+class QueueManager(BaseManager):
+    pass
+
+# 由于这个QueueManager只从网络上获取Queue，所以注册时只提供名字:
+QueueManager.register('get_task_queue')
+QueueManager.register('get_result_queue')
+
+# 连接到服务器，也就是运行task_master.py的机器:
+server_addr = '127.0.0.1'
+print('Connect to server %s...' % server_addr)
+# 端口和验证码注意保持与task_master.py设置的完全一致:
+m = QueueManager(address=(server_addr, 5000), authkey=b'abc')
+# 从网络连接:
+m.connect()
+# 获取Queue的对象:
+task = m.get_task_queue()
+result = m.get_result_queue()
+# 从task队列取任务,并把结果写入result队列:
+for i in range(10):
+    try:
+        n = task.get(timeout=1)
+        print('run task %d * %d...' % (n, n))
+        r = '%d * %d = %d' % (n, n, n*n)
+        time.sleep(1)
+        result.put(r)
+    except Queue.Empty:
+        print('task queue is empty.')
+# 处理结束:
+print('worker exit.')
+</code></pre>
+
+<p>先启动task_master.py服务进程：</p>
+
+<pre><code>$ python3 task_master.py 
+Put task 3411...
+Put task 1605...
+Put task 1398...
+Put task 4729...
+Put task 5300...
+Put task 7471...
+Put task 68...
+Put task 4219...
+Put task 339...
+Put task 7866...
+Try get results...
+</code></pre>
+
+<p>task_master.py进程发送完任务后，开始等待result队列的结果。现在启动task_worker.py进程：</p>
+
+<pre><code>$ python3 task_worker.py
+Connect to server 127.0.0.1...
+run task 3411 * 3411...
+run task 1605 * 1605...
+run task 1398 * 1398...
+run task 4729 * 4729...
+run task 5300 * 5300...
+run task 7471 * 7471...
+run task 68 * 68...
+run task 4219 * 4219...
+run task 339 * 339...
+run task 7866 * 7866...
+worker exit.
+</code></pre>
+
+<p>task_worker.py进程结束，在task_master.py进程中会继续打印出结果：</p>
+
+<pre><code>Result: 3411 * 3411 = 11634921
+Result: 1605 * 1605 = 2576025
+Result: 1398 * 1398 = 1954404
+Result: 4729 * 4729 = 22363441
+Result: 5300 * 5300 = 28090000
+Result: 7471 * 7471 = 55815841
+Result: 68 * 68 = 4624
+Result: 4219 * 4219 = 17799961
+Result: 339 * 339 = 114921
+Result: 7866 * 7866 = 61873956
+</code></pre>
+
+<p>Queue对象存储在哪？注意到task_worker.py中根本没有创建Queue的代码，所以，Queue对象存储在task_master.py进程中.
+而Queue之所以能通过网络访问，就是通过QueueManager实现的。由于QueueManager管理的不止一个Queue，所以，要给每个Queue的网络调用接口起个名字，比如get_task_queue。
+authkey有什么用？这是为了保证两台机器正常通信，不被其他机器恶意干扰。如果task_worker.py的authkey和task_master.py的authkey不一致，肯定连接不上</p>
+
+<p>注意Queue的作用是用来传递任务和接收结果，每个任务的描述数据量要尽量小。比如发送一个处理日志文件的任务，就不要发送几百兆的日志文件本身，而是发送日志文件存放的完整路径，由Worker进程再去共享的磁盘上读取文件。</p>
+
+<p><span id='正则表达式'></span></p>
+
+<h3 id="正则表达式">正则表达式</h3>
+
+<p><code>\d</code>可以匹配一个数字,<code>\w</code>可以匹配一个字母或数字,<code>.</code>可以匹配任意字符,<code>\s</code>可以匹配一个空格(也包括Tab等空白符),遇到<code>'-'</code>等特殊符,要用<code>'\'</code>转义</p>
+
+<ul>
+<li><code>'00\d'</code>可以匹配<code>'007'</code>,但无法匹配<code>'00A'</code></li>
+<li><code>'\d\d\d'</code>可以匹配<code>'010'</code></li>
+<li><code>'\w\w\d'</code>可以匹配<code>'py3'</code></li>
+<li><code>'py.'</code>可以匹配<code>'pyc'</code>、<code>'pyo'</code>、<code>'py!'</code>等等</li>
+</ul>
+
+<p>要匹配变长的字符,在正则表达式中,用<code>*</code>表示任意个字符(包括0个),用<code>+</code>表示至少一个字符,用<code>?</code>表示0个或1个字符,用<code>{n}</code>表示n个字符,用<code>{n,m}</code>表示n-m个字符:</p>
+
+<p><strong>进阶</strong></p>
+
+<p>要做更精确地匹配,可以用[]表示范围</p>
+
+<ul>
+<li><code>[0-9a-zA-Z\_]</code>可以匹配一个数字、字母或者下划线</li>
+<li><code>[0-9a-zA-Z\_]+</code>可以匹配至少由一个数字、字母或者下划线组成的字符串，比如&rsquo;a100&rsquo;，&rsquo;0_Z&rsquo;，&rsquo;Py3000&rsquo;等等</li>
+<li><code>[0-9a-zA-Z\_]+</code>可以匹配至少由一个数字、字母或者下划线组成的字符串，比如&rsquo;a100&rsquo;，&rsquo;0_Z&rsquo;，&rsquo;Py3000&rsquo;等等</li>
+<li><code>[a-zA-Z\_][0-9a-zA-Z\_]{0, 19}</code>更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）。</li>
+</ul>
+
+<p><code>A|B</code>可以匹配A或B，所以<code>(P|p)ython</code>可以匹配<code>'Python'</code>或者<code>'python'</code></p>
+
+<p>^表示行的开头，^\d表示必须以数字开头</p>
+
+<p>$表示行的结束，\d$表示必须以数字结束</p>
+
+<p>你可能注意到了，py也可以匹配&rsquo;python&rsquo;，但是加上^py$就变成了整行匹配，就只能匹配&rsquo;py&rsquo;了</p>
+
+<p><strong>re模块</strong></p>
+
+<p>Python提供re模块，包含所有正则表达式的功能.由于Python的字符串本身也用\转义，所以要特别注意</p>
+
+<pre><code>s = 'ABC\\-001' # Python的字符串
+# 对应的正则表达式字符串变成：
+# 'ABC\-001'
+</code></pre>
+
+<pre><code>s = r'ABC\-001' # Python的字符串 使用Python的r前缀，就不用考虑转义的问题了
+# 对应的正则表达式字符串不变：
+# 'ABC\-001'
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.match(r'^\d{3}\-\d{3,8}$', '010-12345')
+&lt;_sre.SRE_Match object; span=(0, 9), match='010-12345'&gt;
+&gt;&gt;&gt; re.match(r'^\d{3}\-\d{3,8}$', '010 12345')
+&gt;&gt;&gt;
+</code></pre>
+
+<p>match()方法判断是否匹配，如果匹配成功，返回一个Match对象，否则返回None。常见的判断方法就是：</p>
+
+<pre><code>test = '用户输入的字符串'
+if re.match(r'正则表达式', test):
+    print('ok')
+else:
+    print('failed')
+</code></pre>
+
+<p><strong>切分字符串</strong></p>
+
+<p>无法识别连续的空格</p>
+
+<pre><code>&gt;&gt;&gt; 'a b   c'.split(' ')
+['a', 'b', '', '', 'c']
+</code></pre>
+
+<p>用正则</p>
+
+<pre><code>&gt;&gt;&gt; re.split(r'\s+', 'a b   c')
+['a', 'b', 'c']
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; re.split(r'[\s\,]+', 'a,b, c  d')
+['a', 'b', 'c', 'd']
+</code></pre>
+
+<pre><code>&gt;&gt;&gt; re.split(r'[\s\,\;]+', 'a,b;; c  d')
+['a', 'b', 'c', 'd']
+</code></pre>
+
+<p><strong>分组</strong></p>
+
+<p>正则表达式还有提取子串的强大功能.用()表示的就是要提取的分组(Group).比如:<code>^(\d{3})-(\d{3,8})$</code>分别定义了两个组,可以直接从匹配的字符串中提取出区号和本地号码:</p>
+
+<pre><code>&gt;&gt;&gt; m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+&gt;&gt;&gt; m
+&lt;_sre.SRE_Match object; span=(0, 9), match='010-12345'&gt;
+&gt;&gt;&gt; m.group(0)
+'010-12345'
+&gt;&gt;&gt; m.group(1)
+'010'
+&gt;&gt;&gt; m.group(2)
+'12345'
+</code></pre>
+
+<p><strong>贪婪匹配</strong></p>
+
+<p>正则匹配默认是贪婪匹配,也就是匹配尽可能多的字符.</p>
+
+<pre><code>&gt;&gt;&gt; re.match(r'^(\d+)(0*)$', '102300').groups()
+('102300', '')
+</code></pre>
+
+<p>由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：</p>
+
+<pre><code>&gt;&gt;&gt; re.match(r'^(\d+?)(0*)$', '102300').groups()
+('1023', '00')
+</code></pre>
+
+<p><strong>编译</strong></p>
+
+<p>当我们在Python中使用正则表达式,re模块内部会干两件事情</p>
+
+<ul>
+<li>1 编译正则表达式,如果正则表达式的字符串本身不合法,会报错</li>
+<li>2 用编译后的正则表达式去匹配字符串</li>
+</ul>
+
+<p>如果一个正则表达式要重复使用几千次,处于效率的考虑,我们可以预编译该正则表达式,接下来使用就不需要编译这个步骤了:</p>
+
+<pre><code>&gt;&gt;&gt; import re
+# 编译:
+&gt;&gt;&gt; re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
+# 使用：
+&gt;&gt;&gt; re_telephone.match('010-12345').groups()
+('010', '12345')
+&gt;&gt;&gt; re_telephone.match('010-8086').groups()
+('010', '8086')
+</code></pre>
+
+<p><span id='常用内建模块'></span></p>
+
+<h3 id="常用内建模块">常用内建模块</h3>
+
+<h4 id="datetime">datetime</h4>
+
+<p>datetime是Python处理日期和时间的标准库</p>
+
+<pre><code>from datetime import datetime
+
+now = datetime.now() #获取当前时间类型是datetime
+print(now)
+print(type(now))
+
+2017-09-08 18:02:04.984464
+&lt;class 'datetime.datetime'&gt;
+
+
+dt = datetime(2015,4,19,12,20)
+print(dt)
+
+2015-04-19 12:20:00
+
+print(dt.timestamp())
+1429417200.0
+
+t = 1429417200.0
+print(datetime.fromtimestamp(t))
+2015-04-19 12:20:00
+
+字符串转datetime
+cday = datetime.strptime('2015-6-1 18:19:59', '%Y-%m-%d %H:%M:%S')
+
+datetime转换为str
+print(datetime.now().strftime('%a,%b %d %H:%M'))
+Fri,Sep 08 18:11
+
+</code></pre>
+
+<p><strong>datetime加减</strong></p>
+
+<pre><code>from datetime import datetime, timedelta
+
+now = datetime.now()
+print(now+timedelta(days=1,hours=10))
+</code></pre>
+
+<p><strong>时区转换</strong></p>
+
+<pre><code>from datetime import datetime, timedelta,timezone
+
+utc_dt = datetime.utcnow().replace(tzinfo=timezone.utc)
+print(utc_dt)
+
+bj_dt = utc_dt.astimezone(timezone(timedelta(hours=8)))
+print(bj_dt)
+</code></pre>
+
+<pre><code>2017-09-08 10:26:26.540374+00:00
+2017-09-08 18:26:26.540374+08:00
+</code></pre>
+
+<h4 id="collections">collections</h4>
+
+<p><strong>namedtuple</strong></p>
+
+<pre><code>from collections import namedtuple
+
+Point = namedtuple('Point',['x','y'])
+p = Point(1,2)
+print(p.x)
+
+a = isinstance(p,Point)
+b = isinstance(p,tuple)
+print(a) #True
+print(b) #True
+</code></pre>
+
+<p>namedtuple是一个函数,它用来创建一个自定义的tuple对象,并且规定了tuple元素的个数,并可以用属性而不是索引来引用tuple的某个元素. 他具备tuple的不变性</p>
+
+<p><strong>deque</strong></p>
+
+<pre><code>from collections import deque
+
+q = deque(['a','b','c'])
+q.append('x')
+q.appendleft('y')
+print(q)
+list(q)
+
+deque(['y', 'a', 'b', 'c', 'x'])
+
+</code></pre>
+
+<p><strong>defaultdict</strong></p>
+
+<p>key不存在的时候给出一个默认值</p>
+
+<pre><code>from collections import defaultdict
+
+d = defaultdict(lambda:'N/A')
+d['key1'] = 'abc'
+
+print(d)
+print(dict(d))
+print(d['key1'])
+print(d['key2'])
+
+defaultdict(&lt;function &lt;lambda&gt; at 0x102161840&gt;, {'key1': 'abc'})
+{'key1': 'abc'}
+abc
+N/A
+</code></pre>
+
+<p><strong>OrderedDict</strong></p>
+
+<p>key是有序的,顺序是初始化的顺序</p>
+
+<pre><code>from collections import OrderedDict
+
+d = OrderedDict([('d',1),('b',2),('c',3)])
+print(d)
+OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+d = OrderedDict([('b',1),('a',2),('c',3)])
+print(d)
+OrderedDict([('b', 1), ('a', 2), ('c', 3)])
+</code></pre>
+
+<pre><code>d = OrderedDict()
+d['x'] = 1
+d['y'] = 2
+d['z'] = 3
+print(list(d.keys())) # 按照插入的Key的顺序返回
+</code></pre>
+
+<p>实现一个FIFO(先进先出)dict,超过容量限制时,删除最早进入的key</p>
+
+<pre><code>from collections import OrderedDict
+
+class LastUpdateOrderedDict(OrderedDict):
+
+	def __init__(self,capacity):
+		super(LastUpdateOrderedDict,self).__init__()
+		self._capacity = capacity
+
+	def __setitem__(self,key,value):
+		containsKey = 1 if key in self else 0
+		if len(self)-containsKey &gt;= self._capacity:
+			last = self.popitem(last=False)
+			print('remove:',last)
+		if containsKey:
+			del self[key]
+			print('set:',(key,vlaue))
+		else:
+			print('add:',(key,value))
+		OrderedDict.__setitem__(self,key,value)
+
+d = LastUpdateOrderedDict(2)
+</code></pre>
+
+<p><strong>Counter</strong></p>
+
+<p>一个简单的计数器,例如,统计字符出现的个数</p>
+
+<pre><code>from collections import Counter
+
+c = Counter()
+for ch in 'programming':
+	c[ch] = c[ch] + 1
+print(c)
+
+Counter({'r': 2, 'g': 2, 'm': 2, 'p': 1, 'o': 1, 'a': 1, 'i': 1, 'n': 1})
+</code></pre>
+
+<h4 id="base64">base64</h4>
+
+<p>用64个字符来标示任意二进制数据,常用于在URL、Cookie、网页中传输少量二进制数<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431954588961d6b6f51000ca4279a3415ce14ed9d709000">具体原理</a></p>
+
+<pre><code>&gt;&gt;&gt; import base64
+&gt;&gt;&gt; base64.b64encode(b'binary\x00string')
+b'YmluYXJ5AHN0cmluZw=='
+&gt;&gt;&gt; base64.b64decode(b'YmluYXJ5AHN0cmluZw==')
+b'binary\x00string'
+</code></pre>
+
+<p>由于标准的Base64编码后可能出现字符+和/，在URL中就不能直接作为参数，所以又有一种&rdquo;url safe&rdquo;的base64编码，其实就是把字符+和/分别变成-和_：</p>
+
+<pre><code>&gt;&gt;&gt; base64.b64encode(b'i\xb7\x1d\xfb\xef\xff')
+b'abcd++//'
+&gt;&gt;&gt; base64.urlsafe_b64encode(b'i\xb7\x1d\xfb\xef\xff')
+b'abcd--__'
+&gt;&gt;&gt; base64.urlsafe_b64decode('abcd--__')
+b'i\xb7\x1d\xfb\xef\xff'
+</code></pre>
+
+<h4 id="struct">struct</h4>
+
+<p>struct模块来解决bytes和其他二进制数据类型的转换,对性能要求不高的地方很方便</p>
+
+<pre><code>&gt;&gt;&gt; import struct
+&gt;&gt;&gt; struct.pack('&gt;I', 10240099)
+b'\x00\x9c@c'
+</code></pre>
+
+<p>pack的第一个参数是处理指令，&rsquo;&gt;I&rsquo;的意思是：</p>
+
+<p><code>&gt;</code>表示字节顺序是big-endian，也就是网络序，I表示4字节无符号整数。</p>
+
+<p>后面的参数个数要和处理指令一致。</p>
+
+<pre><code>&gt;&gt;&gt; struct.unpack('&gt;IH', b'\xf0\xf0\xf0\xf0\x80\x80')
+(4042322160, 32896)
+</code></pre>
+
+<p>根据&gt;IH的说明，后面的bytes依次变为I：4字节无符号整数和H：2字节无符号整数</p>
+
+<p><a href="https://docs.python.org/3/library/struct.html#format-characters">类型表</a></p>
+
+<p>检查位图:</p>
+
+<p>两个字节：&rsquo;BM&rsquo;表示Windows位图，&rsquo;BA&rsquo;表示OS/2位图；</p>
+
+<ul>
+<li>一个4字节整数：表示位图大小；</li>
+<li>一个4字节整数：保留位，始终为0；</li>
+<li>一个4字节整数：实际图像的偏移量；</li>
+<li>一个4字节整数：Header的字节数；</li>
+<li>一个4字节整数：图像宽度；</li>
+<li>一个4字节整数：图像高度；</li>
+<li>一个2字节整数：始终为1；</li>
+<li>一个2字节整数：颜色数。</li>
+</ul>
+
+<pre><code>import struct,os
+
+def check_bmp(pathStr):
+	if os.path.splitext(pathStr)[1] == '.bmp':
+		with open(pathStr,'rb') as f:
+			data = f.read(30)
+		dataInfo = struct.unpack('&lt;ccIIIIIIHH',data)
+		if dataInfo[0] == b'B' and (dataInfo[1] == b'A' or dataInfo[1] == b'M') and len(dataInfo) == 10:
+			return 'size:%s*%s, color:%s' % (dataInfo[6],dataInfo[7],dataInfo[-1])
+		else:
+			return 'bmp file error'
+	else:
+		return 'file type error'
+
+
+path = '/Users/longpengfei/Desktop/1504925841877.bmp'
+result = check_bmp(path)
+print(result)
+</code></pre>
+
+<h4 id="hashlib">hashlib</h4>
+
+<p>hashlib提供了常见的哈希算法,如MD5,SHA1等等</p>
+
+<pre><code>import hashlib
+
+md5 = hashlib.md5()
+md5.update('how to use md5 in python hashlib?'.encode('utf-8'))
+print(md5.hexdigest())
+
+d26a53750bc40b38b65a520292f69306
+</code></pre>
+
+<p>如果数据量很大，可以分块多次调用update()，最后计算的结果是一样的</p>
+
+<pre><code>import hashlib
+
+md5 = hashlib.md5()
+md5.update('how to use md5 in '.encode('utf-8'))
+md5.update('python hashlib?'.encode('utf-8'))
+print(md5.hexdigest())
+</code></pre>
+
+<p>hashlib</p>
+
+<p>阅读: 51310
+摘要算法简介</p>
+
+<p>Python的hashlib提供了常见的摘要算法，如MD5，SHA1等等。</p>
+
+<p>什么是摘要算法呢？摘要算法又称哈希算法、散列算法。它通过一个函数，把任意长度的数据转换为一个长度固定的数据串（通常用16进制的字符串表示）。</p>
+
+<p>举个例子，你写了一篇文章，内容是一个字符串&rsquo;how to use python hashlib - by Michael&rsquo;，并附上这篇文章的摘要是&rsquo;2d73d4f15c0db7f5ecb321b6a65e5d6d&rsquo;。如果有人篡改了你的文章，并发表为&rsquo;how to use python hashlib - by Bob&rsquo;，你可以一下子指出Bob篡改了你的文章，因为根据&rsquo;how to use python hashlib - by Bob&rsquo;计算出的摘要不同于原始文章的摘要。</p>
+
+<p>可见，摘要算法就是通过摘要函数f()对任意长度的数据data计算出固定长度的摘要digest，目的是为了发现原始数据是否被人篡改过。</p>
+
+<p>摘要算法之所以能指出数据是否被篡改过，就是因为摘要函数是一个单向函数，计算f(data)很容易，但通过digest反推data却非常困难。而且，对原始数据做一个bit的修改，都会导致计算出的摘要完全不同。</p>
+
+<p>我们以常见的摘要算法MD5为例，计算出一个字符串的MD5值：</p>
+
+<p>import hashlib</p>
+
+<p>md5 = hashlib.md5()
+md5.update(&lsquo;how to use md5 in python hashlib?&rsquo;.encode(&lsquo;utf-8&rsquo;))
+print(md5.hexdigest())
+计算结果如下：</p>
+
+<p>d26a53750bc40b38b65a520292f69306
+如果数据量很大，可以分块多次调用update()，最后计算的结果是一样的：</p>
+
+<p>import hashlib</p>
+
+<p>md5 = hashlib.md5()
+md5.update(&lsquo;how to use md5 in &lsquo;.encode(&lsquo;utf-8&rsquo;))
+md5.update(&lsquo;python hashlib?&rsquo;.encode(&lsquo;utf-8&rsquo;))
+print(md5.hexdigest())
+试试改动一个字母，看看计算的结果是否完全不同。</p>
+
+<p>MD5是最常见的摘要算法，速度很快，生成结果是固定的128 bit字节，通常用一个32位的16进制字符串表示</p>
+
+<p>另一种常见的摘要算法是SHA1，调用SHA1和调用MD5完全类似</p>
+
+<pre><code>import hashlib
+
+sha1 = hashlib.sha1()
+sha1.update('how to use sha1 in '.encode('utf-8'))
+sha1.update('python hashlib?'.encode('utf-8'))
+print(sha1.hexdigest())
+</code></pre>
+
+<p>SHA1的结果是160 bit字节，通常用一个40位的16进制字符串表示。比SHA1更安全的算法是SHA256和SHA512，不过越安全的算法不仅越慢，而且摘要长度更长。</p>
+
+<h4 id="itertools">itertools</h4>
+
+<p>itertools模块提供的全部是处理迭代功能的函数,他们的返回值不是list,而是Iterator,只有for循环迭代的时候才真正计算.</p>
+
+<pre><code>import itertools
+
+natuals = itertools.count(1)
+for n in natuals:
+	print(n)
+无限迭代自然数
+
+cs = itertools.cycle('abc')
+for c in cs:
+	print(c)
+无限a,b,c,a,b,c...
+	
+ns = itertools.repeat('a',3)
+for n in ns:
+	print(n)
+a,a,a
+
+natuals = itertools.count(1)
+ns = itertools.takewhile(lambda x:x &lt;= 10,natuals)
+print(list(ns))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre>
+
+<p><strong>chain()</strong></p>
+
+<p>chain()可以把一组迭代对象串联起来,行程一个更大的迭代器:</p>
+
+<pre><code>for c in itertools.chain('abc','xyz'):
+	print(c)
+a,b,c,x,y,z
+</code></pre>
+
+<p><strong>groupby()</strong></p>
+
+<p>把迭代器中相邻的重复元素挑出来放在一起.</p>
+
+<pre><code>for key,group in itertools.groupby('aaaabbbbcccccdd'):
+	print(key, list(group))
+	
+a ['a', 'a', 'a', 'a']
+b ['b', 'b', 'b', 'b']
+c ['c', 'c', 'c', 'c', 'c']
+d ['d', 'd']
+</code></pre>
+
+<h4 id="contextlib">contextlib</h4>
+
+<pre><code>with open('/path/to/file', 'r') as f:
+    f.read()
+</code></pre>
+
+<p>类似这样需要使用with语句,只要实现了上下文管理就可以.上下文管理是通过<code>__enter__</code>和<code>__exit__</code>这两个方法实现的.</p>
+
+<pre><code>class Query(object):
+	def __init__(self,name):
+		self.name = name
+	def __enter__(self):
+		print('Begin')
+		return self
+	def __exit__(self,exc_type,exc_value,traceback):
+		if exc_type:
+			print('Error')
+		else:
+			print('End')
+	def query(self):
+		print('Query info about %s...' % self.name)
+
+with Query('Bob') as q:
+	q.query()
+
+Begin
+Query info about Bob...
+End
+</code></pre>
+
+<p><strong>@contextmanager</strong></p>
+
+<p>编写<code>__enter__</code>和<code>__exit__</code>仍然很繁琐,因此Python的标准库contextlib提供了更简单的写法,上面的代码可以改写如下:</p>
+
+<pre><code>from contextlib import contextmanager
+
+class Query(object):
+	def __init__(self,name):
+		self.name = name
+	def query(self):
+		print('Query info about %s...' % self.name)
+
+@contextmanager
+def create_query(name):
+	print('Begin')
+	q = Query(name)
+	yield q
+	print('End')
+</code></pre>
+
+<p>@contextmanager这个decorator接受一个generator,用yield语句把with&hellip;as var把变量输出出去,然后,with语句就可以正常地工作:</p>
+
+<pre><code>with create_query('Bob') as q:
+	q.query()
+</code></pre>
+
+<p>很多时候,我们希望在某段代码执行前后自动执行特定代码,也可以用@contextmanager</p>
+
+<pre><code>from contextlib import contextmanager
+
+@contextmanager
+def tag(name):
+	print('&lt;%s&gt;' % name)
+	yield
+	print('&lt;%s&gt;' % name)
+
+with tag('h1'):
+	print('hello')
+	print('world')
+	
+&lt;h1&gt;
+hello
+world
+&lt;h1&gt;
+</code></pre>
+
+<p>代码的执行顺序是:</p>
+
+<ul>
+<li>1 with语句首先执行yield之前的语句,因此打印出<code>&lt;h1&gt;</code></li>
+<li>2 yield调用会执行with语句内部的所有语句,因此打印出hello和world</li>
+<li>3 最后执行yield之后的语句,打印出<code>&lt;h1&gt;</code></li>
+</ul>
+
+<p><strong>@closing</strong></p>
+
+<p>如果一个对象没有实现上下文,就不能把它用于with语句.这个时候,可以用closing()来把对象变为上下文对象.例如:</p>
+
+<pre><code>from contextlib import closing
+from urllib.request import urlopen
+import ssl
+
+context = ssl._create_unverified_context() #使用ssl创建未经验证的上下文
+with closing(urlopen('http://www.python.org',context=context)) as page:
+    for line in page:
+        print(line)
+</code></pre>
+
+<p>或者:</p>
+
+<pre><code>from contextlib import closing
+from urllib.request import urlopen
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context #全局取消证书验证
+with closing(urlopen('http://www.python.org')) as page:
+    for line in page:
+        print(line)
+</code></pre>
+
+<p>closing也是一个经过@contextmanager装饰的generator,这个generator编写起来其实非常简单:</p>
+
+<pre><code>from contextlib import contextmanager
+
+@contextmanager
+def closing(thing):
+	try:
+		yield thing
+	finally:
+		thing.close()
+</code></pre>
+
+<p>他的作用就是把任意对象变为上下文对象,并支持with语句.</p>
+
+<h4 id="xml">XML</h4>
+
+<p>sax解析</p>
+
+<pre><code>from xml.parsers.expat import ParserCreate
+
+class DefaultSaxHandler(object):
+    def start_element(self, name, attrs):
+        print('sax:start_element: %s, attrs: %s' % (name, str(attrs)))
+
+    def end_element(self, name):
+        print('sax:end_element: %s' % name)
+
+    def char_data(self, text):
+        print('sax:char_data: %s' % text)
+
+xml = r'''&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;ol&gt;
+    &lt;li&gt;&lt;a href=&quot;/python&quot;&gt;Python&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/ruby&quot;&gt;Ruby&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+'''
+
+handler = DefaultSaxHandler()
+parsers = ParserCreate()
+parsers.StartElementHandler = handler.start_element
+parsers.EndElementHandler = handler.end_element
+parsers.CharacterDataHandler = handler.char_data
+parsers.Parse(xml)
+</code></pre>
+
+<h4 id="htmlparser">HTMLParser</h4>
+
+<p>HTML本质上是XML的子集,但是HTML的语法没有XML那么严格,所以不能用标准的DOM或SAX来解析HTML.Python提供了HTMLParser来非常方便地解析HTML,只需要简单几行代码.利用HTMLParser可以把网页中的文本,图像等解析出来.</p>
+
+<pre><code>from html.parser import HTMLParser
+from html.entities import name2codepoint
+
+class MyHTMLParser(HTMLParser):
+	def handle_starttag(self,tag,attrs):
+		print('&lt;%s&gt;' % tag)
+	def handle_endtag(self,tag):
+		print('&lt;/%s&gt;' % tag)
+	def handle_startendtag(self,tag,attrs):
+		print('&lt;%s/&gt;' % tag)
+	def handle_data(self,data):
+		print(data)
+	def handle_comment(self,data):
+		print('&lt;!--',data,'--&gt;')
+	def handle_entityref(self,name):
+		print('&amp;%s;' % name)
+	def handle_charref(self,name):
+		print('&amp;#%s;' % name)
+
+parsers = MyHTMLParser()
+parsers.feed('''&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- test html parser --&gt;
+    &lt;p&gt;Some &lt;a href=\&quot;#\&quot;&gt;html&lt;/a&gt; HTML&amp;nbsp;tutorial...&lt;br&gt;END&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;''')
+</code></pre>
+
+<p>feed()方法可以多次调用,也就是不一定一次把整个HTML字符串都塞进去,可以一部分一部分塞进去。</p>
+
+<p>特殊字符有两种，一种是英文表示的<code>&amp;nbsp;</code>，一种是数字表示的<code>&amp;#1234;</code>，这两种字符都可以通过Parser解析出来。</p>
+
+<pre><code class="language-python">print('a')
+
+</code></pre>
+
+<p>输出Python官网发布的会议时间、名称和地点.<a href="https://www.python.org/events/python-events/">https://www.python.org/events/python-events/</a></p>
+
+<pre><code>from html.parser import HTMLParser
+from html.entities import name2codepoint
+from urllib.request import urlopen
+import ssl
+
+
+context = ssl._create_unverified_context()
+with urlopen('https://www.python.org/events/python-events/',context=context) as f:
+	data = f.read().decode('utf-8')
+	# print(data)
+
+class MyHTMLParser(HTMLParser):
+
+    _infos = list()
+    _flag = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'h3' and len(attrs) &gt; 0 and attrs[0][1] == 'event-title':
+            MyHTMLParser._flag = True
+            MyHTMLParser._infos.append({
+                'event-title': '',
+                'time': '',
+                'location': ''
+            })
+        if tag == 'time':
+            MyHTMLParser._infos[-1]['time'] = attrs[0][1]
+
+        if len(attrs) &gt; 0 and attrs[0][1] == 'event-location':
+            MyHTMLParser._flag = True
+
+    def handle_data(self, data):
+        if MyHTMLParser._flag == True:
+            if len(MyHTMLParser._infos[-1]['event-title']) == 0:
+                MyHTMLParser._infos[-1]['event-title'] = data
+                print(data)
+            else:
+                MyHTMLParser._infos[-1]['location'] = data
+
+            MyHTMLParser._flag = False
+
+parser = MyHTMLParser(convert_charrefs=False)
+parser.feed(data)
+for info in parser._infos:
+    print('&lt;--------------------------------------&gt;')
+    for k, v in info.items():
+        print('%s : %s' % (k, v))
+</code></pre>
+
+<h4 id="urllib">urllib</h4>
+
+<p><strong>Get</strong></p>
+
+<pre><code>from urllib import request
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
+with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
+    data = f.read()
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', data.decode('utf-8'))
+</code></pre>
+
+<p>伪装成浏览器发送</p>
+
+<pre><code>req = request.Request('http://www.douban.com/')
+req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+with request.urlopen(req) as f:
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', f.read().decode('utf-8'))
+</code></pre>
+
+<p><strong>Post</strong></p>
+
+<pre><code>from urllib import request, parse
+
+print('Login to weibo.cn...')
+email = input('Email: ')
+passwd = input('Password: ')
+login_data = parse.urlencode([
+    ('username', email),
+    ('password', passwd),
+    ('entry', 'mweibo'),
+    ('client_id', ''),
+    ('savestate', '1'),
+    ('ec', ''),
+    ('pagerefer', 'https://passport.weibo.cn/signin/welcome?entry=mweibo&amp;r=http%3A%2F%2Fm.weibo.cn%2F')
+])
+
+req = request.Request('https://passport.weibo.cn/sso/login')
+req.add_header('Origin', 'https://passport.weibo.cn')
+req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/8.0 Mobile/10A5376e Safari/8536.25')
+req.add_header('Referer', 'https://passport.weibo.cn/signin/login?entry=mweibo&amp;res=wel&amp;wm=3349&amp;r=http%3A%2F%2Fm.weibo.cn%2F')
+
+with request.urlopen(req, data=login_data.encode('utf-8')) as f:
+    print('Status:', f.status, f.reason)
+    for k, v in f.getheaders():
+        print('%s: %s' % (k, v))
+    print('Data:', f.read().decode('utf-8'))
+</code></pre>
+
+<p><strong>Handler</strong></p>
+
+<pre><code>proxy_handler = urllib.request.ProxyHandler({'http': 'http://www.example.com:3128/'})
+proxy_auth_handler = urllib.request.ProxyBasicAuthHandler()
+proxy_auth_handler.add_password('realm', 'host', 'username', 'password')
+opener = urllib.request.build_opener(proxy_handler, proxy_auth_handler)
+with opener.open('http://www.example.com/login.html') as f:
+    pass
+</code></pre>
+
+<p><span id='常用第三方模块'></span></p>
+
+<h3 id="常用第三方模块">常用第三方模块</h3>
+
+<h4 id="pil">PIL</h4>
+
+<p>模糊滤镜</p>
+
+<pre><code>from PIL import Image,ImageFilter
+
+im = Image.open('../test.png')
+im2 = im.filter(ImageFilter.BLUR)
+im2.save('blur.png','png')
+</code></pre>
+
+<p>生成字母验证码</p>
+
+<pre><code>from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+import random
+
+# 随机字母:
+def rndChar():
+    return chr(random.randint(65, 90))
+# 随机颜色1:
+def rndColor():
+    return (random.randint(64, 255), random.randint(64, 255), random.randint(64, 255))
+# 随机颜色2:
+def rndColor2():
+    return (random.randint(32, 127), random.randint(32, 127), random.randint(32, 127))
+# 240 x 60:
+width = 60 * 4
+height = 60
+image = Image.new('RGB', (width, height), (255, 255, 255))
+# 创建Font对象:
+font = ImageFont.truetype('Arial.ttf', 36)
+# 创建Draw对象:
+draw = ImageDraw.Draw(image)
+# 填充每个像素:
+for x in range(width):
+    for y in range(height):
+        draw.point((x, y), fill=rndColor())
+# 输出文字:
+for t in range(4):
+    draw.text((60 * t + 10, 10), rndChar(), font=font, fill=rndColor2())
+# 模糊:
+image = image.filter(ImageFilter.BLUR)
+image.save('code.jpg', 'jpeg')
+</code></pre>
+
+<p><span id='virtualenv'></span></p>
+
+<h3 id="virtualenv">virtualenv</h3>
+
+<p>如果系统安装的Python3只有一个版本3.4,所有第三方的包会被pip安装到Python3的<code>site-packages</code>目录下.virtualenv用来创建一套&rsquo;隔离&rsquo;的Python运行环境</p>
+
+<p>安装 <code>$ pip3 install virtualenv</code></p>
+
+<p>第一步,创建目录:</p>
+
+<pre><code>Mac:~ michael$ mkdir myproject
+Mac:~ michael$ cd myproject/
+Mac:myproject michael$
+</code></pre>
+
+<p>第二步，创建一个独立的Python运行环境，命名为venv</p>
+
+<pre><code>Mac:myproject michael$ virtualenv --no-site-packages venv
+Using base prefix '/usr/local/.../Python.framework/Versions/3.4'
+New python executable in venv/bin/python3.4
+Also creating executable in venv/bin/python
+Installing setuptools, pip, wheel...done.
+</code></pre>
+
+<p>命令virtualenv就可以创建一个独立的Python运行环境，我们还加上了参数&ndash;no-site-packages，这样，已经安装到系统Python环境中的所有第三方包都不会复制过来，这样，我们就得到了一个不带任何第三方包的“干净”的Python运行环境。</p>
+
+<p>新建的Python环境被放到当前目录下的venv目录。有了venv这个Python环境，可以用source进入该环境</p>
+
+<pre><code>Mac:myproject michael$ source venv/bin/activate
+(venv)Mac:myproject michael$
+</code></pre>
+
+<p>注意到命令提示符变了，有个(venv)前缀，表示当前环境是一个名为venv的Python环境。</p>
+
+<p>下面正常安装各种第三方包，并运行python命令:</p>
+
+<pre><code>(venv)Mac:myproject michael$ pip install jinja2
+...
+Successfully installed jinja2-2.7.3 markupsafe-0.23
+(venv)Mac:myproject michael$ python myapp.py
+...
+</code></pre>
+
+<p>在venv环境下，用pip安装的包都被安装到venv这个环境下，系统Python环境不受任何影响。也就是说，venv环境是专门针对myproject这个应用创建的。</p>
+
+<p>退出当前的venv环境，使用deactivate命令</p>
+
+<pre><code>(venv)Mac:myproject michael$ deactivate 
+Mac:myproject michael$
+</code></pre>
+
+<p>此时就回到了正常的环境，现在pip或python均是在系统Python环境下执行.virtualenv是如何创建“独立”的Python运行环境的呢？原理很简单，就是把系统Python复制一份到virtualenv的环境，用命令source venv/bin/activate进入一个virtualenv环境时，virtualenv会修改相关环境变量，让命令python和pip均指向当前的virtualenv环境。</p>
+
+<p><span id='图形界面'></span></p>
+
+<h3 id="图形界面">图形界面</h3>
+
+<p>python支持多种图形界面的第三方库,包括:</p>
+
+<ul>
+<li>Tk</li>
+<li>wxWidgets</li>
+<li>Qt</li>
+<li>GTK</li>
+</ul>
+
+<p>等等.但是Python自带的库是支持Tk的Tkinter,使用Tkinter无需安装任何包，就可以直接使用.Tkinter访问Tk的接口,Tk是一个图形库,支持多个操作系统,使用Tcl语言开发,Tk会调用操作系统提供的本地GUI接口,完成最终的GUI.所以,我们的代码只需要调用Tkinter提供的接口就可以.</p>
+
+<pre><code>from tkinter import *
+import tkinter.messagebox as messagebox
+
+class Application(Frame):
+	def __init__(self,master=None):
+		Frame.__init__(self,master)
+		self.pack()
+		self.createWidgets()
+	def createWidgets(self):
+		self.helloLabel = Label(self,text='hello,world')
+		self.helloLabel.pack()
+		self.quitButton = Button(self,text='Quit',command=self.quit)
+		self.quitButton.pack()
+		self.nameInput = Entry(self)
+		self.nameInput.pack()
+		self.alertButton = Button(self,text='Hello',command=self.hello)
+		self.alertButton.pack()
+	def hello(self):
+		name = self.nameInput.get() or 'world'
+		messagebox.showinfo('Message','Hello,%s' % name)
+
+
+app = Application()
+app.master.title('Hello World')
+app.mainloop()
+</code></pre>
+
+<p>在GUI中,每个Button,Label,输入框等,都是一个Widget.Frame则是可以容纳其他Widget的Widget,所有的Widget组合起来就是一棵树.pack()方法把Widget加入到容器中,并实现布局.pack()是最简单的布局,grid()可以实现更复杂的布局.</p>
+
+<p><span id='网络编程'></span></p>
+
+<h3 id="网络编程">网络编程</h3>
+
+<p>网络编程就是如何在程序中实现两台计算机的通信,更确切地说,网络通信是两台计算机上的两个进程之间的通信.用Python进行网络编程,就是在python程序本身这个进程内,连接别的服务器进程的通信端口进行通信.</p>
+
+<h4 id="tcp-ip简介">TCP/IP简介</h4>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014320037768360d53e4e935ca4a1f96eed1c896ad1217000">https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014320037768360d53e4e935ca4a1f96eed1c896ad1217000</a></p>
+
+<h4 id="tcp编程">TCP编程</h4>
+
+<p>Socket是网络编程的一个抽象概念.通常我们用一个Socket表示&rsquo;打开一个网络链接&rsquo;,而打开一个Socket需要知道目标计算机的IP地址和端口号,再指定协议类型即可.</p>
+
+<p><strong>客户端</strong></p>
+
+<p>大多数链接都是可靠的TCP连接.创建TCP连接时,主动发起连接的叫客户端,被动响应连接的叫服务器.</p>
+
+<pre><code>import socket
+
+#AF_INET指定使用IPv4协议, AF_INET6为IPv6. SOCK_STREAM指定TCP协议
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+#新浪网站的IP地址可以用域名`www.sina.com.cn`自动转换到IP地址.80是Web服务的标准端口.其他如SMTP服务是25端口,FTP服务是21端口,等等.端口小于1024的是Internet标准五福的端口,大于1024可以任意使用
+s.connect(('www.sina.com.cn',80))
+s.send(b'GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection: close\r\n\r\n')
+buffer = []
+while  True:
+ # 每次最多接收1k字节:
+	d = s.recv(1024)
+	if d:
+		buffer.append(d)
+	else: 
+		break
+data = b''.join(buffer)
+s.close()
+
+header, html = data.split(b'\r\n\r\n', 1)
+print(header.decode('utf-8'))
+# 把接收的数据写入文件:
+with open('sina.html', 'wb') as f:
+    f.write(html)
+</code></pre>
+
+<p><strong>服务器</strong></p>
+
+<p>服务器会打开固定端口(比如80)监听,每来一个客户端连接.由于服务器会有大量来自客户端的连接,所以,服务器要能够区分一个socker连接是和哪个客户端绑定的.一个socket依赖4项:服务器地址,服务器端口,客户端地址,客户端端口来唯一确定一个socket.因为服务器需要同时相应多个客户端的请求,所以每个连接都需要一个新的进程或者新的线程来处理,否则服务器一次就只能服务一个客户端.</p>
+
+<pre><code>#server.py
+
+import socket
+import threading
+import time
+
+def tcplink(sock, addr):
+    print('Accept new connection from %s:%s...' % addr)
+    sock.send(b'Welcome!')
+    while True:
+        data = sock.recv(1024)
+        time.sleep(1)
+        if not data or data.decode('utf-8') == 'exit':
+            break
+        sock.send(('Hello, %s!' % data.decode('utf-8')).encode('utf-8'))
+    sock.close()
+    print('Connection from %s:%s closed.' % addr)
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+#绑定地址和端口,服务器可能有多个网卡,可以绑定到某一个网卡的IP地址上,也可以用`0.0.0.0`绑定到所有的网络地址,还可以用`127.0.0.1`绑定到本机地址.
+s.bind(('127.0.0.1',9999))
+
+#监听端口,传入最大的连接数量
+s.listen(5)
+print('waiting for connection...')
+
+#通过一个永久循环来接受来自客户端的连接,accept()会等待并返回一个客户端的连接:
+while True:
+	#接受一个新连接
+	sock,addr = s.accept()
+	#创建新县城来处理TCP连接
+	t = threading.Thread(target=tcplink,args=(sock,addr))
+	t.start()
+</code></pre>
+
+<pre><code>#client.py
+import socket
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# 建立连接:
+s.connect(('127.0.0.1', 9999))
+# 接收欢迎消息:
+print(s.recv(1024).decode('utf-8'))
+for data in [b'Michael', b'Tracy', b'Sarah']:
+    # 发送数据:
+    s.send(data)
+    print(s.recv(1024).decode('utf-8'))
+s.send(b'exit')
+s.close()
+</code></pre>
+
+<p>先运行server.py,再运行client.py</p>
+
+<pre><code>#server.py
+waiting for connection...
+Accept new connection from 127.0.0.1:51597...
+Connection from 127.0.0.1:51597 closed.
+</code></pre>
+
+<pre><code>#cient.py
+Welcome!
+Hello, Michael!
+Hello, Tracy!
+Hello, Sarah!
+</code></pre>
+
+<h4 id="udp">UDP</h4>
+
+<p>TCP是建立可靠连接,并且通信双方都可以以流的形式发送数据.相对TCP,UDP则是面向无连接的协议.使用UDP协议时,不需要建立连接,只需要知道对方的IP地址和端口号,就可以直接发送数据包.但是,能不能到达就不知道了.</p>
+
+<pre><code>#udp_server.py
+import socket
+
+#SOCK_DGRAM指定了这个socket的类型是UDP
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+
+#绑定端口,不需要调用listen()方法,直接接受任何客户端的数据
+s.bind(('127.0.0.1',9999))
+
+print('bind UDP on 9999 ...')
+while  True:
+	#接收数据, recvfrom()方法返回数据和客户端的地址与端口,这样,服务器收到数据后,直接调用sendto()就可以把数据用UDP发给客户端.
+	data,addr = s.recvfrom(1024)
+	print('received from %s:%s.' % addr)
+	#这里省略了多线程
+	s.sendto(b'hello,%s!' % data,addr)
+
+</code></pre>
+
+<pre><code>#udp_client.py
+import socket
+
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+for data in [b'lilei',b'hanmeimei',b'xiaoming']:
+	#发送数据
+	s.sendto(data,('127.0.0.1',9999))
+	#接收数据
+	print(s.recv(1024).decode('utf-8'))
+s.close()
+</code></pre>
+
+<pre><code>bind UDP on 9999 ...
+received from 127.0.0.1:60796.
+received from 127.0.0.1:60796.
+received from 127.0.0.1:60796.
+
+hello,lilei!
+hello,hanmeimei!
+hello,xiaoming!
+</code></pre>
+
+<p>服务器绑定UDP端口和TCP端口互补冲突,也就是说,UDP的9999端口与TCP的9999端口可以个字绑定</p>
+
+<p><span id='电子邮件'></span></p>
+
+<h3 id="电子邮件">电子邮件</h3>
+
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432005156604f38836be1707453eb025ce8c3079978d000">基础了解</a></p>
+
+<h4 id="smtp发送邮件">SMTP发送邮件</h4>
+
+<pre><code>from smtplib import SMTP
+from email.mime.text import MIMEText
+from email.header import Header
+from email import encoders
+from email.utils import parseaddr, formataddr
+
+def send_email(SMTP_host,from_addr,password,to_addr,subject,content):
+
+	#注意不能简单地传入name &lt;addr@example.com&gt;，因为如果包含中文，需要通过Header对象进行编码。
+	def _format_addr(s):
+	    name, addr = parseaddr(s)
+	    print(name)
+	    return formataddr((Header(name, 'utf-8').encode(), addr))
+
+	email_client = SMTP(SMTP_host)
+	email_client.login(from_addr,password)
+	email_client.set_debuglevel(1)#这样可以打印SMTP交互过程中的信息
+
+
+	msg = MIMEText(content,'plain','utf-8')
+	#主题
+	msg['Subject'] = Header(subject,'utf-8')
+	#py发件人的名字
+	msg['From'] = _format_addr('py &lt;%s&gt;' % from_addr)
+	#msg['To']接收的是字符串而不是list，如果有多个邮件地址，用,分隔即可
+	msg['To'] = _format_addr('pf &lt;%s&gt;' % to_addr)
+	email_client.sendmail(from_addr,to_addr,msg.as_string())
+	email_client.quit()
+
+send_email('smtp.163.com','****@163.com','password','****@qq.com','我是主题','我是内容')
+
+</code></pre>
+
+<p><strong>发送HTML邮件</strong></p>
+
+<p>在构造MIMEText对象时，把HTML字符串传进去，再把第二个参数由plain变为html就可以了</p>
+
+<pre><code>msg = MIMEText('&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;' +
+    '&lt;p&gt;send by &lt;a href=&quot;http://www.python.org&quot;&gt;Python&lt;/a&gt;...&lt;/p&gt;' +
+    '&lt;/body&gt;&lt;/html&gt;', 'html', 'utf-8')
+</code></pre>
+
+<p><strong>发送附件</strong></p>
+
+<pre><code class="language-py">from smtplib import SMTP
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
+from email import encoders
+from email.utils import parseaddr, formataddr
+from email.mime.base import MIMEBase
+
+def send_email(SMTP_host,from_addr,password,to_addr,subject,content):
+
+	def _format_addr(s):
+	    name, addr = parseaddr(s)
+	    print(name)
+	    return formataddr((Header(name, 'utf-8').encode(), addr))
+
+	email_client = SMTP(SMTP_host)
+	email_client.login(from_addr,password)
+
+	msg = MIMEMultipart()
+
+	msg.attach(MIMEText('send with file ...','plain','utf-8'))
+
+	# 添加附件就是加上一个MIMEBase，从本地读取一个图片:
+	with open('/Users/longpengfei/Desktop/test.png', 'rb') as f:
+	    # 设置附件的MIME和文件名，这里是png类型:
+	    mime = MIMEBase('image', 'png', filename='test.png')
+	    # 加上必要的头信息:
+	    mime.add_header('Content-Disposition', 'attachment', filename='test.png')
+	    mime.add_header('Content-ID', '&lt;0&gt;')
+	    mime.add_header('X-Attachment-Id', '0')
+	    # 把附件的内容读进来:
+	    mime.set_payload(f.read())
+	    # 用Base64编码:
+	    encoders.encode_base64(mime)
+	    # 添加到MIMEMultipart:
+	    msg.attach(mime)
+
+	msg['Subject'] = Header(subject,'utf-8')
+	msg['From'] = _format_addr('py &lt;%s&gt;' % from_addr)
+	msg['To'] = _format_addr('pf &lt;%s&gt;' % to_addr)
+	email_client.sendmail(from_addr,to_addr,msg.as_string())
+	email_client.quit()
+
+send_email('smtp.163.com','****@163.com','password','****@qq.com','我是主题','我是内容')
+</code></pre>
+
+<p><strong>发送图片</strong></p>
+
+<p>如果把一个图片嵌入到邮件正文中,直接在HTML邮件中链接图片地址不行,因为大多数邮件服务器会屏蔽有外联的图片,因为不知道这些链接是否指向恶意网站</p>
+
+<p>要把图片嵌入到邮件正文中,只需要按照发送附件的方式,先把邮件作为附件添加进去,然受在HTML中通过引用<code>src=&quot;cid:0&quot;</code>就可以把附件作为图片嵌入.如果有多个图片,给他们一次编号然后引用不同的<code>cid:x</code>即可</p>
+
+<p>把上面代码加入MIMEMultipart的MIMEText从plain改为html，然后在适当的位置引用图片</p>
+
+<pre><code class="language-py">msg.attach(MIMEText('&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;' +
+    '&lt;p&gt;&lt;img src=&quot;cid:0&quot;&gt;&lt;/p&gt;' +
+    '&lt;/body&gt;&lt;/html&gt;', 'html', 'utf-8'))
+</code></pre>
+
+<p><strong>同时支持HTML和Plain格式</strong></p>
+
+<p>如果我们发送HTML邮件，收件人通过浏览器或者Outlook之类的软件是可以正常浏览邮件内容的，但是，如果收件人使用的设备太古老，查看不了HTML邮件怎么办？</p>
+
+<p>办法是在发送HTML的同时再附加一个纯文本，如果收件人无法查看HTML格式的邮件，就可以自动降级查看纯文本邮件。</p>
+
+<p>利用MIMEMultipart就可以组合一个HTML和Plain，要注意指定subtype是alternative</p>
+
+<pre><code class="language-py">msg = MIMEMultipart('alternative')
+msg['From'] = ...
+msg['To'] = ...
+msg['Subject'] = ...
+
+msg.attach(MIMEText('hello', 'plain', 'utf-8'))
+msg.attach(MIMEText('&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;', 'html', 'utf-8'))
+# 正常发送msg对象...
+</code></pre>
+
+<p><strong>加密SMTP</strong></p>
+
+<p>使用标准的25端口连接SMTP服务器时，使用的是明文传输，发送邮件的整个过程可能会被窃听。要更安全地发送邮件，可以加密SMTP会话，实际上就是先创建SSL安全连接，然后再使用SMTP协议发送邮件。</p>
+
+<p>某些邮件服务商，例如Gmail，提供的SMTP服务必须要加密传输。我们来看看如何通过Gmail提供的安全SMTP发送邮件。</p>
+
+<p>必须知道，Gmail的SMTP端口是587，因此，修改代码如下</p>
+
+<pre><code class="language-py">smtp_server = 'smtp.gmail.com'
+smtp_port = 587
+server = smtplib.SMTP(smtp_server, smtp_port)
+server.starttls()
+# 剩下的代码和前面的一模一样:
+server.set_debuglevel(1)
+...
+</code></pre>
+
+<p>只需要在创建SMTP对象后，立刻调用starttls()方法，就创建了安全连接。后面的代码和前面的发送邮件代码完全一样</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/swift-optional-protocol/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/swift-optional-protocol/">Swift实现可选协议</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/atoffer/">刷一哈剑指Offer</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/atoffer/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

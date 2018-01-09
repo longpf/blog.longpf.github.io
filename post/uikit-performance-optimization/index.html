@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>UIKit性能优化 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>UIKit性能优化</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jan 2017, 05:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<h2 id="instrument-command-i"><strong>Instrument (command+I)</strong></h2>
+
+<p><a href="https://bestswifter.com/uikitxing-neng-diao-you-shi-zhan-jiang-jie/"><strong>原文地址</strong></a></p>
+
+<h3 id="core-animation"><strong>Core Animation :</strong></h3>
+
+<p><strong>Color Blended Layers :</strong></p>
+
+<p>检测哪里发生了图层混合，并用红色标记出来。因此我们需要尽可能减少看到的红色区域。
+对于UIImageView来说，不仅它自身需要是不透明的，它的图片也不能含有alpha通道.
+PS：如果label文字有中文，依然会出现图层混合，这是因为此时label多了一个sublayer，如果有好的解决办法欢迎告诉我。</p>
+
+<p><strong>Color Hits Green and Misses Red :</strong></p>
+
+<p>表示如果命中缓存则显示为绿色，否则显示为红色，显然绿色越多越好，红色越少越好.
+光栅化的核心在于缓存的思想。</p>
+
+<p>layer进行光栅化后渲染成位图放在缓存中。当屏幕出现滑动时，我们直接从缓存中读取而不必渲染，所以会看到绿色。当新的label出现时，缓存中没有个这个label的位图，所以会变成红色。第三点比较关键，缓存中的对象有效期只有100ms，即如果在0.1s内没有被使用就会自动从缓存中清理出去</p>
+
+<p>光栅化的缓存机制是一把双刃剑，先写入缓存再读取有可能消耗较多的时间。因此光栅化仅适用于较复杂的、静态的效果。通过Instrument的调试发现，这里使用光栅化经常出现未命中缓存的情况，如果没有特殊需要则可以关闭光栅化</p>
+
+<p><code>//    label.layer.shouldRasterize = true</code></p>
+
+<p><strong>Color Copied Images :</strong></p>
+
+<p>像素在内存中的布局和它在磁盘中的存储方式并不相同。考虑一种简单的情况：每个像素有R、G、B和alpha四个值，每个值占用1字节，因此每个像素占用4字节的内存空间。一张1920*1080的照片(iPhone6 Plus的分辨率)一共有2,073,600个像素，因此占用了超过8Mb的内存。但是一张同样分辨率的PNG格式或JPEG格式的图片一般情况下不会有这么大。这是因为JPEG将像素数据进行了一种非常复杂且可逆的转化。
+“Color Copied Images”就用来检测这种实时的格式转化，如果有则会将图片标记为蓝色。
+当我们打开JPEG格式的图片时，CPU会进行一系列运算，将JPEG图片解压成像素数据。显然这个工作会消耗不少时间，所以不应该在滑动时进行，我们应该预先处理好图片。
+CPU主要处理两件事：</p>
+
+<p>把图片从PNG或JPEG等格式中解压出来，得到像素数据
+如果GPU不支持这种颜色各式，CPU需要进行格式转换</p>
+
+<p><strong>Color Misaligned Images :</strong></p>
+
+<p>表示如果图片需要缩放则标记为黄色，如果没有像素对齐则标记为紫色
+图片的缩放需要占用时间，因此我们要尽可能保证无论是本地图片还是从网络或取得图片的大小，都与其frame保持一致。</p>
+
+<p><strong>Color Offscreen-Rendered Yellow :</strong></p>
+
+<p>离屏渲染意味着把渲染结果临时保存，等用到时再取出，因此相对于普通渲染更占用资源。
+会把需要离屏渲染的地方标记为黄色，大部分情况下我们需要尽可能避免黄色的出现。离屏渲染可能会自动触发，也可以手动触发。以下情况可能会导致触发离屏渲染：
+重写drawRect方法
+有mask或者是阴影(layer.masksToBounds, layer.shadow*)，模糊效果也是一种mask
+layer.shouldRasterize = true</p>
+
+<p>前两者会自动触发离屏渲染，第三种方法是手动开启离屏渲染</p>
+
+<p>设置阴影的时候要指定path 要不会离屏渲染</p>
+
+<p>设置cornerRadius本身并不会导致离屏渲染，但很多时候它还需要配合layer.masksToBounds = true使用。根据之前的总结，设置masksToBounds会导致离屏渲染。解决方案是尽可能在滑动时避免设置圆角，如果必须设置圆角，可以使用光栅化技术将圆角缓存起来：</p>
+
+<p><strong>Color Compositing Fast-Path Blue:</strong></p>
+
+<p>用于标记由硬件绘制的路径，蓝色越多越好。</p>
+
+<p><strong>Flash updated Regions</strong></p>
+
+<p>刷新视图时，我们应该把需要重绘的区域尽可能缩小。对于未发生变化的内容则不应该重绘
+用于标记发生重绘的区域。一个典型的例子是系统的时钟应用，绝大多数时候只有显示秒针的区域需要重绘</p>
+
+<h1 id="总结">总结</h1>
+
+<p>避免图层混合</p>
+
+<p>确保控件的opaque属性设置为true，确保backgroundColor和父视图颜色一致且不透明
+如无特殊需要，不要设置低于1的alpha值
+确保UIImage没有alpha通道
+避免临时转换</p>
+
+<p>确保图片大小和frame一致，不要在滑动时缩放图片
+确保图片颜色格式被GPU支持，避免劳烦CPU转换
+慎用离屏渲染</p>
+
+<p>绝大多数时候离屏渲染会影响性能
+重写drawRect方法，设置圆角、阴影、模糊效果，光栅化都会导致离屏渲染
+设置阴影效果是加上阴影路径
+滑动时若需要圆角效果，开启光栅化</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/understanding-hashtable/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/oc-framework-4-swift/">Swift调用objective-c的framework(非pod)需要注意的</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/oc-framework-4-swift/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
