@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/</loc>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/</loc>
     <lastmod>2018-01-10T19:21:32+08:00</lastmod>
   </url>
@@ -92,14 +97,26 @@
   </url>
   
   <url>
+    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/leetcode/</loc>
     <lastmod>2018-01-10T19:21:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2018-01-10T19:21:32+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/leetcode/linked-list/</loc>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.longpengfei.com/leetcode/math/</loc>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -111,7 +128,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-01-10T19:21:32+08:00</lastmod>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -140,7 +157,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-01-10T19:21:32+08:00</lastmod>
+    <lastmod>2018-01-10T21:39:18+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/math/</link>
+    <description>Recent content in Math on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 10 Jan 2018 21:39:18 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/leetcode/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Add TwoNumbers 两个链表相加</title>
+      <link>http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/</link>
+      <pubDate>Wed, 10 Jan 2018 21:39:18 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/</guid>
+      <description>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Example
+Input: (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4) Output: 7 -&amp;gt; 0 -&amp;gt; 8 Explanation: 342 + 465 = 807.</description>
+    </item>
+    
+  </channel>
+</rss>

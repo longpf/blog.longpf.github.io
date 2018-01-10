@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>long·pf</title>
+  <title>Add TwoNumbers 两个链表相加 &middot; long·pf</title>
 
   
   
@@ -221,21 +221,16 @@
 
 
 <div class="header">
-  <h1>long·pf</h1>
-  <h2>do your good at,challenge what do you want to do</h2>
+  <h1>Add TwoNumbers 两个链表相加</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Dec 2016, 14:52</time>
+    <time>10 Jan 2018, 21:39</time>
   </div>
 
   
@@ -248,7 +243,7 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
     
   </div>
   
@@ -256,146 +251,89 @@
 
 </div>
 
-  </header>
+  <p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 
-  <p>
-  git flow feature start branchname
- 开始一个featuer分支,feature分支的名字一般为功能+人名,如capture.xiaoming  git flow feature publish branchname
- 将一个featuer分支推到远程,多人开发  git checkout -b feature/branchname origin/feature/branchname * 将远程的featuer分支下到本地开发
-git flow feature finish branchname * 合并至本地develop * 删除任务分支
-git pull --rebase
-git flow release start v6.6.3 * 开始release分支
-git flow release publish v6.6.3
-git flow release finish v6.6.3 * 合并release分支到master * 在master上打上tag * 合并release到develop * 删除release
-git flow hotfix start v6.6.4 * 开始修复分支
-git flow hotfix finish v6.
-  </p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+Output: 7 -&gt; 0 -&gt; 8
+Explanation: 342 + 465 = 807.
+</code></pre>
+
+<p><font color="#DC143C">
+这道题需要注意下进位
+</font></p>
+
+<pre><code class="language-cpp">struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        if (l1==NULL)
+            return l2;
+        if (l2==NULL)
+            return l1;
+        ListNode* res = new ListNode((l1-&gt;val+l2-&gt;val)%10);
+        ListNode* pNode = res;
+        int carry = (l1-&gt;val+l2-&gt;val)/10;
+        while (l1-&gt;next || l2-&gt;next || carry)
+        {
+            int v1=0,v2 = 0;
+            if (l1-&gt;next)
+            {
+                v1 = l1-&gt;next-&gt;val;
+                l1 = l1-&gt;next;
+            }
+            if (l2-&gt;next)
+            {
+                v2 = l2-&gt;next-&gt;val;
+                l2 = l2-&gt;next;
+            }
+            ListNode* node = new ListNode((v1+v2+carry)%10);
+            carry = (v1+v2+carry)/10;
+            pNode-&gt;next = node;
+            pNode = node;
+        }
+        return res;
+    }
+};
+</code></pre>
+
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/git-flow-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Dec 2016, 14:51</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    <a href="http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
-  
-  
-
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/">Two Sum 两数之和等于一个输入的数</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
-
-  <p>
-  前:HEAD关键字是指当前分支的最新一次提交,就是版本库中该分支上的最新版本
-git init git init 初始化一个repo,创建一个.git文件夹
-git clone git clone url newname nenamew 可以不要
-git log git log --oneline 每条log显示一行
-git log --oneline --graph 图形化
-git log branchname 指定分支log
-git log --oneline branch1 ^branch2 在分支1,不在分支2,^为排除
-git log --author=[author name]指定作者
-git log --grep=keywords筛选commit信息
-git log --grep=keywords --author=authorname 是OR的关系,如果想为AND则添加&ndash;all-match
-git reflog 对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化 当git reflog 不指定引用的时候,默认列出HEAD的reflog git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,分支的reflog文件都放在.git/logs/refs目录下的子目录中.
-git reflog 可以看到reset的commit
-git add git add file
-git add . 递归添加工作区的修改到暂缓区
-git commit git commit -m &quot;message&quot;
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/git-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Nov 2016, 14:51</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/swift">Swift</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Swift基础简单笔记 菜鸟Swift
-目录  1. 渣渣 2. 函数 3. 闭包 4. 枚举 5. 结构体 6. 类 7. 属性 8. 方法 9. 下标脚本 10. 继承 11. 构造,析构,可选链 12. 自动引用计数 13. 类型转换 14. 扩展 15. 协议 16. 泛型 17. 访问控制  
-var aa:Float aa = 3.14 print(aa)  输出 var name = &quot;666&quot; var site = &quot;777&quot; print(&quot;\(name)dddd\(site)&quot;)  16进制小数 : 0xFp2 表示 15 ⨉ 2^2，也就是 60；同样，0xFp-2 表示 15 ⨉ 2^-2，也就是 3.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-
-  
 
 
-<nav class="pagination" role="pagination">
   
-  <a href="http://blog.longpengfei.com/"><i class="fa fa-chevron-left"></i></a>
-  
-  <span>&nbsp;2 / 2&nbsp;</span>
-  
-  <i class="fa fa-chevron-right"></i>
-  
-</nav>
-
-
 
 </div>
 
