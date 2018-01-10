@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Contact &middot; long·pf</title>
+  <title>Two Sum 两数之和等于一个输入的数 &middot; long·pf</title>
 
   
   
@@ -221,21 +221,113 @@
 
 
 <div class="header">
-  <h1>Contact</h1>
+  <h1>Two Sum 两数之和等于一个输入的数</h1>
   <h2></h2>
 </div>
 <div class="content">
-  <p><font color="#333333" size=4></p>
 
-<p><strong>联系方式 :</strong></p>
+  <div class="post-meta">
 
-<ul>
-<li><strong>QQ :</strong> <a href="qq: 466142249">466142249</a></li>
-<li><strong>Mail :</strong> <a href="mailto:long.pf@outlook.com">long.pf@outlook.com</a></li>
-<li><strong>Mail :</strong> <a href="mailto:long.pf@hotmail.com">long.pf@hotmail.com</a></li>
-</ul>
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>10 Jan 2018, 19:21</time>
+  </div>
 
-<p></font></p>
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+
+<p>Example:</p>
+
+<pre><code>Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+</code></pre>
+
+<p><font color="#DC143C">
+要返回数组中两个数的索引,这两个数的和等于输入的数.最简单的两层for循环可定不能满足要求.考虑优化时间复杂度,可尝试牺牲时间复杂度. stack?queue?vector?还是<code>hash_map</code>.stack,queue,vector查找都是O(n),<code>hash_map</code>为O(1).接下来尝试用<code>hash_map</code>解决问题.
+</font></p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        vector&lt;int&gt;res;
+        if(nums.size() &lt; 1)
+            return res;
+        map&lt;int,int&gt; hashInt;
+        for (int i = 0;i&lt;nums.size();i++)
+            hashInt[nums[i]] = i;
+        for (int i = 0;i &lt; nums.size();i++)
+        {
+            int findInt = target - nums[i];
+            if (hashInt.find(findInt)!= hashInt.end() &amp;&amp; hashInt[findInt] != i) 
+            {
+                if (hashInt[findInt] &lt; i)
+                {
+                    res.push_back(hashInt[findInt]);
+                    res.push_back(i);
+                }
+                else
+                {
+                    res.push_back(i);
+                    res.push_back(hashInt[findInt]);
+                }
+                break;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/atoffer/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/atoffer/">刷一哈剑指Offer</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
 
 </div>
 

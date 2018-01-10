@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcode on long·pf</title>
+    <link>http://blog.longpengfei.com/tags/leetcode/</link>
+    <description>Recent content in Leetcode on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 10 Jan 2018 19:21:32 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Two Sum 两数之和等于一个输入的数</title>
+      <link>http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/</link>
+      <pubDate>Wed, 10 Jan 2018 19:21:32 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/</guid>
+      <description>Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9, Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].  要返回数组中两个数的索引,这两个数的和等于输入的数.最简单的两层for循环可定不能满足要求.考虑优化时间复杂度,可尝试牺牲时间复杂度. stack?queue?vector?还是hash_map.stack,queue,vector查找都是O(n),hash_map为O(1).接下来尝试用hash_map解决问题. 
+class Solution { public: vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { vector&amp;lt;int&amp;gt;res; if(nums.</description>
+    </item>
+    
+  </channel>
+</rss>
