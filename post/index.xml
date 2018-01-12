@@ -13,16 +13,17 @@
     
     
     <item>
-      <title>Longest Substring Without Repeating Characters 子字符串的最大长度</title>
-      <link>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6/</link>
+      <title>Longest Substring Without Repeating Characters 子字符串的最大不重复长度</title>
+      <link>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/</link>
       <pubDate>Fri, 12 Jan 2018 11:41:10 +0800</pubDate>
       
-      <guid>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6/</guid>
+      <guid>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/</guid>
       <description>Given a string, find the length of the longest substring without repeating characters.
 Examples:
 Given &amp;quot;abcabcbb&amp;quot;, the answer is &amp;quot;abc&amp;quot;, which the length is 3.
 Given &amp;quot;bbbbb&amp;quot;, the answer is &amp;quot;b&amp;quot;, with the length of 1.
 Given &amp;quot;pwwkew&amp;quot;, the answer is &amp;quot;wke&amp;quot;, with the length of 3. Note that the answer must be a substring, &amp;quot;pwke&amp;quot; is a subsequence and not a substring.
+滑动窗口问题,比如abcabcbb,滑动到abca的时候需要丢弃第一个a变成bca,继续向右滑动,每次滑动都要检查有没有重复.感觉涉及到最大,最多的问题都可以试着网哈希表上靠. 
 class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.</description>
     </item>
     
