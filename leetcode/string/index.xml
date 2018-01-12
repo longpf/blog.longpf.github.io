@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/string/</link>
+    <description>Recent content in String on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 12 Jan 2018 11:41:10 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/leetcode/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Longest Substring Without Repeating Characters 子字符串的最大长度</title>
+      <link>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6/</link>
+      <pubDate>Fri, 12 Jan 2018 11:41:10 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6/</guid>
+      <description>Given a string, find the length of the longest substring without repeating characters.
+Examples:
+Given &amp;quot;abcabcbb&amp;quot;, the answer is &amp;quot;abc&amp;quot;, which the length is 3.
+Given &amp;quot;bbbbb&amp;quot;, the answer is &amp;quot;b&amp;quot;, with the length of 1.
+Given &amp;quot;pwwkew&amp;quot;, the answer is &amp;quot;wke&amp;quot;, with the length of 3. Note that the answer must be a substring, &amp;quot;pwke&amp;quot; is a subsequence and not a substring.
+class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.</description>
+    </item>
+    
+  </channel>
+</rss>

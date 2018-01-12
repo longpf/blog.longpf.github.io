@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Posts &middot; long·pf</title>
+  <title>Longest Substring Without Repeating Characters 子字符串的最大长度 &middot; long·pf</title>
 
   
   
@@ -221,67 +221,122 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>Longest Substring Without Repeating Characters 子字符串的最大长度</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2018</h2>
-  <ul>
-  
-    <li><time>12 Jan 2018, 11:41</time> - <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大长度</a></li>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jan 2018, 11:41</time>
+  </div>
 
   
-    <li><time>10 Jan 2018, 21:39</time> - <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a></li>
 
   
-    <li><time>10 Jan 2018, 19:21</time> - <a href="http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/">Two Sum 两数之和等于一个输入的数</a></li>
 
   
-    <li><time>08 Jan 2018, 21:18</time> - <a href="http://blog.longpengfei.com/post/atoffer/">刷一哈剑指Offer</a></li>
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
 
   
-  </ul>
   
-  <h2>2017</h2>
-  <ul>
-  
-    <li><time>08 Jul 2017, 20:03</time> - <a href="http://blog.longpengfei.com/post/python-note/">Python笔记</a></li>
 
   
-    <li><time>12 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/swift-optional-protocol/">Swift实现可选协议</a></li>
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
+    
+  </div>
 
   
-    <li><time>08 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/oc-framework-4-swift/">Swift调用objective-c的framework(非pod)需要注意的</a></li>
+  
+
+
+</div>
+
+  <p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+
+<p><strong>Examples:</strong></p>
+
+<p>Given <code>&quot;abcabcbb&quot;</code>, the answer is <code>&quot;abc&quot;</code>, which the length is 3.</p>
+
+<p>Given <code>&quot;bbbbb&quot;</code>, the answer is <code>&quot;b&quot;</code>, with the length of 1.</p>
+
+<p>Given <code>&quot;pwwkew&quot;</code>, the answer is <code>&quot;wke&quot;</code>, with the length of 3. Note that the answer must be a <strong>substring</strong>, <code>&quot;pwke&quot;</code> is a subsequence and not a substring.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int size = s.size();
+        if (size == 0)
+            return 0;
+        vector&lt;int&gt; m(256,0);
+        int res = 0;
+        int left = 0;
+        for (int i=0;i &lt; size;i++)
+        {
+            //left &lt; m[s[i]] 条件的原因为:当left在哈希表存储值的右边时候,哈希表存储的值就应该失效
+            if (m[s[i]] == 0 || left &gt; m[s[i]])
+            {
+                res = max(res,i-left+1);
+            }
+            else 
+            {
+                left = m[s[i]];
+            }
+            m[s[i]] = i + 1;
+        }
+        return res;
+    }
+};
+</code></pre>
+
 
   
-    <li><time>12 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
 
   
-    <li><time>11 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a></li>
 
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/ios-interview-question-new/">整理一些ios面试题(偏简单的)</a></li>
-
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a></li>
-
-  
-  </ul>
-  
-  <h2>2016</h2>
-  <ul>
-  
-    <li><time>30 Dec 2016, 14:52</time> - <a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></li>
-
-  
-    <li><time>30 Dec 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></li>
-
-  
-    <li><time>30 Nov 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></li>
-
-  
-  </ul>
-  
 </div>
 
 </div>
