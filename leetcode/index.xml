@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 10 Jan 2018 19:21:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jan 2018 15:45:29 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>Array</title>
       <link>http://blog.longpengfei.com/leetcode/array/</link>
-      <pubDate>Wed, 10 Jan 2018 19:21:32 +0800</pubDate>
+      <pubDate>Sat, 13 Jan 2018 15:45:29 +0800</pubDate>
       
       <guid>http://blog.longpengfei.com/leetcode/array/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binary Search</title>
+      <link>http://blog.longpengfei.com/leetcode/binary-search/</link>
+      <pubDate>Sat, 13 Jan 2018 15:45:29 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/leetcode/binary-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Divide and Conquer</title>
+      <link>http://blog.longpengfei.com/leetcode/divide-and-conquer/</link>
+      <pubDate>Sat, 13 Jan 2018 15:45:29 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/leetcode/divide-and-conquer/</guid>
       <description></description>
     </item>
     

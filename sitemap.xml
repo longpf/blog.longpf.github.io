@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/median-of-two-sorted-arrays%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</loc>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/</loc>
     <lastmod>2018-01-12T11:41:10+08:00</lastmod>
   </url>
@@ -85,7 +90,19 @@
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/array/</loc>
-    <lastmod>2018-01-10T19:21:32+08:00</lastmod>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.longpengfei.com/leetcode/binary-search/</loc>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.longpengfei.com/leetcode/divide-and-conquer/</loc>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -102,14 +119,14 @@
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2018-01-12T11:41:10+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/leetcode/</loc>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/leetcode/</loc>
-    <lastmod>2018-01-10T19:21:32+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -133,7 +150,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-01-12T11:41:10+08:00</lastmod>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -174,7 +191,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-01-12T11:41:10+08:00</lastmod>
+    <lastmod>2018-01-13T15:45:29+08:00</lastmod>
     <priority>0</priority>
   </url>
   
