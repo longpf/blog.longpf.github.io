@@ -271,7 +271,7 @@
 <p>如图j是i关于id的对称点.</p>
 
 <div align=center>
-<img src=../asset/Manacher1-1.png height="200" width="600"></img>
+<img src=https://raw.githubusercontent.com/longpf/blog.longpf.github.io/master/asset/Manacher1-1.png height="200" width="600"></img>
 </div>
 
 <p>当mx&gt;i时候p[i]=min(p[2*id-i],mx-i)=min(p[j],mx-i),为什么呢?</p>
@@ -283,7 +283,7 @@
 <p>当mx-i&gt;p[j]的时候,j为中心的回文子串不一定全部包含在id为中心的回文子串中,基于对称性可知i为中心的回文子串最右端可能超出mx处,就是p[i]&gt;=mx-i,如下图,绿色的部分是相同的.至于p[i]具体能在mx右边延伸到多远,就只能循环向右边扩展边比较，直至不为子回文串。</p>
 
 <div align=center>
-<img src=../asset/Manacher1-2.png height="200" width="550"></img>
+<img src=https://raw.githubusercontent.com/longpf/blog.longpf.github.io/master/asset/Manacher1-2.png height="200" width="550"></img>
 </div>
 
 <p>对于mx&lt;=i的情况,i在mx的右边未知区域.无法对p[i]做更多的假设,只能p[i]=1,然后去虚幻向右比较扩展。</p>
