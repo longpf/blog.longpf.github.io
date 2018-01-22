@@ -229,6 +229,127 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jan 2017, 05:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Instrument (command+I) 原文地址
+Core Animation : Color Blended Layers :
+检测哪里发生了图层混合，并用红色标记出来。因此我们需要尽可能减少看到的红色区域。 对于UIImageView来说，不仅它自身需要是不透明的，它的图片也不能含有alpha通道. PS：如果label文字有中文，依然会出现图层混合，这是因为此时label多了一个sublayer，如果有好的解决办法欢迎告诉我。
+Color Hits Green and Misses Red :
+表示如果命中缓存则显示为绿色，否则显示为红色，显然绿色越多越好，红色越少越好. 光栅化的核心在于缓存的思想。
+layer进行光栅化后渲染成位图放在缓存中。当屏幕出现滑动时，我们直接从缓存中读取而不必渲染，所以会看到绿色。当新的label出现时，缓存中没有个这个label的位图，所以会变成红色。第三点比较关键，缓存中的对象有效期只有100ms，即如果在0.1s内没有被使用就会自动从缓存中清理出去
+光栅化的缓存机制是一把双刃剑，先写入缓存再读取有可能消耗较多的时间。因此光栅化仅适用于较复杂的、静态的效果。通过Instrument的调试发现，这里使用光栅化经常出现未命中缓存的情况，如果没有特殊需要则可以关闭光栅化
+// label.layer.shouldRasterize = true
+Color Copied Images :
+像素在内存中的布局和它在磁盘中的存储方式并不相同。考虑一种简单的情况：每个像素有R、G、B和alpha四个值，每个值占用1字节，因此每个像素占用4字节的内存空间。一张1920*1080的照片(iPhone6 Plus的分辨率)一共有2,073,600个像素，因此占用了超过8Mb的内存。但是一张同样分辨率的PNG格式或JPEG格式的图片一般情况下不会有这么大。这是因为JPEG将像素数据进行了一种非常复杂且可逆的转化。 “Color Copied Images”就用来检测这种实时的格式转化，如果有则会将图片标记为蓝色。 当我们打开JPEG格式的图片时，CPU会进行一系列运算，将JPEG图片解压成像素数据。显然这个工作会消耗不少时间，所以不应该在滑动时进行，我们应该预先处理好图片。 CPU主要处理两件事：
+把图片从PNG或JPEG等格式中解压出来，得到像素数据 如果GPU不支持这种颜色各式，CPU需要进行格式转换
+Color Misaligned Images :
+表示如果图片需要缩放则标记为黄色，如果没有像素对齐则标记为紫色 图片的缩放需要占用时间，因此我们要尽可能保证无论是本地图片还是从网络或取得图片的大小，都与其frame保持一致。
+Color Offscreen-Rendered Yellow :
+离屏渲染意味着把渲染结果临时保存，等用到时再取出，因此相对于普通渲染更占用资源。 会把需要离屏渲染的地方标记为黄色，大部分情况下我们需要尽可能避免黄色的出现。离屏渲染可能会自动触发，也可以手动触发。以下情况可能会导致触发离屏渲染： 重写drawRect方法 有mask或者是阴影(layer.masksToBounds, layer.shadow*)，模糊效果也是一种mask layer.shouldRasterize = true
+前两者会自动触发离屏渲染，第三种方法是手动开启离屏渲染
+设置阴影的时候要指定path 要不会离屏渲染
+设置cornerRadius本身并不会导致离屏渲染，但很多时候它还需要配合layer.masksToBounds = true使用。根据之前的总结，设置masksToBounds会导致离屏渲染。解决方案是尽可能在滑动时避免设置圆角，如果必须设置圆角，可以使用光栅化技术将圆角缓存起来：
+Color Compositing Fast-Path Blue:
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Jan 2017, 05:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法&amp;数据结构</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  哈希表 散列表(哈希表),是根据键而直接访问在内存存储位置的数据结构.也就是说,他通过计算一个关于键值的函数,将所需查询的数据映射到表中一个位置来访问记录,这加快了查找速度,这个映射函数称作散列函数,存放的数组称作散列表.
+一个通俗的例子是,通讯录,通过字母w来查找&rsquo;王&rsquo;,这里用人名作关键字.
+基本概念  若关键字为k,则其值存放在f(k)的存储位置上.由此,不需要比较便可直接取得所查记录.f为散列函数,按这个思想简历的表为散列表.
+ 对不同搞得关键字可能得到同一散列地址,即k1!=k2,f(k1)=f(k2),这种现象叫冲突,k1,k2称为同义词.综上所述根据散列函数f和处理冲突的方法将一组关键字映射到一个有限的连续的地址集(区间)上,并以关键字在地址集中的&rsquo;像&rsquo;作为记录在表中的存储位置,这种表便称为散列表,这一映射过程称为散列造表或散列,所得的存储位置称散列地址.
+ 若对于关键字集合中的任一个关键字,经散列函数映像到地址结合中任何一个地址的概率是相等的,则称此类散列函数为均匀散列函数,这就是使关键字经过散列函数得到一个&rsquo;随机的地址&rsquo;,从而减少冲突.
+  构造散列函数 散列函数能使一个数据序列的访问过程更加迅速有效,通过散列函数,数据元素将被更快定位.
+ 1. 直接定址法 : 取关键字或关键字的某个线性函数值为散列地址.即hash(k)=a*k+b,其中ab为常数.这种散列函数叫做自身函数. 2. 数字分析法 : 假设关键字是以r为基的数,并且哈希表中可能出现的关键字都是事先知道的,则可取关键字的若干数位组成哈希地址. 3. 平方取中法 : 取关键字平方后的中间几位为哈希地址.一个数平方后的中间几位数和数的每一位都相关,由此使随机分布的关键字得到的哈希地址也是随机的.取得位数由表长决定 4. 折叠法 : 将关键字分割成位数相同的几部分(最后一部分的位数可以不同),然后取这几部分的叠加和(舍去进位)最为哈希地址 5. 随机数法 6. 除留余数法 :取关键字被某个不大于散列表表长m的数p除后所得的余数为散列地址.即hash(k)=k mod p, p&lt;=m.不仅可以对关键字直接取模,也可以在折叠法,平方取中法等运算之后取模.对p的选择很重要,一般取素数或m,若p选择不好,容易产生冲突  处理冲突 为了知道冲突产生的相同散列函数地址所对应的关键字,必须选用另外的散列函数,或者对冲突结果进行处理.而不发生冲突的可能性是非常之小的,所以通常对冲突进行处理.
+ 开放定址法(open addressing) : hashi = (hash(key) + di) mod m ,其中hash(key)为散列函数,m为散列表长,di为增量序列,i为已发生冲突次数.增量序列可有下列取法:  di = 1,2,3&hellip;(m-1)称为线性探测;即 di = i,或者为其他线性函数.相当于诸葛探测粗放地址的表,知道查到一个空单元,把散列地址存放在该空单元.
+di = &plusmn;1&sup2;,&plusmn;2&sup2;,&plusmn;3&sup2;&hellip;&plusmn;k&sup2;,(k&le;m/2),称为平方探测,相对线性探测,相对于发生冲突时探测间隔di = i&sup2;个单元的位置是否为空,如果为空,降低至存放进去
+di = 伪随机数,称为 伪随机探测
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/understanding-hashtable/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a></h2>
 
     <div class="post-meta">

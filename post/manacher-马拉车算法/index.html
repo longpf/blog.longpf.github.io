@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Posts &middot; long·pf</title>
+  <title>Manacher 马拉车算法 &middot; long·pf</title>
 
   
   
@@ -221,76 +221,138 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>Manacher 马拉车算法</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2018</h2>
-  <ul>
-  
-    <li><time>18 Jan 2018, 12:01</time> - <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher 马拉车算法</a></li>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>18 Jan 2018, 12:01</time>
+  </div>
 
   
-    <li><time>15 Jan 2018, 17:03</time> - <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></li>
 
   
-    <li><time>13 Jan 2018, 15:45</time> - <a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">Median of Two Sorted Arrays两个数组的中位数</a></li>
 
   
-    <li><time>12 Jan 2018, 11:41</time> - <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></li>
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法&amp;数据结构</a>
+    
+  </div>
 
   
-    <li><time>10 Jan 2018, 21:39</time> - <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a></li>
+  
 
   
-    <li><time>10 Jan 2018, 19:21</time> - <a href="http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/">Two Sum 两数之和等于一个输入的数</a></li>
+
+
+</div>
+
+  <p>Manacher马拉车算法是解决回文子串长度的算法,可以是时间复杂度为O(n).回文字符串就是正着读,反着读都一样的字符串.<code>aba</code>,<code>abba</code>.</p>
+
+<p>由于回文串的长度可奇可偶, 为避免奇偶判断,Manacher的第一步预处理为在字符串的首尾和每个字符的间隙中都插入<code>#</code>,如<code>#a#b#a#</code>,<code>#a#b#b#a#</code>,这样转换后的字符串t恒为奇数.接下里加入一个辅助数组p,其中p[i]表示以t[i]字符为中心的回文子串的半径,若p[i]=1,那该回文子串就是t[i]本身.</p>
+
+<pre><code>#1#2#2#1#2#2#
+1212521612321
+</code></pre>
+
+<p>由于第一个和最后一个字符都是<code>#</code>号,并且也需要搜索回文,为了防止越界,还需要在首尾加上非<code>#</code>号字符,实际操作时,我们只需要给开头加上非<code>#</code>号字符,结尾不用加的原因是字符串的结尾标识为<code>\0</code>,等于默认加过了.从上面可以看出p[i]-1正好为元字符串在i处的回文子串的长度.下面只要求出p数组中的最大值就行.新增两个辅助变量mx和id,其中id为最大回文子串的中心的位置,mx是回文串能延伸到的最右端的位置,这个算法的最核心的一行:</p>
+
+<pre><code>p[i] = mx&gt;i ? min(p[2*id-1],mx-i) : 1;
+</code></pre>
+
+<p>如图j是i关于id的对称点.</p>
+
+<div align=center>
+<img src=../asset/Manacher1-1.png height="200" width="600"></img>
+</div>
+
+<p>当mx&gt;i时候p[i]=min(p[2*id-i],mx-i)=min(p[j],mx-i),为什么呢?</p>
+
+<p>此时还需要分开讨论:</p>
+
+<p>当mx-i&gt;p[j]如上图,红色距离大于黄色距离.以j为中心的回文子串包含在id为中心的回文子串中.i和j对称,所以i为中心的回文子串也在id为中心的回文子串中.所以有p[i]=p[j].</p>
+
+<p>当mx-i&gt;p[j]的时候,j为中心的回文子串不一定全部包含在id为中心的回文子串中,基于对称性可知i为中心的回文子串最右端可能超出mx处,就是p[i]&gt;=mx-i,如下图,绿色的部分是相同的.至于p[i]具体能在mx右边延伸到多远,就只能循环向右边扩展边比较，直至不为子回文串。</p>
+
+<div align=center>
+<img src=../asset/Manacher1-2.png height="200" width="550"></img>
+</div>
+
+<p>对于mx&lt;=i的情况,i在mx的右边未知区域.无法对p[i]做更多的假设,只能p[i]=1,然后去虚幻向右比较扩展。</p>
+
+<p>参考代码如下:</p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+string Manacher(string s) {
+        //insert '#'
+        string t = &quot;$#&quot;;
+        for (int i = 0;i&lt;s.size();++i){
+            t += s[i];
+            t += &quot;#&quot;;
+        }
+        //process t
+        vector&lt;int&gt; p(t.size(),0);
+        int mx = 0,id = 0,resLen = 0,resCenter = 0;
+        for (int i = 1; i &lt; t.size(); i++) {
+            p[i] = mx &gt; i ? min(p[2*id-i],mx-i) : 1;
+            //向右匹配至不是子回文串
+            while (t[i+p[i]]==t[i-p[i]]) ++p[i];
+            // 更新mx,id
+            if (mx &lt; i + p[i]){
+                mx = i+p[i];
+                id = i;
+            }
+            if (resLen &lt; p[i]) {
+                resLen = p[i];
+                resCenter = i;
+            }
+        }
+        return s.substr((resCenter-resLen)/2,resLen-1);
+    }
+</code></pre>
+
 
   
-    <li><time>08 Jan 2018, 21:18</time> - <a href="http://blog.longpengfei.com/post/atoffer/">刷一哈剑指Offer</a></li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
 
   
-  </ul>
-  
-  <h2>2017</h2>
-  <ul>
-  
-    <li><time>08 Jul 2017, 20:03</time> - <a href="http://blog.longpengfei.com/post/python-note/">Python笔记</a></li>
 
-  
-    <li><time>12 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/swift-optional-protocol/">Swift实现可选协议</a></li>
-
-  
-    <li><time>08 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/oc-framework-4-swift/">Swift调用objective-c的framework(非pod)需要注意的</a></li>
-
-  
-    <li><time>12 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></li>
-
-  
-    <li><time>11 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a></li>
-
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/ios-interview-question-new/">整理一些ios面试题(偏简单的)</a></li>
-
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a></li>
-
-  
-  </ul>
-  
-  <h2>2016</h2>
-  <ul>
-  
-    <li><time>30 Dec 2016, 14:52</time> - <a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></li>
-
-  
-    <li><time>30 Dec 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></li>
-
-  
-    <li><time>30 Nov 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></li>
-
-  
-  </ul>
-  
 </div>
 
 </div>

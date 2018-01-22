@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>String &middot; long·pf</title>
+  <title>Longest Palindromic Substring 最长回文子字符串 &middot; long·pf</title>
 
   
   
@@ -221,15 +221,12 @@
 
 
 <div class="header">
-  <h1>String</h1>
+  <h1>Longest Palindromic Substring 最长回文子字符串</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -269,94 +266,174 @@
 
 </div>
 
-  </header>
+  
 
-  <p>
-  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-Difficulty:Medium
-Example:
-Input: &quot;babad&quot; Output: &quot;bab&quot; Note: &quot;aba&quot; is also a valid answer.  Example:
-Input: &quot;cbbd&quot; Output: &quot;bb&quot;  这道题参考Grandyang,他博客里有全套leetcode讲解.
-求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较 
-解法1: O(n^2) class Solution { public: public: string longestPalindrome(string s) { int startIdx = 0, left = 0, right = 0, len = 0; for (int i = 0; i &lt; s.
-  </p>
+<p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+
+<p><strong>Difficulty:Medium</strong></p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>Input: &quot;babad&quot;
+
+Output: &quot;bab&quot;
+
+Note: &quot;aba&quot; is also a valid answer.
+</code></pre>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>Input: &quot;cbbd&quot;
+
+Output: &quot;bb&quot;
+</code></pre>
+
+<p><font color="#DC143C"></p>
+
+<p>这道题参考<a href="https://www.cnblogs.com/grandyang/p/4464476.html">Grandyang</a>,他博客里有全套leetcode讲解.</p>
+
+<p>求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较
+</font></p>
+
+<h3 id="解法1-o-n-2">解法1: O(n^2)</h3>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    public:
+    string longestPalindrome(string s) {
+        int startIdx = 0, left = 0, right = 0, len = 0;
+        for (int i = 0; i &lt; s.size() - 1; ++i) {
+            if (s[i] == s[i + 1])
+            {
+                left = i;
+                right = i+1;
+                searchPalindrome(s, left, right, startIdx, len);
+            }
+            left = right = i;
+            searchPalindrome(s, left, right, startIdx, len);
+        }
+        if (len==0)
+            len = s.size();
+        return s.substr(startIdx,len);
+    }
+private:
+    void searchPalindrome(string s,int left,int right,int&amp; startIdx,int&amp; len)
+    {
+        int step = 1;
+        while ((left-step)&gt;=0&amp;&amp;(right+step)&lt;s.size())
+        {
+            if (s[left-step]!=s[right+step])
+                break;
+            ++step;
+        }
+        int wide = right-left+2*step-1;
+        if (len &lt; wide)
+        {
+            len = wide;
+            startIdx = left-step+1;
+        }
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p><font color="#DC143C">
+下面用动态规划来解,我们需要维护一个二维数组dp,其中dp[i][j]表示字符区间[i,j]是否为回文串,当i=j时,只有一个字符串,可定为回文串,如果i=j+1,说明是相邻字符,此时需要判断s[i]是否等于s[j],如果i和j不相邻,即i-j&gt;=2时,除了判断s[i]和s[j]相等之外,dp[j+1][i-1]若为真,就是回文串.
+</font></p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    public:
+    string longestPalindrome(string s) {
+        int size = s.size();
+        //int dp[size][size]={0}编译不过的话试试int dp[size][size]; dp[size][size]={0};
+        int dp[size][size]={0},left=0,right=0,len=0;
+        for (int i=0;i&lt;size;i++)
+        {
+            for (int j=0; j&lt;i; j++) {
+                dp[j][i] = (s[i]==s[j] &amp;&amp; (i-j&lt;2||dp[j+1][i-1]));
+                if (dp[j][i] &amp;&amp; len&lt;i-j+1) {
+                    len=i-j+1;
+                    left=j;
+                    right=i;
+                }
+            }
+            dp[i][i] = 1;
+        }
+        return s.substr(left,right-left+1);
+    }
+};
+</code></pre>
+
+<h3 id="解法3-o-n-马拉车manacher">解法3  O(n) 马拉车Manacher</h3>
+
+<p><font color="#DC143C">
+运用马拉车算法Manacher(专门解决回文子串的算法),这种算法可以使时间复杂度提升到O(n)
+</font></p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    string longestPalindrome(string s) {
+        string t =&quot;$#&quot;;
+        for (int i = 0; i &lt; s.size(); ++i) {
+            t += s[i];
+            t += '#';
+        }
+        int p[t.size()] = {0}, id = 0, mx = 0, resId = 0, resMx = 0;
+        for (int i = 0; i &lt; t.size(); ++i) {
+            p[i] = mx &gt; i ? min(p[2 * id - i], mx - i) : 1;
+            while (t[i + p[i]] == t[i - p[i]]) ++p[i];
+            if (mx &lt; i + p[i]) {
+                mx = i + p[i];
+                id = i;
+            }
+            if (resMx &lt; p[i]) {
+                resMx = p[i];
+                resId = i;
+            }
+        }
+        return s.substr((resId - resMx) / 2, resMx - 1);
+    }
+};
+</code></pre>
+
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>12 Jan 2018, 11:41</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">Median of Two Sorted Arrays两个数组的中位数</a>
+    </nav>
     
   </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher 马拉车算法</a>
+    </nav>
     
   </div>
-
-  
-  
-
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Given a string, find the length of the longest substring without repeating characters.
-Examples:
-Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
-Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
-Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
-滑动窗口问题,比如abcabcbb,滑动到abca的时候需要丢弃第一个a变成bca,继续向右滑动,每次滑动都要检查有没有重复.感觉涉及到最大,最多的问题都可以试着网哈希表上靠. 
-class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
-  </p>
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
 
-  
 </div>
 
 </div>
@@ -385,3 +462,4 @@ class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
 
 </body>
 </html>
+
