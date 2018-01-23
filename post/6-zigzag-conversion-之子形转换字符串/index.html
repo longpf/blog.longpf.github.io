@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>String &middot; long·pf</title>
+  <title>6 ZigZag Conversion 之子形转换字符串 &middot; long·pf</title>
 
   
   
@@ -221,15 +221,12 @@
 
 
 <div class="header">
-  <h1>String</h1>
+  <h1>6 ZigZag Conversion 之子形转换字符串</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/6-zigzag-conversion-%E4%B9%8B%E5%AD%90%E5%BD%A2%E8%BD%AC%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/">6 ZigZag Conversion 之子形转换字符串</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -269,153 +266,147 @@
 
 </div>
 
-  </header>
+  
 
-  <p>
-  The string &quot;PAYPALISHIRING&quot; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-P A H N A P L S I I G Y I R  And then read line by line: &quot;PAHNAPLSIIGYIR&quot; Write the code that will take a string and make this conversion given a number of rows:
-  </p>
+<p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+
+<pre><code>P   A   H   N
+A P L S I I G
+Y   I   R
+</code></pre>
+
+<p>And then read line by line: <code>&quot;PAHNAPLSIIGYIR&quot;</code>
+Write the code that will take a string and make this conversion given a number of rows:</p>
+
+<pre><code>string convert(string text, int nRows);
+</code></pre>
+
+<p><code>convert(&quot;PAYPALISHIRING&quot;, 3)</code> should return <code>&quot;PAHNAPLSIIGYIR&quot;.</code></p>
+
+<p><strong>Difficulty:Medium</strong></p>
+
+<p><font color="#DC143C">
+首先来解释下ZigZag,先看下图,就是把字符串按照如下的方式串起来</p>
+
+<p>当nRows=3, result=0481357926</p>
+
+<p>当nRows=4, result=0615724839</p>
+
+<p></font></p>
+
+<p>nRows = 3</p>
+
+<p><img src=https://github.com/longpf/blog.longpf.github.io/blob/master/asset/ZigZag1-5.png?raw=true width="200" height="150"></p>
+
+<p>nRows = 4</p>
+
+<p><img src=https://github.com/longpf/blog.longpf.github.io/blob/master/asset/ZigZag1-6.png?raw=true width="200" height="150"></p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>比较直观的解法,用一个字符串数组string[]存储区每一行,最后拼接一下.用一个delta表示前进方向的正向还是反向.即从上到下还是从下到上</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    string convert(string s, int numRows) {
+        int len = s.size();
+        if (len==0||numRows&lt;=1) return s;
+        string res[numRows] = {&quot;&quot;};
+        //这里需要注意下,不同编译器会报错
+        // res[numRows] = {&quot;&quot;};
+        int row = 0,delta = 1;
+        for (int i = 0; i &lt; len; i++) {
+            res[row] += s[i];
+            row += delta;
+            if (row &gt;= numRows) {
+                row = numRows - 2;
+                delta = -1;
+            }
+            if (row &lt; 0) {
+                row = 1;
+                delta = 1;
+            }
+        }
+        string result = &quot;&quot;;
+        for (int i = 0; i &lt; numRows; i++) {
+            result += res[i];
+        }
+        return result;
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p><strong>传说的观察法,比如给定一个字符串<code>0123456789ABCDEF</code></strong></p>
+
+<p><strong>当 n = 2时,</strong></p>
+
+<p><img src=https://github.com/longpf/blog.longpf.github.io/blob/master/asset/ZigZag1-2.png?raw=true width="300" height="100"></p>
+
+<p><strong>当 n = 3时,</strong></p>
+
+<p><img src=https://github.com/longpf/blog.longpf.github.io/blob/master/asset/ZigZag1-3.png?raw=true width="220" height="100"></p>
+
+<p><strong>当 n = 4时,</strong></p>
+
+<p><img src=.https://github.com/longpf/blog.longpf.github.io/blob/master/asset/ZigZag1-4.png?raw=true width="260" height="120"></p>
+
+<p><strong>从图中可以看出,每行相邻的黑色元素的索引之差为<code>2*n-2</code></strong></p>
+
+<p><strong>每个红色元素的索引为<code>j + 2*n-2 - 2*i</code>,j为列数,i为行数.</strong></p>
+
+<p><strong>所以可以写出:</strong></p>
+
+<pre><code class="language-cpp">string convert2(string s, int numRows) {
+        int len = s.size();
+        if (len==0||numRows&lt;=1) return s;
+        string res = &quot;&quot;;
+        int size = 2 * numRows - 2;
+        for (int i = 0; i &lt; numRows; i++) {
+            for (int j = i; j &lt; len; j += size) {
+                res += s[j];
+                //找到两个黑色元素中间的红色元素
+                int tmp = j + size - 2 * i;
+                if (i &gt; 0 &amp;&amp; i &lt; numRows &amp;&amp; tmp &lt; len)
+                    res += s[tmp];
+            }
+        }
+        return res;
+    }
+
+</code></pre>
+
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/6-zigzag-conversion-%E4%B9%8B%E5%AD%90%E5%BD%A2%E8%BD%AC%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>15 Jan 2018, 17:03</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher 马拉车算法</a>
+    </nav>
     
   </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
   </div>
-
-  
-  
-
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-Difficulty:Medium
-Example:
-Input: &quot;babad&quot; Output: &quot;bab&quot; Note: &quot;aba&quot; is also a valid answer.  Example:
-Input: &quot;cbbd&quot; Output: &quot;bb&quot;  这道题参考Grandyang,他博客里有全套leetcode讲解.
-求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较 
-解法1: O(n^2) class Solution { public: public: string longestPalindrome(string s) { int startIdx = 0, left = 0, right = 0, len = 0; for (int i = 0; i &lt; s.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>12 Jan 2018, 11:41</time>
-  </div>
 
   
 
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given a string, find the length of the longest substring without repeating characters.
-Examples:
-Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
-Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
-Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
-滑动窗口问题,比如abcabcbb,滑动到abca的时候需要丢弃第一个a变成bca,继续向右滑动,每次滑动都要检查有没有重复.感觉涉及到最大,最多的问题都可以试着网哈希表上靠. 
-class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 </div>
 
 </div>
@@ -444,3 +435,4 @@ class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
 
 </body>
 </html>
+
