@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>8 String to Integer Atoi 把字符串转换成整数 &middot; long·pf</title>
+  <title>long·pf</title>
 
   
   
@@ -221,16 +221,21 @@
 
 
 <div class="header">
-  <h1>8 String to Integer Atoi 把字符串转换成整数</h1>
-  <h2></h2>
+  <h1>long·pf</h1>
+  <h2>do your good at,challenge what do you want to do</h2>
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Jan 2018, 12:40</time>
+    <time>30 Nov 2016, 14:51</time>
   </div>
 
   
@@ -243,126 +248,49 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/swift">Swift</a>
     
   </div>
 
   
   
 
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
-    
-  </div>
-
-  
   
 
 
 </div>
 
-  <p>Implement atoi to convert a string to an integer.</p>
+  </header>
 
-<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-
-<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-
-<p>Difficulty: Medium</p>
-
-<p><strong>把字符串转换成整数,和剑指offer 49题相似,不过这里的要求比较多,实现atoi</strong></p>
-
-<ul>
-<li>判断开头是否有空格</li>
-<li>判断开头是否有 <code>'+'</code>,<code>'-'</code></li>
-<li>如果遇到非法字符返回已有的结果</li>
-<li>如果超过边界,返回边界值</li>
-</ul>
-
-<pre><code class="language-cpp">
-class Solution {
-public:
-    int myAtoi(string str) {
-        int len = str.size();
-        if (len==0) return 0;
-        int res = 0;
-        bool flag = false;
-        int start = 0;
-        //判断第一个非空格位置
-        while (str[start]==' ') ++start;
-        for (int i = start;i&lt;len;i++)
-        {
-            if (i==start&amp;&amp;str[i]=='-')
-                flag = true;
-            else if (i==start &amp;&amp; str[i]=='+')
-                continue;
-            else if (str[i]&gt;='0' &amp;&amp; str[i]&lt;='9')
-            {
-                //2147483647最后一位为7
-                if (res &gt; INT_MAX/10 || (res==INT_MAX/10&amp;&amp;(str[i]-'0')&gt;7))
-                {
-                    //返回边界值
-                    return flag?INT_MIN:INT_MAX;
-                }
-                res = res*10+str[i]-'0';
-            }
-            //遇到非法字符返回已有的结果
-            else
-            {
-                if (flag)
-                    res *= -1;
-                return res;
-            }
-        }
-        if (flag)
-            res *= -1;
-        return res;
-    }
-};
-
-</code></pre>
-
+  <p>
+  Swift基础简单笔记 菜鸟Swift
+目录  1. 渣渣 2. 函数 3. 闭包 4. 枚举 5. 结构体 6. 类 7. 属性 8. 方法 9. 下标脚本 10. 继承 11. 构造,析构,可选链 12. 自动引用计数 13. 类型转换 14. 扩展 15. 协议 16. 泛型 17. 访问控制  
+var aa:Float aa = 3.14 print(aa)  输出 var name = &quot;666&quot; var site = &quot;777&quot; print(&quot;\(name)dddd\(site)&quot;)  16进制小数 : 0xFp2 表示 15 ⨉ 2^2，也就是 60；同样，0xFp-2 表示 15 ⨉ 2^-2，也就是 3.
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/">7 Reverse Integer 翻转整数</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/">9. Palindrome Number 验证回文数字</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+  <footer>
+    <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
   
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="http://blog.longpengfei.com/page/2/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;3 / 3&nbsp;</span>
+  
+  <i class="fa fa-chevron-right"></i>
+  
+</nav>
+
+
 
 </div>
 

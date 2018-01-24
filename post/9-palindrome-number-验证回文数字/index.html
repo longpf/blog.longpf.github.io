@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Math &middot; long·pf</title>
+  <title>9. Palindrome Number 验证回文数字 &middot; long·pf</title>
 
   
   
@@ -221,15 +221,12 @@
 
 
 <div class="header">
-  <h1>Math</h1>
+  <h1>9. Palindrome Number 验证回文数字</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/">9. Palindrome Number 验证回文数字</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -269,215 +266,77 @@
 
 </div>
 
-  </header>
+  <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
 
-  <p>
-  Determine whether an integer is a palindrome. Do this without extra space.
-Some hints: Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?
-There is a more generic way of solving this problem.
-  </p>
+<p><strong>Some hints:</strong>
+Could negative integers be palindromes? (ie, -1)</p>
+
+<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+
+<p>You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?</p>
+
+<p>There is a more generic way of solving this problem.</p>
+
+<p>Difficulty: Easy</p>
+
+<ul>
+<li>需求是不允许使用额外的空间</li>
+<li>负数不是回文数字</li>
+<li>可以比较首尾数字是否相同比较</li>
+</ul>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x&lt;0) return false;
+        int div = 1;
+        while (x / div &gt;= 10) div *= 10;
+        while (x &gt; 0)
+        {
+            int left = x / div;
+            int right = x % 10;
+            if (left != right) return false;
+            //更新x
+            x = (x % div) / 10;
+            //更新div
+            div /= 100;
+        }
+        //如果为0的话
+        return true;
+    }
+};
+</code></pre>
+
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">8 String to Integer Atoi 把字符串转换成整数</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Jan 2018, 12:40</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
-
-  
-  
-
-
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">8 String to Integer Atoi 把字符串转换成整数</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
-Difficulty: Medium
-把字符串转换成整数,和剑指offer 49题相似,不过这里的要求比较多,实现atoi
- 判断开头是否有空格 判断开头是否有 '+','-' 如果遇到非法字符返回已有的结果 如果超过边界,返回边界值  class Solution { public: int myAtoi(string str) { int len = str.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/">7 Reverse Integer 翻转整数</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Jan 2018, 10:40</time>
-  </div>
 
   
 
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given a 32-bit signed integer, reverse digits of an integer.
-Example 1:
-Input: 123 Output: 321  Example 2:
-Input: -123 Output: -321  Example 3:
-Input: 120 Output: 21  Note: Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
-分析 Difficulty: Easy
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>10 Jan 2018, 21:39</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/linked-list">Linked List</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-Example
-Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4) Output: 7 -&gt; 0 -&gt; 8 Explanation: 342 + 465 = 807.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 </div>
 
 </div>
@@ -506,3 +365,4 @@ Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4) Output: 7 -&gt; 0 -&gt; 8 Expla
 
 </body>
 </html>
+

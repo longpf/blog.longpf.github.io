@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 Jan 2018 12:40:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jan 2018 17:04:38 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>9. Palindrome Number 验证回文数字</title>
+      <link>http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Wed, 24 Jan 2018 17:04:38 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/</guid>
+      <description>Determine whether an integer is a palindrome. Do this without extra space.
+Some hints: Could negative integers be palindromes? (ie, -1)
+If you are thinking of converting the integer to string, note the restriction of using extra space.
+You could also try reversing an integer. However, if you have solved the problem &amp;ldquo;Reverse Integer&amp;rdquo;, you know that the reversed integer might overflow. How would you handle such case?
+There is a more generic way of solving this problem.</description>
+    </item>
     
     <item>
       <title>8 String to Integer Atoi 把字符串转换成整数</title>
