@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Posts &middot; long·pf</title>
+  <title>8 String to Integer Atoi 把字符串转换成整数 &middot; long·pf</title>
 
   
   
@@ -221,85 +221,121 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>8 String to Integer Atoi 把字符串转换成整数</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2018</h2>
-  <ul>
-  
-    <li><time>24 Jan 2018, 12:40</time> - <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">8 String to Integer Atoi 把字符串转换成整数</a></li>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 Jan 2018, 12:40</time>
+  </div>
 
   
-    <li><time>24 Jan 2018, 10:40</time> - <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/">7 Reverse Integer 翻转整数</a></li>
 
   
-    <li><time>23 Jan 2018, 17:43</time> - <a href="http://blog.longpengfei.com/post/6-zigzag-conversion-%E4%B9%8B%E5%AD%90%E5%BD%A2%E8%BD%AC%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/">6 ZigZag Conversion 之子形转换字符串</a></li>
 
   
-    <li><time>18 Jan 2018, 12:01</time> - <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher 马拉车算法</a></li>
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
 
   
-    <li><time>15 Jan 2018, 17:03</time> - <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></li>
+  
 
   
-    <li><time>13 Jan 2018, 15:45</time> - <a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">Median of Two Sorted Arrays两个数组的中位数</a></li>
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
 
   
-    <li><time>12 Jan 2018, 11:41</time> - <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></li>
+  
+
+
+</div>
+
+  <p>Implement atoi to convert a string to an integer.</p>
+
+<p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
+
+<p><strong>Notes:</strong> It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
+
+<p>Difficulty: Medium</p>
+
+<p><strong>把字符串转换成整数,和剑指offer 49题一样. 需要判断是否在第一位是否为&rsquo;+&lsquo;,&rsquo;-&lsquo;和数字位是否在&rsquo;0&rsquo;到&rsquo;9&rsquo;之间以及溢出问题</strong></p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    int myAtoi(string str) {
+        int len = str.size();
+        if (len==0) return 0;
+        int res = 0;
+        bool flag = false;
+        for (int i =0;i&lt;len;i++)
+        {
+            if (i==0&amp;&amp;str[i]=='-')
+                flag = true;
+            else if (i==0 &amp;&amp; str[i]=='+')
+                continue;
+            else if (str[i]&gt;='0' &amp;&amp; str[i]&lt;='9')
+            {
+                res = res*10+str[i]-'0';
+                //INT_MAX==0x7FFFFFFF
+                if ((!flag &amp;&amp; res&gt;0x7FFFFFFF)||(flag &amp;&amp; -res &lt; 0x80000000))
+                    return 0;
+            }
+        }
+        if (flag)
+            res *= -1;
+        return res;
+    }
+};
+</code></pre>
+
 
   
-    <li><time>10 Jan 2018, 21:39</time> - <a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a></li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/7-reverse-integer-%E7%BF%BB%E8%BD%AC%E6%95%B4%E6%95%B0/">7 Reverse Integer 翻转整数</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
 
   
-    <li><time>10 Jan 2018, 19:21</time> - <a href="http://blog.longpengfei.com/post/two-sum-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0/">Two Sum 两数之和等于一个输入的数</a></li>
 
-  
-    <li><time>08 Jan 2018, 21:18</time> - <a href="http://blog.longpengfei.com/post/atoffer/">刷一哈剑指Offer</a></li>
-
-  
-  </ul>
-  
-  <h2>2017</h2>
-  <ul>
-  
-    <li><time>08 Jul 2017, 20:03</time> - <a href="http://blog.longpengfei.com/post/python-note/">Python笔记</a></li>
-
-  
-    <li><time>12 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/swift-optional-protocol/">Swift实现可选协议</a></li>
-
-  
-    <li><time>08 Mar 2017, 20:40</time> - <a href="http://blog.longpengfei.com/post/oc-framework-4-swift/">Swift调用objective-c的framework(非pod)需要注意的</a></li>
-
-  
-    <li><time>12 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></li>
-
-  
-    <li><time>11 Jan 2017, 05:49</time> - <a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a></li>
-
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/ios-interview-question-new/">整理一些ios面试题(偏简单的)</a></li>
-
-  
-    <li><time>10 Jan 2017, 01:49</time> - <a href="http://blog.longpengfei.com/post/aspectscocoa/">AspectsCocoa</a></li>
-
-  
-  </ul>
-  
-  <h2>2016</h2>
-  <ul>
-  
-    <li><time>30 Dec 2016, 14:52</time> - <a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></li>
-
-  
-    <li><time>30 Dec 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></li>
-
-  
-    <li><time>30 Nov 2016, 14:51</time> - <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></li>
-
-  
-  </ul>
-  
 </div>
 
 </div>
