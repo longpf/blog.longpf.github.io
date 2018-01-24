@@ -279,8 +279,8 @@
 Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
 Difficulty: Medium
-把字符串转换成整数,和剑指offer 49题一样. 需要判断是否在第一位是否为&rsquo;+&lsquo;,&rsquo;-&lsquo;和数字位是否在&rsquo;0&rsquo;到&rsquo;9&rsquo;之间以及溢出问题
-class Solution { public: int myAtoi(string str) { int len = str.
+把字符串转换成整数,和剑指offer 49题相似,不过这里的要求比较多,实现atoi
+ 判断开头是否有空格 判断开头是否有 '+','-' 如果遇到非法字符返回已有的结果 如果超过边界,返回边界值  cpp class Solution { public: int myAtoi(string str) { int len = str.
   </p>
 
   
