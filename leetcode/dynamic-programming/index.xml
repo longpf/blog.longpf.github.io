@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamic Programming on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/dynamic-programming/</link>
+    <description>Recent content in Dynamic Programming on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 24 Jan 2018 18:51:58 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/leetcode/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>10. Regular Expression Matching 正则表达式匹配</title>
+      <link>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Wed, 24 Jan 2018 18:51:58 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
+      <description>Implement regular expression matching with support for &#39;.&#39; and &#39;*&#39;.
+&#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char *s, const char *p) Some examples: isMatch(&amp;quot;aa&amp;quot;,&amp;quot;a&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;,&amp;quot;aa&amp;quot;) → true isMatch(&amp;quot;aaa&amp;quot;,&amp;quot;aa&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;, &amp;quot;a*&amp;quot;) → true isMatch(&amp;quot;aa&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;ab&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;aab&amp;quot;, &amp;quot;c*a*b&amp;quot;) → true  Difficulty: Hard</description>
+    </item>
+    
+    <item>
+      <title>Longest Palindromic Substring 最长回文子字符串</title>
+      <link>http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 15 Jan 2018 17:03:21 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+Difficulty:Medium
+Example:
+Input: &amp;quot;babad&amp;quot; Output: &amp;quot;bab&amp;quot; Note: &amp;quot;aba&amp;quot; is also a valid answer.  Example:
+Input: &amp;quot;cbbd&amp;quot; Output: &amp;quot;bb&amp;quot;  这道题参考Grandyang,他博客里有全套leetcode讲解.
+求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较 
+解法1: O(n^2) class Solution { public: public: string longestPalindrome(string s) { int startIdx = 0, left = 0, right = 0, len = 0; for (int i = 0; i &amp;lt; s.</description>
+    </item>
+    
+  </channel>
+</rss>

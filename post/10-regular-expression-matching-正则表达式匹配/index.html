@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>9. Palindrome Number 验证回文数字 &middot; long·pf</title>
+  <title>10. Regular Expression Matching 正则表达式匹配 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>9. Palindrome Number 验证回文数字</h1>
+  <h1>10. Regular Expression Matching 正则表达式匹配</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Jan 2018, 17:04</time>
+    <time>24 Jan 2018, 18:51</time>
   </div>
 
   
@@ -256,7 +256,11 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
     
   </div>
 
@@ -266,45 +270,109 @@
 
 </div>
 
-  <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
+  
 
-<p><strong>Some hints:</strong>
-Could negative integers be palindromes? (ie, -1)</p>
+<p>Implement regular expression matching with support for <code>'.'</code> and <code>'*'</code>.</p>
 
-<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+<pre><code class="language-c">'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
 
-<p>You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?</p>
+The matching should cover the entire input string (not partial).
 
-<p>There is a more generic way of solving this problem.</p>
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
 
-<p>Difficulty: Easy</p>
+Some examples:
+isMatch(&quot;aa&quot;,&quot;a&quot;) → false
+isMatch(&quot;aa&quot;,&quot;aa&quot;) → true
+isMatch(&quot;aaa&quot;,&quot;aa&quot;) → false
+isMatch(&quot;aa&quot;, &quot;a*&quot;) → true
+isMatch(&quot;aa&quot;, &quot;.*&quot;) → true
+isMatch(&quot;ab&quot;, &quot;.*&quot;) → true
+isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) → true
+</code></pre>
+
+<p><strong>Difficulty: Hard</strong></p>
+
+<p><strong>这道题和<a href="http://blog.longpengfei.com/post/atoffer/#字符流中第一个不重复的字符">剑指offer 54题</a>一样,正则表达式匹配<code>.</code>,<code>*</code></strong></p>
+
+<h2 id="分析1">分析1</h2>
+
+<p><a href="http://blog.longpengfei.com/post/atoffer/#字符流中第一个不重复的字符">剑指offer 54题</a>的解法</p>
+
+<p><strong>如果模式串此时是&rsquo;.&lsquo;,那么只需要模式串匹配串都往后移动一个位置</strong></p>
+
+<p><strong>如果现在这位的字符能匹配且模式串的下一位是<code>*</code>,我们则需要分情况讨论</strong></p>
 
 <ul>
-<li>需求是不允许使用额外的空间</li>
-<li>负数不是回文数字</li>
-<li>可以比较首尾数字是否相同比较</li>
+<li>匹配串往后移动1位,模式串跳过<code>'*'</code></li>
+<li>匹配串往后移动1位,模式串不动</li>
+<li>匹配串不动,模式串跳过<code>'*'</code></li>
 </ul>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    bool isPalindrome(int x) {
-        if (x&lt;0) return false;
-        int div = 1;
-        while (x / div &gt;= 10) div *= 10;
-        while (x &gt; 0)
+   bool isMatch(string s, string p) {
+        const char* str = s.c_str();
+        const char* pattern = p.c_str();
+        return match2(str, pattern);
+    }
+    
+    bool match2(const char* str,const char* pattern)
+    {
+        if (str==NULL||pattern==NULL) return false;
+        if (*str=='\0'&amp;&amp;*pattern=='\0') return true;
+        if (*str!='\0'&amp;&amp;*pattern=='\0') return false;
+        
+        if (*(pattern+1)=='*')
         {
-            int left = x / div;
-            int right = x % 10;
-            if (left != right) return false;
-            //更新x
-            x = (x % div) / 10;
-            //更新div
-            div /= 100;
+            if (*str==*pattern||(*str!='\0'&amp;&amp;*pattern=='.'))
+                return match2(str+1, pattern+2)||match2(str+1, pattern)||match2(str, pattern+2);
+            return match2(str, pattern+2);
         }
-        //如果为0的话
-        return true;
+        if (*str==*pattern || (*pattern=='.'&amp;&amp;*str!='\0'))
+            return match2(str+1, pattern+1);
+        return false;
     }
 };
+</code></pre>
+
+<h2 id="分析2">分析2</h2>
+
+<p>也可以用Dynamic Programming来解.参考<a href="https://discuss.leetcode.com/topic/17852/9-lines-16ms-c-dp-solutions-with-explanations">jianchao.li.fighter的解法</a>.定义<code>P[i][j]</code>表示<code>s[0..i)</code>和<code>p[0..j)</code>是否匹配.分析可得下面的方程</p>
+
+<ul>
+<li><code>P[i][j] = P[i-1][j-1]</code>,if <code>p[j-1] != '*' &amp;&amp; (s[i-1] == p[j-1] || p[j-1] == '.')</code>;</li>
+<li><code>P[i][j] = P[i][j-2]</code>,if <code>p[j-1]=='*'</code> and the pattern repeats for <code>0</code> times;</li>
+<li><code>P[i][j] = P[i-1][j] &amp;&amp; (s[i-1]==p[j-2] || p[j-2]=='.')</code>,if <code>p[j-1]=='*'</code> and the pattern repeats for at least <code>1</code> times.</li>
+</ul>
+
+<p><strong>上面P[i][j],i的取值是从0到s.size(),j的取值是是从0到p.size().s的取值范围是0到s.size()-1.p的取值范围是0到p.size()-1.举个例子</strong></p>
+
+<pre><code class="language-c">s = &quot;ab&quot;;
+p = &quot;ab&quot;;
+P[0][0] = s[0,0)j[0,0) = true
+P[1][1] = s[0,1)p[0,1) = s[0]p[0] = ('a'=='a') = true
+</code></pre>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    
+  bool isMatch(string s, string p)
+  {
+      int m = s.size(), n = p.size();
+        vector&lt;vector&lt;bool&gt;&gt; dp(m+1,vector&lt;bool&gt;(n+1,false));
+        dp[0][0] = true;
+        for (int i = 0; i &lt;= m; i++) {
+            for (int j = 1; j &lt;= n; j++) {
+                if (p[j-1] == '*')
+                    dp[i][j] = dp[i][j-2] || (i &gt; 0 &amp;&amp; (s[i-1]==p[j-2] || p[j-2]=='.') &amp;&amp; dp[i-1][j]);
+                else
+                    dp[i][j] = i &gt; 0 &amp;&amp; dp[i-1][j-1] &amp;&amp; (s[i-1]==p[j-1]||p[j-1]=='.');
+            }
+        }
+        return dp[m][n];
+  }
 </code></pre>
 
 
@@ -312,13 +380,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">8 String to Integer Atoi 把字符串转换成整数</a>
+      <a href="http://blog.longpengfei.com/post/9-palindrome-number-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E6%95%B0%E5%AD%97/">9. Palindrome Number 验证回文数字</a>
     </nav>
     
   </div>
@@ -327,14 +395,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">10. Regular Expression Matching 正则表达式匹配</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

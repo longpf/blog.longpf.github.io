@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>9. Palindrome Number 验证回文数字 &middot; long·pf</title>
+  <title>Dynamic Programming &middot; long·pf</title>
 
   
   
@@ -221,16 +221,19 @@
 
 
 <div class="header">
-  <h1>9. Palindrome Number 验证回文数字</h1>
-  <h2></h2>
+  <h1>Dynamic Programming</h1>
 </div>
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">10. Regular Expression Matching 正则表达式匹配</a></h2>
 
-  <div class="post-meta">
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Jan 2018, 17:04</time>
+    <time>24 Jan 2018, 18:51</time>
   </div>
 
   
@@ -256,7 +259,11 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
     
   </div>
 
@@ -266,83 +273,87 @@
 
 </div>
 
-  <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
+  </header>
 
-<p><strong>Some hints:</strong>
-Could negative integers be palindromes? (ie, -1)</p>
-
-<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
-
-<p>You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?</p>
-
-<p>There is a more generic way of solving this problem.</p>
-
-<p>Difficulty: Easy</p>
-
-<ul>
-<li>需求是不允许使用额外的空间</li>
-<li>负数不是回文数字</li>
-<li>可以比较首尾数字是否相同比较</li>
-</ul>
-
-<pre><code class="language-cpp">class Solution {
-public:
-    bool isPalindrome(int x) {
-        if (x&lt;0) return false;
-        int div = 1;
-        while (x / div &gt;= 10) div *= 10;
-        while (x &gt; 0)
-        {
-            int left = x / div;
-            int right = x % 10;
-            if (left != right) return false;
-            //更新x
-            x = (x % div) / 10;
-            //更新div
-            div /= 100;
-        }
-        //如果为0的话
-        return true;
-    }
-};
-</code></pre>
-
+  <p>
+  Implement regular expression matching with support for '.' and '*'.
+'.' Matches any single character. '*' Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char *s, const char *p) Some examples: isMatch(&quot;aa&quot;,&quot;a&quot;) → false isMatch(&quot;aa&quot;,&quot;aa&quot;) → true isMatch(&quot;aaa&quot;,&quot;aa&quot;) → false isMatch(&quot;aa&quot;, &quot;a*&quot;) → true isMatch(&quot;aa&quot;, &quot;.*&quot;) → true isMatch(&quot;ab&quot;, &quot;.*&quot;) → true isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) → true  Difficulty: Hard
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
+  <footer>
+    <a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>15 Jan 2018, 17:03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
     
-    <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
     
   </div>
-  <div class="pure-u-10-24">
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
     
-    <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0/">8 String to Integer Atoi 把字符串转换成整数</a>
-    </nav>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
     
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">10. Regular Expression Matching 正则表达式匹配</a>
-    </nav>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>
     
   </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
+
+  
+  
+
+
 </div>
 
+  </header>
 
+  <p>
+  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+Difficulty:Medium
+Example:
+Input: &quot;babad&quot; Output: &quot;bab&quot; Note: &quot;aba&quot; is also a valid answer.  Example:
+Input: &quot;cbbd&quot; Output: &quot;bb&quot;  这道题参考Grandyang,他博客里有全套leetcode讲解.
+求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较 
+解法1: O(n^2) class Solution { public: public: string longestPalindrome(string s) { int startIdx = 0, left = 0, right = 0, len = 0; for (int i = 0; i &lt; s.
+  </p>
 
   
+  <footer>
+    <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
+  
 </div>
 
 </div>
@@ -371,4 +382,3 @@ public:
 
 </body>
 </html>
-

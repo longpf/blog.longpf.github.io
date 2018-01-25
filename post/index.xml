@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 Jan 2018 17:04:38 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jan 2018 18:51:58 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>10. Regular Expression Matching 正则表达式匹配</title>
+      <link>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Wed, 24 Jan 2018 18:51:58 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
+      <description>Implement regular expression matching with support for &#39;.&#39; and &#39;*&#39;.
+&#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char *s, const char *p) Some examples: isMatch(&amp;quot;aa&amp;quot;,&amp;quot;a&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;,&amp;quot;aa&amp;quot;) → true isMatch(&amp;quot;aaa&amp;quot;,&amp;quot;aa&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;, &amp;quot;a*&amp;quot;) → true isMatch(&amp;quot;aa&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;ab&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;aab&amp;quot;, &amp;quot;c*a*b&amp;quot;) → true  Difficulty: Hard</description>
+    </item>
     
     <item>
       <title>9. Palindrome Number 验证回文数字</title>
