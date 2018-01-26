@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 24 Jan 2018 17:04:38 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2018 16:42:56 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>12. Integer to Roman 整数转罗马数字</title>
+      <link>http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Fri, 26 Jan 2018 16:42:56 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/</guid>
+      <description>Given an integer, convert it to a roman numeral.
+Input is guaranteed to be within the range from 1 to 3999.
+Difficulty: Medium
+罗马字符:	I	V	X	L	C	D	M 阿拉伯数字:	1	5	10	50	100	500	1000 1~9 : I, II, III, IV, V, VI, VII, VIII, IX 10~90 : X, XX, XXX, XL, L, LX, LXX, LXXX, XC 100~900: C, CC, CCC, CD, D, DC, DCC, DCCC, CM 1000~3000: M, MM, MMM  例如: 整数1437的罗马数字为MCDXXXVII.</description>
+    </item>
     
     <item>
       <title>9. Palindrome Number 验证回文数字</title>
