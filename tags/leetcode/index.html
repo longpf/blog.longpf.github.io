@@ -228,6 +228,63 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/14-longest-common-prefix-%E6%9C%80%E9%95%BF%E5%85%B1%E5%90%8C%E5%89%8D%E7%BC%80/">14. Longest Common Prefix 最长共同前缀</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>27 Jan 2018, 16:43</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Write a function to find the longest common prefix string amongst an array of strings.
+Difficulty: Easy
+可以把输入的字符串数组,看成一个char的二维数组,定义指针i,j分别代表行数和列数,逐列查找,如果char[i][j]不等于char[0][j]或者第i个字符串的长度小于j就可以返回之前的结果了.
+class Solution { public: string longestCommonPrefix(vector&lt;string&gt;&amp; strs) { if (strs.empty()) return &quot;&quot;; string res = &quot;&quot;; for (int j=0;j&lt;strs[0].size();j++) { char c = strs[0][j]; for (int i=1;i&lt;strs.size();i++) { if (j&gt;=strs[i].size() || strs[i][j]!=c) return res; } res += c; } return res; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">13. Roman to Integer 罗马数字转化成整数</a></h2>
 
     <div class="post-meta">

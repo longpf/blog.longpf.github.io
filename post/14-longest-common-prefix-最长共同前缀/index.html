@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; long·pf</title>
+  <title>14. Longest Common Prefix 最长共同前缀 &middot; long·pf</title>
 
   
   
@@ -221,58 +221,106 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>14. Longest Common Prefix 最长共同前缀</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>27 Jan 2018, 16:43</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;15&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;5&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="swift">swift</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="python">python</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
+
   
-    <li>
-      <a href="%E5%89%91%E6%8C%87offer">剑指offer</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+
+<p>Difficulty: Easy</p>
+
+<p>可以把输入的字符串数组,看成一个<code>char</code>的二维数组,定义指针<code>i</code>,<code>j</code>分别代表行数和列数,逐列查找,如果<code>char[i][j]</code>不等于<code>char[0][j]</code>或者第<code>i</code>个字符串的长度小于j就可以返回之前的结果了.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        if (strs.empty()) return &quot;&quot;;
+        string res = &quot;&quot;;
+        for (int j=0;j&lt;strs[0].size();j++)
+        {
+            char c = strs[0][j];
+            for (int i=1;i&lt;strs.size();i++)
+            {
+                if (j&gt;=strs[i].size() || strs[i][j]!=c) return res;
+            }
+            res += c;
+        }
+        return res;
+    }
+};
+</code></pre>
+
+
   
-  </ul>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">13. Roman to Integer 罗马数字转化成整数</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
 </div>
 
 </div>
@@ -301,3 +349,4 @@
 
 </body>
 </html>
+
