@@ -229,6 +229,71 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">13 Roman to Integer 罗马数字转化成整数</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>27 Jan 2018, 15:09</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+Difficulty: Easy
+这道题是把罗马数字转化成整数,和12. Integer to Roman 整数转罗马数字正好反着.关于罗马数字的简单介绍可以回看12. Integer to Roman 整数转罗马数字.
+这道题明确告诉我们输入的是罗马数字,所有不需要验证是否为罗马数字.下面只需要考虑
+ 如果当前数字是最后一个数字,或之后的数字比它小的话,则加上当前的数字.举个反例CD-400,D比C大,所以先减去C(100)再加上D(500),就得到结果400 其他情况则减去这个数字  #include &lt;unordered_map&gt; using namespace std; class Solution { public: int romanToInt(string s) { int res = 0; unordered_map&lt;char, int&gt; m{{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}}; for (int i = 0; i &lt; s.size(); i++) { int val = m[s[i]]; //m[s[i+1]]不需要考虑越界,因为有'\0' m['\0']=0 if (i == s.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/leetcode-catalog/">目录</a></h2>
 
     <div class="post-meta">
@@ -774,72 +839,6 @@ p[i] = mx&gt;i ? min(p[2*id-1],mx-i) : 1;  如图j是i关于id的对称点.
   
   <footer>
     <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>15 Jan 2018, 17:03</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-Difficulty:Medium
-Example:
-Input: &quot;babad&quot; Output: &quot;bab&quot; Note: &quot;aba&quot; is also a valid answer.  Example:
-Input: &quot;cbbd&quot; Output: &quot;bb&quot;  这道题参考Grandyang,他博客里有全套leetcode讲解.
-求最长回文串,回文串就是正着读反着读都一样的字符串.下面的解法是以一个字符为中心向两边扩散并比较 
-解法1: O(n^2) class Solution { public: public: string longestPalindrome(string s) { int startIdx = 0, left = 0, right = 0, len = 0; for (int i = 0; i &lt; s.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

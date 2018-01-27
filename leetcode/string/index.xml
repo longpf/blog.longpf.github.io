@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 26 Jan 2018 16:42:56 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jan 2018 15:09:37 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/string/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>13 Roman to Integer 罗马数字转化成整数</title>
+      <link>http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/</link>
+      <pubDate>Sat, 27 Jan 2018 15:09:37 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/</guid>
+      <description>Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+Difficulty: Easy
+这道题是把罗马数字转化成整数,和12. Integer to Roman 整数转罗马数字正好反着.关于罗马数字的简单介绍可以回看12. Integer to Roman 整数转罗马数字.
+这道题明确告诉我们输入的是罗马数字,所有不需要验证是否为罗马数字.下面只需要考虑
+ 如果当前数字是最后一个数字,或之后的数字比它小的话,则加上当前的数字.举个反例CD-400,D比C大,所以先减去C(100)再加上D(500),就得到结果400 其他情况则减去这个数字  #include &amp;lt;unordered_map&amp;gt; using namespace std; class Solution { public: int romanToInt(string s) { int res = 0; unordered_map&amp;lt;char, int&amp;gt; m{{&#39;I&#39;,1},{&#39;V&#39;,5},{&#39;X&#39;,10},{&#39;L&#39;,50},{&#39;C&#39;,100},{&#39;D&#39;,500},{&#39;M&#39;,1000}}; for (int i = 0; i &amp;lt; s.size(); i++) { int val = m[s[i]]; //m[s[i+1]]不需要考虑越界,因为有&#39;\0&#39; m[&#39;\0&#39;]=0 if (i == s.</description>
+    </item>
     
     <item>
       <title>12. Integer to Roman 整数转罗马数字</title>

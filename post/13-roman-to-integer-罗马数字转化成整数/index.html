@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>目录 &middot; long·pf</title>
+  <title>13 Roman to Integer 罗马数字转化成整数 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>目录</h1>
+  <h1>13 Roman to Integer 罗马数字转化成整数</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Jan 2018, 18:24</time>
+    <time>27 Jan 2018, 15:09</time>
   </div>
 
   
@@ -256,7 +256,9 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/%E7%9B%AE%E5%BD%95">目录</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
     
   </div>
 
@@ -266,119 +268,53 @@
 
 </div>
 
-  <p><font face="楷体" size=3></p>
+  <p>Given a roman numeral, convert it to an integer.</p>
 
-<table>
-<thead>
-<tr>
-<th>Number<br>题号</th>
-<th>Problems<br>题目</th>
-<th>Difficulty<br>难度</th>
-<th>Topics(Tags)<br>标签</th>
-</tr>
-</thead>
+<p>Input is guaranteed to be within the range from 1 to 3999.</p>
 
-<tbody>
-<tr>
-<td>1</td>
-<td><a href="http://blog.longpengfei.com/post/two-sum-两数之和等于一个输入的数/">Two Sum 两数之和等于一个输入的数</a></td>
-<td><font color="#5cb85c">Easy</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/array/">Array</a>, <a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a></td>
-</tr>
+<p>Difficulty: Easy</p>
 
-<tr>
-<td>2</td>
-<td><a href="http://blog.longpengfei.com/post/add-twonumbers-两个链表相加/">Add TwoNumbers 两个链表相加</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/linked-list/">Linked List</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
-</tr>
+<p>这道题是把罗马数字转化成整数,和<a href="http://blog.longpengfei.com/post/12-integer-to-roman-整数转罗马数字/">12. Integer to Roman 整数转罗马数字</a>正好反着.关于罗马数字的简单介绍可以回看<a href="http://blog.longpengfei.com/post/12-integer-to-roman-整数转罗马数字/">12. Integer to Roman 整数转罗马数字</a>.</p>
 
-<tr>
-<td>3</td>
-<td><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-子字符串的最大不重复长度/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a>, <a href="http://blog.longpengfei.com/leetcode/two-pointers/">Two Pointers</a>, <a href="http://blog.longpengfei.com/leetcode/string/">String</a></td>
-</tr>
+<p>这道题明确告诉我们输入的是罗马数字,所有不需要验证是否为罗马数字.下面只需要考虑</p>
 
-<tr>
-<td>4</td>
-<td><a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays两个数组的中位数/">Median of Two Sorted Arrays两个数组的中位数</a></td>
-<td><font color="#d9534f">Hard</font></td>
-<td></td>
-</tr>
+<ul>
+<li>如果当前数字是最后一个数字,或之后的数字比它小的话,则加上当前的数字.举个反例<code>CD-400</code>,<code>D</code>比<code>C</code>大,所以先减去<code>C(100)</code>再加上<code>D(500)</code>,就得到结果<code>400</code></li>
+<li>其他情况则减去这个数字</li>
+</ul>
 
-<tr>
-<td>5</td>
-<td><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-最长回文子字符串/">Longest Palindromic Substring 最长回文子字符串</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/dynamic-programming/">Dynamic Programming</a></td>
-</tr>
+<pre><code class="language-cpp">#include &lt;unordered_map&gt;
 
-<tr>
-<td>6</td>
-<td><a href="http://blog.longpengfei.com/post/6-zigzag-conversion-之子形转换字符串/">ZigZag Conversion 之子形转换字符串</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a></td>
-</tr>
+using namespace std;
 
-<tr>
-<td>7</td>
-<td><a href="http://blog.longpengfei.com/post/7-reverse-integer-翻转整数/">Reverse Integer 翻转整数</a></td>
-<td><font color="#5cb85c">Easy</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
-</tr>
-
-<tr>
-<td>8</td>
-<td><a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-把字符串转换成整数/">String to Integer Atoi 把字符串转换成整数</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
-</tr>
-
-<tr>
-<td>9</td>
-<td><a href="http://blog.longpengfei.com/post/9-palindrome-number-验证回文数字/">Palindrome Number 验证回文数字</a></td>
-<td><font color="#5cb85c">Easy</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
-</tr>
-
-<tr>
-<td>10</td>
-<td><a href="http://blog.longpengfei.com/post/10-regular-expression-matching-正则表达式匹配/">Regular Expression Matching 正则表达式匹配</a></td>
-<td><font color="#d9534f">Hard</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/dynamic-programming/">Dynamic Programming</a>, <a href="http://blog.longpengfei.com/leetcode/backtracking/">Backtracking</a></td>
-</tr>
-
-<tr>
-<td>11</td>
-<td><a href="http://blog.longpengfei.com/post/11-container-with-most-water-装最多水的容器/">Container With Most Water 装最多水的容器</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/array/">Array</a>, <a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a></td>
-</tr>
-
-<tr>
-<td>12</td>
-<td><a href="http://blog.longpengfei.com/post/12-integer-to-roman-整数转罗马数字/">Integer to Roman 整数转罗马数字</a></td>
-<td><font color="#f0ad4e">Medium</font></td>
-<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
-</tr>
-</tbody>
-</table>
-
-<p></font></p>
+class Solution {
+public:
+    int romanToInt(string s) {
+        int res = 0;
+        unordered_map&lt;char, int&gt; m{{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}};
+        for (int i = 0; i &lt; s.size(); i++) {
+            int val = m[s[i]];
+            //m[s[i+1]]不需要考虑越界,因为有'\0' m['\0']=0
+            if (i == s.size()-1 || m[s[i+1]]&lt;=m[s[i]]) res+=val;
+            else res -= val;
+        }
+        return res;
+    }
+};
+</code></pre>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/leetcode-catalog/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">12. Integer to Roman 整数转罗马数字</a>
+      <a href="http://blog.longpengfei.com/post/leetcode-catalog/">目录</a>
     </nav>
     
   </div>
@@ -387,14 +323,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">13 Roman to Integer 罗马数字转化成整数</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
