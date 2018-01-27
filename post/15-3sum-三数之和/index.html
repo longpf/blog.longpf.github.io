@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>14. Longest Common Prefix 最长共同前缀 &middot; long·pf</title>
+  <title>15 3Sum 三数之和 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>14. Longest Common Prefix 最长共同前缀</h1>
+  <h1>15 3Sum 三数之和</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>27 Jan 2018, 16:43</time>
+    <time>27 Jan 2018, 17:52</time>
   </div>
 
   
@@ -256,7 +256,9 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
     
   </div>
 
@@ -266,27 +268,84 @@
 
 </div>
 
-  <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+  
 
-<p>Difficulty: Easy</p>
+<p>Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
 
-<p>可以把输入的字符串数组,看成一个<code>char</code>的二维数组,定义指针<code>i</code>,<code>j</code>分别代表行数和列数,逐列查找,如果<code>char[i][j]</code>不等于<code>char[0][j]</code>或者第<code>i</code>个字符串的长度小于j就可以返回之前的结果了.</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate triplets.</p>
+
+<pre><code>For example, given array S = [-1, 0, 1, 2, -1, -4],
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+</code></pre>
+
+<p>这道题比<a href="http://blog.longpengfei.com/post/two-sum-两数之和等于一个输入的数/">Two Sum 两数之和等于一个输入的数</a>复杂一些.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>可以先对数组排序,那为什么排序呢,是为了下面定义左右指针时候方便比较向中间靠拢.再遍历排序后的数组,如果定义第<code>k</code>个元素<code>nums[k]</code>,求三个数的和为<code>0</code>,可以转换成求剩余的数中的某两个数的和为<code>0-nums[k]</code>.这时候再定义左右指针,从两边网中间查找.由于数组是排序的,所以在遍历数组的时候不必全部遍历,因为数组是前一半为大于<code>0</code>,后一半为小于<code>0</code>.所以当<code>k&gt;0</code>时候,就没有三个数的和等于<code>0</code>了,因为此时三个数都是大于<code>0</code>.</p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-        if (strs.empty()) return &quot;&quot;;
-        string res = &quot;&quot;;
-        for (int j=0;j&lt;strs[0].size();j++)
+    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        sort(nums.begin(),nums.end());
+        for (int k = 0;k &lt; nums.size();k++)
         {
-            char c = strs[0][j];
-            for (int i=1;i&lt;strs.size();i++)
+            //因为排序了, 到k&gt;0时候应该结束
+            if (nums[k] &gt; 0) break;
+            //排除相同数字
+            if (k &gt; 0 &amp;&amp; nums[k]==nums[k-1]) continue;
+            //转换成求两个数之和等于target
+            int target = 0 - nums[k];
+            int i = k + 1,j = nums.size()-1;
+            while (i &lt; j)
             {
-                if (j&gt;=strs[i].size() || strs[i][j]!=c) return res;
+                if (nums[i]+nums[j] == target)
+                {
+                    res.push_back({nums[k],nums[i],nums[j]});
+                    while (i&lt;j &amp;&amp; nums[i]==nums[i+1]) i++;
+                    while (i&lt;j &amp;&amp; nums[j]==nums[j-1]) j--;
+                    i++;
+                    j--;
+                }
+                else if (nums[i]+nums[j]&lt;target) i++;
+                else j--;
             }
-            res += c;
         }
         return res;
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>相对解法1, 这里只是用<code>set</code>来控制结果的重复问题</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) {
+        set&lt;vector&lt;int&gt;&gt; res;
+        sort(nums.begin(), nums.end());
+        for (int k = 0; k &lt; nums.size(); ++k) {
+            if (nums[k] &gt; 0) break;
+            int target = 0 - nums[k];
+            int i = k + 1, j = nums.size() - 1;
+            while (i &lt; j) {
+                if (nums[i] + nums[j] == target) {
+                    res.insert({nums[k], nums[i], nums[j]});
+                    while (i &lt; j &amp;&amp; nums[i] == nums[i + 1]) ++i;
+                    while (i &lt; j &amp;&amp; nums[j] == nums[j - 1]) --j;
+                    ++i; --j;
+                } else if (nums[i] + nums[j] &lt; target) ++i;
+                else --j;
+            }
+        }
+        return vector&lt;vector&lt;int&gt;&gt;(res.begin(), res.end());
     }
 };
 </code></pre>
@@ -296,13 +355,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/14-longest-common-prefix-%E6%9C%80%E9%95%BF%E5%85%B1%E5%90%8C%E5%89%8D%E7%BC%80/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">13. Roman to Integer 罗马数字转化成整数</a>
+      <a href="http://blog.longpengfei.com/post/14-longest-common-prefix-%E6%9C%80%E9%95%BF%E5%85%B1%E5%90%8C%E5%89%8D%E7%BC%80/">14. Longest Common Prefix 最长共同前缀</a>
     </nav>
     
   </div>
@@ -311,14 +370,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">15 3Sum 三数之和</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
