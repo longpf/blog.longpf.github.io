@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>12. Integer to Roman 整数转罗马数字 &middot; long·pf</title>
+  <title>目录 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>12. Integer to Roman 整数转罗马数字</h1>
+  <h1>目录</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Jan 2018, 16:42</time>
+    <time>26 Jan 2018, 18:24</time>
   </div>
 
   
@@ -256,9 +256,7 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/%E7%9B%AE%E5%BD%95">目录</a>
     
   </div>
 
@@ -268,89 +266,119 @@
 
 </div>
 
-  
+  <p><font face="楷体" size=3></p>
 
-<p>Given an integer, convert it to a roman numeral.</p>
+<table>
+<thead>
+<tr>
+<th>Number<br>题号</th>
+<th>Problems<br>题目</th>
+<th>Difficulty<br>难度</th>
+<th>Topics(Tags)<br>标签</th>
+</tr>
+</thead>
 
-<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://blog.longpengfei.com/post/two-sum-两数之和等于一个输入的数/">Two Sum 两数之和等于一个输入的数</a></td>
+<td><font color="#5cb85c">Easy</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/array/">Array</a>, <a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a></td>
+</tr>
 
-<p>Difficulty: Medium</p>
+<tr>
+<td>2</td>
+<td><a href="http://blog.longpengfei.com/post/add-twonumbers-两个链表相加/">Add TwoNumbers 两个链表相加</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/linked-list/">Linked List</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
+</tr>
 
-<pre><code>罗马字符:	I	V	X	L	C	D	M
-阿拉伯数字:	1	5	10	50	100	500	1000
+<tr>
+<td>3</td>
+<td><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-子字符串的最大不重复长度/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a>, <a href="http://blog.longpengfei.com/leetcode/two-pointers/">Two Pointers</a>, <a href="http://blog.longpengfei.com/leetcode/string/">String</a></td>
+</tr>
 
-1~9 : I, II, III, IV, V, VI, VII, VIII, IX
-10~90 : X, XX, XXX, XL, L, LX, LXX, LXXX, XC
-100~900: C, CC, CCC, CD, D, DC, DCC, DCCC, CM
-1000~3000: M, MM, MMM
-</code></pre>
+<tr>
+<td>4</td>
+<td><a href="http://blog.longpengfei.com/post/median-of-two-sorted-arrays两个数组的中位数/">Median of Two Sorted Arrays两个数组的中位数</a></td>
+<td><font color="#d9534f">Hard</font></td>
+<td></td>
+</tr>
 
-<p><strong>例如:</strong> 整数<strong>1437</strong>的罗马数字为<strong>MCDXXXVII</strong>.不难发现,千位,百位,十位和个位上的数分别用罗马数字表示了.<code>1000-M</code>,<code>400-CD</code>,<code>30-XXX</code>,<code>7-VII</code></p>
+<tr>
+<td>5</td>
+<td><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-最长回文子字符串/">Longest Palindromic Substring 最长回文子字符串</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/dynamic-programming/">Dynamic Programming</a></td>
+</tr>
 
-<h3 id="解法1">解法1:</h3>
+<tr>
+<td>6</td>
+<td><a href="http://blog.longpengfei.com/post/6-zigzag-conversion-之子形转换字符串/">ZigZag Conversion 之子形转换字符串</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a></td>
+</tr>
 
-<p>我们可以分为四类,100-300一类,400一类,500-800一类,900最后一类.每一位上的情况都是类似的</p>
+<tr>
+<td>7</td>
+<td><a href="http://blog.longpengfei.com/post/7-reverse-integer-翻转整数/">Reverse Integer 翻转整数</a></td>
+<td><font color="#5cb85c">Easy</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
+</tr>
 
-<pre><code class="language-cpp">class Solution {
-public:
-    string intToRoman(int num) {
-        string res = &quot;&quot;;
-        char roman[] = {'M','D','C','L','X','V','I'};
-        int value[]  = {1000,500,100,50, 10, 5,  1};
-        //n+=2 避开除500,除50,除5
-        for (int n=0;n &lt; 7;n += 2)
-        {
-            int x = num / value[n];
-            if (x &lt; 4)
-                for (int i=1;i&lt;=x;i++) res += roman[n];
-            else if (x == 4)
-                res = res + roman[n] + roman[n-1];
-            else if (x &gt; 4 &amp;&amp; x &lt; 9){
-                res +=  roman[n-1];
-                for (int i=6;i&lt;=x;i++) res += roman[n];
-            }
-            else if(x==9) res = res + roman[n] + roman[n-2];
-            num %= value[n];
-        }
-        return res;
-    }
-};
-</code></pre>
+<tr>
+<td>8</td>
+<td><a href="http://blog.longpengfei.com/post/8-string-to-integer-atoi-把字符串转换成整数/">String to Integer Atoi 把字符串转换成整数</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
+</tr>
 
-<h3 id="解法2">解法2:</h3>
+<tr>
+<td>9</td>
+<td><a href="http://blog.longpengfei.com/post/9-palindrome-number-验证回文数字/">Palindrome Number 验证回文数字</a></td>
+<td><font color="#5cb85c">Easy</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
+</tr>
 
-<p>本题由于限制了输入数字范围这一特殊性,故而还有一种利用贪婪算法的解法,建立一个数表,每次通过查表找出当前最大的数,减去再继续查表.</p>
+<tr>
+<td>10</td>
+<td><a href="http://blog.longpengfei.com/post/10-regular-expression-matching-正则表达式匹配/">Regular Expression Matching 正则表达式匹配</a></td>
+<td><font color="#d9534f">Hard</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/dynamic-programming/">Dynamic Programming</a>, <a href="http://blog.longpengfei.com/leetcode/backtracking/">Backtracking</a></td>
+</tr>
 
-<pre><code class="language-cpp">class Solution {
-public:
-    string intToRoman(int num) {
-        string res = &quot;&quot;;
-        vector&lt;string&gt; str{&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};
-        vector&lt;int&gt;   val{1000,900, 500, 400,100, 90, 50, 40,  10,  9,   5,  4,   1};
-        for (int i=0;i&lt;val.size();i++)
-        {
-            while(num&gt;=val[i]){
-                num -= val[i];
-                res += str[i];
-            }
-        }
-        return res;
-    }
-};
-</code></pre>
+<tr>
+<td>11</td>
+<td><a href="http://blog.longpengfei.com/post/11-container-with-most-water-装最多水的容器/">Container With Most Water 装最多水的容器</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/array/">Array</a>, <a href="http://blog.longpengfei.com/leetcode/hash-table/">Hash Table</a></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td><a href="http://blog.longpengfei.com/post/12-integer-to-roman-整数转罗马数字/">Integer to Roman 整数转罗马数字</a></td>
+<td><font color="#f0ad4e">Medium</font></td>
+<td><a href="http://blog.longpengfei.com/leetcode/string/">String</a>, <a href="http://blog.longpengfei.com/leetcode/math/">Math</a></td>
+</tr>
+</tbody>
+</table>
+
+<p></font></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">11. Container With Most Water 装最多水的容器</a>
+      <a href="http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">12. Integer to Roman 整数转罗马数字</a>
     </nav>
     
   </div>
@@ -359,14 +387,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/leetcode-catalog/">目录</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/leetcode-catalog/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
