@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Two Pointers &middot; long·pf</title>
+  <title>18. 4Sum 四数之和 &middot; long·pf</title>
 
   
   
@@ -221,15 +221,12 @@
 
 
 <div class="header">
-  <h1>Two Pointers</h1>
+  <h1>18. 4Sum 四数之和</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/18-4sum-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">18. 4Sum 四数之和</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -273,214 +270,89 @@
 
 </div>
 
-  </header>
+  <p>Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.</p>
 
-  <p>
-  Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
-Note: The solution set must not contain duplicate quadruplets.
-For example, given array S = [1, 0, -1, 0, -2, 2], and target = 0. A solution set is: [ [-1, 0, 0, 1], [-2, -1, 1, 2], [-2, 0, 0, 2] ]  Difficulty: Medium
-  </p>
+<p><strong>Note:</strong> The solution set must not contain duplicate quadruplets.</p>
+
+<pre><code>For example, given array S = [1, 0, -1, 0, -2, 2], and target = 0.
+
+A solution set is:
+[
+  [-1,  0, 0, 1],
+  [-2, -1, 1, 2],
+  [-2,  0, 0, 2]
+]
+</code></pre>
+
+<p>Difficulty: Medium</p>
+
+<p>与这道题相似的还有<a href="http://blog.longpengfei.com/post/two-sum-两数之和等于一个输入的数/">Two Sum 两数之和等于一个输入的数</a>, <a href="http://blog.longpengfei.com/post/15-3sum-三数之和/">15. 3Sum 三数之和</a>, <a href="http://blog.longpengfei.com/post/16-3sum-closest-最近三数之和/">16. 3Sum Closest 最近三数之和</a> 解题思路基本一样. 可以在<a href="http://blog.longpengfei.com/post/15-3sum-三数之和/">15. 3Sum 三数之和</a>解法上再套一个for循环,复杂度为O(n^3)</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt;&amp; nums, int target) {
+        set&lt;vector&lt;int&gt;&gt; res;
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        for (int i = 0; i &lt; n-3; i++)
+        {
+            for (int j = i + 1; j &lt; n-2;j++)
+            {
+                int left = j+1,right = n-1;
+                while (left &lt;right) {
+                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
+                    if (sum==target)
+                    {
+                        vector&lt;int&gt; out;
+                        out.push_back(nums[i]);
+                        out.push_back(nums[j]);
+                        out.push_back(nums[left]);
+                        out.push_back(nums[right]);
+                        res.insert(out);
+                        ++left;
+                        --right;
+                    }else if (sum &lt;target)
+                        left++;
+                    else
+                        right--;
+                }
+            }
+        }
+        return vector&lt;vector&lt;int&gt;&gt; (res.begin(),res.end());
+    }
+};
+</code></pre>
+
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/18-4sum-%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">15. 3Sum 三数之和</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>27 Jan 2018, 17:52</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17. Letter Combinations of a Phone Number 电话号码的字母组合</a>
+    </nav>
     
   </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
   </div>
-
-  
-  
-
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-Note: The solution set must not contain duplicate triplets.
-For example, given array S = [-1, 0, 1, 2, -1, -4], A solution set is: [ [-1, 0, 1], [-1, -1, 2] ]  这道题比Two Sum 两数之和等于一个输入的数复杂一些.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">11. Container With Most Water 装最多水的容器</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Jan 2018, 14:14</time>
-  </div>
 
   
 
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given n non-negative integers a1, a2, &hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
-Note: You may not slant the container and n is at least 2.
-Difficulty: Medium
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>12 Jan 2018, 11:41</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given a string, find the length of the longest substring without repeating characters.
-Examples:
-Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
-Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
-Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
-滑动窗口问题,比如abcabcbb,滑动到abca的时候需要丢弃第一个a变成bca,继续向右滑动,每次滑动都要检查有没有重复.感觉涉及到最大,最多的问题都可以试着网哈希表上靠. 
-class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 </div>
 
 </div>
@@ -509,3 +381,4 @@ class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
 
 </body>
 </html>
+
