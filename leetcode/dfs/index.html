@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; long·pf</title>
+  <title>Dfs &middot; long·pf</title>
 
   
   
@@ -221,58 +221,78 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Dfs</h1>
 </div>
 <div class="content">
-  <ul>
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17. Letter Combinations of a Phone Number 电话号码的字母组合</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jan 2018, 14:33</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;18&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;5&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="swift">swift</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="python">python</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dfs">DFS</a>
+    
+  </div>
+
   
-    <li>
-      <a href="%E5%89%91%E6%8C%87offer">剑指offer</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a digit string, return all possible letter combinations that the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+Input: Digit string &quot;23&quot; Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].  Note:
+Although the above answer is in lexicographical order, your answer could be in any order you want.
+这道题让我们求电话号码的字母组合, 既2~9中,每个数字都代表2到3个字母,然后给出一个数字的字符串,求出这串数字可能代表的所有字母串.这道题可以用DFS的思想解决,关于DFS可以看二叉树 深度优先搜索（DFS）、广度优先搜索（BFS）,可以简单的了解一下.那为什么说是DFS思想呢,比如给出&rdquo;2345&rdquo;,那个对应的结果为adgj,adgk,adgl,adhj,adhk,adhl...cfil这个顺序可以看做DFS的思想.大概这个意思.
+解法1 解法1就是上面的分析的解法.
+class Solution { public: vector&lt;string&gt; letterCombinations(string digits) { vector&lt;string&gt; res; if (digits.
+  </p>
+
   
-  </ul>
+  <footer>
+    <a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
 </div>
 
 </div>

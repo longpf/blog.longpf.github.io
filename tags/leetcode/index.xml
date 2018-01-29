@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 Jan 2018 10:09:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2018 14:33:03 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>17. Letter Combinations of a Phone Number 电话号码的字母组合</title>
+      <link>http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</link>
+      <pubDate>Mon, 29 Jan 2018 14:33:03 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/</guid>
+      <description>Given a digit string, return all possible letter combinations that the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+Input: Digit string &amp;quot;23&amp;quot; Output: [&amp;quot;ad&amp;quot;, &amp;quot;ae&amp;quot;, &amp;quot;af&amp;quot;, &amp;quot;bd&amp;quot;, &amp;quot;be&amp;quot;, &amp;quot;bf&amp;quot;, &amp;quot;cd&amp;quot;, &amp;quot;ce&amp;quot;, &amp;quot;cf&amp;quot;].  Note:
+Although the above answer is in lexicographical order, your answer could be in any order you want.
+这道题让我们求电话号码的字母组合, 既2~9中,每个数字都代表2到3个字母,然后给出一个数字的字符串,求出这串数字可能代表的所有字母串.这道题可以用DFS的思想解决,关于DFS可以看二叉树 深度优先搜索（DFS）、广度优先搜索（BFS）,可以简单的了解一下.那为什么说是DFS思想呢,比如给出&amp;rdquo;2345&amp;rdquo;,那个对应的结果为adgj,adgk,adgl,adhj,adhk,adhl...cfil这个顺序可以看做DFS的思想.大概这个意思.
+解法1 解法1就是上面的分析的解法.
+class Solution { public: vector&amp;lt;string&amp;gt; letterCombinations(string digits) { vector&amp;lt;string&amp;gt; res; if (digits.</description>
+    </item>
     
     <item>
       <title>16. 3Sum Closest 最近三数之和</title>

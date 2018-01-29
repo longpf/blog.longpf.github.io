@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Backtracking on long·pf</title>
-    <link>http://blog.longpengfei.com/leetcode/backtracking/</link>
-    <description>Recent content in Backtracking on long·pf</description>
+    <title>Dfs on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/dfs/</link>
+    <description>Recent content in Dfs on long·pf</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Mon, 29 Jan 2018 14:33:03 +0800</lastBuildDate>
     
-	<atom:link href="http://blog.longpengfei.com/leetcode/backtracking/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.longpengfei.com/leetcode/dfs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,16 +25,6 @@ Although the above answer is in lexicographical order, your answer could be in a
 这道题让我们求电话号码的字母组合, 既2~9中,每个数字都代表2到3个字母,然后给出一个数字的字符串,求出这串数字可能代表的所有字母串.这道题可以用DFS的思想解决,关于DFS可以看二叉树 深度优先搜索（DFS）、广度优先搜索（BFS）,可以简单的了解一下.那为什么说是DFS思想呢,比如给出&amp;rdquo;2345&amp;rdquo;,那个对应的结果为adgj,adgk,adgl,adhj,adhk,adhl...cfil这个顺序可以看做DFS的思想.大概这个意思.
 解法1 解法1就是上面的分析的解法.
 class Solution { public: vector&amp;lt;string&amp;gt; letterCombinations(string digits) { vector&amp;lt;string&amp;gt; res; if (digits.</description>
-    </item>
-    
-    <item>
-      <title>10. Regular Expression Matching 正则表达式匹配</title>
-      <link>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</link>
-      <pubDate>Wed, 24 Jan 2018 18:51:58 +0800</pubDate>
-      
-      <guid>http://blog.longpengfei.com/post/10-regular-expression-matching-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</guid>
-      <description>Implement regular expression matching with support for &#39;.&#39; and &#39;*&#39;.
-&#39;.&#39; Matches any single character. &#39;*&#39; Matches zero or more of the preceding element. The matching should cover the entire input string (not partial). The function prototype should be: bool isMatch(const char *s, const char *p) Some examples: isMatch(&amp;quot;aa&amp;quot;,&amp;quot;a&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;,&amp;quot;aa&amp;quot;) → true isMatch(&amp;quot;aaa&amp;quot;,&amp;quot;aa&amp;quot;) → false isMatch(&amp;quot;aa&amp;quot;, &amp;quot;a*&amp;quot;) → true isMatch(&amp;quot;aa&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;ab&amp;quot;, &amp;quot;.*&amp;quot;) → true isMatch(&amp;quot;aab&amp;quot;, &amp;quot;c*a*b&amp;quot;) → true  Difficulty: Hard</description>
     </item>
     
   </channel>

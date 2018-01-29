@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; long·pf</title>
+  <title>17. Letter Combinations of a Phone Number 电话号码的字母组合 &middot; long·pf</title>
 
   
   
@@ -221,58 +221,162 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>17. Letter Combinations of a Phone Number 电话号码的字母组合</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jan 2018, 14:33</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;18&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;5&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="swift">swift</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="python">python</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dfs">DFS</a>
+    
+  </div>
+
   
-    <li>
-      <a href="%E5%89%91%E6%8C%87offer">剑指offer</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+
+</div>
+
   
-  </ul>
+
+<p>Given a digit string, return all possible letter combinations that the number could represent.</p>
+
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png" alt="" /></p>
+
+<pre><code>Input: Digit string &quot;23&quot;
+Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].
+</code></pre>
+
+<p><strong>Note:</strong></p>
+
+<p>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
+
+<p>这道题让我们求电话号码的字母组合, 既2~9中,每个数字都代表2到3个字母,然后给出一个数字的字符串,求出这串数字可能代表的所有字母串.这道题可以用DFS的思想解决,关于DFS可以看<a href="http://blog.csdn.net/chlele0105/article/details/38759593">二叉树 深度优先搜索（DFS）、广度优先搜索（BFS）</a>,可以简单的了解一下.那为什么说是DFS思想呢,比如给出&rdquo;2345&rdquo;,那个对应的结果为<code>adgj,adgk,adgl,adhj,adhk,adhl...cfil</code>这个顺序可以看做DFS的思想.大概这个意思.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>解法1就是上面的分析的解法.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;string&gt; letterCombinations(string digits) {
+        vector&lt;string&gt; res;
+        if (digits.empty()) return res;
+        string dict[] = {&quot;abc&quot;,&quot;def&quot;,&quot;ghi&quot;,&quot;jkl&quot;,&quot;mno&quot;,&quot;pqrs&quot;,&quot;tuv&quot;,&quot;wxyz&quot;};
+        letterCombinationsDFS(digits,dict,0,&quot;&quot;,res);
+        return res;
+    }
+    void letterCombinationsDFS(string digits,string dict[],int level,string out,vector&lt;string&gt;&amp; res){
+        if (level==digits.size()) res.push_back(out);
+        else {
+            //找到当前的数字(2~9)对应的stirng(&quot;abc&quot;~&quot;wxyz&quot;)
+            string str = dict[digits[level]-'2'];
+            for (int i = 0;i &lt; str.size();i++)
+            {
+                out.push_back(str[i]);
+                letterCombinationsDFS(digits,dict,level+1,out,res);
+                out.pop_back();
+            }
+        }
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>这个解法就是for循环迭代.循环输入的数字串,每次遇到一个新的数字,将结果数组中的字符串append上新的数字对应的所有字母</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;string&gt; letterCombinations(string digits) {
+        vector&lt;string&gt; res;
+        if (digits.empty()) return res;
+        string dict[] = {&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;, &quot;jkl&quot;, &quot;mno&quot;, &quot;pqrs&quot;, &quot;tuv&quot;, &quot;wxyz&quot;};
+        res.push_back(&quot;&quot;);
+        for (int i=0;i&lt;digits.size();i++)
+        {
+            int n = res.size();
+            string str = dict[digits[i]-'2'];
+            for (int j = 0; j &lt; n; j++)
+            {
+                string tmp = res.front();
+                res.erase(res.begin());
+                for (int k = 0;k&lt;str.size();k++)
+                {
+                    res.push_back(tmp+str[k]);
+                }
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/16-3sum-closest-%E6%9C%80%E8%BF%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/16-3sum-closest-%E6%9C%80%E8%BF%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">16. 3Sum Closest 最近三数之和</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
 </div>
 
 </div>
@@ -301,3 +405,4 @@
 
 </body>
 </html>
+
