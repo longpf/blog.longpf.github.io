@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Two Pointer on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/two-pointer/</link>
+    <description>Recent content in Two Pointer on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 29 Jan 2018 10:09:16 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/leetcode/two-pointer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>16 3Sum Closest 最近三数之和</title>
+      <link>http://blog.longpengfei.com/post/16-3sum-closest-%E6%9C%80%E8%BF%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</link>
+      <pubDate>Mon, 29 Jan 2018 10:09:16 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/16-3sum-closest-%E6%9C%80%E8%BF%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</guid>
+      <description>Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+ For example, given array S = {-1 2 1 -4}, and target = 1. The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</description>
+    </item>
+    
+  </channel>
+</rss>

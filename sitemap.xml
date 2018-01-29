@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/16-3sum-closest-%E6%9C%80%E8%BF%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/15-3sum-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/</loc>
     <lastmod>2018-01-27T17:52:39+08:00</lastmod>
   </url>
@@ -155,7 +160,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/array/</loc>
-    <lastmod>2018-01-27T17:52:39+08:00</lastmod>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -197,13 +202,13 @@
   
   <url>
     <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2018-01-27T17:52:39+08:00</lastmod>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/</loc>
-    <lastmod>2018-01-27T17:52:39+08:00</lastmod>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -227,7 +232,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-01-27T17:52:39+08:00</lastmod>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -261,6 +266,12 @@
   </url>
   
   <url>
+    <loc>http://blog.longpengfei.com/leetcode/two-pointer/</loc>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/leetcode/two-pointers/</loc>
     <lastmod>2018-01-27T17:52:39+08:00</lastmod>
     <priority>0</priority>
@@ -268,7 +279,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-01-27T17:52:39+08:00</lastmod>
+    <lastmod>2018-01-29T10:09:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 Jan 2018 17:52:39 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2018 10:09:16 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Array</title>
       <link>http://blog.longpengfei.com/leetcode/array/</link>
-      <pubDate>Sat, 27 Jan 2018 17:52:39 +0800</pubDate>
+      <pubDate>Mon, 29 Jan 2018 10:09:16 +0800</pubDate>
       
       <guid>http://blog.longpengfei.com/leetcode/array/</guid>
       <description></description>
@@ -90,6 +90,15 @@
       <pubDate>Sat, 27 Jan 2018 16:43:30 +0800</pubDate>
       
       <guid>http://blog.longpengfei.com/leetcode/string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Two Pointer</title>
+      <link>http://blog.longpengfei.com/leetcode/two-pointer/</link>
+      <pubDate>Mon, 29 Jan 2018 10:09:16 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/leetcode/two-pointer/</guid>
       <description></description>
     </item>
     
