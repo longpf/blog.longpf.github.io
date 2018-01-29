@@ -278,8 +278,9 @@
 For example,
  Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2. After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.  Note:
 Given n will always be valid. Try to do this in one pass.
+Difficulty: Medium
 这道题让我们溢出链表中第N个节点,并制定n为有效的,就是n不会大于链表元素的总个数.看网上说这道题在问的时候可能会加上限制在一次循环的条件完成.如果用一次循环完成的话,就不能单独用一次循环来求链表元素的个数,要在循环到要删除的元素的位置时就该删除该元素.所以需要一点技巧. 我们可以定义两个指针pre,cur.先让cur前进N步,如果此时cur指向的为NULL,说明该链表的长度为N,所以移除首个元素就可以.如果cur指向的不为NULL,那么此时同时让pre,cur同时前进,直到cur指向最后一个元素,此时pre指向的就是倒数第N个元素,删除即可.
-剑指offer 54题与这道题稍微有点像,可以一起看下
+剑指offer 56题与这道题稍微有点像,可以一起看下
 /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* removeNthFromEnd(ListNode* head, int n) { if (!
   </p>
 

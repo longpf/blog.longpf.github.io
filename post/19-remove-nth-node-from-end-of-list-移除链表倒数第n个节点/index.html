@@ -282,9 +282,11 @@
 <p>Given n will always be valid.
 Try to do this in one pass.</p>
 
+<p>Difficulty: Medium</p>
+
 <p>这道题让我们溢出链表中第N个节点,并制定n为有效的,就是n不会大于链表元素的总个数.看网上说这道题在问的时候可能会加上限制在一次循环的条件完成.如果用一次循环完成的话,就不能单独用一次循环来求链表元素的个数,要在循环到要删除的元素的位置时就该删除该元素.所以需要一点技巧. 我们可以定义两个指针<code>pre</code>,<code>cur</code>.先让<code>cur</code>前进N步,如果此时<code>cur</code>指向的为NULL,说明该链表的长度为N,所以移除首个元素就可以.如果<code>cur</code>指向的不为NULL,那么此时同时让<code>pre</code>,<code>cur</code>同时前进,直到<code>cur</code>指向最后一个元素,此时<code>pre</code>指向的就是倒数第N个元素,删除即可.</p>
 
-<p><a href="http://blog.longpengfei.com/post/atoffer/#删除链表中重复的结点">剑指offer 54题</a>与这道题稍微有点像,可以一起看下</p>
+<p><a href="http://blog.longpengfei.com/post/atoffer/#删除链表中重复的结点">剑指offer 56题</a>与这道题稍微有点像,可以一起看下</p>
 
 <pre><code class="language-cpp">/**
  * Definition for singly-linked list.
