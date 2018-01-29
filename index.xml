@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 Jan 2018 18:08:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jan 2018 18:57:44 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>20 Valid Parentheses 验证括号</title>
+      <link>http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Mon, 29 Jan 2018 18:57:44 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/</guid>
+      <description>Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.
+The brackets must close in the correct order, &amp;quot;()&amp;quot; and &amp;quot;()[]{}&amp;quot; are all valid but &amp;quot;(]&amp;quot; and &amp;quot;([)]&amp;quot; are not.
+Difficulty: Easy
+这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
+class Solution { public: bool isValid(string s) { stack&amp;lt;char&amp;gt; parentheses; for (int i = 0; i&amp;lt;s.size();i++){ if (s[i]==&#39;(&#39;||s[i]==&#39;[&#39;||s[i]==&#39;{&#39;) parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==&#39;)&#39; &amp;amp;&amp;amp; parentheses.</description>
+    </item>
     
     <item>
       <title>19. Remove Nth Node From End of List 移除链表倒数第N个节点</title>
@@ -111,7 +124,7 @@ Difficulty: Easy
 题号 Problems
 题目 Difficulty
 难度 Topics(Tags)
-标签     1 Two Sum 两数之和等于一个输入的数 Easy Array, Hash Table   2 Add TwoNumbers 两个链表相加 Medium Linked List, Math   3 Longest Substring Without Repeating Characters 子字符串的最大不重复长度 Medium Hash Table, Two Pointers, String   4 Median of Two Sorted Arrays两个数组的中位数 Hard    5 Longest Palindromic Substring 最长回文子字符串 Medium String, Dynamic Programming   6 ZigZag Conversion 之子形转换字符串 Medium String   7 Reverse Integer 翻转整数 Easy Math   8 String to Integer Atoi 把字符串转换成整数 Medium String, Math   9 Palindrome Number 验证回文数字 Easy Math   10 Regular Expression Matching 正则表达式匹配 Hard String, Dynamic Programming, Backtracking   11 Container With Most Water 装最多水的容器 Medium Array, Hash Table   12 Integer to Roman 整数转罗马数字 Medium String, Math   13 Roman to Integer 罗马数字转化成整数 Easy String, Math   14 Longest Common Prefix 最长共同前缀 Easy String   15 3Sum 三数之和 Medium Array, Two Pointers   16 3Sum Closest 最近三数之和 Medium Array, Two Pointers   17 Letter Combinations of a Phone Number 电话号码的字母组合 Medium String, Backtracking, DFS   18 4Sum 四数之和 Medium Array, Hash Table, Two Pointers   19 Remove Nth Node From End of List 移除链表倒数第N个节点 Medium Linked List, Two Pointers</description>
+标签     1 Two Sum 两数之和等于一个输入的数 Easy Array, Hash Table   2 Add TwoNumbers 两个链表相加 Medium Linked List, Math   3 Longest Substring Without Repeating Characters 子字符串的最大不重复长度 Medium Hash Table, Two Pointers, String   4 Median of Two Sorted Arrays两个数组的中位数 Hard    5 Longest Palindromic Substring 最长回文子字符串 Medium String, Dynamic Programming   6 ZigZag Conversion 之子形转换字符串 Medium String   7 Reverse Integer 翻转整数 Easy Math   8 String to Integer Atoi 把字符串转换成整数 Medium String, Math   9 Palindrome Number 验证回文数字 Easy Math   10 Regular Expression Matching 正则表达式匹配 Hard String, Dynamic Programming, Backtracking   11 Container With Most Water 装最多水的容器 Medium Array, Hash Table   12 Integer to Roman 整数转罗马数字 Medium String, Math   13 Roman to Integer 罗马数字转化成整数 Easy String, Math   14 Longest Common Prefix 最长共同前缀 Easy String   15 3Sum 三数之和 Medium Array, Two Pointers   16 3Sum Closest 最近三数之和 Medium Array, Two Pointers   17 Letter Combinations of a Phone Number 电话号码的字母组合 Medium String, Backtracking, DFS   18 4Sum 四数之和 Medium Array, Hash Table, Two Pointers   19 Remove Nth Node From End of List 移除链表倒数第N个节点 Medium Linked List, Two Pointers   20</description>
     </item>
     
     <item>

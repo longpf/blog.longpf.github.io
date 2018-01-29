@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stack on long·pf</title>
+    <link>http://blog.longpengfei.com/leetcode/stack/</link>
+    <description>Recent content in Stack on long·pf</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 29 Jan 2018 18:57:44 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.longpengfei.com/leetcode/stack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>20 Valid Parentheses 验证括号</title>
+      <link>http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Mon, 29 Jan 2018 18:57:44 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/</guid>
+      <description>Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid.
+The brackets must close in the correct order, &amp;quot;()&amp;quot; and &amp;quot;()[]{}&amp;quot; are all valid but &amp;quot;(]&amp;quot; and &amp;quot;([)]&amp;quot; are not.
+Difficulty: Easy
+这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
+class Solution { public: bool isValid(string s) { stack&amp;lt;char&amp;gt; parentheses; for (int i = 0; i&amp;lt;s.size();i++){ if (s[i]==&#39;(&#39;||s[i]==&#39;[&#39;||s[i]==&#39;{&#39;) parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==&#39;)&#39; &amp;amp;&amp;amp; parentheses.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -227,6 +227,70 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">20 Valid Parentheses 验证括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jan 2018, 18:57</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/stack">Stack</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.
+Difficulty: Easy
+这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
+class Solution { public: bool isValid(string s) { stack&lt;char&gt; parentheses; for (int i = 0; i&lt;s.size();i++){ if (s[i]=='('||s[i]=='['||s[i]=='{') parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==')' &amp;&amp; parentheses.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17. Letter Combinations of a Phone Number 电话号码的字母组合</a></h2>
 
     <div class="post-meta">

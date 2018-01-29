@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>Stack &middot; long·pf</title>
 
   
   
@@ -221,83 +221,74 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>Stack</h1>
 </div>
 <div class="content">
-  <ul>
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">20 Valid Parentheses 验证括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jan 2018, 18:57</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;5&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;2&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/stack">Stack</a>
+    
+  </div>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.
+Difficulty: Easy
+这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
+class Solution { public: bool isValid(string s) { stack&lt;char&gt; parentheses; for (int i = 0; i&lt;s.size();i++){ if (s[i]=='('||s[i]=='['||s[i]=='{') parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==')' &amp;&amp; parentheses.
+  </p>
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <footer>
+    <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;1&#41;</span>
-    </li>
+</article>
+
   
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="two-pointer">two-pointer</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
 </div>
 
 </div>
