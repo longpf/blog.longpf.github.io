@@ -227,6 +227,74 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/">22. Generate Parentheses 生成括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jan 2018, 14:36</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dfs">DFS</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+For example, given n = 3, a solution set is:
+[ &quot;((()))&quot;, &quot;(()())&quot;, &quot;(())()&quot;, &quot;()(())&quot;, &quot;()()()&quot; ]  Difficulty: Medium
+这道题让我们列举出所有的括号字符串,前面还有一题20. Valid Parentheses 验证括号也是关于括号的.这里让列举出所有可能,可以优先考虑递归和DFS.定义left,right分别表示剩余左括号的数量和剩余的右括号的数量.如果在某次的递归中,left&gt;right说明在已经生成的字符串中右括号的数量大于左括号的数量,是不合理的.当left,right都为0的时候,说明已经生成一个可用的括号串.其实这里有DFS的思想.为什么呢.看看下面是怎样递归的顺序,以题目给的例子n=3.
+( (( ((( ((() ((()) ((())) (()()) ~ ()()()  DFS(深度优先),这里可以想象成左括号优先
+解法1 就是上面分析的解法
+class Solution { public: vector&lt;string&gt; generateParenthesis(int n) { vector&lt;string&gt; res; generateParenthesisDFS(n,n,&quot;&quot;,res); return res; } void generateParenthesisDFS(int left,int right,string out,vector&lt;string&gt;&amp; res) { if (left&gt;right) return; if (left==0 &amp;&amp; right==0) res.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/17-letter-combinations-of-a-phone-number-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17. Letter Combinations of a Phone Number 电话号码的字母组合</a></h2>
 
     <div class="post-meta">

@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jan 2018 11:42:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2018 14:36:53 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>22. Generate Parentheses 生成括号</title>
+      <link>http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/</link>
+      <pubDate>Tue, 30 Jan 2018 14:36:53 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/</guid>
+      <description>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+For example, given n = 3, a solution set is:
+[ &amp;quot;((()))&amp;quot;, &amp;quot;(()())&amp;quot;, &amp;quot;(())()&amp;quot;, &amp;quot;()(())&amp;quot;, &amp;quot;()()()&amp;quot; ]  Difficulty: Medium
+这道题让我们列举出所有的括号字符串,前面还有一题20. Valid Parentheses 验证括号也是关于括号的.这里让列举出所有可能,可以优先考虑递归和DFS.定义left,right分别表示剩余左括号的数量和剩余的右括号的数量.如果在某次的递归中,left&amp;gt;right说明在已经生成的字符串中右括号的数量大于左括号的数量,是不合理的.当left,right都为0的时候,说明已经生成一个可用的括号串.其实这里有DFS的思想.为什么呢.看看下面是怎样递归的顺序,以题目给的例子n=3.
+( (( ((( ((() ((()) ((())) (()()) ~ ()()()  DFS(深度优先),这里可以想象成左括号优先
+解法1 就是上面分析的解法
+class Solution { public: vector&amp;lt;string&amp;gt; generateParenthesis(int n) { vector&amp;lt;string&amp;gt; res; generateParenthesisDFS(n,n,&amp;quot;&amp;quot;,res); return res; } void generateParenthesisDFS(int left,int right,string out,vector&amp;lt;string&amp;gt;&amp;amp; res) { if (left&amp;gt;right) return; if (left==0 &amp;amp;&amp;amp; right==0) res.</description>
+    </item>
     
     <item>
       <title>21. Merge Two Sorted Lists 混合插入有序链表</title>
