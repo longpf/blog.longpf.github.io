@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Tags &middot; long·pf</title>
+  <title>21. Merge Two Sorted Lists 混合插入有序链表 &middot; long·pf</title>
 
   
   
@@ -221,58 +221,166 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>21. Merge Two Sorted Lists 混合插入有序链表</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jan 2018, 11:42</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;22&#41;</span>
-    </li>
   
-    <li>
-      <a href="oc">oc</a>
-      <span>&#40;5&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="swift">swift</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="git">git</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="aop">aop</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="python">python</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/linked-list">Linked List</a>
+    
+  </div>
+
   
-    <li>
-      <a href="%E5%89%91%E6%8C%87offer">剑指offer</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
+
+</div>
+
   
-  </ul>
+
+<p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4
+</code></pre>
+
+<p>Difficulty: Easy</p>
+
+<p>这道题让我们把两个有序的链表合并成一个有序的链表,与<a href="http://blog.longpengfei.com/post/atoffer/#合并两个排序的列表">剑指offer 16题</a>完全相同.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>按照<a href="http://blog.longpengfei.com/post/atoffer/#合并两个排序的列表">剑指offer 16题</a>的递归解法</p>
+
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (l1==NULL) return l2;
+        if (l2==NULL) return l1;
+        ListNode* head = NULL;
+        if (l1-&gt;val&lt;l2-&gt;val)
+        {
+            head = l1;
+            head-&gt;next = mergeTwoLists(l1-&gt;next,l2);
+        }
+        else
+        {
+            head = l2;
+            head-&gt;next = mergeTwoLists(l2-&gt;next,l1);
+        }
+        return head;
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>采用循环的方式</p>
+
+<pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode* dummy = new ListNode(-1), *cur = dummy;
+        while(l1&amp;&amp;l2)
+        {
+            if (l1-&gt;val &lt; l2-&gt;val){
+                cur-&gt;next = l1;
+                l1 = l1-&gt;next;
+            }
+            else {
+                cur-&gt;next = l2;
+                l2 = l2-&gt;next;
+            }
+            cur = cur-&gt;next;
+        }
+        cur-&gt;next = l1?l1:l2;
+        //要记得释放没用的节点
+        ListNode* res = dummy-&gt;next;
+        delete dummy;
+        dummy = NULL;
+        return res;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">20. Valid Parentheses 验证括号</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
 </div>
 
 </div>
@@ -301,3 +409,4 @@
 
 </body>
 </html>
+
