@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>22. Generate Parentheses 生成括号 &middot; long·pf</title>
+  <title>Heap &middot; long·pf</title>
 
   
   
@@ -221,16 +221,19 @@
 
 
 <div class="header">
-  <h1>22. Generate Parentheses 生成括号</h1>
-  <h2></h2>
+  <h1>Heap</h1>
 </div>
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">23. Merge K Sorted Lists 合并k个有序链表</a></h2>
 
-  <div class="post-meta">
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Jan 2018, 14:36</time>
+    <time>31 Jan 2018, 10:59</time>
   </div>
 
   
@@ -256,11 +259,11 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/linked-list">Linked List</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/divide-and-conquer">Divide and Conquer</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dfs">DFS</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/heap">Heap</a>
     
   </div>
 
@@ -270,117 +273,24 @@
 
 </div>
 
-  
+  </header>
 
-<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-
-<p>For example, given n = 3, a solution set is:</p>
-
-<pre><code>[
-  &quot;((()))&quot;,
-  &quot;(()())&quot;,
-  &quot;(())()&quot;,
-  &quot;()(())&quot;,
-  &quot;()()()&quot;
-]
-</code></pre>
-
-<p>Difficulty: Medium</p>
-
-<p>这道题让我们列举出所有的括号字符串,前面还有一题<a href="http://blog.longpengfei.com/post/20-valid-parentheses-验证括号/">20. Valid Parentheses 验证括号</a>也是关于括号的.这里让列举出所有可能,可以优先考虑递归和DFS.定义left,right分别表示剩余左括号的数量和剩余的右括号的数量.如果在某次的递归中,left&gt;right说明在已经生成的字符串中右括号的数量大于左括号的数量,是不合理的.当left,right都为0的时候,说明已经生成一个可用的括号串.其实这里有DFS的思想.为什么呢.看看下面是怎样递归的顺序,以题目给的例子n=3.</p>
-
-<pre><code>(
-((
-(((
-((()
-((())
-((()))
-(()())
-  ~
-()()()
-</code></pre>
-
-<p>DFS(深度优先),这里可以想象成左括号优先</p>
-
-<h3 id="解法1">解法1</h3>
-
-<p>就是上面分析的解法</p>
-
-<pre><code class="language-cpp">class Solution {
-public:
-    vector&lt;string&gt; generateParenthesis(int n) {
-        vector&lt;string&gt; res;
-        generateParenthesisDFS(n,n,&quot;&quot;,res);
-        return res;
-    }
-    void generateParenthesisDFS(int left,int right,string out,vector&lt;string&gt;&amp; res)
-    {
-        if (left&gt;right) return;
-        if (left==0 &amp;&amp; right==0) res.push_back(out);
-        else{
-            if (left&gt;0) generateParenthesisDFS(left-1,right,out+'(',res);
-            if (right&gt;0) generateParenthesisDFS(left,right-1,out+')',res); 
-        }
-    }
-};
-</code></pre>
-
-<h3 id="解法2">解法2</h3>
-
-<p>可以借助图的结构思考.关于图简单了解可以看下<a href="https://www.jianshu.com/p/70952b51f0c8">图的基本算法（BFS和DFS）</a>.在这里可以把当前节点用(x,y),x代表当前位置左括号数,y代表当前位置右括号数, 有(x&gt;=y).图的边可以看做为从(x,y)到(x+1,y)和(x,y+1).当x==y时,没有(x,y+1)这条边. 所以这道题可以看成为求从(0,0)出发到(n,n)的全部路径.</p>
-
-<pre><code class="language-cpp">class Solution {
-public:
-    vector&lt;string&gt; generateParenthesis(int n) {
-        vector&lt;string&gt; res;
-        generateParenthesisDFS(n,0,0,&quot;&quot;,res);
-        return res;
-    }
-    void generateParenthesisDFS(int n,int x,int y,string out,vector&lt;string&gt;&amp; res)
-    {
-        if (y==n) res.push_back(out);
-        if (x&lt;n) generateParenthesisDFS(n,x+1,y,out+'(',res);
-        if (x&gt;y) generateParenthesisDFS(n,x,y+1,out+')',res);
-    }
-};
-</code></pre>
-
+  <p>
+  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Difficulty: Hard
+合并k个排序列表.是前面21. Merge Two Sorted Lists 混合插入有序链表的升级版.
+解法1 最先想到的就是利用21. Merge Two Sorted Lists 混合插入有序链表拿第一个链表与第二个合并,合并结果在于第三个比较.这样需要合并k-1次才能完成.
+/** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) { int n = lists.
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-%E6%B7%B7%E5%90%88%E6%8F%92%E5%85%A5%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-%E6%B7%B7%E5%90%88%E6%8F%92%E5%85%A5%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">21. Merge Two Sorted Lists 混合插入有序链表</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">23. Merge K Sorted Lists 合并k个有序链表</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+  <footer>
+    <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
   
-
 </div>
 
 </div>
@@ -409,4 +319,3 @@ public:
 
 </body>
 </html>
-

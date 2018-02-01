@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Jan 2018 14:36:53 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jan 2018 10:59:05 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>23. Merge K Sorted Lists 合并k个有序链表</title>
+      <link>http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Wed, 31 Jan 2018 10:59:05 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</guid>
+      <description>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Difficulty: Hard
+合并k个排序列表.是前面21. Merge Two Sorted Lists 混合插入有序链表的升级版.
+解法1 最先想到的就是利用21. Merge Two Sorted Lists 混合插入有序链表拿第一个链表与第二个合并,合并结果在于第三个比较.这样需要合并k-1次才能完成.
+/** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeKLists(vector&amp;lt;ListNode*&amp;gt;&amp;amp; lists) { int n = lists.</description>
+    </item>
     
     <item>
       <title>22. Generate Parentheses 生成括号</title>

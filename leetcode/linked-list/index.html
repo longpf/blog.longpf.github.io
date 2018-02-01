@@ -227,6 +227,72 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">23. Merge K Sorted Lists 合并k个有序链表</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>31 Jan 2018, 10:59</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/linked-list">Linked List</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/divide-and-conquer">Divide and Conquer</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/heap">Heap</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Difficulty: Hard
+合并k个排序列表.是前面21. Merge Two Sorted Lists 混合插入有序链表的升级版.
+解法1 最先想到的就是利用21. Merge Two Sorted Lists 混合插入有序链表拿第一个链表与第二个合并,合并结果在于第三个比较.这样需要合并k-1次才能完成.
+/** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) { int n = lists.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-%E6%B7%B7%E5%90%88%E6%8F%92%E5%85%A5%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">21. Merge Two Sorted Lists 混合插入有序链表</a></h2>
 
     <div class="post-meta">

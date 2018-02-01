@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>23. Merge K Sorted Lists 合并k个有序链表 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/leetcode/"><i class='fa fa-codiepie fa-fw'></i>Leetcode</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>23. Merge K Sorted Lists 合并k个有序链表</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>31 Jan 2018, 10:59</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/linked-list">Linked List</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/divide-and-conquer">Divide and Conquer</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/heap">Heap</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  
+
+<p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+
+<p>Difficulty: Hard</p>
+
+<p>合并k个排序列表.是前面<a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-混合插入有序链表/">21. Merge Two Sorted Lists 混合插入有序链表</a>的升级版.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>最先想到的就是利用<a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-混合插入有序链表/">21. Merge Two Sorted Lists 混合插入有序链表</a>拿第一个链表与第二个合并,合并结果在于第三个比较.这样需要合并k-1次才能完成.</p>
+
+<pre><code class="language-cpp">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
+        int n = lists.size();
+        if (n==0) return NULL;
+        ListNode* res = lists[0];
+        for (int i=1;i &lt; n;i++){
+            ListNode* node = lists[i];
+            res = mergeTwoLists(res,node);
+        }
+        return res;
+    }
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (l1==NULL) return l2;
+        if (l2==NULL) return l1;
+        ListNode* head = NULL;
+        if (l1-&gt;val&lt;l2-&gt;val)
+        {
+            head = l1;
+            head-&gt;next = mergeTwoLists(l1-&gt;next,l2);
+        }
+        else
+        {
+            head = l2;
+            head-&gt;next = mergeTwoLists(l2-&gt;next,l1);
+        }
+        return head;
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>这里需要用到分治法就是不停的对半划分,k个有序链表,先划分为两个k/2个链表合并的任务&hellip;. 举个例子k=6,先合并1和4,2和5,3和6 结果为3个链表,下一次再合并1和3,结果与2合并.这样做的好处我感觉就是便于理解大任务处理吧,效率上相比于解法1并没有提高,举个例子k=48,那么合并次数为24+12+6+3+1+1=47,与解法1一样.</p>
+
+<pre><code class="language-cpp">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
+        if (lists.size() == 0) return NULL;
+        int n = lists.size();
+        while (n &gt; 1) {
+            int k = (n+1)/2;
+            for (int i = 0; i &lt; n/2;i++)
+                lists[i] = mergeTwoLists(lists[i],lists[k+i]);
+            n = k;
+        }
+        return lists[0];
+    }
+    ListNode* mergeTwoLists(ListNode* l1,ListNode* l2){
+        if (l1==NULL) return l2;
+        if (l2==NULL) return l1;
+        ListNode* head = NULL;
+        if (l1-&gt;val&lt;l2-&gt;val)
+        {
+            head = l1;
+            head-&gt;next = mergeTwoLists(l1-&gt;next,l2);
+        }
+        else
+        {
+            head = l2;
+            head-&gt;next = mergeTwoLists(l2-&gt;next,l1);
+        }
+        return head;
+    }  
+};
+</code></pre>
+
+<h3 id="解法3">解法3</h3>
+
+<p>这里用一个最小堆来解决,对里面存的是k个链表的第一个元素,那么堆顶元素就是最小的元素,取出来放到结果链表中,并把该元素的下一个元素放入最小堆中,最小队排序后又可以得到当前最小的元素.以此类推.</p>
+
+<pre><code class="language-cpp">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
+bool cmp (ListNode* a, ListNode* b)
+{
+    if (a &amp;&amp; b)
+    {
+        return a-&gt;val &gt; b-&gt;val;
+    }
+    else if (!a) return false;
+    else return true;
+}
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
+        vector&lt;ListNode*&gt; min;
+        for (int i = 0; i &lt; lists.size(); i++) {
+            min.push_back(lists[i]);
+            push_heap(min.begin(), min.end(), cmp);
+        }
+        
+        ListNode* head = NULL,*pre = NULL,*top = NULL;
+        while (!min.empty())
+        {
+            top = min[0];
+            if (!top)
+            {
+                pop_heap(min.begin(), min.end(), cmp);
+                min.pop_back();
+                continue;
+            }
+            if (!head) head = top;
+            if (pre) pre-&gt;next = top;
+            pre = top;
+            pop_heap(min.begin(),min.end(),cmp);
+            min.pop_back();
+            if (top-&gt;next)
+            {
+                min.push_back(top-&gt;next);
+                push_heap(min.begin(), min.end(), cmp);
+            }
+        }
+        return head;   
+    }
+};
+</code></pre>
+
+<p>利用priority_queue</p>
+
+<pre><code class="language-cpp">priority_queue&lt;Type,Container,Compare&gt;    
+    
+//  Type 为数据类型     
+//  Container 为保存数据的容器, 必须是用数组实现的容器，比如 vector, deque 但不能用list。STL里面默认用的是 vector    
+//  Compare为元素比较方式。. 比较方式默认用 operator&lt; , 所以如果你把后面俩个参数缺省的话，优先队列就是大顶堆，队头元素最大。    
+
+关于priority_queue
+1,关于STL中的priority_queue:确定用top()查看顶部元素时,该元素是具有最高优先级的一个元素. 调用pop()删除之后,将促使下一个元素进入该位置. 
+2,如同stack和queue,priority_queue是一个基于基本序列容器进行构建的适配器,默认的序列器是vector.
+</code></pre>
+
+<pre><code class="language-cpp">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+
+struct cmp {
+        bool operator () (ListNode *a, ListNode *b) {
+            if (a &amp;&amp; b) return a-&gt;val &gt; b-&gt;val;
+            return false;
+        }
+    };
+
+class Solution {
+public:
+    ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) {
+        priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,cmp&gt; q;
+        for (int i = 0; i &lt; lists.size();i++)
+        {
+            if (lists[i]) q.push(lists[i]);
+        }
+        ListNode *head = NULL,*pre = NULL,*top = NULL;
+        while (!q.empty()) {
+            top = q.top();
+            q.pop();
+            if (!pre) head = top;
+            else pre-&gt;next = top;
+            pre = top;
+            if (top-&gt;next) q.push(top-&gt;next);
+        }
+        return head; 
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/">22. Generate Parentheses 生成括号</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

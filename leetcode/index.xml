@@ -51,7 +51,7 @@
     <item>
       <title>Divide and Conquer</title>
       <link>http://blog.longpengfei.com/leetcode/divide-and-conquer/</link>
-      <pubDate>Sat, 13 Jan 2018 15:45:29 +0800</pubDate>
+      <pubDate>Wed, 31 Jan 2018 10:59:05 +0800</pubDate>
       
       <guid>http://blog.longpengfei.com/leetcode/divide-and-conquer/</guid>
       <description></description>
@@ -76,9 +76,18 @@
     </item>
     
     <item>
+      <title>Heap</title>
+      <link>http://blog.longpengfei.com/leetcode/heap/</link>
+      <pubDate>Wed, 31 Jan 2018 10:59:05 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/leetcode/heap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linked List</title>
       <link>http://blog.longpengfei.com/leetcode/linked-list/</link>
-      <pubDate>Tue, 30 Jan 2018 11:42:00 +0800</pubDate>
+      <pubDate>Wed, 31 Jan 2018 10:59:05 +0800</pubDate>
       
       <guid>http://blog.longpengfei.com/leetcode/linked-list/</guid>
       <description></description>
