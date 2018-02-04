@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Jan 2018 10:59:05 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2018 13:56:46 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>24. Swap Nodes in Pairs 成对交换节点</title>
+      <link>http://blog.longpengfei.com/post/24-swap-nodes-in-pairs-%E6%88%90%E5%AF%B9%E4%BA%A4%E6%8D%A2%E8%8A%82%E7%82%B9/</link>
+      <pubDate>Sun, 04 Feb 2018 13:56:46 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/24-swap-nodes-in-pairs-%E6%88%90%E5%AF%B9%E4%BA%A4%E6%8D%A2%E8%8A%82%E7%82%B9/</guid>
+      <description>Given a linked list, swap every two adjacent nodes and return its head.
+For example, Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.
+Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.
+Difficulty: Medium
+解法1 迭代.建立dummy结点(注意之后释放该结点),拿1,2,3,4举例,第一次循环pre=dummy,将1指向3,将2指向1,再将pre设为1
+class Solution { public: ListNode* swapPairs(ListNode* head) { ListNode *dummy = new ListNode(-1),*pre = dummy; dummy-&amp;gt;next = head; while (pre-&amp;gt;next &amp;amp;&amp;amp; pre-&amp;gt;next-&amp;gt;next) { // t=2 ListNode* t = pre-&amp;gt;next-&amp;gt;next; // 1 -&amp;gt;(指向next) 3 pre-&amp;gt;next-&amp;gt;next = t-&amp;gt;next; // 2 -&amp;gt; 1 t-&amp;gt;next = pre-&amp;gt;next; // pre(dummy) -&amp;gt; t pre-&amp;gt;next = t; // pre = 1 pre = t-&amp;gt;next; //所以第一次while循环后的结果为 //dummy-&amp;gt; t(2) -&amp;gt; 1 -&amp;gt; 3 //pre = 1 然后到下一次循环 } ListNode* res = dummy-&amp;gt;next; delete dummy; dummy = NULL; return res; } };  解法2 递归,先递归到最后两个进行交换,再依次向前迭代.</description>
+    </item>
     
     <item>
       <title>23. Merge K Sorted Lists 合并k个有序链表</title>
