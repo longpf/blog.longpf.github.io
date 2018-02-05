@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>24. Swap Nodes in Pairs 成对交换节点 &middot; long·pf</title>
+  <title>25 Reverse Nodes in K Group 每k个一组翻转链表 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>24. Swap Nodes in Pairs 成对交换节点</h1>
+  <h1>25 Reverse Nodes in K Group 每k个一组翻转链表</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>04 Feb 2018, 13:56</time>
+    <time>05 Feb 2018, 11:36</time>
   </div>
 
   
@@ -268,40 +268,105 @@
 
   
 
-<p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.</p>
 
-<p>For example,
-Given <strong>1-&gt;2-&gt;3-&gt;4</strong>, you should return the list as <strong>2-&gt;1-&gt;4-&gt;3</strong>.</p>
+<p>k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.</p>
 
-<p>Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.</p>
+<p>You may not alter the values in the nodes, only nodes itself may be changed.</p>
 
-<p>Difficulty: Medium</p>
+<p>Only constant memory is allowed.</p>
+
+<p><strong>For example,</strong></p>
+
+<p>Given this linked list: <strong>1-&gt;2-&gt;3-&gt;4-&gt;5</strong></p>
+
+<p>For k = 2, you should return: <strong>2-&gt;1-&gt;4-&gt;3-&gt;5</strong></p>
+
+<p>For k = 3, you should return: <strong>3-&gt;2-&gt;1-&gt;4-&gt;5</strong></p>
+
+<p>Difficulty: Hard</p>
+
+<p>这道题让我们以每k个为一组进行链表翻转.就是把原来的链表分成若干小段,然后分别对其进行翻转</p>
 
 <h3 id="解法1">解法1</h3>
 
-<p>迭代.建立dummy结点(注意之后释放该结点),拿<strong>1,2,3,4</strong>举例,第一次循环pre=dummy,将1指向3,将2指向1,再将pre设为1</p>
+<p>用两个函数,一个用于分段,一个用于翻转.在做这种链表翻转的题的时候需要考虑是不是要加一个dummy node,因为翻转时候头结点可能会变化.不过这个dummy结点在使用过后需要释放.我们用pre,next指针分别指向要翻转的子链表的前后位置.</p>
+
+<pre><code>例如:k=3
+
+-1(pre)-&gt;1-&gt;2-&gt;3-&gt;4(next)-&gt;5
+
+-1-&gt;3-&gt;2-&gt;1(pre)-&gt;4(next)-&gt;5
+</code></pre>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) {
-        ListNode *dummy = new ListNode(-1),*pre = dummy;
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (!head || k==1) return head;
+        ListNode* dummy = new ListNode(-1);
+        ListNode* pre = dummy,*cur = head;
         dummy-&gt;next = head;
-        while (pre-&gt;next &amp;&amp; pre-&gt;next-&gt;next)
+        int i = 0;
+        while(cur)
         {
-            // t=2
-            ListNode* t = pre-&gt;next-&gt;next;
-            // 1 -&gt;(指向next) 3
-            pre-&gt;next-&gt;next = t-&gt;next;
-            // 2 -&gt; 1
-            t-&gt;next = pre-&gt;next;
-            // pre(dummy) -&gt; t
-            pre-&gt;next = t;
-            // pre = 1
-            pre = t-&gt;next;
-            
-            //所以第一次while循环后的结果为
-            //dummy-&gt; t(2) -&gt; 1 -&gt; 3
-            //pre = 1 然后到下一次循环
+            i++;
+            if (i % k == 0)
+            {
+                pre = reverseOneGroup(pre,cur-&gt;next);
+                cur = pre-&gt;next;
+            }
+            else
+            {
+                cur = cur-&gt;next;
+            }
+        }
+        ListNode* res = dummy-&gt;next;
+        delete dummy;
+        dummy = NULL;
+        return res;
+    }
+    
+    //-1, 1, 2, 3, 4, 5
+    ListNode* reverseOneGroup(ListNode* pre,ListNode*next)
+    {
+        ListNode* last = pre-&gt;next;
+        ListNode* cur = last-&gt;next;
+        //第一次循环 1-&gt;3,2-&gt;1,-1-&gt;2,cur=3
+        while(cur != next)
+        {
+            last-&gt;next = cur-&gt;next;
+            cur-&gt;next = pre-&gt;next;
+            pre-&gt;next = cur;
+            cur = last-&gt;next;
+        }
+        return last;
+    }
+    
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>当k=2的时候,每段需要交换1次,k=3每段需要交换2两次,会发现每段为k-1次.下面用一个函数完成</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* dummy = new ListNode(-1),*pre = dummy,*cur = pre;
+        dummy-&gt;next = head;
+        int num = 0;
+        while (cur = cur-&gt;next) num++;
+        while (num &gt;= k)
+        {
+            cur = pre-&gt;next;
+            for (int i = 1; i &lt; k; i++) {
+                ListNode* t = cur-&gt;next;
+                cur-&gt;next = t-&gt;next;
+                t-&gt;next = pre-&gt;next;
+                pre-&gt;next = t;
+            }
+            pre = cur;
+            num -= k;
         }
         ListNode* res = dummy-&gt;next;
         delete dummy;
@@ -311,32 +376,53 @@ public:
 };
 </code></pre>
 
-<h3 id="解法2">解法2</h3>
+<h3 id="解决3">解决3</h3>
 
-<p>递归,先递归到最后两个进行交换,再依次向前迭代.</p>
+<p>使用递归解决,用head记录每段开始位置,cur记录结束位置的下一个结点,然后调用reverse翻转,得到一个new_head,原来的head编程末尾.这时候继续递归</p>
 
-<pre><code class="language-cpp">ListNode* swapPairs(ListNode* head)
-{
-    if (!head || !head-&gt;next) return head;
-    ListNode *t = head-&gt;next;
-    head-&gt;next = swapPairs(head-&gt;next-&gt;next);
-    t-&gt;next = head;
-    return t;
-}
+<pre><code class="language-cpp">class Solution {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* cur= head;
+        for (int i = 0;i &lt; k;i++)
+        {
+            if (!cur) return head;
+            cur = cur-&gt;next;
+        }
+        ListNode* new_head = reverse(head,cur);
+        head-&gt;next = reverseKGroup(cur,k);
+        return new_head;
+    }
+    
+    ListNode* reverse(ListNode* head,ListNode* tail)
+    {
+        ListNode* pre = tail;
+        while(head!=tail)
+        {
+            ListNode* t = head-&gt;next;
+            head-&gt;next = pre;
+            pre = head;
+            head = t;
+        }
+        return pre;
+    }
+};
 </code></pre>
+
+<p>参考: <a href="http://www.cnblogs.com/grandyang/p/4441324.html">http://www.cnblogs.com/grandyang/p/4441324.html</a></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/24-swap-nodes-in-pairs-%E6%88%90%E5%AF%B9%E4%BA%A4%E6%8D%A2%E8%8A%82%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/23-merge-k-sorted-lists-%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">23. Merge K Sorted Lists 合并k个有序链表</a>
+      <a href="http://blog.longpengfei.com/post/24-swap-nodes-in-pairs-%E6%88%90%E5%AF%B9%E4%BA%A4%E6%8D%A2%E8%8A%82%E7%82%B9/">24. Swap Nodes in Pairs 成对交换节点</a>
     </nav>
     
   </div>
@@ -345,14 +431,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/25-reverse-nodes-in-k-group-%E6%AF%8Fk%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/">25 Reverse Nodes in K Group 每k个一组翻转链表</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/25-reverse-nodes-in-k-group-%E6%AF%8Fk%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
