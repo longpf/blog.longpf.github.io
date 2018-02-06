@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>28. Implement strStr() 实现strStr()函数 &middot; long·pf</title>
 
   
   
@@ -221,88 +221,124 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>28. Implement strStr() 实现strStr()函数</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Feb 2018, 11:37</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;12&#41;</span>
-    </li>
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;8&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;8&#41;</span>
-    </li>
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;3&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Implement <a href="http://www.cplusplus.com/reference/cstring/strstr/">strStr()</a>.</p>
+
+<p>Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code class="language-cpp">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;
+Output: 2
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;
+Output: -1
+</code></pre>
+
+<p>Difficulty: Easy</p>
+
+<p>这道题让我们找出字符串中某个子字符串第一次出现的index.如果子字符串的长度为0,则返回0,如果子字符传的长度大于母字符串,则返回-1.遍历字符串的时候只需要遍历到剩下的长度等于字符串的位置即可.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if (needle.empty()) return 0;
+        int m = haystack.size(),n=needle.size();
+        if (m&lt;n) return -1;
+        for (int i=0;i&lt;=m-n;++i)
+        {
+            int j=0;
+            for (j=0;j&lt;n;j++)
+                if (haystack[i+j]!=needle[j]) break;
+            if (j==n) 
+            {
+                return i;   
+            }
+        }
+        return -1;
+    }
+};
+</code></pre>
+
+
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/27-remove-element-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/27-remove-element-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">27. Remove Element 移除元素</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="two-pointer">two-pointer</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
 
 </div>
@@ -331,3 +367,4 @@
 
 </body>
 </html>
+

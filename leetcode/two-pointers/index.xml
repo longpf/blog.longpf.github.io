@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 06 Feb 2018 10:46:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Feb 2018 11:37:27 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/two-pointers/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>28. Implement strStr() 实现strStr()函数</title>
+      <link>http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 06 Feb 2018 11:37:27 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/</guid>
+      <description>Implement strStr().
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Example 1:
+Input: haystack = &amp;quot;hello&amp;quot;, needle = &amp;quot;ll&amp;quot; Output: 2  Example 2:
+Input: haystack = &amp;quot;aaaaa&amp;quot;, needle = &amp;quot;bba&amp;quot; Output: -1  Difficulty: Easy
+这道题让我们找出字符串中某个子字符串第一次出现的index.如果子字符串的长度为0,则返回0,如果子字符传的长度大于母字符串,则返回-1.遍历字符串的时候只需要遍历到剩下的长度等于字符串的位置即可.
+class Solution { public: int strStr(string haystack, string needle) { if (needle.empty()) return 0; int m = haystack.size(),n=needle.size(); if (m&amp;lt;n) return -1; for (int i=0;i&amp;lt;=m-n;++i) { int j=0; for (j=0;j&amp;lt;n;j++) if (haystack[i+j]!</description>
+    </item>
     
     <item>
       <title>27. Remove Element 移除元素</title>
