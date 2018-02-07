@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 06 Feb 2018 11:37:27 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 Feb 2018 16:45:36 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>29. Divide Two Integers 两数相除</title>
+      <link>http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/</link>
+      <pubDate>Wed, 07 Feb 2018 16:45:36 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/</guid>
+      <description>Divide two integers without using multiplication, division and mod operator.
+If it is overflow, return MAX_INT.
+Difficulty: Medium
+这道题让我们求两个数相除A/B,并且不让使用乘法,除法,取余运算.这样我们只能优先想到位运算和加减法了. 假设A&amp;gt;B,最容易想到的是把A-B赋值给A,并且结果+1,然后再把A-B赋值给A,结果+1.这样一直下去.不过如果是2147483647/1这种情况不会不会通过OJ,因为效率太低,会提示Time Limit Exceeded,不可行.回头想想上面的位运算还没用到,如果A&amp;gt;2*B那么结果是不是加2,如果A&amp;gt;2*2*2B结果是不是加2*2.定义t为除数,p为结果的计数m为被除数的绝对值,n为除数的绝对值.例如100/2
+   t p res m t p res m t p res m     2 1 32 36 2 1 48 4 2 1 50 0   4 2   4 2   4 2     8 4   8 4         16 8   16 8         32 16   32 16         64 32              解法1 class Solution { public: int divide(int dividend, int divisor) { if (divisor==0||(dividend==INT_MIN&amp;amp;&amp;amp;divisor==-1)) return INT_MAX; int sign = ((dividend&amp;lt;0)^(divisor&amp;lt;0))?</description>
+    </item>
     
     <item>
       <title>28. Implement strStr() 实现strStr()函数</title>
