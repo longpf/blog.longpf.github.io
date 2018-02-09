@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Feb 2018 16:45:36 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2018 16:33:52 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>30. Substring With Concatenation of All Words 串联所有单词的子串</title>
+      <link>http://blog.longpengfei.com/post/30-substring-with-concatenation-of-all-words-%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2/</link>
+      <pubDate>Thu, 08 Feb 2018 16:33:52 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/30-substring-with-concatenation-of-all-words-%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2/</guid>
+      <description>You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
+For example, given:
+s: &amp;quot;barfoothefoobarman&amp;quot;
+words: [&amp;quot;foo&amp;quot;, &amp;quot;bar&amp;quot;]
+You should return the indices: [0,9].
+(order does not matter).
+Difficulty: Hard
+这道题让我们求串联所有单词的子串.所有单词来自输入的数组.所有单词的长度一样,串联的顺序不一定.如题中的例子,可以串联成foobar, barfoo. 这里我们用两个哈希表,一个用来存输入单词数组的每个单词和其的出现次数.然后遍历输入的字符串.设单词的个数为n,每个单词长度为m.每次遍历检查母字符串从该位置开始,每m截取一下查看在第一个哈希表是否存在.如果存在,存入第二个哈希表.如果n个次截取都匹配则这次遍历是符合要求的,存一下结果.
+解法1 就是上面分析
+class Solution { public: vector&amp;lt;int&amp;gt; findSubstring(string s, vector&amp;lt;string&amp;gt;&amp;amp; words) { vector&amp;lt;int&amp;gt;res; if (s.</description>
+    </item>
     
     <item>
       <title>29. Divide Two Integers 两数相除</title>
