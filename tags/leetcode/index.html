@@ -228,6 +228,72 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/32-longest-valid-parentheses-%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">32. Longest Valid Parentheses 最长有效括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>26 Feb 2018, 13:27</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a string containing just the characters &lsquo;(&rsquo; and &lsquo;)&rsquo;, find the length of the longest valid (well-formed) parentheses substring.
+For &ldquo;(()&rdquo;, the longest valid parentheses substring is &ldquo;()&rdquo;, which has length = 2.
+Another example is &ldquo;)()())&rdquo;, where the longest valid parentheses substring is &ldquo;()()&rdquo;, which has length = 4.
+Difficulty: Hard
+这道题比20. Valid Parentheses 验证括号难一些.
+解法1 还是利用栈来求解,并定义start记录合法括号串的起始位置.遍历字符串,如果遇到左括号,则将当前下标压栈,如果遇到右括号,如果当前栈为空,则将下一个位置的下标记为start,如果栈不为空,则将栈顶元素取出.此时如果站为空,则更新结果和i-start+1的最大值,否则更新结果为i-栈顶元素的最大值.
+class Solution { public: int longestValidParentheses(string s) { int res = 0,start = 0; stack&lt;int&gt; m; for (int i=0;i&lt;s.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/32-longest-valid-parentheses-%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/31-next-permutation-%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/">31. Next Permutation 下一个排列</a></h2>
 
     <div class="post-meta">

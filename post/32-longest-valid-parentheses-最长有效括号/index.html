@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>32. Longest Valid Parentheses 最长有效括号 &middot; long·pf</title>
 
   
   
@@ -221,83 +221,166 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>32. Longest Valid Parentheses 最长有效括号</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>26 Feb 2018, 13:27</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;14&#41;</span>
-    </li>
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;10&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;9&#41;</span>
-    </li>
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;3&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>
+    
+  </div>
+
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
+
+</div>
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
+<p>Given a string containing just the characters &lsquo;(&rsquo; and &lsquo;)&rsquo;, find the length of the longest valid (well-formed) parentheses substring.</p>
+
+<p>For &ldquo;(()&rdquo;, the longest valid parentheses substring is &ldquo;()&rdquo;, which has length = 2.</p>
+
+<p>Another example is &ldquo;)()())&rdquo;, where the longest valid parentheses substring is &ldquo;()()&rdquo;, which has length = 4.</p>
+
+<p>Difficulty: Hard</p>
+
+<p>这道题比<a href="http://blog.longpengfei.com/post/20-valid-parentheses-验证括号/">20. Valid Parentheses 验证括号</a>难一些.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<p>还是利用栈来求解,并定义start记录合法括号串的起始位置.遍历字符串,如果遇到左括号,则将当前下标压栈,如果遇到右括号,如果当前栈为空,则将下一个位置的下标记为start,如果栈不为空,则将栈顶元素取出.此时如果站为空,则更新结果和i-start+1的最大值,否则更新结果为i-栈顶元素的最大值.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int res = 0,start = 0;
+        stack&lt;int&gt; m;
+        for (int i=0;i&lt;s.size();i++)
+        {
+            if (s[i]=='(')
+                m.push(i);
+            else if (s[i]==')')
+            {
+                if (m.empty()) start=i+1;
+                else
+                {
+                    m.pop();
+                    res = m.empty()?max(res,i-start+1):max(res,i-m.top());
+                }
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>利用DP来求解.构建一个<code>longest[]</code>来存储在i出的最常合法括号串.</p>
+
+<p>DP的思路如下:</p>
+
+<pre><code>if s[i]=='(',longest[i]=0,因为'('不可能为合法括号串
+else if s[i]==')'
+	if  s[i-1]=='(', longest[i] = longest[i-2]+2
+	else if s[i-1]==')' &amp;&amp; a[i-longest[i-1]-1]=='(', longest[i] = longest[i-1]+2+longest[i-longest[i-1]-2] 
+	//比如输入&quot;()(())&quot;,longest array [0,2,0,0,2,0],longest[5] = longest[4] + 2 + longest[1] = 6;
+</code></pre>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    int longestValidParentheses(string s) {
+        if (s.length()&lt;=1) return 0;
+        int curMax = 0;
+        vector&lt;int&gt; longest(s.size(),0);
+        for (int i=1;i&lt;s.length();i++)
+        {
+            if (s[i]==')')
+            {
+                if (s[i-1]=='(')
+                {
+                    longest[i] = (i-2)&gt;=0?longest[i-2]+2:2;
+                    curMax = max(longest[i],curMax);
+                }
+                else //s[i-1]==')'
+                {
+                    if (i-longest[i-1]-1&gt;=0&amp;&amp;s[i-longest[i-1]-1]=='(')
+                    {
+                        longest[i] = longest[i-1]+2+((i-longest[i-1]-2&gt;=0)?longest[i-longest[i-1]-2]:0);
+                        curMax = max(curMax,longest[i]);
+                    }
+                }
+            }
+        }
+        return curMax;
+    }
+};
+</code></pre>
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/31-next-permutation-%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/31-next-permutation-%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/">31. Next Permutation 下一个排列</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
 
 </div>
@@ -326,3 +409,4 @@
 
 </body>
 </html>
+
