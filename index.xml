@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 26 Feb 2018 13:27:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Feb 2018 10:38:10 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>33. Search in Rotated Sorted Array 在旋转有序数组中搜索</title>
+      <link>http://blog.longpengfei.com/post/33-search-in-rotated-sorted-array-%E5%9C%A8%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Tue, 27 Feb 2018 10:38:10 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/33-search-in-rotated-sorted-array-%E5%9C%A8%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%90%9C%E7%B4%A2/</guid>
+      <description>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+You are given a target value to search. If found in the array return its index, otherwise return -1.
+You may assume no duplicate exists in the array.
+Difficulty: Medium
+这道题让我们求一个旋转有序数组中是否存在一个给定的值,存在返回下标,不存在返回-1.如体重的例子0 1 2 4 5 6 7,我们不知道从哪开始旋转的,他的选择情况有7种</description>
+    </item>
     
     <item>
       <title>32. Longest Valid Parentheses 最长有效括号</title>
