@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>看看Sina笔试 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/leetcode/"><i class='fa fa-codiepie fa-fw'></i>Leetcode</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>看看Sina笔试</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>16 Mar 2018, 18:31</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  
+
+<ul>
+<li>什么事abi</li>
+<li>什么是MVC,请结合CocoaTouch说明</li>
+<li>什么是MVVM，请设计View moled需要考虑哪些</li>
+<li>swift相对于OC有哪些优点</li>
+<li>什么是泛型,swift在哪些地方使用了泛型</li>
+<li>defer、guard的作用</li>
+<li>swift语法糖？！的本质（实现原理）</li>
+<li>举例swift中模式匹配的作用</li>
+<li>swift中private与OC中block的区别</li>
+<li>什么是capture list，举例说明用处</li>
+<li>swift中private与fileprivate的区别</li>
+<li>REST、HTTP、JSON是什么</li>
+<li>LLVM与Clang的区别</li>
+</ul>
+
+<h2 id="什么是abi">什么是abi</h2>
+
+<p>application binary interface,描述了应用程序(或者其他类型)和操作系统之间或其他应用程序的低级接口</p>
+
+<p>一个完整的abi,像intel二进制兼容标准,允许支持他的操作系统上的程序不经修改在其他支持此abi的操作系统上运行.</p>
+
+<p>abi不同于应用程序接口(api),api定义了源代码和库之间的接口,因此同样的代码可以在支持这个api的任何系统中编译,然而abi允许编译好的目标代码在使用兼容abi的系统中无需改动就能运行.</p>
+
+<h2 id="什么是mvc-请结合cocoatouch说明">什么是MVC,请结合CocoaTouch说明</h2>
+
+<p>Cocoa在Mac OS上,包括Foundation和AppKit.在iOS 11上叫做Cocoa Touch包括Foundation,UIKit.MVC不是最基本的设计模式,他包括了(组合,命令,中介者,策略和观察者).</p>
+
+<ul>
+<li>组合: 视图对象之间以协作的方式构成一个视图层次体系,其中既可以有符合视图(比如表格视图),也可以有独立视图.每个层次的每个视图都可以相应用户的操作并把自己绘制到屏幕上.</li>
+<li>命令: 这是一种&rsquo;目标-动作&rsquo;机制,视图对象可以推迟其他对象(比如控制器)的执行,让其他对象等到发生了某些事件后执行,这一机制构成了命令模式.</li>
+<li>中介者: 控制器对象其中间人的作用,这个中间人则采用了中介者模式,他构成了在模型和视图对象之间传递数据的双向通道.将模型的比爱你更传达给视图对象.</li>
+<li>策略: 控制器可以是视图对象的一个&rsquo;策略&rsquo;,视图对象将自己隔离,以维持其作为数据展示器的唯一职责,而将一切应用程序持有的界面行为决定委派给他的&rsquo;策略&rsquo;对象(控制器)</li>
+<li>观察者: 模型对象想他所关注的控制器等对象发出内部状态变化的通知,从而控制器将变更了数据模型传递给视图,更新视图</li>
+</ul>
+
+<p>这些模式协同工作流程:</p>
+
+<ul>
+<li>1. 用户在视图上用手指触摸或拖动,产生一个触摸事件.被触摸的实际就在视图组合中的某个层次上.视图将触摸消息传达给视图控制器</li>
+<li>2. 控制器对象接收到触摸事件及其相关信息,然后应用策略来改变模型的状态,必要时请求视图对象根据此事件更新其行为或外观</li>
+<li>3. 每当变更发生并已反应到模型对象,模型对象就会通知所有已注册的观察者对象如控制器</li>
+<li>4. 控制器就想一个协调人,他将变更了的数据从模型传递给视图.以便视图可以相应的更新其外观</li>
+</ul>
+
+<h2 id="什么是mvvm-请设计view-moled需要考虑哪些">什么是MVVM，请设计View moled需要考虑哪些</h2>
+
+<p>相当于MVC的强化版本,将网络请求和一些view上的逻辑处理都挪到vm中.减轻了viewcontroller的负担.</p>
+
+<p>viewmodel中尽量不要饮用UIKit(uiimage待商榷).任何视图的引用不应该出现的viewmodel中,因为不归viewmodel.</p>
+
+<h2 id="swift相对于oc有哪些优点">swift相对于OC有哪些优点</h2>
+
+<ul>
+<li>易读,语法和文件结构简易化</li>
+<li>易维护,文件分离后结构更清晰</li>
+<li>更安全,类型安全的语言</li>
+<li>代码简洁,</li>
+<li>速度快,性能高</li>
+<li>版本不稳定</li>
+<li>资料/开源项目少</li>
+</ul>
+
+<h2 id="什么是泛型-swift在哪些地方使用了泛型">什么是泛型,swift在哪些地方使用了泛型</h2>
+
+<pre><code class="language-swift">struct Stack&lt;Element&gt; {
+    var items = [Element]()
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -&gt; Element {
+        return items.removeLast()
+    }
+}
+</code></pre>
+
+<p>尖括号告诉swift,Element是占位类型,swift不会去查找他的具体类型.</p>
+
+<p>swift中的数组,字典都是.你可以创建一个int数组,也可以创建一个string的数组.</p>
+
+<h2 id="defer-guard的作用">defer、guard的作用</h2>
+
+<h3 id="defer">defer</h3>
+
+<p>这条语句不会马上执行,而是被推入栈中,直到函数结束时才再次被调用</p>
+
+<pre><code class="language-swift">print(&quot;1-1&quot;)
+if name == &quot;&quot;{
+    //这里是作用域2 if的作用域
+    print(&quot;2-1&quot;)
+    defer{
+        print(&quot;2-2&quot;)
+    }
+    print(&quot;2-3&quot;)
+}
+print(&quot;1-2&quot;)
+defer{
+    print(&quot;1-3&quot;)
+}
+print(&quot;1-4&quot;)
+</code></pre>
+
+<h3 id="guard">Guard</h3>
+
+<p>有控制,警戒之意.条件满足时,才会让你通过,否则只能else让你返回.else中一定需要有返回的语句,比如return,continue,break,throw这种提早退出的关键字.代码清晰直观,不必再if套if</p>
+
+<pre><code class="language-swift">if age &lt; 13 {
+	return
+}
+
+guard age &gt;= 13 else {
+	return
+}
+</code></pre>
+
+<pre><code class="language-swift">func greet(person: [String: String]) {
+    guard let name = person[&quot;name&quot;] else {
+        return
+    }
+    
+    print(&quot;Hello \(name)!&quot;)
+}
+</code></pre>
+
+<h2 id="swift语法糖-的本质-实现原理">swift语法糖？！的本质（实现原理）</h2>
+
+<p>?和!其实分别是swift语言中对一种可选类型(Optional)操作的语法糖.可选类型是可以声明一个没有初始值的属性.Optional其实是个enum,里面有None和Some两种类型.nil就是Optional.None,非nil就是Optional.Some,然后通过Some(T)包装(wrap)原始值,这事是为什么在使用Optional的时候要拆包(从enum里取出来原始值)的原因.</p>
+
+<pre><code class="language-swift">var name String?
+</code></pre>
+
+<p>上面这个Optional的声明,他可能包含了一个String值,也可能上面都不包含,也就是说时间上我们声明的Optional类型,而不是一个String类型</p>
+
+<p>调用方法,属性,下标索引等前面需要加上一个?,如果是nil,也就是Optional.None,会跳过后面的操作不执行,如果有值,就是Optional.Some,可能就会拆包,然后对拆包后的值执行后面的操作,来保证执行这个操作的安全性.</p>
+
+<h2 id="举例swift中模式匹配的作用">举例swift中模式匹配的作用</h2>
+
+<pre><code class="language-swift">let point3D:(x:Int,y:Int,z:Int) = (0,0,999)
+
+switch point3D {
+case (0,0,0):
+    print(&quot;origin 3D&quot;)
+    break
+case (_,0,0):
+    print(&quot;x 轴&quot;)
+    break
+case (0,let y,0):
+    print(&quot;y is \(y)&quot;)
+    break
+case (_,_,let z) where z &gt; 10:
+    print(&quot;z = \(z)&quot;)
+default:
+    break
+
+</code></pre>
+
+<h2 id="swift中private与oc中block的区别">swift中private与OC中block的区别</h2>
+
+<h2 id="什么是capture-list-举例说明用处">什么是capture list，举例说明用处</h2>
+
+<p>解决闭包引起的循环强引用</p>
+
+<p>当闭包和捕获的实例总是相互引用时并且总是同时销毁时,将闭包内的捕获定义为无主引用.</p>
+
+<p>相反的,当捕获引用有时可能会为nil时,将闭包内的捕获定义为弱引用.</p>
+
+<p>如果捕获的引用绝对不会置为nil,应该用无主引用,而不是弱引用.</p>
+
+<h2 id="swift中private与fileprivate的区别">swift中private与fileprivate的区别</h2>
+
+<table>
+<thead>
+<tr>
+<th>访问级别</th>
+<th>定义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>public</td>
+<td>可以访问自己模块中源文件里的任何实体,别人也可以通过引入该模块来访问源文件里的所有实体.</td>
+</tr>
+
+<tr>
+<td>internal</td>
+<td>可以访问自己模块中源文件里的任何实体,但是别人不能访问该模块中源文件里的实体.</td>
+</tr>
+
+<tr>
+<td>fileprivate</td>
+<td>文件内私有,只能在当前源文件中使用</td>
+</tr>
+
+<tr>
+<td>private</td>
+<td>只能在类中访问,离开了这个类或者结构体的作用域外面就无法访问.</td>
+</tr>
+</tbody>
+</table>
+
+<p>public是最高级访问级别,private为最低级访问级别.</p>
+
+<h2 id="rest-http-json是什么">REST、HTTP、JSON是什么</h2>
+
+<p><a href="https://www.zhihu.com/question/27785028">https://www.zhihu.com/question/27785028</a></p>
+
+<ul>
+<li>REST描述的是在网络中client和server的一种交互形式.REST本身不实用,实用的是如何设计RESTful.</li>
+<li>server提供的RESTful API中,URL中只使用名词来指定资源,原则上不适用动词.资源是REST架构护着说整个网络处理的核心</li>
+<li>用http协议里的动词来实现资源的添加,修改,删除等.即通过HTTP动词来实现资源的状态扭转(get获取资源,post新建或更新资源,put更新资源,delete删除资源)</li>
+<li>server和client之间传递某资源的一个变现形式,比如json,xml,jpg,webp&hellip;</li>
+<li>用http status code 传递server的状态信息.</li>
+<li>web,ios,android变成平等的校色通过一套api来共同小飞server提供的服务.</li>
+</ul>
+
+<h2 id="llvm与clang的区别">LLVM与Clang的区别</h2>
+
+<p>LLVM是构架编译器(compiler)的框架系统,以C++编写.用于优化任意程序语言编写的程序的编译时间(compile-time),连接时间(link-time),运行时间(run-time)以及空闲时间(idle-time).</p>
+
+<p>我们可以认为LLVM是一个完整的编译器架构,亦可以认为他是一个用于开发编译器,解释器相关的库.</p>
+
+<p>在理解LLVM时,他包括了一个狭义的LLVM和一个广义的LLVM.广义的LLVM其实就是指整个LLVM编译架构,包括了前端,后端,优化器,贡多的库函数以及很多的模块.狭义的LLVM起始就是聚焦于编译器后期功能(代码生成,代码优化,JIT(即时编译器)等)的一系列模块和库.</p>
+
+<p>Clang是C++编写,基于LLVM,发布于LLVM BSD许可证下的C/C++/OC编译器.那么为什么有了GCC还要开发Clang呢?</p>
+
+<p>Clang是一个高度模块化开发的轻量级编译器,他的编译速度快,占用内存小,方便二次开发.</p>
+
+<p><img src="http://img.blog.csdn.net/20160718211639694?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="" /></p>
+
+<p>Clang其实大致上可以对应到编译器的前端，主要处理一些和具体机器无关的针对语言的分析操作；编译器的优化器部分和后端部分其实就是我们之前谈到的LLVM后端（狭义的LLVM）；而整体的Compiler架构就是LLVM架构。</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/qq_group_ios_case/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/qq_group_ios_case/">群里的一些iOS问题</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

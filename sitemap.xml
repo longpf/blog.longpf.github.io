@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/sina_note/</loc>
+    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/qq_group_ios_case/</loc>
     <lastmod>2018-03-05T14:12:38+08:00</lastmod>
   </url>
@@ -303,13 +308,13 @@
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/leetcode/</loc>
+    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
     <lastmod>2018-02-27T10:38:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
+    <loc>http://blog.longpengfei.com/leetcode/</loc>
     <lastmod>2018-02-27T10:38:10+08:00</lastmod>
     <priority>0</priority>
   </url>
@@ -334,7 +339,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-03-05T14:12:38+08:00</lastmod>
+    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -381,7 +386,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-03-05T14:12:38+08:00</lastmod>
+    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -405,7 +410,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2018-03-05T14:12:38+08:00</lastmod>
+    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   

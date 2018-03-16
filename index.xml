@@ -7,13 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 05 Mar 2018 14:12:38 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Mar 2018 18:31:15 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Qq_group_iOS_case</title>
+      <title>看看Sina笔试</title>
+      <link>http://blog.longpengfei.com/post/sina_note/</link>
+      <pubDate>Fri, 16 Mar 2018 18:31:15 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/sina_note/</guid>
+      <description>什么事abi 什么是MVC,请结合CocoaTouch说明 什么是MVVM，请设计View moled需要考虑哪些 swift相对于OC有哪些优点 什么是泛型,swift在哪些地方使用了泛型 defer、guard的作用 swift语法糖？！的本质（实现原理） 举例swift中模式匹配的作用 swift中private与OC中block的区别 什么是capture list，举例说明用处 swift中private与fileprivate的区别 REST、HTTP、JSON是什么 LLVM与Clang的区别  什么是abi application binary interface,描述了应用程序(或者其他类型)和操作系统之间或其他应用程序的低级接口
+一个完整的abi,像intel二进制兼容标准,允许支持他的操作系统上的程序不经修改在其他支持此abi的操作系统上运行.
+abi不同于应用程序接口(api),api定义了源代码和库之间的接口,因此同样的代码可以在支持这个api的任何系统中编译,然而abi允许编译好的目标代码在使用兼容abi的系统中无需改动就能运行.
+什么是MVC,请结合CocoaTouch说明 Cocoa在Mac OS上,包括Foundation和AppKit.在iOS 11上叫做Cocoa Touch包括Foundation,UIKit.MVC不是最基本的设计模式,他包括了(组合,命令,中介者,策略和观察者).
+ 组合: 视图对象之间以协作的方式构成一个视图层次体系,其中既可以有符合视图(比如表格视图),也可以有独立视图.每个层次的每个视图都可以相应用户的操作并把自己绘制到屏幕上. 命令: 这是一种&amp;rsquo;目标-动作&amp;rsquo;机制,视图对象可以推迟其他对象(比如控制器)的执行,让其他对象等到发生了某些事件后执行,这一机制构成了命令模式. 中介者: 控制器对象其中间人的作用,这个中间人则采用了中介者模式,他构成了在模型和视图对象之间传递数据的双向通道.将模型的比爱你更传达给视图对象. 策略: 控制器可以是视图对象的一个&amp;rsquo;策略&amp;rsquo;,视图对象将自己隔离,以维持其作为数据展示器的唯一职责,而将一切应用程序持有的界面行为决定委派给他的&amp;rsquo;策略&amp;rsquo;对象(控制器) 观察者: 模型对象想他所关注的控制器等对象发出内部状态变化的通知,从而控制器将变更了数据模型传递给视图,更新视图  这些模式协同工作流程:
+ 1. 用户在视图上用手指触摸或拖动,产生一个触摸事件.被触摸的实际就在视图组合中的某个层次上.视图将触摸消息传达给视图控制器 2. 控制器对象接收到触摸事件及其相关信息,然后应用策略来改变模型的状态,必要时请求视图对象根据此事件更新其行为或外观 3. 每当变更发生并已反应到模型对象,模型对象就会通知所有已注册的观察者对象如控制器 4. 控制器就想一个协调人,他将变更了的数据从模型传递给视图.以便视图可以相应的更新其外观  什么是MVVM，请设计View moled需要考虑哪些 相当于MVC的强化版本,将网络请求和一些view上的逻辑处理都挪到vm中.减轻了viewcontroller的负担.
+viewmodel中尽量不要饮用UIKit(uiimage待商榷).任何视图的引用不应该出现的viewmodel中,因为不归viewmodel.
+swift相对于OC有哪些优点  易读,语法和文件结构简易化 易维护,文件分离后结构更清晰 更安全,类型安全的语言 代码简洁, 速度快,性能高 版本不稳定 资料/开源项目少  什么是泛型,swift在哪些地方使用了泛型 struct Stack&amp;lt;Element&amp;gt; { var items = [Element]() mutating func push(_ item: Element) { items.</description>
+    </item>
+    
+    <item>
+      <title>群里的一些iOS问题</title>
       <link>http://blog.longpengfei.com/post/qq_group_ios_case/</link>
       <pubDate>Mon, 05 Mar 2018 14:12:38 +0800</pubDate>
       

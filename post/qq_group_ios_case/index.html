@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Qq_group_iOS_case &middot; long·pf</title>
+  <title>群里的一些iOS问题 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>Qq_group_iOS_case</h1>
+  <h1>群里的一些iOS问题</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -291,7 +291,7 @@
 
 <li><p><a href="#UIScrollView 滚动原理">UIScrollView 滚动原理</a></p></li>
 
-<li><p><a href=#分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化">分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化</a></p></li>
+<li><p><a href=#分类">分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化</a></p></li>
 
 <li><p><a href="#CoreAnimation、CoreGraphic的理解">CoreAnimation、CoreGraphic的理解</a></p></li>
 
@@ -517,7 +517,7 @@ op.completionBlock = ^{
 <li>由另一个线程(或另一个进程中的某个线程)向内核这个端口的msg后,trap状态被唤醒.runloop继续开始干活</li>
 </ul>
 
-<pre><code class="language-objective-c">SetupThisRunLoopRunTimeoutTimer();//设置超时时间 by GCD timer,这个值不设置的话会很大,设置了比如timer的1秒
+<pre><code>SetupThisRunLoopRunTimeoutTimer();//设置超时时间 by GCD timer,这个值不设置的话会很大,设置了比如timer的1秒
 do {
 	//要开始跑timers和source
 	__CFRunLoopDoObservers(kCFRunLoopBeforeTimes);
@@ -743,7 +743,7 @@ copyStr:abc
 </ul></li>
 </ul>
 
-<p><a id="分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化"></a></p>
+<p><a id="分类"></a></p>
 
 <h2 id="分类属性-关联对象的实现原理-以及序列化时-是否会将关联对象序列化">分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化</h2>
 
@@ -793,8 +793,14 @@ copyStr:abc
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="http://blog.longpengfei.com/post/sina_note/">看看Sina笔试</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="http://blog.longpengfei.com/post/sina_note/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
