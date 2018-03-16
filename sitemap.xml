@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/url2content/</loc>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/sina_note/</loc>
     <lastmod>2018-03-16T18:31:15+08:00</lastmod>
   </url>
@@ -272,6 +277,12 @@
   </url>
   
   <url>
+    <loc>http://blog.longpengfei.com/tags/cdn/</loc>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/leetcode/dfs/</loc>
     <lastmod>2018-01-30T14:36:53+08:00</lastmod>
     <priority>0</priority>
@@ -280,6 +291,12 @@
   <url>
     <loc>http://blog.longpengfei.com/leetcode/divide-and-conquer/</loc>
     <lastmod>2018-01-31T10:59:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.longpengfei.com/tags/dns/</loc>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -339,7 +356,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -386,7 +403,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-03-16T18:31:15+08:00</lastmod>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -405,6 +422,12 @@
   <url>
     <loc>http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2018-01-18T12:01:24+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.longpengfei.com/tags/%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2018-03-16T19:14:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   

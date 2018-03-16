@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 16 Mar 2018 18:31:15 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Mar 2018 19:14:31 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Url2content</title>
+      <link>http://blog.longpengfei.com/post/url2content/</link>
+      <pubDate>Fri, 16 Mar 2018 19:14:31 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/url2content/</guid>
+      <description>目录  url到内容返回经历了蛇 dns解析过程 CDN的基本工作过程  
+url到内容返回经历了蛇  1 把url分割成几个部分: 协议,网络地址,资源路径.其中网络地址只是该链接网络上哪一台计算机,可以使域名或者ip地址,可以包括端口号;协议是从该计算机获取资源的方式,常见的HTTP,FTP,不同的协议有不同的通讯内容格式;资源路径指示从服务器上获取哪一项资源.
+ 例如: http://www.guokr.com/question/554991/ 协议部分 http 网络地址 www.guokr.com 资源路径 /question/554991/  2 如果地址不是一个ip地址,通过DNS(域名系统)将该地址解析成ip地址.ip地址对应着网络上一台计算机,DNS服务器本身也有IP,你的网络设置包含DNS服务器的ip.
+ 例如 www.guokr.com不是一个ip,向DNS询问请求www.guokr.com对应的ip: 111.13.57.142.这个过程里,你的电脑直接询问DNS服务器可能没www.guokr.com对应的ip,就会想他的上级服务器学问,上级服务器同样可能没有,就一次一层层向上找,最高可达根结点,找到或者全部找不到位置  3 如果地址不包括端口号,根据协议的偶人端口号确定一个.端口号之于计算机就想窗口号之于银行.
+ 例如www.guokr.com不包括端口号,http协议默认端口号是80.如果输入的url是http://www.guokr.com:8080/那表示不适用默认的端口号,  4 向第2和第3步确定的ip和端口号发起网络连接
+ 列入向111.13.57.142的80端口发起连接  5 根据http协议要求,组织一个请求的数据包,包含大量请求信息.包括请求的资源路径,你的身份.
+ 例如: 用自然语言来表达这个数据包,大概就是:请求/question/554991/d我的身份是xxxxx   6 服务器响应请求.将数据返回给浏览器.数据可能是页面,页面的布局,文字,图片,脚本等.如果资源路径只是的资源不存在,服务器就会返回注明的404错误.
+ 7 如果第6步返回的是一个页面,根据页面里的一些外链的URL,例如图片的地址,按照1~6再次获取.
+ 8 根据资源的类型,将资源组织成屏幕上显示的图像.这个过程叫渲染.
+ 9 将渲染好的页面图像显示出来,并开始响应用户的操作.
+  
+dns解析过程  1. 在浏览器中输入www.qq.com域名,操作系统会先检查自己本地的hosts文件是否有这个网址映射关系,如果有,就先调用合格ip地址映射,完成域名解析 2. 如果hosts没有,则查找dns解析器缓存,是否有这个网址映射关系,如果有,返回 3. 如果没有,首先会找tcp/ip参数中设置的首选dns服务器,在此我们叫他本地dns服务器,此服务器收到查询时,如果要查询的域名,包含在本地配置区域资源中,则返回解析结果给客户机,此解析具有权威性 如果要查询的域名,不由本地dns服务器区域解析,但改服务器已缓存了此网址映射关系,则返回该ip,此解析不具有权威性. 5.</description>
+    </item>
     
     <item>
       <title>看看Sina笔试</title>
