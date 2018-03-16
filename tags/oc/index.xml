@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 12 Mar 2017 20:40:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Mar 2018 14:12:38 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/tags/oc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Qq_group_iOS_case</title>
+      <link>http://blog.longpengfei.com/post/qq_group_ios_case/</link>
+      <pubDate>Mon, 05 Mar 2018 14:12:38 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/qq_group_ios_case/</guid>
+      <description>多线程
+ 队列&amp;amp;线程关系 几种多线程实现  项目
+ 负责的部分 流程 架构 难点  内存管理
+ mrc arc autoreleasepool  runloop
+ http缓存
+ NSString copy strong
+ UIScrollView 滚动原理
+ 分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化
+ CoreAnimation、CoreGraphic的理解
+ HTTP、SSL协议的熟悉程度
+  
+多线程 队列&amp;amp;线程关系  dispatch_sync添加任务到队列,不会创建新的线程都是在当前线程中处理的.无论添加到串行队列(main或自建)或者并行队列里(globalQueue或自建),都是串行效果,因为这个方法是等任务执行完成以后才会返回. dispatch_async添加任务到  mainQueue不创建线程,在主线程中串行执行 globalQueue和自己创建的并行队列: 根据任务系统决定开辟线程个数 自建的串行队列: 创建一个线程,串行执行   一些相关的测试例子
+几种多线程实现  pthread  一套通用多线程api 适用于Unix\Linux\Windows等系统 跨平台\可移植 使用难度大 c语言,几乎不用,由程序员进行管理线程生命周期  NSThread  使用更加面向对象 简单易用,可直接操作线程对象 oc语言,偶尔使用,由程序员管理生命周期  GCD  旨在替代NSThread等线程技术 充分利用设备的多核(自动) 经常使用,自动管理  NSOperation  基于GCD(底层是GCD) 比GCD多了一些简单使用的功能 使用更加面向对象 OC语言,经常使用,自动管理生命周期   NSOperation NSOperation本身是一个抽象类,可通过下面几个方法使用</description>
+    </item>
     
     <item>
       <title>Swift实现可选协议</title>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>Qq_group_iOS_case &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/leetcode/"><i class='fa fa-codiepie fa-fw'></i>Leetcode</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Qq_group_iOS_case</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 Mar 2018, 14:12</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98">面试题</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  
+
+<ul>
+<li><p><a href="#多线程">多线程</a></p>
+
+<ul>
+<li>队列&amp;线程关系</li>
+<li>几种多线程实现</li>
+</ul></li>
+
+<li><p><a href="#项目">项目</a></p>
+
+<ul>
+<li>负责的部分</li>
+<li>流程</li>
+<li>架构</li>
+<li>难点</li>
+</ul></li>
+
+<li><p><a href="#内存管理">内存管理</a></p>
+
+<ul>
+<li>mrc arc</li>
+<li>autoreleasepool</li>
+</ul></li>
+
+<li><p><a href="#runloop">runloop</a></p></li>
+
+<li><p><a href="#http缓存">http缓存</a></p></li>
+
+<li><p><a href="#NSString copy strong">NSString copy strong</a></p></li>
+
+<li><p><a href="#UIScrollView 滚动原理">UIScrollView 滚动原理</a></p></li>
+
+<li><p><a href=#分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化">分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化</a></p></li>
+
+<li><p><a href="#CoreAnimation、CoreGraphic的理解">CoreAnimation、CoreGraphic的理解</a></p></li>
+
+<li><p><a href="#HTTP、SSL协议的熟悉程度">HTTP、SSL协议的熟悉程度</a></p></li>
+</ul>
+
+<p><a id="多线程"></a></p>
+
+<h2 id="多线程">多线程</h2>
+
+<h3 id="队列-线程关系">队列&amp;线程关系</h3>
+
+<ol>
+<li>dispatch_sync添加任务到队列,不会创建新的线程都是在当前线程中处理的.无论添加到串行队列(main或自建)或者并行队列里(globalQueue或自建),都是串行效果,因为这个方法是等任务执行完成以后才会返回.</li>
+<li>dispatch_async添加任务到
+
+<ul>
+<li>mainQueue不创建线程,在主线程中串行执行</li>
+<li>globalQueue和自己创建的并行队列: 根据任务系统决定开辟线程个数</li>
+<li>自建的串行队列: 创建一个线程,串行执行</li>
+</ul></li>
+</ol>
+
+<p><a href="https://www.jianshu.com/p/8e81d8caee34">一些相关的测试例子</a></p>
+
+<h3 id="几种多线程实现">几种多线程实现</h3>
+
+<ol>
+<li>pthread
+
+<ul>
+<li>一套通用多线程api</li>
+<li>适用于Unix\Linux\Windows等系统</li>
+<li>跨平台\可移植</li>
+<li>使用难度大</li>
+<li>c语言,几乎不用,由程序员进行管理线程生命周期</li>
+</ul></li>
+<li>NSThread
+
+<ul>
+<li>使用更加面向对象</li>
+<li>简单易用,可直接操作线程对象</li>
+<li>oc语言,偶尔使用,由程序员管理生命周期</li>
+</ul></li>
+<li>GCD
+
+<ul>
+<li>旨在替代NSThread等线程技术</li>
+<li>充分利用设备的多核(自动)</li>
+<li>经常使用,自动管理</li>
+</ul></li>
+<li>NSOperation
+
+<ul>
+<li>基于GCD(底层是GCD)</li>
+<li>比GCD多了一些简单使用的功能</li>
+<li>使用更加面向对象</li>
+<li>OC语言,经常使用,自动管理生命周期</li>
+</ul></li>
+</ol>
+
+<h3 id="nsoperation">NSOperation</h3>
+
+<p>NSOperation本身是一个抽象类,可通过下面几个方法使用</p>
+
+<ol>
+<li>NSInvocationOperation</li>
+<li>NSBlockOperation</li>
+<li>自定义NSOperation子类</li>
+</ol>
+
+<pre><code class="language-objective-c">NSInvocationOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(task) object:nil];
+[op start];
+
+//当只有一个block时候不会开辟新的线程执行任务,
+NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@&quot;1当前线程%@&quot;,[NSThread currentThread]);
+    }];
+ //如果NSBlockOperation的操作数大于1的时候,就会执行异步操作
+[op addExecutionBlock:^{
+        NSLog(@&quot;2当前线程%@&quot;,[NSThread currentThread]);
+    }];
+[op start];
+
+
+@interface ABCOperation : NSOperation
+@end
+
+@implementation ABCOperation
+- (void)main
+{
+    @autoreleasepool {
+        if (self.isCancelled) {
+            return
+        }
+        NSLog(@&quot;%@&quot;,[NSThread currentThread]);
+    }
+}
+@end
+
+ABCOperation *op = [[ABCOperation alloc] init];
+[op start];
+</code></pre>
+
+<p>NSOperation的start默认同步执行任务,只有将NSOperation和NSOperationQueue结合,才能发挥多线程的功效.当NSOperation加到NSOperationQueue中后,就会自动执行异步操作.</p>
+
+<h4 id="nsoperationqueue">NSOperationQueue:</h4>
+
+<ul>
+<li>1. 自带主队列[NSOperationQueue mainQueue]: 添加到主队列中的任务都会在主线程中执行</li>
+<li>2. 自己创建的队列<code>NSOperationQueue *queue = [[NSOperationQueue alloc] init];</code>,这种队列同时包含串行、并发的功能,添加到非主队列的任务会自动放到子线程中执行.<strong>串行或者并行取决于NSOperationQueue的<code>setMaxConcurrentOperationCount</code>设置的并发数量.</strong></li>
+<li>3. 直接添加任务<code>[queue addOperation:op1]</code></li>
+<li>4. 使用block添加任务<code>[queue addOperationWithBlock:^{ }]</code>,block会被包装成operation</li>
+<li>5. 加入到queue中的话就不需要调用[operation start]</li>
+</ul>
+
+<h4 id="暂停-恢复和取消">暂停,恢复和取消</h4>
+
+<ul>
+<li>1. NSOperation有一个cancel,可以取消单个操作</li>
+<li>2. NSOperationQueue的<code>cancelAllOperations</code>相对于队列中每个operation都调用了cancel</li>
+<li><strong>不能取消正在进行中的任务,</strong>队列调用了<code>cancelAllOperations</code>后,会等当前正在进行的任务执行完毕后取消后面的操作</li>
+<li><code>isSuspended</code>判断是否挂起</li>
+<li><code>setSuspended</code> 设置挂起</li>
+<li><strong>不能挂起正在运行中的操作</strong></li>
+</ul>
+
+<p>所以在自定义NSOperation子类的时候main方法需要注意的判断是否被取消</p>
+
+<h4 id="添加依赖和监听">添加依赖和监听</h4>
+
+<pre><code>[op3 addDependency:op1];
+[op3 addDependency:op2];
+表示op3会在op1和op2都执行完毕后才执行
+
+op.completionBlock = ^{
+        
+};
+这个block里面的操作仍然是在子线程执行,但不一定和被监听的操作在同一个线程    
+</code></pre>
+
+<h4 id="线程间通信">线程间通信</h4>
+
+<pre><code class="language-objective-c">NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+// 子线程下载图片
+[queue addOperationWithBlock:^{
+    NSURL *url = [NSURL URLWithString:@&quot;http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg&quot;];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    // 回到主线程进行显示
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.imageView.image = image;
+    }];
+}];
+</code></pre>
+
+<p><a id="项目"></a></p>
+
+<h2 id="项目">项目</h2>
+
+<h3 id="首页">首页</h3>
+
+<p>首页整个架子是继承自自己实现的一个pageVC,这个pageVC是由一个主的VC,下面为不同的子VC,子VC不会立即都创建,用到哪个如果不存在的话, 就会创建,同时会预加载他的左边和右边的VC.上面tabs滚动是scrollview实现(当时考虑后期做效果时候会方便些).总的模式是MVC,不过考虑controller的瘦身这里多了一个layoutModel和datasource.layoutmode是来存储页面的布局,比如每个cell上的头像的frame,昵称的frame,封面图的等的frame.layoutmodel上还绑定着网络返回的数据,就是正常的数据model.datasource的作用就是发网络请求,服务器结果回来后将网络数据生成model,再生成layoutmodel,这些操作都是异步处理的.datasource处理好layoutmodel后装到数组中,交给vc更新ui界面.</p>
+
+<p>为什么要重构,老的首页就是单双列频道列表混合.当时单双列都是用的一个collectioncell,这样多个很多不必要的判断,这样相当于一个频道就是contentview包含一个collectionview,导致cell和collectionview上代码越来越多,业务处理全是在这个contentview和cell上,这些本不该出现这个view层.这样不管是加新功能,还是效率上都很糟糕.重构后就像上面所说.view基本没有业务逻辑.至于VC的逻辑还是很多,又写了一些业务用额分类来瘦身.</p>
+
+<p><a id="内存管理"></a></p>
+
+<h2 id="内存管理">内存管理</h2>
+
+<h3 id="autorelease">Autorelease</h3>
+
+<ul>
+<li>1. AutoreleasePool没有单独的结果,而是由若干个AutoreleasePoolPage组成的双向链表.(分别对应结构中的parent指针和child指针)</li>
+<li>2. AutoreleasePool是按线程一一对应的(AutoreleasePoolPage中的thread指向当前线程)</li>
+<li>3. AutoreleasePoolPage结构中的id *next指向下一个autorelease对象的位置</li>
+<li>4. 当一个AutoreleasePoolPage空间被占满时,会创建一个新的AutoreleasePoolPage,连接链表,之后的autorelease对象会被加入到新的AutoreleasePoolPage中</li>
+<li>5. 每一个AutoreleasePoolPage是一个指针的堆栈</li>
+<li>6. 当想一个对象发送autorelease消息时,则将这个对象加入到AutoreleasePoolPage的栈顶</li>
+<li>7. Thread-local storage（线程局部存储）指向 hot page ，即最新添加的 autoreleased 对象所在的那个 page</li>
+<li>8. AutoreleasePoolPage中的magic用来校验AutoreleasePoolPage是否完整,depth代表深度,从0开始</li>
+</ul>
+
+<h4 id="block内部实现-简化代码">block内部实现,简化代码 :</h4>
+
+<pre><code class="language-objective-c">/* @autoreleasepool */ {
+    void *atautoreleasepoolobj = objc_autoreleasePoolPush();
+    // 用户代码，所有接收到 autorelease 消息的对象会被添加到这个 autoreleasepool 中
+    objc_autoreleasePoolPop(atautoreleasepoolobj);
+}
+</code></pre>
+
+<p>上面分为<code>objc_autoreleasePoolPush</code>,<code>[对象 autorelease]</code>,<code>objc_autoreleasePoolPop(void *)</code>三个过程</p>
+
+<ul>
+<li>1. push 在AutoreleasePoolPage的next位置插入POOL_SENTINEL(哨兵对象)的内存地址.这个POOL_SENTINEL是pop时候的入参,就是release操作到此</li>
+<li>2. autorelease就是向next位置插入对象</li>
+<li>3. pop 将POOL_SENTINEL之后的对象执行一遍release</li>
+</ul>
+
+<p>系统级别的线程(main,global)都有对应的runloop.自己建立的线程当你获取当前runloop时候,如果没有就会建立一个. 每个event loop开始前,系统都会建立一个autoreleasepool,并在eventloop结束时drain. 自己写的autoreleasepool就是在出了autoreleasepool的block就会drain</p>
+
+<p><a id="runloop"></a></p>
+
+<h2 id="runloop">runloop</h2>
+
+<ul>
+<li>不是一个NSThread只有runloop,嵌套关系</li>
+<li>timer包括NSTimer,performSelector&hellip;.,CADisplayLink</li>
+<li>Source可以理解为是runloop的数据抽象类
+
+<ul>
+<li>source0 : uievent cfsocket  比如touch事件</li>
+<li>source1 : runloop和内核管理,mach port 驱动</li>
+</ul></li>
+<li><strong>uikit通过runloopObserver在runloop两次sleep间对autoreleasepool进行pop和push,将这次loop中产生的autorelease对象释放</strong></li>
+<li>runloop在同一时间必须在一种mode下run,更换需要停止当前,重启loop</li>
+<li>mode是app滑动流畅的关键,只能执行滑动的mode</li>
+<li>NSRunLoopCommonModes是一个集合</li>
+<li>timer加到NSRunLoopCommonModes,timer更准,默认和Tracking时候都会计时</li>
+<li>CGD中dispatch到main queue的block被分发到main runloop执行,dispatch_after同理</li>
+<li>首先指定用于唤醒的<code>mach_port</code>端口,调用<code>mach_msg</code>监听唤醒端口,被唤醒前,系统内核将这个线程挂起,停留在<code>mach_msg_trap</code>状态</li>
+<li>由另一个线程(或另一个进程中的某个线程)向内核这个端口的msg后,trap状态被唤醒.runloop继续开始干活</li>
+</ul>
+
+<pre><code class="language-objective-c">SetupThisRunLoopRunTimeoutTimer();//设置超时时间 by GCD timer,这个值不设置的话会很大,设置了比如timer的1秒
+do {
+	//要开始跑timers和source
+	__CFRunLoopDoObservers(kCFRunLoopBeforeTimes);
+	__CFRunLoopDoObservers(kCFRunLoopBeforeSources);
+	
+	__CFRunLoopDoBlocks();
+	__CFRunLoopDoSource0();
+	
+	//检查主线程有没有任务
+	CheckIfExisMessagesInMainDispatchQueue();
+	
+	//将要开始睡觉
+	__CFRunLoopDoObservers(kCFRunLoopBeforeWaiting);
+	//开始睡觉 代码卡在这不动  等待被唤醒
+	var wakeUpPort = SleepAndWaitForWakingUpPorts();
+	
+	//被唤醒
+	__CFRunLoopDoObservers(kCFRunLoopAfterWaiting);
+	
+	//是否为timer唤醒
+	if (wakeUpPort == timerPort){
+		__CFRunLoopDoTimers();
+	}
+	else if (wakeUpPort==mainDispatchQueuePort){
+		//GCD
+		执行GCD的事件
+	}else {
+		//其他都是source1事件,比如网络
+		__CFRunLoopDoSource1();
+	}
+	__CFRunLoopDoBlocks();
+}while(!stop&amp;&amp;!timeout)
+</code></pre>
+
+<ul>
+<li>旧版本的AF和现在YYWebImage的应用</li>
+</ul>
+
+<pre><code class="language-objective-c">//AF
++ (void)networkRequestThreadEntryPoint:(id)__unused object {
+    @autoreleasepool {
+        [[NSThread currentThread] setName:@&quot;AFNetworking&quot;];
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        //添加这个端口的监听,保证runloop不退出,否则线程执行完任务后会退出
+        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+    }
+}
+
++ (NSThread *)networkRequestThread {
+    static NSThread *_networkRequestThread = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&amp;oncePredicate, ^{
+        _networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
+        [_networkRequestThread start];
+    });
+    return _networkRequestThread;
+}
+
++ (void)_networkThreadMain:(id)object {
+    @autoreleasepool {
+        [[NSThread currentThread] setName:@&quot;com.ibireme.webimage.request&quot;];
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+    }
+}
+</code></pre>
+
+<ul>
+<li>tableview延迟加载图片的新思路</li>
+</ul>
+
+<pre><code>UIImage *downloaderImage = ..
+[self.avatarImageView performSelector:@selector(setImaeg:) withObject:downloadedImage afterDelay:0 inModes:@[NSDefaultRunLoopMode]];
+</code></pre>
+
+<ul>
+<li>我们项目中上报,用的就是runloop的observer监听的beforeWaiting来进行上报,</li>
+</ul>
+
+<p><a id="http缓存"></a></p>
+
+<h2 id="http缓存">http缓存</h2>
+
+<h3 id="nsurlcache">NSURLCache</h3>
+
+<p>参考<a href="https://www.jianshu.com/p/fb5aaeac06ef">https://www.jianshu.com/p/fb5aaeac06ef</a></p>
+
+<p>ETag,Last-Modified,304</p>
+
+<p>ETag:HTTP协议规格说明定义ETag为“被请求变量的实体值” 另一种说法是，ETag是一个可以与Web资源关联的记号（token）。它是一个 hash 值，用作 Request 缓存请求头，每一个资源文件都对应一个唯一的  ETag 值,服务器单独负责判断记号是什么及其含义，并在HTTP响应头中将其传送到客户端</p>
+
+<p>官方给出ETag是首选,因为他是hash,hash规则可以自己设置,是基于一致性,是&rsquo;强校验&rsquo;,但不是所有服务器都会支持.Last-Modified是基于时间,弱校验.</p>
+
+<p>NSURLCache会处理大部分http缓存,不适用与post,post不是<code>幂等</code>.</p>
+
+<pre><code class="language-objective-c">//didFinishLaunchingWithOptions中
+NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+[NSURLCache setSharedURLCache:cache];
+</code></pre>
+
+<pre><code class="language-objective-c">NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:15.0];
+if (self.localLastModified.length &gt; 0) {
+    [request setValue:self.localLastModified forHTTPHeaderField:@&quot;If-Modified-Since&quot;];
+}
+// 发送 etag
+//if (self.etag.length &gt; 0) {
+//   [request setValue:self.etag forHTTPHeaderField:@&quot;If-None-Match&quot;];
+//}
+[[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        // 判断响应的状态码是否是 304 Not Modified
+        if (httpResponse.statusCode == 304) {
+            // 如果是，使用本地缓存
+            // 根据请求获取到`被缓存的响应`！
+            NSCachedURLResponse *cacheResponse =  [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+            // 拿到缓存的数据
+            data = cacheResponse.data;
+        }
+
+        // 获取并且记录 LastModified
+        self.localLastModified = httpResponse.allHeaderFields[@&quot;Last-Modified&quot;];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            !completion ?: completion(data);
+        });
+    }] resume];
+</code></pre>
+
+<h3 id="tmcache">TMCache</h3>
+
+<p>有内存和硬盘缓存</p>
+
+<p><a id="NSString copy strong"></a></p>
+
+<h2 id="nsstring-copy-strong">NSString copy strong</h2>
+
+<pre><code class="language-objective-c">@property (retain,nonatomic) NSString *rStr;
+@property (copy, nonatomic)   NSString *cStr;
+@property (nonatomic, strong) NSString *sStr;
+
+NSMutableString *mStr = [NSMutableString stringWithFormat:@&quot;abc&quot;];
+self.rStr   = mStr;
+self.cStr     = mStr;
+self.sStr = mStr;
+//打印对象地址和指针的地址
+NSLog(@&quot;mStr:%p---%p&quot;,  mStr,&amp;mStr);
+NSLog(@&quot;retainStr:%p---%p&quot;, _rStr, &amp;_rStr);
+NSLog(@&quot;strongStr:%p---%p&quot;,_sStr,&amp;_sStr);
+NSLog(@&quot;copyStr:%p---%p&quot;,   _cStr, &amp;_cStr);
+
+//打印结果
+mStr:0x600000446e10---0x7ffeef7566b8
+retainStr:0x600000446e10---0x7fc45f60c3a0
+strongStr:0x600000446e10---0x7fc45f60c3b0
+copyStr:0xa000000006362613---0x7fc45f60c3a8
+</code></pre>
+
+<p>可以发现mStr和rStr,sStr的对象地址相同的,他们只得向的是同一个对象@&ldquo;abc&rdquo;.cStr的对象地址与他们不同.指向不同的对象.是深赋值.这个对象的值为@&ldquo;abc&rdquo;</p>
+
+<pre><code class="language-objective-c">[mStr appendString:@&quot;de&quot;];
+NSLog(@&quot;retainStr:%@&quot;,  _rStr);
+NSLog(@&quot;copyStr:%@&quot;,    _cStr);
+
+//打印结果
+retainStr:abcde
+copyStr:abc
+</code></pre>
+
+<p>可以发现rStr随着mStr变化,cStr不随着mStr变化.</p>
+
+<p>上面是针对NSMutableString赋值给NSString的时候,当是NSString的对象,那么使用copy还是strong,结果都是一样的,都是与mStr一样的对象地址,同一个对象,因为NSString对象根本就不能改变自身的值,他是不可变的.</p>
+
+<ul>
+<li>对源头是NSMutableString的字符串,retain仅仅是指针引用,增加了引用计数,无论被赋值的变量的可变还是不可变,他都会跟着变.copy声明的,深拷贝,不随着源头变化</li>
+<li>对源头是NSString,当mStr指向别的对象,rStr和cStr还是指向最初的位置</li>
+<li>当[mStr mutableCopy]会指向新的对象,深复制</li>
+<li>为什么有这两种方式,安全考虑,防止声明的NSString被赋值成NSMutableString</li>
+</ul>
+
+<p><a id="UIScrollView 滚动原理"></a></p>
+
+<h2 id="uiscrollview-滚动原理">UIScrollView 滚动原理</h2>
+
+<pre><code class="language-objective-c">UIView *content = [[UIView alloc] init];
+    content.frame = CGRectMake(10,10,100,100);
+    content.backgroundColor = [UIColor redColor];
+    [self.view addSubview:content];
+    
+    UIButton *btn = [[UIButton alloc] init];
+    btn.frame = CGRectMake(10, 10,10,10);
+    btn.backgroundColor = [UIColor purpleColor];
+    [content addSubview:btn];
+    
+    UIButton *btn2 = [[UIButton alloc] init];
+    btn2.frame = CGRectMake(20, 20,10,10);
+    btn2.backgroundColor = [UIColor purpleColor];
+    [content addSubview:btn2];
+    
+    UIButton *btn3 = [[UIButton alloc] init];
+    btn3.frame = CGRectMake(30, 30,10,10);
+    btn3.backgroundColor = [UIColor purpleColor];
+    [content addSubview:btn3];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CGRect rect = content.bounds;
+        rect.origin.x -= 10;
+        content.bounds = rect;
+    });
+</code></pre>
+
+<ul>
+<li>简单步骤
+
+<ul>
+<li>光栅化 : 首先content会创建一块<code>100*100</code>的空白区域的图像指令,btn,btn2,btn3会创建一块<code>10*10</code>的空白区域 此时屏幕啥都看不见</li>
+<li>组合: content 会找到super view的原点(CompositedPosition.x = content.frame.x - superview.bounds.x, y同理)就是用自己的(10,10)-superview的(0,0),然后绘制在superview上,btn同理</li>
+<li>btn嵌套在content上,(10,10),(20,20),(30,30),这时候content的bounds为(0,0)</li>
+<li>当content的bounds.x 减 10 后在刷新drawrect:重新组合的时候3个btn都向右移动了10</li>
+<li>所以UIScrollView就是这样不断的修改原点坐标bounds.origin</li>
+<li>setContentOffset:就是设置bounds的origin</li>
+<li>当手触摸后,scrollview会暂时拦截触摸事件,使用一个计时器,假如在计时器到点后没有发生手指移动事件,那么scrollview发送tracking event到被点击subview.如果在计时器到点后发送了移动事件,那么scrollview取消tracking自己触发滚动</li>
+</ul></li>
+</ul>
+
+<p><a id="分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化"></a></p>
+
+<h2 id="分类属性-关联对象的实现原理-以及序列化时-是否会将关联对象序列化">分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化</h2>
+
+<p><a href="http://blog.csdn.net/zyx196/article/details/50816976">http://blog.csdn.net/zyx196/article/details/50816976</a></p>
+
+<p>app启动主要流程: 点击icon-&gt;加载动态链接库等-&gt;映像文件加载imageLoader-&gt;runtime-&gt;load-&gt;main-&gt;delegate</p>
+
+<p>runtime的初始化函数在objc-os.mm中的_objc_init,最终会调用objc-runtime-new.mm里面的_read_images,在这里会遍历所有分类,把category的实例方法,协议以及属性添加到类上.把category的类方法和协议添加到类的metaclass上.</p>
+
+<p>所有的category实例方法会拼接长一个大的方法列表查到原来的类上,类的原理的方法并没有被完全替换掉,只是他们在方法列表的后面,运行时在查找方法的时候是顺着查找</p>
+
+<p>category是不能添加成员变量的.因为一个类的内存大小是固定的.一个类在load方法执行之前就已经加载在内存中,大小固定.只能用追加属性去实现.</p>
+
+<p>关联对象都存在一个全局AssociationsManager里的一个AssociationsHashMap中.当runtime的销毁对象函数objc_destructInstance里面会判断这个对象有没有关联对象,如果有就会_object_remove_assocations清除.</p>
+
+<p><a id="CoreAnimation、CoreGraphic的理解"></a></p>
+
+<h2 id="coreanimation-coregraphic的理解">CoreAnimation、CoreGraphic的理解</h2>
+
+<p>仔细观察可以看出，CoreGraphics是底层绘制框架，我们实际会用到的也就是CG开头的一些底层绘制函数和变量，这是一个纯C语言框架。</p>
+
+<p>QuartzCore也就是你说的包含了CoreAnimation的框架，是iOS系统的基本渲染框架，是一个OC语言框架，是一套基于CoreGraphics的OC语言封装，封装出了基本渲染类CALayer。</p>
+
+<p><a id="HTTP、SSL协议的熟悉程度"></a></p>
+
+<h2 id="http-ssl协议的熟悉程度">HTTP、SSL协议的熟悉程度</h2>
+
+<p><a href="http://blog.csdn.net/u011068702/article/details/78268552">http://blog.csdn.net/u011068702/article/details/78268552</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/33-search-in-rotated-sorted-array-%E5%9C%A8%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%90%9C%E7%B4%A2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/33-search-in-rotated-sorted-array-%E5%9C%A8%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%90%9C%E7%B4%A2/">33. Search in Rotated Sorted Array 在旋转有序数组中搜索</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
