@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>34. Search for a Range 搜索一个范围 &middot; long·pf</title>
 
   
   
@@ -221,83 +221,150 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>34. Search for a Range 搜索一个范围</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>19 Mar 2018, 10:46</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;14&#41;</span>
-    </li>
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;11&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;4&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/binary-search">Binary Search</a>
+    
+  </div>
+
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
+
+</div>
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+
+<p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p>
+
+<p>Your algorithm&rsquo;s runtime complexity must be in the order of O(log n).</p>
+
+<p>If the target is not found in the array, return [-1, -1].</p>
+
+<p>For example,
+Given <code>[5, 7, 7, 8, 8, 10]</code> and target value 8,</p>
+
+<p>return <code>[3, 4]</code>.</p>
+
+<h2 id="解法1">解法1</h2>
+
+<p>这道题让我们在一个有序数组中查找与输入target相同的起始位置和结束位置,限定时间复杂度为O(logn),这个是典型的二分查找时间复杂度.这道题我们先采用二分法找到一个与target相同的index,再想index的左边和右边搜索.</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) {
+        int index = search(nums,0,nums.size()-1,target);
+        if (index==-1) return {-1,-1};
+        int left = index,right = index;
+        while (left&gt;0&amp;&amp;nums[left-1]==nums[index]) left--;
+        while (right&lt;nums.size()-1&amp;&amp;nums[right+1]==nums[index]) right++;
+        return {left,right};
+    }
+    
+    int search(vector&lt;int&gt;&amp;nums,int left,int right,int target){
+        if (left&gt;right) return -1;
+        int mid = (left+right)/2;
+        if (nums[mid]==target) return mid;
+        else if (nums[mid]&lt;target) return search(nums,mid+1,right,target);
+        else return search(nums,left,mid-1,target);
+    }
+};
+</code></pre>
+
+<h2 id="解法2">解法2</h2>
+
+<p>上面的解法 当数组中的元素都相同的时候,相当从中间遍历到两边为O(n).下面可以用一个二分法查左边坐标,一个二分法查右边的坐标.</p>
+
+<pre><code class="language-cpp">vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) {
+        vector&lt;int&gt; res(2,-1);
+        if (nums.size()==0) return res;
+        int left = 0,right = nums.size()-1;
+        //right向左偏移
+        while (left&lt;right) {
+            int mid = (left+right)/2;
+            if (nums[mid]&lt;target) left=mid+1;
+            else right=mid;
+        }
+        if (nums[right] != target) return res;
+        res[0] = right;
+        //如果输入[1],1.right=nums.size()出错
+        right = nums.size();
+        //left向右偏移
+        while (left&lt;right) {
+            int mid = (left+right)/2;
+            if (nums[mid]&lt;=target) left=mid+1;
+            else right=mid;
+        }
+        res[1]=left-1;
+        return res;
+    }
+</code></pre>
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/url2content/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/url2content/">url到内容返回经历了蛇</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
 
 </div>
@@ -326,3 +393,4 @@
 
 </body>
 </html>
+
