@@ -229,6 +229,71 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">35. Search Insert Position 搜索插入位置</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>27 Mar 2018, 14:54</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/binary-search">Binary Search</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You may assume no duplicates in the array.
+Example 1 :
+Input: [1,3,5,6], 5 Output: 2  Example 2 :
+Input: [1,3,5,6], 2 Output: 1  Example 3 :
+Input: [1,3,5,6], 7 Output: 4  Example 4 :
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/34-search-for-a-range-%E6%90%9C%E7%B4%A2%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4/">34. Search for a Range 搜索一个范围</a></h2>
 
     <div class="post-meta">
@@ -810,72 +875,6 @@ Difficulty: Medium
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/">28. Implement strStr() 实现strStr()函数</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Feb 2018, 11:37</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Implement strStr().
-Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-Example 1:
-Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot; Output: 2  Example 2:
-Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot; Output: -1  Difficulty: Easy
-这道题让我们找出字符串中某个子字符串第一次出现的index.如果子字符串的长度为0,则返回0,如果子字符传的长度大于母字符串,则返回-1.遍历字符串的时候只需要遍历到剩下的长度等于字符串的位置即可.
-class Solution { public: int strStr(string haystack, string needle) { if (needle.empty()) return 0; int m = haystack.size(),n=needle.size(); if (m&lt;n) return -1; for (int i=0;i&lt;=m-n;++i) { int j=0; for (j=0;j&lt;n;j++) if (haystack[i+j]!
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -884,7 +883,7 @@ class Solution { public: int strStr(string haystack, string needle) { if (needle
   
   <i class="fa fa-chevron-left"></i>
   
-  <span>&nbsp;1 / 5&nbsp;</span>
+  <span>&nbsp;1 / 6&nbsp;</span>
   
   <a href="http://blog.longpengfei.com/page/2/"><i class="fa fa-chevron-right"></i></a>
   

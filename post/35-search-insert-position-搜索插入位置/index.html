@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>34. Search for a Range 搜索一个范围 &middot; long·pf</title>
+  <title>35. Search Insert Position 搜索插入位置 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>34. Search for a Range 搜索一个范围</h1>
+  <h1>35. Search Insert Position 搜索插入位置</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Mar 2018, 10:46</time>
+    <time>27 Mar 2018, 14:54</time>
   </div>
 
   
@@ -270,69 +270,71 @@
 
   
 
-<p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p>
+<p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
 
-<p>Your algorithm&rsquo;s runtime complexity must be in the order of O(log n).</p>
+<p>You may assume no duplicates in the array.</p>
 
-<p>If the target is not found in the array, return [-1, -1].</p>
+<p><strong>Example 1 :</strong></p>
 
-<p>For example,
-Given <code>[5, 7, 7, 8, 8, 10]</code> and target value 8,</p>
+<pre><code>Input: [1,3,5,6], 5
+Output: 2
+</code></pre>
 
-<p>return <code>[3, 4]</code>.</p>
+<p><strong>Example 2 :</strong></p>
+
+<pre><code>Input: [1,3,5,6], 2
+Output: 1
+</code></pre>
+
+<p><strong>Example 3 :</strong></p>
+
+<pre><code>Input: [1,3,5,6], 7
+Output: 4
+</code></pre>
+
+<p><strong>Example 4 :</strong></p>
+
+<pre><code>Input: [1,3,5,6], 0
+Output: 0
+</code></pre>
+
+<p><strong>Difficulty: Easy</strong></p>
 
 <h2 id="解法1">解法1</h2>
 
-<p>这道题让我们在一个有序数组中查找与输入target相同的起始位置和结束位置,限定时间复杂度为O(logn),这个是典型的二分查找时间复杂度.这道题我们先采用二分法找到一个与target相同的index,再想index的左边和右边搜索.</p>
+<p>二分法</p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) {
-        int index = search(nums,0,nums.size()-1,target);
-        if (index==-1) return {-1,-1};
-        int left = index,right = index;
-        while (left&gt;0&amp;&amp;nums[left-1]==nums[index]) left--;
-        while (right&lt;nums.size()-1&amp;&amp;nums[right+1]==nums[index]) right++;
-        return {left,right};
-    }
-    
-    int search(vector&lt;int&gt;&amp;nums,int left,int right,int target){
-        if (left&gt;right) return -1;
-        int mid = (left+right)/2;
-        if (nums[mid]==target) return mid;
-        else if (nums[mid]&lt;target) return search(nums,mid+1,right,target);
-        else return search(nums,left,mid-1,target);
+    int searchInsert(vector&lt;int&gt;&amp; nums, int target) {
+        if (nums.back() &lt; target) return nums.size();
+        int left = 0,right = nums.size()-1;
+        while(left &lt; right)
+        {
+            int mid = (left+right)/2;
+            if (nums[mid]==target) return mid;
+            else if (nums[mid]&lt;target) left = mid+1;
+            else right = mid;
+        }
+        return right;
     }
 };
 </code></pre>
 
 <h2 id="解法2">解法2</h2>
 
-<p>上面的解法 当数组中的元素都相同的时候,相当从中间遍历到两边为O(n).下面可以用一个二分法查左边坐标,一个二分法查右边的坐标.</p>
+<p>由于对于复杂度没有要求,遍历一次</p>
 
-<pre><code class="language-cpp">vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) {
-        vector&lt;int&gt; res(2,-1);
-        if (nums.size()==0) return res;
-        int left = 0,right = nums.size()-1;
-        //right向左偏移
-        while (left&lt;right) {
-            int mid = (left+right)/2;
-            if (nums[mid]&lt;target) left=mid+1;
-            else right=mid;
+<pre><code class="language-cpp">class Solution {
+public:
+    int searchInsert(vector&lt;int&gt;&amp; nums, int target) {
+        for (int i = 0;i &lt; nums.size();i++)
+        {
+            if (nums[i]&gt;=target) return i;
         }
-        if (nums[right] != target) return res;
-        res[0] = right;
-        //如果输入[1],1.right=nums.size()出错
-        right = nums.size();
-        //left向右偏移
-        while (left&lt;right) {
-            int mid = (left+right)/2;
-            if (nums[mid]&lt;=target) left=mid+1;
-            else right=mid;
-        }
-        res[1]=left-1;
-        return res;
+        return nums.size();
     }
+};
 </code></pre>
 
 
@@ -340,13 +342,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/url2content/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/34-search-for-a-range-%E6%90%9C%E7%B4%A2%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/url2content/">url到内容返回经历了蛇</a>
+      <a href="http://blog.longpengfei.com/post/34-search-for-a-range-%E6%90%9C%E7%B4%A2%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4/">34. Search for a Range 搜索一个范围</a>
     </nav>
     
   </div>
@@ -355,14 +357,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">35. Search Insert Position 搜索插入位置</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
