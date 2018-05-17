@@ -62,43 +62,6 @@ dns解析过程  1. 在浏览器中输入www.qq.com域名,操作系统会先检�
     </item>
     
     <item>
-      <title>看看Sina笔试</title>
-      <link>http://blog.longpengfei.com/post/sina_note/</link>
-      <pubDate>Fri, 16 Mar 2018 18:31:15 +0800</pubDate>
-      
-      <guid>http://blog.longpengfei.com/post/sina_note/</guid>
-      <description>什么事abi 什么是MVC,请结合CocoaTouch说明 什么是MVVM，请设计View moled需要考虑哪些 swift相对于OC有哪些优点 什么是泛型,swift在哪些地方使用了泛型 defer、guard的作用 swift语法糖？！的本质（实现原理） 举例swift中模式匹配的作用 swift中private与OC中block的区别 什么是capture list，举例说明用处 swift中private与fileprivate的区别 REST、HTTP、JSON是什么 LLVM与Clang的区别  什么是abi application binary interface,描述了应用程序(或者其他类型)和操作系统之间或其他应用程序的低级接口
-一个完整的abi,像intel二进制兼容标准,允许支持他的操作系统上的程序不经修改在其他支持此abi的操作系统上运行.
-abi不同于应用程序接口(api),api定义了源代码和库之间的接口,因此同样的代码可以在支持这个api的任何系统中编译,然而abi允许编译好的目标代码在使用兼容abi的系统中无需改动就能运行.
-什么是MVC,请结合CocoaTouch说明 Cocoa在Mac OS上,包括Foundation和AppKit.在iOS 11上叫做Cocoa Touch包括Foundation,UIKit.MVC不是最基本的设计模式,他包括了(组合,命令,中介者,策略和观察者).
- 组合: 视图对象之间以协作的方式构成一个视图层次体系,其中既可以有符合视图(比如表格视图),也可以有独立视图.每个层次的每个视图都可以相应用户的操作并把自己绘制到屏幕上. 命令: 这是一种&amp;rsquo;目标-动作&amp;rsquo;机制,视图对象可以推迟其他对象(比如控制器)的执行,让其他对象等到发生了某些事件后执行,这一机制构成了命令模式. 中介者: 控制器对象其中间人的作用,这个中间人则采用了中介者模式,他构成了在模型和视图对象之间传递数据的双向通道.将模型的比爱你更传达给视图对象. 策略: 控制器可以是视图对象的一个&amp;rsquo;策略&amp;rsquo;,视图对象将自己隔离,以维持其作为数据展示器的唯一职责,而将一切应用程序持有的界面行为决定委派给他的&amp;rsquo;策略&amp;rsquo;对象(控制器) 观察者: 模型对象想他所关注的控制器等对象发出内部状态变化的通知,从而控制器将变更了数据模型传递给视图,更新视图  这些模式协同工作流程:
- 1. 用户在视图上用手指触摸或拖动,产生一个触摸事件.被触摸的实际就在视图组合中的某个层次上.视图将触摸消息传达给视图控制器 2. 控制器对象接收到触摸事件及其相关信息,然后应用策略来改变模型的状态,必要时请求视图对象根据此事件更新其行为或外观 3. 每当变更发生并已反应到模型对象,模型对象就会通知所有已注册的观察者对象如控制器 4. 控制器就想一个协调人,他将变更了的数据从模型传递给视图.以便视图可以相应的更新其外观  什么是MVVM，请设计View moled需要考虑哪些 相当于MVC的强化版本,将网络请求和一些view上的逻辑处理都挪到vm中.减轻了viewcontroller的负担.
-viewmodel中尽量不要饮用UIKit(uiimage待商榷).任何视图的引用不应该出现的viewmodel中,因为不归viewmodel.
-swift相对于OC有哪些优点  易读,语法和文件结构简易化 易维护,文件分离后结构更清晰 更安全,类型安全的语言 代码简洁, 速度快,性能高 版本不稳定 资料/开源项目少  什么是泛型,swift在哪些地方使用了泛型 struct Stack&amp;lt;Element&amp;gt; { var items = [Element]() mutating func push(_ item: Element) { items.</description>
-    </item>
-    
-    <item>
-      <title>群里的一些iOS问题</title>
-      <link>http://blog.longpengfei.com/post/qq_group_ios_case/</link>
-      <pubDate>Mon, 05 Mar 2018 14:12:38 +0800</pubDate>
-      
-      <guid>http://blog.longpengfei.com/post/qq_group_ios_case/</guid>
-      <description>多线程
- 队列&amp;amp;线程关系 几种多线程实现  项目
- 负责的部分 流程 架构 难点  内存管理
- mrc arc autoreleasepool  runloop
- http缓存
- NSString copy strong
- UIScrollView 滚动原理
- 分类属性、关联对象的实现原理、以及序列化时，是否会将关联对象序列化
- CoreAnimation、CoreGraphic的理解
- HTTP、SSL协议的熟悉程度
-  
-多线程 队列&amp;amp;线程关系  dispatch_sync添加任务到队列,不会创建新的线程都是在当前线程中处理的.无论添加到串行队列(main或自建)或者并行队列里(globalQueue或自建),都是串行效果,因为这个方法是等任务执行完成以后才会返回. dispatch_async添加任务到  mainQueue不创建线程,在主线程中串行执行 globalQueue和自己创建的并行队列: 根据任务系统决定开辟线程个数 自建的串行队列: 创建一个线程,串行执行   一些相关的测试例子
-几种多线程实现  pthread  一套通用多线程api 适用于Unix\Linux\Windows等系统 跨平台\可移植 使用难度大 c语言,几乎不用,由程序员进行管理线程生命周期  NSThread  使用更加面向对象 简单易用,可直接操作线程对象 oc语言,偶尔使用,由程序员管理生命周期  GCD  旨在替代NSThread等线程技术 充分利用设备的多核(自动) 经常使用,自动管理  NSOperation  基于GCD(底层是GCD) 比GCD多了一些简单使用的功能 使用更加面向对象 OC语言,经常使用,自动管理生命周期   NSOperation NSOperation本身是一个抽象类,可通过下面几个方法使用</description>
-    </item>
-    
-    <item>
       <title>33. Search in Rotated Sorted Array 在旋转有序数组中搜索</title>
       <link>http://blog.longpengfei.com/post/33-search-in-rotated-sorted-array-%E5%9C%A8%E6%97%8B%E8%BD%AC%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%90%9C%E7%B4%A2/</link>
       <pubDate>Tue, 27 Feb 2018 10:38:10 +0800</pubDate>
@@ -682,43 +645,6 @@ or
 详细可以参看demo 
 大概思路 其实和KVO的原理有点相似,衍生出来一个中间类,重写setter方法做到键值监听.不过这里不是只有setter方法还有其他普通的方法.再就是普通方法的变化参数需要好好处理下.
  1 . 判断该类是否有这个监听方法 (这里我就直接取这个方法的类方法和实例方法,如果都不存在,则抛出异常) 2 . 判断是否生成过中间类,没生成则生成一个 3 . 查看中间类是否有要监听的方法,没有添加方法 (有关于普通方法的变参问题,我这里是用va_list来处理的) 4 . 储存监听信息和回调  具体实现  1 . 判断该类是否有这个监听方法   Method method = class_getInstanceMethod([self class], selector); if (!</description>
-    </item>
-    
-    <item>
-      <title>整理一些ios面试题(偏简单的)</title>
-      <link>http://blog.longpengfei.com/post/ios-interview-question-new/</link>
-      <pubDate>Tue, 10 Jan 2017 01:49:52 +0800</pubDate>
-      
-      <guid>http://blog.longpengfei.com/post/ios-interview-question-new/</guid>
-      <description>这里是一位别的同学整理的
-1.MVC 具有什么样的优势，各个模块之间怎么通信，比如点击 Button 后 怎么通知 Model？ 
-MVC 模式的优点。
-1.低耦合性
-2.有利于开发分工
-3.有利于组件重用
-4.可维护性
-button可以通过target-action高速controller,controller通过kvo告诉model
-2.两个无限长度链表（也就是可能有环） 判断有没有交点 看这里
-3.UITableView 的相关优化
-看UIKit性能优化,印象笔记 和 这个
-4. KVO、Notification、delegate 各自的优缺点，效率还有使用场景 看这里
-5.如何手动通知 KVO 看这里;
-6.Objective-C 中的 copy 方法
-Objective-c中对象的Copy、MutableCopy、浅拷贝、深拷贝
-浅析Objective-C的copy
-7. runtime 中，SEL 和 IMP 的区别
-SEL : 类成员方法的指针，但不同于C语言中的函数指针，函数指针直接保存了方法的地址，但SEL只是方法编号。
-IMP:一个函数指针,保存了方法的地址
-8 . autoreleasepool 的使用场景和原理
-如果你编写的程序不是基于 UI 框架的，比如说命令行工具； 如果你编写的循环中创建了大量的临时对象； 如果你创建了一个辅助线程。
-原理解析1
-解析2
-9 . RunLoop 的实现原理和数据结构，什么时候会用到
-深入理解runloop
-runloop小结
-10 . block 为什么会有循环引用 
-认识block
-这里有一点没有说明 : arc和mrc中block的区别,就是block内访问或者修改外部变量的时候,arc自动将block处于堆中,mrc栈中</description>
     </item>
     
     <item>
