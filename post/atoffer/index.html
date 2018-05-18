@@ -1139,6 +1139,30 @@ public:
             Mirror(pRoot-&gt;right);
     }
 };
+
+//非递归解法
+class Solution {
+ public:
+ void Mirror(TreeNode *pRoot) {
+    if(pRoot==NULL) return;
+    stack&lt;TreeNode*&gt; s;
+    s.push(pRoot);
+    while(!s.empty())
+     {
+         TreeNode *head = s.top();
+         s.pop();
+         if(head-&gt;left||head-&gt;right)
+         {
+             TreeNode *tmp = head-&gt;left;
+             head-&gt;left = head-&gt;right;
+             head-&gt;right = tmp;
+         }
+         if (head-&gt;left) s.push(head-&gt;left);
+         if (head-&gt;right) s.push(head-&gt;right);
+      }
+    }
+};
+
 </code></pre>
 
 <p><a id="顺时针打印矩阵"></a></p>
