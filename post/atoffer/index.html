@@ -294,7 +294,7 @@
 <li><a href="#二叉搜索树与双向链表">26. 二叉搜索树与双向链表</a></li>
 <li><a href="#字符串的排列">27. 字符串的排列</a></li>
 <li><a href="#数组中出现次数超过一半的数字">28. 数组中出现次数超过一半的数字</a></li>
-<li><a href="#红黑树,快排,堆排">红黑树,快排,堆排</a></li>
+<li><a href="#红黑树,快排,堆排">红黑树,快排,堆排,合并排序</a></li>
 <li><a href="#最小的K个数">29. 最小的K个数</a></li>
 <li><a href="#连续子数组的最大和">30. 连续子数组的最大和</a></li>
 <li><a href="#整数中1出现的次数(从1到n整数中1出现的次数)">31. 整数中1出现的次数(从1到n整数中1出现的次数)</a></li>
@@ -1934,7 +1934,7 @@ public:
 };
 </code></pre>
 
-<p><a id="红黑树,快排,堆排"></a></p>
+<p><a id="红黑树,快排,堆排,合并排序"></a></p>
 
 <h3 id="红黑树-快排-堆排">红黑树,快排,堆排</h3>
 
@@ -1943,6 +1943,51 @@ public:
 <p><a href="https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin">快排</a></p>
 
 <p><a href="https://www.cnblogs.com/jingmoxukong/p/4303826.html">堆排</a></p>
+
+<p><strong>合并排序</strong></p>
+
+<pre><code class="language-cpp">//将有二个有序数列a[first...mid]和a[mid...last]合并
+void mergearray(int a[],int first,int mid,int last,int temp[])
+{
+	int i = first,j = mid+1;
+	int m = mid,n = last;
+	int k = 0;
+	while (i&lt;=m &amp;&amp; j &lt;= n)
+	{
+		if (a[i]&lt;=a[j])
+			temp[k++] = a[i++];
+		else
+			temp[k++] = a[j++];
+		// printf(&quot;%d\n&quot;, temp[k]);
+	}
+	while (i &lt;= m)
+		temp[k++] = a[i++];
+	while (j &lt;= n)
+		temp[k++] = a[j++];
+	for (int i = 0; i &lt; k; ++i)
+		a[first+i] = temp[i];
+}
+
+
+void mergesort(int a[],int first,int last,int temp[])
+{
+	if (first&lt;last)
+	{
+		int mid = (first+last)/2;
+		mergesort(a,first,mid,temp);
+		mergesort(a,mid+1,last,temp);
+		mergearray(a,first,mid,last,temp);
+	}
+}
+
+void MergeSort(int a[],int n)
+{
+	int *p = new int[n];
+	if (p == NULL) return;
+	mergesort(a,0,n-1,p);
+	delete[] p;
+}
+</code></pre>
 
 <p><a id="最小的K个数"></a></p>
 
