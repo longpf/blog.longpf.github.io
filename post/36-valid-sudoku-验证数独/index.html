@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>36 Valid Sudoku 验证数独 &middot; long·pf</title>
 
   
   
@@ -221,83 +221,129 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>36 Valid Sudoku 验证数独</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 May 2018, 18:57</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;14&#41;</span>
-    </li>
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;12&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;5&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;5&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>
+    
+  </div>
+
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</p>
+
+<p>Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.</p>
+
+<p><img src="https://raw.githubusercontent.com/longpf/Resource/master/img/sudoku.png" alt="" /></p>
+
+<p>The Sudoku board could be partially filled, where empty cells are filled with the character &lsquo;.&rsquo;.</p>
+
+<p>Note:</p>
+
+<p>A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+The given board contain only digits 1-9 and the character &lsquo;.&rsquo;.
+The given board size is always 9x9.</p>
+
+<p><strong>Difficulty: Medium</strong></p>
+
+<p><strong>验证一个矩阵是否是数独矩阵,就是判断每行是否有重复的数字,每列是否有重复的数字,每个3x3的小矩阵是否有重复的数字.这个9x9里面有9个3x3的小矩阵,不计算重叠情况.这里用3个标志矩阵来记录对应位置是否出现过.</strong></p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
+        if (board.empty()||board[0].empty()) return false;
+        int m = board.size(),n = board[0].size();
+        vector&lt;vector&lt;bool&gt;&gt; rowFlag(m,vector&lt;bool&gt;(n,false));
+        vector&lt;vector&lt;bool&gt;&gt; colFlag(m,vector&lt;bool&gt;(n,false));
+        vector&lt;vector&lt;bool&gt;&gt; cellFlag(m,vector&lt;bool&gt;(n,false));
+        for (int i=0;i&lt;m;++i){
+            for (int j=0; j&lt;n; ++j) {
+                if (board[i][j]&gt;='1'&amp;&amp;board[i][j]&lt;='9'){
+                    int c = board[i][j]-'1';
+                    if (rowFlag[i][c] || colFlag[c][j] || cellFlag[3*(i/3) + j/3][c])
+                    {
+                        return false;
+                    }
+                    rowFlag[i][c] = true;
+                    colFlag[c][j] = true;
+                    cellFlag[3*(i/3) + j/3][c] = true;
+                }
+            }
+        }
+        return  true;
+    }
+};
+</code></pre>
+
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">35. Search Insert Position 搜索插入位置</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
 
 </div>
@@ -326,3 +372,4 @@
 
 </body>
 </html>
+

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 27 Mar 2018 14:54:16 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 May 2018 18:57:04 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>36 Valid Sudoku 验证数独</title>
+      <link>http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/</link>
+      <pubDate>Mon, 28 May 2018 18:57:04 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/</guid>
+      <description>Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+Each row must contain the digits 1-9 without repetition. Each column must contain the digits 1-9 without repetition. Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+The Sudoku board could be partially filled, where empty cells are filled with the character &amp;lsquo;.</description>
+    </item>
     
     <item>
       <title>35. Search Insert Position 搜索插入位置</title>
