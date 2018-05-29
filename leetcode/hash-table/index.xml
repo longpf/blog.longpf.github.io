@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 28 May 2018 18:57:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 May 2018 15:18:20 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/hash-table/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>37. Sudoku Solver 求数独的一个解</title>
+      <link>http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/</link>
+      <pubDate>Tue, 29 May 2018 15:18:20 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/</guid>
+      <description>Write a program to solve a Sudoku puzzle by filling the empty cells.
+A sudoku solution must satisfy all of the following rules:
+ Each of the digits 1-9 must occur exactly once in each row. Each of the digits 1-9 must occur exactly once in each column. Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.  Empty cells are indicated by the character &amp;lsquo;.</description>
+    </item>
     
     <item>
       <title>36. Valid Sudoku 验证数独</title>

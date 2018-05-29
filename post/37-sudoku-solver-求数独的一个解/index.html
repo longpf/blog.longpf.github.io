@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>36. Valid Sudoku 验证数独 &middot; long·pf</title>
+  <title>37. Sudoku Solver 求数独的一个解 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>36. Valid Sudoku 验证数独</h1>
+  <h1>37. Sudoku Solver 求数独的一个解</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>28 May 2018, 18:57</time>
+    <time>29 May 2018, 15:18</time>
   </div>
 
   
@@ -266,50 +266,77 @@
 
 </div>
 
-  <p>Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</p>
+  <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
-<p>Each row must contain the digits 1-9 without repetition.
-Each column must contain the digits 1-9 without repetition.
-Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.</p>
+<p>A sudoku solution must satisfy all of the following rules:</p>
 
-<p><img src="https://raw.githubusercontent.com/longpf/Resource/master/img/sudoku.png" alt="" /></p>
+<ul>
+<li>Each of the digits 1-9 must occur exactly once in each row.</li>
+<li>Each of the digits 1-9 must occur exactly once in each column.</li>
+<li>Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.</li>
+<li>
+Empty cells are indicated by the character &lsquo;.&rsquo;.</li>
+</ul>
 
-<p>The Sudoku board could be partially filled, where empty cells are filled with the character &lsquo;.&rsquo;.</p>
+<p><img src="https://github.com/longpf/Resource/blob/master/img/sudoku.png?raw=true" alt="" /></p>
+
+<p>A sudoku puzzle&hellip;</p>
+
+<p><img src="https://github.com/longpf/Resource/blob/master/img/sudoku_solve.png?raw=true" alt="" /></p>
+
+<p>&hellip;and its solution numbers marked in red.</p>
 
 <p>Note:</p>
 
-<p>A Sudoku board (partially filled) could be valid but is not necessarily solvable.
-Only the filled cells need to be validated according to the mentioned rules.
-The given board contain only digits 1-9 and the character &lsquo;.&rsquo;.
-The given board size is always 9x9.</p>
+<ul>
+<li>The given board contain only digits 1-9 and the character &lsquo;.&rsquo;.</li>
+<li>You may assume that the given Sudoku puzzle will have a single unique solution.</li>
+<li>The given board size is always 9x9.</li>
+</ul>
 
-<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Difficulty: Hard</strong></p>
 
-<p><strong>验证一个矩阵是否是数独矩阵,就是判断每行是否有重复的数字,每列是否有重复的数字,每个3x3的小矩阵是否有重复的数字.这个9x9里面有9个3x3的小矩阵,不计算重叠情况.这里用3个标志矩阵来记录对应位置是否出现过.</strong></p>
+<p><strong>这道题求数独到一个解.数独解的个数不一定.这道题是唯一解的.具体如何判断数独解的个数暂时不清楚&hellip;这里需要遍历每个格子,如果是数字,则继续下一个位置,如果是&rsquo;.&lsquo;,判断如果填入数字1是否符合数独规则,如果符合数独规则那么填入数字1并继续递归.如果递归失败,则进行回溯,将数字改成&rsquo;.&lsquo;,再尝试下一数字2&hellip;  这里也可以看成深度优先DFS,因为需要先确定了最后一个&rsquo;.&lsquo;填入的数字</strong></p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
-        if (board.empty()||board[0].empty()) return false;
-        int m = board.size(),n = board[0].size();
-        vector&lt;vector&lt;bool&gt;&gt; rowFlag(m,vector&lt;bool&gt;(n,false));
-        vector&lt;vector&lt;bool&gt;&gt; colFlag(m,vector&lt;bool&gt;(n,false));
-        vector&lt;vector&lt;bool&gt;&gt; cellFlag(m,vector&lt;bool&gt;(n,false));
-        for (int i=0;i&lt;m;++i){
-            for (int j=0; j&lt;n; ++j) {
-                if (board[i][j]&gt;='1'&amp;&amp;board[i][j]&lt;='9'){
-                    int c = board[i][j]-'1';
-                    if (rowFlag[i][c] || colFlag[c][j] || cellFlag[3*(i/3) + j/3][c])
-                    {
-                        return false;
+    void solveSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
+        if (board.size()==0 || board[0].size()==0) return;
+        solve(board);
+    }
+    
+    bool solve(vector&lt;vector&lt;char&gt; &gt; &amp;board)
+    {
+        for (int i = 0; i &lt; board.size(); i++) {
+            for (int j = 0; j &lt; board[0].size(); j++) {
+                if (board[i][j]=='.') {
+                    //从1到9一个个尝试
+                    for (char c = '1'; c &lt;= '9'; c++) {
+                        if (isValid(board, i, j, c)) {
+                            board[i][j] = c;
+                            if (solve(board))
+                                return true; //如果是解 就返回true
+                            else
+                                board[i][j] = '.'; //如果不是解,就返回
+                        }
                     }
-                    rowFlag[i][c] = true;
-                    colFlag[c][j] = true;
-                    cellFlag[3*(i/3) + j/3][c] = true;
+                    return false; //1-9 都尝试过了没解,返回false,说明上一层错误
                 }
             }
         }
-        return  true;
+        return true;
+    }
+    
+    bool isValid(vector&lt;vector&lt;char&gt; &gt; &amp;board,int row,int col,char c)
+    {
+        for (int i=0; i&lt;9; i++) {
+            if (board[i][col] != '.' &amp;&amp; board[i][col] == c) return false; //验证行
+            if (board[row][i] != '.' &amp;&amp; board[row][i] == c) return false; //验证列
+            //验证3x3的块.遍历这个board的这个3x3的块,看看是否有与c相同的字符,有的话就不合法.
+            if (board[3*(row/3)+i/3][3*(col/3)+i%3] != '.' &amp;&amp; board[3*(row/3)+i/3][3*(col/3)+i%3] == c) return false;
+        }
+        
+        return true;
     }
 };
 </code></pre>
@@ -319,13 +346,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">35. Search Insert Position 搜索插入位置</a>
+      <a href="http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/">36. Valid Sudoku 验证数独</a>
     </nav>
     
   </div>
@@ -334,14 +361,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">37. Sudoku Solver 求数独的一个解</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
