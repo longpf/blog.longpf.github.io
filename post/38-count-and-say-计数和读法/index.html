@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>37. Sudoku Solver 求数独的一个解 &middot; long·pf</title>
+  <title>38. Count and Say 计数和读法 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>37. Sudoku Solver 求数独的一个解</h1>
+  <h1>38. Count and Say 计数和读法</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>29 May 2018, 15:18</time>
+    <time>19 Jun 2018, 18:28</time>
   </div>
 
   
@@ -256,9 +256,7 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
     
   </div>
 
@@ -268,93 +266,89 @@
 
 </div>
 
-  <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
+  <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
 
-<p>A sudoku solution must satisfy all of the following rules:</p>
+<pre><code>1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221
+</code></pre>
+
+<p><code>1</code> is read off as <code>&quot;one 1&quot;</code> or <code>11</code>.</p>
+
+<p><code>11</code> is read off as <code>&quot;two 1s&quot;</code> or <code>21</code>.</p>
+
+<p><code>21</code> is read off as <code>&quot;one 2</code>, then <code>one 1&quot;</code> or <code>1211</code>.</p>
+
+<p>Given an integer n, generate the nth term of the count-and-say sequence.</p>
+
+<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre><code>Input: 1
+Output: &quot;1&quot;
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre><code>Input: 4
+Output: &quot;1211&quot;
+</code></pre>
+
+<p><strong>Difficulty: Easy</strong></p>
+
+<p><font color=#DC143C size=3></p>
+
+<p>这道题的意思为 :</p>
 
 <ul>
-<li>Each of the digits 1-9 must occur exactly once in each row.</li>
-<li>Each of the digits 1-9 must occur exactly once in each column.</li>
-<li>Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.</li>
-<li>
-Empty cells are indicated by the character &lsquo;.&rsquo;.</li>
+<li>从1开始将当前的数字转化为口语对应的数字,比如1读作1个1,记作11.</li>
+<li>11读作2个1,记作21</li>
+<li>21读作1个2,1个1,记作1211</li>
 </ul>
 
-<p><img src="https://github.com/longpf/Resource/blob/master/img/sudoku.png?raw=true" alt="" /></p>
-
-<p>A sudoku puzzle&hellip;</p>
-
-<p><img src="https://github.com/longpf/Resource/blob/master/img/sudoku_solve.png?raw=true" alt="" /></p>
-
-<p>&hellip;and its solution numbers marked in red.</p>
-
-<p>Note:</p>
-
-<ul>
-<li>The given board contain only digits 1-9 and the character &lsquo;.&rsquo;.</li>
-<li>You may assume that the given Sudoku puzzle will have a single unique solution.</li>
-<li>The given board size is always 9x9.</li>
-</ul>
-
-<p><strong>Difficulty: Hard</strong></p>
-
-<p><strong>这道题求数独到一个解.数独解的个数不一定.这道题是唯一解的.具体如何判断数独解的个数暂时不清楚&hellip;这里需要遍历每个格子,如果是数字,则继续下一个位置,如果是&rsquo;.&lsquo;,判断如果填入数字1是否符合数独规则,如果符合数独规则那么填入数字1并继续递归.如果递归失败,则进行回溯,将数字改成&rsquo;.&lsquo;,再尝试下一数字2&hellip;  这里也可以看成深度优先DFS,因为需要先确定了最后一个&rsquo;.&lsquo;填入的数字</strong></p>
+<p></font></p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    void solveSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {
-        if (board.size()==0 || board[0].size()==0) return;
-        solve(board);
-    }
-    
-    bool solve(vector&lt;vector&lt;char&gt; &gt; &amp;board)
-    {
-        for (int i = 0; i &lt; board.size(); i++) {
-            for (int j = 0; j &lt; board[0].size(); j++) {
-                if (board[i][j]=='.') {
-                    //从1到9一个个尝试
-                    for (char c = '1'; c &lt;= '9'; c++) {
-                        if (isValid(board, i, j, c)) {
-                            board[i][j] = c;
-                            if (solve(board))
-                                return true; //如果是解 就返回true
-                            else
-                                board[i][j] = '.'; //如果不是解,就返回
-                        }
-                    }
-                    return false; //1-9 都尝试过了没解,返回false,说明上一层错误
+    string countAndSay(int n) {
+        if (n==0) return &quot;&quot;;
+        string res = &quot;1&quot;;
+        while (--n){
+            string cur = &quot;&quot;;
+            for (int i=0;i&lt;res.size();i++){
+                int count = 1;
+                while (i+1&lt;res.size() &amp;&amp; res[i]==res[i+1]){
+                    count ++;
+                    i++;
                 }
+                cur += to_string(count) + res[i];
             }
+            res = cur;
         }
-        return true;
-    }
-    
-    bool isValid(vector&lt;vector&lt;char&gt; &gt; &amp;board,int row,int col,char c)
-    {
-        for (int i=0; i&lt;9; i++) {
-            if (board[i][col] != '.' &amp;&amp; board[i][col] == c) return false; //验证行
-            if (board[row][i] != '.' &amp;&amp; board[row][i] == c) return false; //验证列
-            //验证3x3的块.遍历这个board的这个3x3的块,看看是否有与c相同的字符,有的话就不合法.
-            if (board[3*(row/3)+i/3][3*(col/3)+i%3] != '.' &amp;&amp; board[3*(row/3)+i/3][3*(col/3)+i%3] == c) return false;
-        }
-        
-        return true;
+        return res;
     }
 };
 </code></pre>
+
+<p>参考资料</p>
+
+<p><a href="https://leetcode.com/problems/count-and-say/discuss/16043/c-solution-easy-understand">https://leetcode.com/problems/count-and-say/discuss/16043/c-solution-easy-understand</a></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/">36. Valid Sudoku 验证数独</a>
+      <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">37. Sudoku Solver 求数独的一个解</a>
     </nav>
     
   </div>
@@ -363,14 +357,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/">38. Count and Say 计数和读法</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
