@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/</loc>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/</loc>
     <lastmod>2018-06-19T18:28:06+08:00</lastmod>
   </url>
@@ -270,13 +275,13 @@
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/array/</loc>
-    <lastmod>2018-03-27T14:54:16+08:00</lastmod>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/backtracking/</loc>
-    <lastmod>2018-05-29T15:18:20+08:00</lastmod>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -335,14 +340,14 @@
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2018-06-19T18:28:06+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/leetcode/</loc>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/leetcode/</loc>
-    <lastmod>2018-03-27T14:54:16+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -366,7 +371,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-06-19T18:28:06+08:00</lastmod>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -413,7 +418,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-06-19T18:28:06+08:00</lastmod>
+    <lastmod>2018-06-20T14:32:45+08:00</lastmod>
     <priority>0</priority>
   </url>
   

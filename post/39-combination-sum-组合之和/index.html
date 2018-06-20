@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>38. Count and Say 计数和读法 &middot; long·pf</title>
+  <title>39. Combination Sum 组合之和 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>38. Count and Say 计数和读法</h1>
+  <h1>39. Combination Sum 组合之和</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Jun 2018, 18:28</time>
+    <time>20 Jun 2018, 14:32</time>
   </div>
 
   
@@ -256,7 +256,9 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
     
   </div>
 
@@ -266,89 +268,75 @@
 
 </div>
 
-  <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+  <p>Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
 
-<pre><code>1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-</code></pre>
+<p>The same repeated number may be chosen from candidates unlimited number of times.</p>
 
-<p><code>1</code> is read off as <code>&quot;one 1&quot;</code> or <code>11</code>.</p>
+<p><strong>Note:</strong></p>
 
-<p><code>11</code> is read off as <code>&quot;two 1s&quot;</code> or <code>21</code>.</p>
-
-<p><code>21</code> is read off as <code>&quot;one 2</code>, then <code>one 1&quot;</code> or <code>1211</code>.</p>
-
-<p>Given an integer n, generate the nth term of the count-and-say sequence.</p>
-
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+<p>All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.</p>
 
 <p><strong>Example 1:</strong></p>
 
-<pre><code>Input: 1
-Output: &quot;1&quot;
+<pre><code>Input: candidates = [2,3,6,7], target = 7,
+A solution set is:
+[
+  [7],
+  [2,2,3]
+]
 </code></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre><code>Input: 4
-Output: &quot;1211&quot;
+<pre><code>Input: candidates = [2,3,5], target = 8,
+A solution set is:
+[
+  [2,2,2,2],
+  [2,3,3],
+  [3,5]
+]
 </code></pre>
 
-<p><strong>Difficulty: Easy</strong></p>
+<p><strong>Difficulty: Mediaum</strong></p>
 
-<p><font color=#DC143C size=3></p>
-
-<p>这道题的意思为 :</p>
-
-<ul>
-<li>从1开始将当前的数字转化为口语对应的数字,比如1读作1个1,记作11.</li>
-<li>11读作2个1,记作21</li>
-<li>21读作1个2,1个1,记作1211</li>
-</ul>
-
-<p></font></p>
+<p>这道题求数组中的某几个数之和等于一个给定的数,数组中的数可以重复使用.这道题有点像剑指offer中<a href="http://blog.longpengfei.com/post/atoffer/#二叉树中和为某一值的路径">二叉树中和为某一值的路径</a>.思路都差不多.需要写一个递归函数.</p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    string countAndSay(int n) {
-        if (n==0) return &quot;&quot;;
-        string res = &quot;1&quot;;
-        while (--n){
-            string cur = &quot;&quot;;
-            for (int i=0;i&lt;res.size();i++){
-                int count = 1;
-                while (i+1&lt;res.size() &amp;&amp; res[i]==res[i+1]){
-                    count ++;
-                    i++;
-                }
-                cur += to_string(count) + res[i];
-            }
-            res = cur;
-        }
+    vector&lt;vector&lt;int&gt;&gt; combinationSum(vector&lt;int&gt;&amp; candidates, int target) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        vector&lt;int&gt; solution;
+        findSum(candidates, 0, target, solution, res);
         return res;
+    }
+
+    void findSum(vector&lt;int&gt;&amp; candidates,int start,int target,vector&lt;int&gt;&amp; solution,vector&lt;vector&lt;int&gt;&gt;&amp; res){
+        if (target&lt;0) return;
+        else if (target==0) res.push_back(solution);
+        else {
+            for (int i = start; i &lt; candidates.size(); i++) {
+                solution.push_back(candidates[i]);
+                findSum(candidates, i, target-candidates[i], solution, res);
+                solution.pop_back();
+            }
+        }
     }
 };
 </code></pre>
-
-<p>参考资料</p>
-
-<p><a href="https://leetcode.com/problems/count-and-say/discuss/16043/c-solution-easy-understand">https://leetcode.com/problems/count-and-say/discuss/16043/c-solution-easy-understand</a></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">37. Sudoku Solver 求数独的一个解</a>
+      <a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/">38. Count and Say 计数和读法</a>
     </nav>
     
   </div>
@@ -357,14 +345,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/">39. Combination Sum 组合之和</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
