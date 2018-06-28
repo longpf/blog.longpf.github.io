@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 20 Jun 2018 14:32:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jun 2018 12:23:10 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>40. Combination Sum II 组合之和之二</title>
+      <link>http://blog.longpengfei.com/post/40-combination-sum-ii-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C%E4%B9%8B%E4%BA%8C/</link>
+      <pubDate>Thu, 28 Jun 2018 12:23:10 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/40-combination-sum-ii-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C%E4%B9%8B%E4%BA%8C/</guid>
+      <description>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
+Each number in candidates may only be used once in the combination.
+Note:
+All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations.
+Example 1:
+Input: candidates = [10,1,2,7,6,1,5], target = 8,
+A solution set is: [ [1, 7], [1, 2, 5], [2, 6], [1, 1, 6] ]  Example 2:</description>
+    </item>
     
     <item>
       <title>39. Combination Sum 组合之和</title>

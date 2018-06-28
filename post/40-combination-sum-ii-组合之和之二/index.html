@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>long·pf</title>
+  <title>40. Combination Sum II 组合之和之二 &middot; long·pf</title>
 
   
   
@@ -221,21 +221,16 @@
 
 
 <div class="header">
-  <h1>long·pf</h1>
-  <h2>do your good at,challenge what do you want to do</h2>
+  <h1>40. Combination Sum II 组合之和之二</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Dec 2016, 14:52</time>
+    <time>28 Jun 2018, 12:23</time>
   </div>
 
   
@@ -248,166 +243,123 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
     
   </div>
 
   
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+    
+  </div>
+
+  
   
 
 
 </div>
 
-  </header>
+  <p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
 
-  <p>
-  git flow feature start branchname
- 开始一个featuer分支,feature分支的名字一般为功能+人名,如capture.xiaoming  git flow feature publish branchname
- 将一个featuer分支推到远程,多人开发  git checkout -b feature/branchname origin/feature/branchname * 将远程的featuer分支下到本地开发
-git flow feature finish branchname * 合并至本地develop * 删除任务分支
-git pull --rebase
-git flow release start v6.6.3 * 开始release分支
-git flow release publish v6.6.3
-git flow release finish v6.6.3 * 合并release分支到master * 在master上打上tag * 合并release到develop * 删除release
-git flow hotfix start v6.6.4 * 开始修复分支
-git flow hotfix finish v6.
-  </p>
+<p>Each number in candidates may only be used once in the combination.</p>
 
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/git-flow-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<p>Note:</p>
 
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/git-command/">Git 常用命令简记</a></h2>
+<p>All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.</p>
 
-    <div class="post-meta">
+<p><strong>Example 1:</strong></p>
 
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Dec 2016, 14:51</time>
-  </div>
+<p>Input: candidates = [10,1,2,7,6,1,5], target = 8,</p>
 
-  
+<pre><code>A solution set is:
+[
+  [1, 7],
+  [1, 2, 5],
+  [2, 6],
+  [1, 1, 6]
+]
+</code></pre>
 
-  
+<p><strong>Example 2:</strong></p>
 
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+<p>Input: candidates = [2,5,2,1,2], target = 5,</p>
+
+<pre><code>A solution set is:
+[
+  [1,2,2],
+  [5]
+]
+</code></pre>
+
+<p><strong>Difficulty: Medium</strong></p>
+
+<p>这道题和上道题<a href="http://blog.longpengfei.com/post/39-combination-sum-组合之和/">Combination Sum 组合之和</a>差不多,只是这里不能使用重复的数字. 这是需要在<code>findSum</code>递归的的时候传入<code>i+1</code> 以及需要在for循环的时候判断一下这个数和上一个数是否相等. 这样可以避免类似 <code>{1,1,7} 8</code> 这种输入,7的使用重复问题</p>
+
+<pre><code class="language-cpp">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target){
+        vector&lt;vector&lt;int&gt;&gt; res;
+        vector&lt;int&gt; solution;
+        sort(candidates.begin(), candidates.end());
+        findSum2(candidates,0,target,solution,res);
+        return res;
+    }
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
+    void findSum2(vector&lt;int&gt;&amp; candidates,int start,int target,vector&lt;int&gt;&amp; solution,vector&lt;vector&lt;int&gt;&gt;&amp; res){
+        if (target &lt; 0) return;
+        else if (target==0){
+            res.push_back(solution);
+        }else{
+            for (int i = start;i &lt; candidates.size();i++){
+                if (i &gt; start &amp;&amp; candidates[i-1]==candidates[i]) continue;
+                solution.push_back(candidates[i]);
+                findSum2(candidates, i+1, target-candidates[i], solution, res);
+                solution.pop_back();
+            }
+        }
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
-
-  
-  
-
-  
-
-
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/">39. Combination Sum 组合之和</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  前:HEAD关键字是指当前分支的最新一次提交,就是版本库中该分支上的最新版本
-git init git init 初始化一个repo,创建一个.git文件夹
-git clone git clone url newname nenamew 可以不要
-git log git log --oneline 每条log显示一行
-git log --oneline --graph 图形化
-git log branchname 指定分支log
-git log --oneline branch1 ^branch2 在分支1,不在分支2,^为排除
-git log --author=[author name]指定作者
-git log --grep=keywords筛选commit信息
-git log --grep=keywords --author=authorname 是OR的关系,如果想为AND则添加&ndash;all-match
-git reflog 对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化 当git reflog 不指定引用的时候,默认列出HEAD的reflog git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,分支的reflog文件都放在.git/logs/refs目录下的子目录中.
-git reflog 可以看到reset的commit
-git add git add file
-git add . 递归添加工作区的修改到暂缓区
-git commit git commit -m &quot;message&quot;
-  </p>
 
   
-  <footer>
-    <a href="http://blog.longpengfei.com/post/git-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/swift-simple-notes/">Swift基础简单笔记</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Nov 2016, 14:51</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/swift">Swift</a>
-    
-  </div>
-
-  
-  
-
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Swift基础简单笔记 菜鸟Swift
-目录  1. 渣渣 2. 函数 3. 闭包 4. 枚举 5. 结构体 6. 类 7. 属性 8. 方法 9. 下标脚本 10. 继承 11. 构造,析构,可选链 12. 自动引用计数 13. 类型转换 14. 扩展 15. 协议 16. 泛型 17. 访问控制  
-var aa:Float aa = 3.14 print(aa)  输出 var name = &quot;666&quot; var site = &quot;777&quot; print(&quot;\(name)dddd\(site)&quot;)  16进制小数 : 0xFp2 表示 15 ⨉ 2^2，也就是 60；同样，0xFp-2 表示 15 ⨉ 2^-2，也就是 3.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/swift-simple-notes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-
-  
-
-
-<nav class="pagination" role="pagination">
-  
-  <a href="http://blog.longpengfei.com/page/5/"><i class="fa fa-chevron-left"></i></a>
-  
-  <span>&nbsp;6 / 6&nbsp;</span>
-  
-  <i class="fa fa-chevron-right"></i>
-  
-</nav>
-
-
 
 </div>
 
