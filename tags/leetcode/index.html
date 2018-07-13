@@ -228,6 +228,72 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/">41. First Missing Positive 首个缺失的正数</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>13 Jul 2018, 18:36</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given an unsorted integer array, find the smallest missing positive integer.
+Example 1:
+Input: [1,2,0] Output: 3  Example 2:
+Input: [3,4,-1,1] Output: 2  Example 3:
+Input: [7,8,9,11,12] Output: 1  Note:
+Your algorithm should run in O(n) time and uses constant extra space.
+Difficulty: Hard
+这道题让我们找出数组中首个缺失的整数. 并且限定了时间负责度为O(n),空间复杂度为O(1),就是不让新建新的集合. 那这样只能在原数组上进行操作. 这里只能是把对应的数放到对应的索引上.比如例2中,3需要放到index为2的位置上,1要放到index为0的位置上.4和-1因为没有对应的索引被舍弃,-1本来就是负数,4越界了.这样先通过一次for循环排好数值对应的索引.再通过一次for循环找到第一个位置不对的就ok. 
+class Solution { public: int firstMissingPositive(vector&lt;int&gt;&amp; nums) { int n = nums.size(); if (n==0) return 1; for (int i=0;i&lt;n;i++){ while (nums[i]&gt;0 &amp;&amp; nums[i]&lt;=n &amp;&amp; nums[i]!
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/40-combination-sum-ii-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C%E4%B9%8B%E4%BA%8C/">40. Combination Sum II 组合之和之二</a></h2>
 
     <div class="post-meta">

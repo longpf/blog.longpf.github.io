@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>40. Combination Sum II 组合之和之二 &middot; long·pf</title>
+  <title>41. First Missing Positive 首个缺失的正数 &middot; long·pf</title>
 
   
   
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>40. Combination Sum II 组合之和之二</h1>
+  <h1>41. First Missing Positive 首个缺失的正数</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>28 Jun 2018, 12:23</time>
+    <time>13 Jul 2018, 18:36</time>
   </div>
 
   
@@ -256,9 +256,7 @@
   <div>
     <i class="fa fa-codiepie fa-fw"></i>
     
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>
     
   </div>
 
@@ -268,65 +266,53 @@
 
 </div>
 
-  <p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.</p>
-
-<p>Each number in candidates may only be used once in the combination.</p>
-
-<p>Note:</p>
-
-<p>All numbers (including target) will be positive integers.
-The solution set must not contain duplicate combinations.</p>
+  <p>Given an unsorted integer array, find the smallest missing positive integer.</p>
 
 <p><strong>Example 1:</strong></p>
 
-<p>Input: candidates = [10,1,2,7,6,1,5], target = 8,</p>
-
-<pre><code>A solution set is:
-[
-  [1, 7],
-  [1, 2, 5],
-  [2, 6],
-  [1, 1, 6]
-]
+<pre><code>Input: [1,2,0]
+Output: 3
 </code></pre>
 
 <p><strong>Example 2:</strong></p>
 
-<p>Input: candidates = [2,5,2,1,2], target = 5,</p>
-
-<pre><code>A solution set is:
-[
-  [1,2,2],
-  [5]
-]
+<pre><code>Input: [3,4,-1,1]
+Output: 2
 </code></pre>
 
-<p><strong>Difficulty: Medium</strong></p>
+<p><strong>Example 3:</strong></p>
 
-<p>这道题和上道题<a href="http://blog.longpengfei.com/post/39-combination-sum-组合之和/">Combination Sum 组合之和</a>差不多,只是这里不能使用重复的数字. 这是需要在<code>findSum</code>递归的的时候传入<code>i+1</code> 以及需要在for循环的时候判断一下这个数和上一个数是否相等. 这样可以避免类似 <code>{1,1,7} 8</code> 这种输入,7的使用重复问题</p>
+<pre><code>Input: [7,8,9,11,12]
+Output: 1
+</code></pre>
+
+<p><strong>Note:</strong></p>
+
+<p><strong>Your algorithm should run in O(n) time and uses constant extra space.</strong></p>
+
+<p><strong>Difficulty: Hard</strong></p>
+
+<p><font color='#DC143C' size=3 face="仿宋">
+这道题让我们找出数组中首个缺失的整数. 并且限定了时间负责度为<code>O(n)</code>,空间复杂度为<code>O(1)</code>,就是不让新建新的集合. 那这样只能在原数组上进行操作.  这里只能是把对应的数放到对应的索引上.比如例2中,3需要放到index为2的位置上,1要放到index为0的位置上.4和-1因为没有对应的索引被舍弃,-1本来就是负数,4越界了.这样先通过一次for循环排好数值对应的索引.再通过一次for循环找到第一个位置不对的就ok.
+</font></p>
 
 <pre><code class="language-cpp">class Solution {
 public:
-    vector&lt;vector&lt;int&gt;&gt; combinationSum2(vector&lt;int&gt;&amp; candidates, int target){
-        vector&lt;vector&lt;int&gt;&gt; res;
-        vector&lt;int&gt; solution;
-        sort(candidates.begin(), candidates.end());
-        findSum2(candidates,0,target,solution,res);
-        return res;
-    }
-    
-    void findSum2(vector&lt;int&gt;&amp; candidates,int start,int target,vector&lt;int&gt;&amp; solution,vector&lt;vector&lt;int&gt;&gt;&amp; res){
-        if (target &lt; 0) return;
-        else if (target==0){
-            res.push_back(solution);
-        }else{
-            for (int i = start;i &lt; candidates.size();i++){
-                if (i &gt; start &amp;&amp; candidates[i-1]==candidates[i]) continue;
-                solution.push_back(candidates[i]);
-                findSum2(candidates, i+1, target-candidates[i], solution, res);
-                solution.pop_back();
+    int firstMissingPositive(vector&lt;int&gt;&amp; nums) {
+        int n = nums.size();
+        if (n==0) return 1;
+        for (int i=0;i&lt;n;i++){
+            while (nums[i]&gt;0 &amp;&amp; nums[i]&lt;=n &amp;&amp; nums[i]!=nums[nums[i]-1])
+                swap(nums[i],nums[nums[i]-1]);
+        }
+        int res = n+1;
+        for (int i=0;i&lt;n;i++){
+            if (nums[i] != i+1){
+                res = i+1;
+                break;
             }
         }
+        return res;
     }
 };
 </code></pre>
@@ -336,13 +322,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/40-combination-sum-ii-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C%E4%B9%8B%E4%BA%8C/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/39-combination-sum-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C/">39. Combination Sum 组合之和</a>
+      <a href="http://blog.longpengfei.com/post/40-combination-sum-ii-%E7%BB%84%E5%90%88%E4%B9%8B%E5%92%8C%E4%B9%8B%E4%BA%8C/">40. Combination Sum II 组合之和之二</a>
     </nav>
     
   </div>
@@ -351,14 +337,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/">41. First Missing Positive 首个缺失的正数</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -229,6 +229,74 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/">22. Generate Parentheses 生成括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jan 2018, 14:36</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dfs">DFS</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+For example, given n = 3, a solution set is:
+[ &quot;((()))&quot;, &quot;(()())&quot;, &quot;(())()&quot;, &quot;()(())&quot;, &quot;()()()&quot; ]  Difficulty: Medium
+这道题让我们列举出所有的括号字符串,前面还有一题20. Valid Parentheses 验证括号也是关于括号的.这里让列举出所有可能,可以优先考虑递归和DFS.定义left,right分别表示剩余左括号的数量和剩余的右括号的数量.如果在某次的递归中,left&gt;right说明在已经生成的字符串中右括号的数量大于左括号的数量,是不合理的.当left,right都为0的时候,说明已经生成一个可用的括号串.其实这里有DFS的思想.为什么呢.看看下面是怎样递归的顺序,以题目给的例子n=3.
+( (( ((( ((() ((()) ((())) (()()) ~ ()()()  DFS(深度优先),这里可以想象成左括号优先
+解法1 就是上面分析的解法
+class Solution { public: vector&lt;string&gt; generateParenthesis(int n) { vector&lt;string&gt; res; generateParenthesisDFS(n,n,&quot;&quot;,res); return res; } void generateParenthesisDFS(int left,int right,string out,vector&lt;string&gt;&amp; res) { if (left&gt;right) return; if (left==0 &amp;&amp; right==0) res.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/22-generate-parentheses-%E7%94%9F%E6%88%90%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-%E6%B7%B7%E5%90%88%E6%8F%92%E5%85%A5%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">21. Merge Two Sorted Lists 混合插入有序链表</a></h2>
 
     <div class="post-meta">
@@ -794,64 +862,6 @@ Difficulty: Easy
   <footer>
     <a href="http://blog.longpengfei.com/post/13-roman-to-integer-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E6%88%90%E6%95%B4%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/leetcode-catalog/">目录</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Jan 2018, 18:24</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/%E7%9B%AE%E5%BD%95">目录</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Number
-题号 Problems
-题目 Difficulty
-难度 Topics(Tags)
-标签     1 Two Sum 两数之和等于一个输入的数 Easy Array, Hash Table   2 Add TwoNumbers 两个链表相加 Medium Linked List, Math   3 Longest Substring Without Repeating Characters 子字符串的最大不重复长度 Medium Hash Table, Two Pointers, String   4 Median of Two Sorted Arrays两个数组的中位数 Hard Array, Binary Search, Divide and Conquer   5 Longest Palindromic Substring 最长回文子字符串 Medium String, Dynamic Programming   6 ZigZag Conversion 之子形转换字符串 Medium String   7 Reverse Integer 翻转整数 Easy Math   8 String to Integer Atoi 把字符串转换成整数 Medium String, Math   9 Palindrome Number 验证回文数字 Easy Math   10 Regular Expression Matching 正则表达式匹配 Hard String, Dynamic Programming, Backtracking   11 Container With Most Water 装最多水的容器 Medium Array, Hash Table   12 Integer to Roman 整数转罗马数字 Medium String, Math   13 Roman to Integer 罗马数字转化成整数 Easy String, Math   14 Longest Common Prefix 最长共同前缀 Easy String   15 3Sum 三数之和 Medium Array, Two Pointers   16 3Sum Closest 最近三数之和 Medium Array, Two Pointers   17 Letter Combinations of a Phone Number 电话号码的字母组合 Medium String, Backtracking, DFS   18 4Sum 四数之和 Medium Array, Hash Table, Two Pointers   19 Remove Nth Node From End of List 移除链表倒数第N个节点 Medium Linked List, Two Pointers   20 Valid Parentheses 验证括号 Easy String, Stack   21 Merge Two Sorted Lists 混合插入有序链表 Easy Linked List   22 Generate Parentheses 生成括号 Medium String, Backtracking, DFS   23 Merge K Sorted Lists 合并k个有序链表 Hard Linked List, Divide and Conquer, Heap   24 Swap Nodes in Pairs 成对交换节点 Medium Linked List   25 Reverse Nodes in K Group 每k个一组翻转链表 Hard Linked List   26 Remove Duplicates From Sorted Array 有序数组中去除重复项 Easy Array, Two Pointers   27 Remove Element 移除元素 Easy Array, Two Pointers   28 Implement strStr() 实现strStr()函数 Easy Two Pointers, String   29 Divide Two Integers 两数相除 Medium Math , Binary Search   30 Substring With Concatenation of All Words 串联所有单词的子串 Hard Hash Table, Two Pointers, String   31 Next Permutation 下一个排列 Medium Array   32 Longest Valid Parentheses 最长有效括号 Hard String, Dynamic Programming   33 Search in Rotated Sorted Array 在旋转有序数组中搜索 Medium Array, Binary Search   34 Search for a Range 搜索一个范围 Medium Array, Binary Search   35 Search Insert Position 搜索插入位置 Easy Array, Binary Search   36 Valid Sudoku 验证数独 Medium Hash Table   37 Sudoku Solver 求数独的一个解 Hard Backtracking,Hash Table   38 Count and Say 计数和读法 Easy String   39 Combination Sum 组合之和 Medium Array, Backtracking   40 Combination Sum II 组合之和之二 Medium Array, Backtracking
-  </p>
-
   
 </article>
 
