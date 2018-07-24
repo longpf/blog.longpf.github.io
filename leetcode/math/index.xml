@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 07 Feb 2018 16:45:36 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jul 2018 11:08:41 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>43 Multiply Strings 字符串相乘</title>
+      <link>http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/</link>
+      <pubDate>Tue, 24 Jul 2018 11:08:41 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/</guid>
+      <description>Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+Example 1:
+Input: num1 = &amp;quot;2&amp;quot;, num2 = &amp;quot;3&amp;quot; Output: &amp;quot;6&amp;quot;  Example 2:
+Input: num1 = &amp;quot;123&amp;quot;, num2 = &amp;quot;456&amp;quot; Output: &amp;quot;56088&amp;quot;  Note:
+ The length of both num1 and num2 is &amp;lt; 110. Both num1 and num2 contain only digits 0-9. Both num1 and num2 do not contain any leading zero, except the number 0 itself.</description>
+    </item>
     
     <item>
       <title>29. Divide Two Integers 两数相除</title>
