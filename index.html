@@ -229,6 +229,65 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/">146 LRU Cache 最近最少使用置换缓存器</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jul 2018, 10:25</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/design">Design</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1. put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/">43. Multiply Strings 字符串相乘</a></h2>
 
     <div class="post-meta">
@@ -799,72 +858,6 @@ Input: [1,3,5,6], 7 Output: 4  Example 4 :
   
   <footer>
     <a href="http://blog.longpengfei.com/post/35-search-insert-position-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/34-search-for-a-range-%E6%90%9C%E7%B4%A2%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4/">34. Search for a Range 搜索一个范围</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>19 Mar 2018, 10:46</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/binary-search">Binary Search</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
-Your algorithm&rsquo;s runtime complexity must be in the order of O(log n).
-If the target is not found in the array, return [-1, -1].
-For example, Given [5, 7, 7, 8, 8, 10] and target value 8,
-return [3, 4].
-解法1 这道题让我们在一个有序数组中查找与输入target相同的起始位置和结束位置,限定时间复杂度为O(logn),这个是典型的二分查找时间复杂度.这道题我们先采用二分法找到一个与target相同的index,再想index的左边和右边搜索.
-class Solution { public: vector&lt;int&gt; searchRange(vector&lt;int&gt;&amp; nums, int target) { int index = search(nums,0,nums.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/34-search-for-a-range-%E6%90%9C%E7%B4%A2%E4%B8%80%E4%B8%AA%E8%8C%83%E5%9B%B4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

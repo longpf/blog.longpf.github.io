@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>146 LRU Cache 最近最少使用置换缓存器 &middot; long·pf</title>
 
   
   
@@ -221,88 +221,153 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>146 LRU Cache 最近最少使用置换缓存器</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 Jul 2018, 10:25</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;16&#41;</span>
-    </li>
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;16&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;11&#41;</span>
-    </li>
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;8&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/design">Design</a>
+    
+  </div>
+
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;5&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: <code>get</code> and <code>put</code>.</p>
+
+<p><code>get(key)</code> - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
+<code>put(key, value)</code> - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.</p>
+
+<p><strong>Follow up:</strong></p>
+
+<p>Could you do both operations in O(1) time complexity?</p>
+
+<p><strong>Example:</strong></p>
+
+<p>LRUCache cache = new LRUCache( 2 /* capacity */ );</p>
+
+<pre><code>cache.put(1, 1);
+cache.put(2, 2);
+cache.get(1);       // returns 1
+cache.put(3, 3);    // evicts key 2
+cache.get(2);       // returns -1 (not found)
+cache.put(4, 4);    // evicts key 1
+cache.get(1);       // returns -1 (not found)
+cache.get(3);       // returns 3
+cache.get(4);       // returns 4
+</code></pre>
+
+<p><strong>Difficulty: Hard</strong></p>
+
+<p>这里让设计一个LRU缓存器,LRU(Least Recently Used)就是最少使用的意思.缓存器主要有两个成员函数,get和put.get函数时通过key来获得value,如果成功获得后,这对(key,value)升至缓存器中最常用的位置(顶部),如果key不存在,则返回-1. put函数时插入一堆新的(key,value)如果原缓存器中有该key,则需要先删除原来的,也就是底部的值. 具体实现需要三个私有变量,cap,l和m.cap是缓存器的容量大小,l是保存缓存器内容的列表.m是保存key和缓存器列表l的迭代器之间的映射的哈希表.</p>
+
+<pre><code class="language-cpp">class LRUCache {
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+    }
+    
+    int get(int key) {
+        auto it = m.find(key);
+        if (it == m.end()) return -1;
+        /*
+        splice
+        例:l1.splice(l1.begin(), l2, it)
+         list(链表)合并,从l2出取it(迭代器)放到l1的begin.l2里面it出没有了,it也失效
+        */
+        //it是迭代器,it-&gt;second是迭代器对应索引上的值,这里是pair
+        l.splice(l.begin(),l,it-&gt;second);
+        return it-&gt;second-&gt;second;
+    }
+    
+    void put(int key, int value) {
+        auto it = m.find(key);
+        if (it != m.end()) l.erase(it-&gt;second);
+        l.push_front(make_pair(key,value));
+        m[key] = l.begin();
+        if (m.size()&gt;cap){
+            int k = l.rbegin()-&gt;first;
+            l.pop_back();
+            m.erase(k);
+        }
+    }
+private: 
+    int cap;
+    list&lt;pair&lt;int,int&gt;&gt; l; //list是链表,vector是数组,l保存缓存器内存的列表
+    unordered_map&lt;int,list&lt;pair&lt;int,int&gt;&gt;::iterator&gt; m; //保存key和缓存器l中迭代器的映射
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
+</code></pre>
+
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/">43. Multiply Strings 字符串相乘</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="design">design</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
 
 </div>
@@ -331,3 +396,4 @@
 
 </body>
 </html>
+

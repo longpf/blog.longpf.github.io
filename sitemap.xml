@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/</loc>
+    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/43-multiply-strings-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%B9%98/</loc>
     <lastmod>2018-07-24T11:08:41+08:00</lastmod>
   </url>
@@ -318,6 +323,12 @@
   </url>
   
   <url>
+    <loc>http://blog.longpengfei.com/leetcode/design/</loc>
+    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/leetcode/dfs/</loc>
     <lastmod>2018-01-30T14:36:53+08:00</lastmod>
     <priority>0</priority>
@@ -367,7 +378,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2018-07-24T11:08:41+08:00</lastmod>
+    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -391,7 +402,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-07-24T11:08:41+08:00</lastmod>
+    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -438,7 +449,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-07-24T11:08:41+08:00</lastmod>
+    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
     <priority>0</priority>
   </url>
   
