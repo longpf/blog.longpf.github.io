@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>Small Algorithm &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/leetcode/"><i class='fa fa-codiepie fa-fw'></i>Leetcode</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Small Algorithm</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>31 Jul 2018, 21:39</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  
+
+<h1 id="small-algorithm">Small algorithm</h1>
+
+<p>这里简单记录一些常用而又<strong>老忘记</strong>小算法</p>
+
+<ul>
+<li><a href="#快排">快排</a></li>
+<li><a href="https://www.cnblogs.com/skywang12345/p/3245399.html">红黑树</a></li>
+<li><a href="https://www.cnblogs.com/jingmoxukong/p/4303826.html">堆排</a></li>
+<li><a href="#合并">合并</a></li>
+<li><a href="#打印菱形">打印菱形</a></li>
+<li><a href="#验证ipv4,ipv6">验证ipv4,ipv6</a></li>
+<li><a href="#二维数组中的查找">二维数组中的查找</a></li>
+<li><a href="#链表中倒数第k个结点">链表中倒数第k个结点</a></li>
+<li><a href="#翻转链表">翻转链表</a></li>
+<li><a href="#二叉树镜像">二叉树镜像</a></li>
+<li><a href="#二叉树遍历">二叉树遍历</a></li>
+<li><a href="#最小的k个数">最小的k个数</a></li>
+</ul>
+
+<p><a id="快排"></a></p>
+
+<p><a href="https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin">https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin</a></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+ 
+using namespace std;
+ 
+void Qsort(int a[], int low, int high)
+{
+    if(low &gt;= high)
+    {
+        return;
+    }
+    int first = low;
+    int last = high;
+    int key = a[first];/*用字表的第一个记录作为枢轴*/
+ 
+    while(first &lt; last)
+    {
+        while(first &lt; last &amp;&amp; a[last] &gt;= key)
+        {
+            --last;
+        }
+ 
+        a[first] = a[last];/*将比第一个小的移到低端*/
+ 
+        while(first &lt; last &amp;&amp; a[first] &lt;= key)
+        {
+            ++first;
+        }
+         
+        a[last] = a[first];    
+/*将比第一个大的移到高端*/
+    }
+    a[first] = key;/*枢轴记录到位*/
+    Qsort(a, low, first-1);
+    Qsort(a, first+1, high);
+}
+</code></pre>
+
+<p><a id="合并"></a></p>
+
+<pre><code class="language-cpp">//将有二个有序数列a[first...mid]和a[mid...last]合并
+void mergearray(int a[],int first,int mid,int last,int temp[])
+{
+    int i = first,j = mid+1;
+    int m = mid,n = last;
+    int k = 0;
+    while (i&lt;=m &amp;&amp; j &lt;= n)
+    {
+        if (a[i]&lt;=a[j])
+            temp[k++] = a[i++];
+        else
+            temp[k++] = a[j++];
+        // printf(&quot;%d\n&quot;, temp[k]);
+    }
+    while (i &lt;= m)
+        temp[k++] = a[i++];
+    while (j &lt;= n)
+        temp[k++] = a[j++];
+    for (int i = 0; i &lt; k; ++i)
+        a[first+i] = temp[i];
+}
+
+
+void mergesort(int a[],int first,int last,int temp[])
+{
+    if (first&lt;last)
+    {
+        int mid = (first+last)/2;
+        mergesort(a,first,mid,temp);
+        mergesort(a,mid+1,last,temp);
+        mergearray(a,first,mid,last,temp);
+    }
+}
+
+void MergeSort(int a[],int n)
+{
+    int *p = new int[n];
+    if (p == NULL) return;
+    mergesort(a,0,n-1,p);
+    delete[] p;
+}
+</code></pre>
+
+<p><a id="打印菱形"></a></p>
+
+<pre><code class="language-cpp">void PrintLingxing(int size)
+    {
+        for (int x=-size;x&lt;=size;x++)
+        {
+            for (int y=-size;y&lt;=size;y++)
+            {
+                if (abs(x)+abs(y)&lt;=size)
+                {
+                    printf(&quot;*&quot;);
+                }
+                
+                else
+                {
+                    printf(&quot; &quot;);
+                }
+            }
+            printf(&quot;\n&quot;);
+        }
+    }
+</code></pre>
+
+<p><a id="验证ipv4,ipv6"></a></p>
+
+<p>解法出处 <a href="http://www.cnblogs.com/grandyang/p/6185339.html">http://www.cnblogs.com/grandyang/p/6185339.html</a></p>
+
+<p><a href="https://blog.csdn.net/jacky_chenjp/article/details/70233212">https://blog.csdn.net/jacky_chenjp/article/details/70233212</a></p>
+
+<p><a href="https://www.cnblogs.com/wzxwhd/p/6030083.html">https://www.cnblogs.com/wzxwhd/p/6030083.html</a></p>
+
+<pre><code class="language-cpp">http://www.cnblogs.com/grandyang/p/6185339.html	
+string validIPAddress(string IP) {
+        //输入输出控制类 https://blog.csdn.net/jacky_chenjp/article/details/70233212	
+        istringstream is(IP);
+        string t = &quot;&quot;;
+        int cnt = 0;
+        if (IP.find(':') == string::npos) { // Check IPv4
+            while (getline(is, t, '.')) {
+                ++cnt;
+                if (cnt &gt; 4 || t.empty() || (t.size() &gt; 1 &amp;&amp; t[0] == '0') || t.size() &gt; 3) return &quot;Neither&quot;;
+                for (char c : t) {
+                    if (c &lt; '0' || c &gt; '9') return &quot;Neither&quot;;
+                }
+                //字符串转int https://www.cnblogs.com/wzxwhd/p/6030083.html	
+                int val = stoi(t);
+                if (val &lt; 0 || val &gt; 255) return &quot;Neither&quot;;
+            }
+            return (cnt == 4 &amp;&amp; IP.back() != '.') ? &quot;IPv4&quot; : &quot;Neither&quot;;
+        } else { // Check IPv6
+            while (getline(is, t, ':')) {
+                ++cnt;
+                if (cnt &gt; 8 || t.empty() || t.size() &gt; 4) return &quot;Neither&quot;;
+                for (char c : t) {
+                    if (!(c &gt;= '0' &amp;&amp; c &lt;= '9') &amp;&amp; !(c &gt;= 'a' &amp;&amp; c &lt;= 'f') &amp;&amp; !(c &gt;= 'A' &amp;&amp; c &lt;= 'F')) return &quot;Neither&quot;;
+                }
+            }
+            return (cnt == 8 &amp;&amp; IP.back() != ':') ? &quot;IPv6&quot; : &quot;Neither&quot;;
+        }
+    }
+</code></pre>
+
+<p><a id="二维数组中的查找"></a></p>
+
+<p>二维数组中的查找</p>
+
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool find(int target, int arr[3][3])
+{
+    int rows = 3;
+    int cols = 3;
+    int i = 0,j = cols-1;
+    while(i &lt; rows &amp;&amp; j &gt;= 0)
+    {
+        if (arr[i][j] == target)
+            return true;
+        else if (arr[i][j] &gt; target)
+            j --;
+        else
+            i ++;
+    }
+    return false;
+}
+</code></pre>
+
+<p><a id="链表中倒数第k个结点"></a></p>
+
+<pre><code class="language-cpp">
+struct ListNode{
+    int val;
+    struct ListNode* next;
+    ListNode(int x):
+    val(x),next(NULL){
+    }
+};
+
+class Solution{
+public:
+    ListNode* FindKthToTail(ListNode* pListHead,unsigned int k){
+        if (pListHead == NULL || k == 0)
+        {
+            return NULL;
+        }
+        ListNode* pFast = pListHead;
+        ListNode* pSlow = pListHead;
+        for (unsigned int i = 0; i &lt; k-1; i++)
+        {
+            if (pFast-&gt;next==NULL)
+            {
+                return NULL;
+            }
+            pFast = pFast-&gt;next;
+        }
+        while (pFast-&gt;next!=NULL)
+        {
+            pSlow = pSlow-&gt;next;
+            pFast = pFast-&gt;next;
+        }
+        return pSlow;
+    }
+};
+</code></pre>
+
+<p><a id="翻转链表"></a></p>
+
+<pre><code class="language-cpp">class Solution{
+public:
+    ListNode* ReverseList(ListNode* pHead){
+        ListNode* pre = NULL;
+        ListNode* p = pHead;
+        ListNode* pn = NULL;
+        
+        while (p) {
+            pn = p-&gt;next;
+            p-&gt;next = pre;
+            pre = p;
+            p = pn;
+        }
+        return pre;
+    }
+};
+</code></pre>
+
+<p><a id="二叉树镜像"></a></p>
+
+<pre><code class="language-cpp">struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x):
+        val(x),left(NULL),right(NULL){};
+};
+
+class Solution {
+public:
+    void Mirror(TreeNode* pRoot)
+    {
+        if (pRoot == NULL)
+            return;
+        TreeNode* tmp = pRoot-&gt;left;
+        pRoot-&gt;left = pRoot-&gt;right;
+        pRoot-&gt;right = tmp;
+        if (pRoot-&gt;left)
+            Mirror(pRoot-&gt;left);
+        if (pRoot-&gt;right)
+            Mirror(pRoot-&gt;right);
+    }
+};
+
+//非递归解法
+class Solution {
+ public:
+ void Mirror(TreeNode *pRoot) {
+    if(pRoot==NULL) return;
+    stack&lt;TreeNode*&gt; s;
+    s.push(pRoot);
+    while(!s.empty())
+     {
+         TreeNode *head = s.top();
+         s.pop();
+         if(head-&gt;left||head-&gt;right)
+         {
+             TreeNode *tmp = head-&gt;left;
+             head-&gt;left = head-&gt;right;
+             head-&gt;right = tmp;
+         }
+         if (head-&gt;left) s.push(head-&gt;left);
+         if (head-&gt;right) s.push(head-&gt;right);
+      }
+    }
+};
+</code></pre>
+
+<p><a id="二叉树遍历"></a></p>
+
+<ul>
+<li>前序遍历：根节点-&gt;左子树-&gt;右子树</li>
+<li>中序遍历：左子树-&gt;根节点-&gt;右子树</li>
+<li>后序遍历：左子树-&gt;右子树-&gt;根节点</li>
+</ul>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    TreeNode(int x) :
+        val(x),left(NULL),right(NULL){}
+};
+
+
+//前序递归遍历
+vector&lt;int&gt; preVector;
+void PreOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        preVector.push_back(root-&gt;val);
+        PreOrder(root-&gt;left);
+        PreOrder(root-&gt;right);
+    }
+}
+
+//前序非递归遍历
+void PreOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    TreeNode* p = root;
+    vector&lt;int&gt; result;
+    while (p || !s.empty())
+    {
+        if (p)
+        {
+            result.push_back(p-&gt;val);
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            p = s.top();
+            p = p-&gt;right;
+            s.pop();
+        }
+    }
+}
+
+//中序递归遍历
+vector&lt;int&gt; inResult;
+void InOrder(TreeNode* root)
+{
+    if (root != NULL) {
+        InOrder(root-&gt;left);
+        inResult.push_back(root-&gt;val);
+        InOrder(root-&gt;right);
+    }
+}
+
+//中序非递归遍历
+void InOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    vector&lt;int&gt; result;
+    TreeNode* p = root;
+    while (p || !s.empty())
+    {
+        if (p)
+        {
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            p = s.top();
+            result.push_back(p-&gt;val);
+            s.pop();
+            p = p-&gt;right;
+        }
+    }
+}
+
+//后序递归遍历
+vector&lt;int&gt; postResult;
+void PostOrder(TreeNode* root)
+{
+    if (root != NULL)
+    {
+        PostOrder(root-&gt;left);
+        PostOrder(root-&gt;right);
+        postResult.push_back(root-&gt;val);
+    }
+}
+
+//后序非递归遍历
+void PostOrder2(TreeNode* root)
+{
+    stack&lt;TreeNode*&gt; s;
+    vector&lt;int&gt; result;
+    TreeNode* p = root;
+    TreeNode* r =new TreeNode(0);
+    while (p || !s.empty())
+    {
+        //走到最左边
+        if (p)
+        {
+            s.push(p);
+            p = p-&gt;left;
+        }
+        else
+        {
+            //取栈顶结点
+            p  = s.top();
+            //如果右子树存在,且未被输出
+            if (p-&gt;right&amp;&amp;p-&gt;right!=r)
+            {
+                p = p-&gt;right;
+                s.push(p);
+                //在走到最左
+                p = p-&gt;left;
+            }
+            //否则,访问栈顶结点并弹出
+            else
+            {
+                result.push_back(p-&gt;val);
+                //记录该结点
+                r = p;
+                s.pop();
+                //结点访问完后,重置p指针
+                p = NULL;
+            }
+        }
+    }
+}
+</code></pre>
+
+<p><a id="最小的k个数"></a></p>
+
+<pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;set&gt;
+using namespace std;
+/*
+ 解法1:
+ 运用快排的思想
+ 把数组的元素分成两组,右边比左边的都要大
+ 数据都读到内存,并且修改数组
+ */
+class Solution {
+public:
+    vector&lt;int&gt; GetLeastNumbers_Solution(vector&lt;int&gt;input,int k)
+    {
+        vector&lt;int&gt; res;
+        int n = input.size();
+        if (n == 0 || k &gt; n || k &lt;= 0) {
+            return res;
+        }
+        int start = 0,end = n-1;
+        int mid = partition(input, start, end);
+        while (mid != k-1)
+        {
+            if (mid &gt; k-1)
+            {
+                end = mid - 1;
+                mid = partition(input, start, end);
+            }
+            else
+            {
+                start = mid + 1;
+                mid = partition(input, start, end);
+            }
+        }
+        for (int i = 0; i &lt; k; i++) {
+            res.push_back(input[i]);
+        }
+        return res;
+    }
+    
+    int partition(vector&lt;int&gt;&amp; input,int start,int end)
+    {
+        int key = input[start];
+        while (start &lt; end)
+        {
+            while (start &lt; end &amp;&amp; input[end] &gt;= key)
+                end --;
+            input[start] = input[end];
+            while (start &lt; end &amp;&amp; input[start] &lt;= key)
+                start++;
+            input[end] = input[start];
+        }
+        input[start] = key;
+        return start;
+    }
+};
+/*
+ 解法2
+ 用大根堆的思想
+ 这里用multiset(内部红黑树,查找快(Ologn))保存k个元素,greater排序保证首个元素为最大
+ k个元素之后每个与multiset首个元素比较
+ 适合海量数据,不修改原数组,修改都在multiset中
+ */
+class Solution2 {
+    vector&lt;int&gt; GetLeastNumbers_Solution(vector&lt;int&gt; input, int k)
+    {
+        int n = input.size();
+        if (n == 0 || n &lt; k || k &lt;= 0)
+            return vector&lt;int&gt;();
+        multiset&lt;int,greater&lt;int&gt;&gt; leastNumbers;
+        for (int i = 0;i &lt; n;i++)
+        {
+            if (i &lt; k)
+                leastNumbers.insert(input[i]);
+            else
+            {
+                multiset&lt;int,greater&lt;int&gt;&gt; ::const_iterator iter = leastNumbers.begin();
+                if (*iter &gt; input[i]) {
+                    leastNumbers.erase(iter);
+                    leastNumbers.insert(input[i]);
+                }
+            }
+        }
+        vector&lt;int&gt; res(leastNumbers.begin(),leastNumbers.end());
+        return res;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/">146. LRU Cache 最近最少使用置换缓存器</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

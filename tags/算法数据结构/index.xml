@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 18 Jan 2018 12:01:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Jul 2018 21:39:35 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Small Algorithm</title>
+      <link>http://blog.longpengfei.com/post/small-algorithm/</link>
+      <pubDate>Tue, 31 Jul 2018 21:39:35 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/small-algorithm/</guid>
+      <description>Small algorithm 这里简单记录一些常用而又老忘记小算法
+ 快排 红黑树 堆排 合并 打印菱形 验证ipv4,ipv6 二维数组中的查找 链表中倒数第k个结点 翻转链表 二叉树镜像 二叉树遍历 最小的k个数  
+https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin
+#include &amp;lt;iostream&amp;gt; using namespace std; void Qsort(int a[], int low, int high) { if(low &amp;gt;= high) { return; } int first = low; int last = high; int key = a[first];/*用字表的第一个记录作为枢轴*/ while(first &amp;lt; last) { while(first &amp;lt; last &amp;amp;&amp;amp; a[last] &amp;gt;= key) { --last; } a[first] = a[last];/*将比第一个小的移到低端*/ while(first &amp;lt; last &amp;amp;&amp;amp; a[first] &amp;lt;= key) { ++first; } a[last] = a[first]; /*将比第一个大的移到高端*/ } a[first] = key;/*枢轴记录到位*/ Qsort(a, low, first-1); Qsort(a, first+1, high); }</description>
+    </item>
     
     <item>
       <title>Manacher 马拉车算法</title>

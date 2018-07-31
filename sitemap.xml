@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/small-algorithm/</loc>
+    <lastmod>2018-07-31T21:39:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/146-lru-cache-%E6%9C%80%E8%BF%91%E6%9C%80%E5%B0%91%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%BC%93%E5%AD%98%E5%99%A8/</loc>
     <lastmod>2018-07-30T10:25:51+08:00</lastmod>
   </url>
@@ -402,7 +407,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
+    <lastmod>2018-07-31T21:39:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -449,7 +454,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2018-07-30T10:25:51+08:00</lastmod>
+    <lastmod>2018-07-31T21:39:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -467,7 +472,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2018-01-18T12:01:24+08:00</lastmod>
+    <lastmod>2018-07-31T21:39:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
