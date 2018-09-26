@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.32.1" />
+
+  <title>44 Wildcard Matching 通配符匹配 &middot; long·pf</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://blog.longpengfei.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://blog.longpengfei.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="http://blog.longpengfei.com/css/my.css">
+  
+  
+    <script src="http://blog.longpengfei.com/js/my.js"></script>
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://blog.longpengfei.com/">long·pf</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/leetcode/"><i class='fa fa-codiepie fa-fw'></i>Leetcode</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://blog.longpengfei.com/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/longpengfei" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/longpengfei" target="_blank"><i class="fa fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://weibo.com/2748226843" target="_blank"><i class="fa fa-weibo fa-fw"></i>Weibo</a>
+    </li>
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/longpf" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>44 Wildcard Matching 通配符匹配</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>18 Sep 2018, 18:12</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/dynamic-programming">Dynamic Programming</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/greedy">Greedy</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  
+
+<pre><code>Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
+
+'?' Matches any single character.
+
+'*' Matches any sequence of characters (including the empty sequence).
+</code></pre>
+
+<p>The matching should cover the entire input string (not partial).</p>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+<li>s could be empty and contains only lowercase letters a-z.</li>
+<li>p could be empty and contains only lowercase letters a-z, and characters like ? or *.</li>
+</ul>
+
+<p>Example 1:</p>
+
+<pre><code>Input:
+s = &quot;aa&quot;
+p = &quot;a&quot;
+Output: false
+Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
+</code></pre>
+
+<p>Example 2:</p>
+
+<pre><code>Input:
+s = &quot;aa&quot;
+p = &quot;*&quot;
+Output: true
+Explanation: '*' matches any sequence.
+</code></pre>
+
+<p>Example 3:</p>
+
+<pre><code>Input:
+s = &quot;cb&quot;
+p = &quot;?a&quot;
+Output: false
+Explanation: '?' matches 'c', but the second letter is 'a', which does not match 'b'.
+</code></pre>
+
+<p>Example 4:</p>
+
+<pre><code>Input:
+s = &quot;adceb&quot;
+p = &quot;*a*b&quot;
+Output: true
+Explanation: The first '*' matches the empty sequence, while the second '*' matches the substring &quot;dce&quot;.
+</code></pre>
+
+<p>Example 5:</p>
+
+<pre><code>Input:
+s = &quot;acdcb&quot;
+p = &quot;a*c?b&quot;
+Output: false
+</code></pre>
+
+<p><strong>Difficulty: Hard</strong></p>
+
+<p>这道题和之前的<a href="http://blog.longpengfei.com/post/10-regular-expression-matching-正则表达式匹配/">第十题</a>有点像.</p>
+
+<p>这道里用了贪婪算法Greedy Alogrithm来解，由于有特殊字符<code>*</code>和<code>？</code></p>
+
+<p><code>?</code>能替代任何字符,<code>*</code>能替代任何字符串.</p>
+
+<h3 id="解法1">解法1</h3>
+
+<pre><code class="language-cpp">bool isMatch(string s,string p){
+    
+    char *ss = new char[s.size()+1];
+    strcpy(ss,s.c_str());
+    char *pp = new char[p.size()+1];
+    strcpy(pp,p.c_str());
+    return isMatch2(ss,pp);
+    
+}
+
+bool isMatch2(char *s, char *p) {
+    
+    /*
+     scur,pcur 指向当前匹配的字符
+     sstar 指向连续*中最后的一个位置
+     pstar 指向此时s的位置
+     */
+    char *scur = s, *pcur = p, *sstar = NULL, *pstar = NULL;
+    while (*scur) {
+        // 如果当前字符匹配 则向后进行
+        if (*scur == *pcur || *pcur == '?') {
+            ++scur;
+            ++pcur;
+        }
+        // 如果pcur指向*,则将pcur指向下一个(可能有连续的*),并记录当前的sstar为上一次scur
+        else if (*pcur == '*') {
+            pstar = pcur++;
+            sstar = scur;
+        }
+        // 如果之前有遇到过*,取到当前的pcur,和scur
+        else if (pstar) {
+            pcur = pstar + 1;
+            scur = ++sstar;
+        }
+        else {
+            return false;
+        }
+    }
+    while (*pcur == '*') ++pcur;
+    return !*pcur;
+}
+</code></pre>
+
+<h3 id="解法2">解法2</h3>
+
+<p>采用dp的方法</p>
+
+<pre><code class="language-cpp">bool isMatch(string s, string p) {
+        int m = s.size(),n = p.size();
+        vector&lt;vector&lt;bool&gt;&gt; dp(m+1,vector&lt;bool&gt;(n+1,false));
+        dp[0][0] = true;
+        for (int i=1;i&lt;=n;i++){
+            if (p[i-1]=='*') dp[0][i] = dp[0][i-1];
+        }
+        for (int i=1;i&lt;=m;i++){
+            for (int j=1;j&lt;=n;j++){
+                if (p[j-1]=='*') {
+                    dp[i][j] = dp[i-1][j] || dp[i][j-1];
+                }else{
+                    dp[i][j] = (s[i-1]==p[j-1]||p[j-1]=='?') &amp;&amp; dp[i-1][j-1];
+                }
+            }
+        }
+        
+        return dp[m][n];
+    }
+</code></pre>
+
+<p>参考资料:</p>
+
+<p><a href="http://www.cnblogs.com/grandyang/p/4401196.html">http://www.cnblogs.com/grandyang/p/4401196.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/small-algorithm/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/small-algorithm/">Small Algorithm</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="http://blog.longpengfei.com/js/ui.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

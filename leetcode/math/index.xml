@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 24 Jul 2018 11:08:41 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Sep 2018 18:12:18 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/leetcode/math/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>44 Wildcard Matching 通配符匹配</title>
+      <link>http://blog.longpengfei.com/post/44-wildcard-matching-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Tue, 18 Sep 2018 18:12:18 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/44-wildcard-matching-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/</guid>
+      <description>Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for &#39;?&#39; and &#39;*&#39;. &#39;?&#39; Matches any single character. &#39;*&#39; Matches any sequence of characters (including the empty sequence).  The matching should cover the entire input string (not partial).
+Note:
+ s could be empty and contains only lowercase letters a-z. p could be empty and contains only lowercase letters a-z, and characters like ?</description>
+    </item>
     
     <item>
       <title>43. Multiply Strings 字符串相乘</title>
