@@ -325,6 +325,10 @@ git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,
 
 <p><strong>git reset</strong> : 回到历史的某一次提交,这次提交之后的内容会被删除,push的时候可能会有冲突,HEAD指向历史的某次commit</p>
 
+<h3 id="回滚操作">回滚操作</h3>
+
+<p>先 <code>git reset --hard commitid</code> 到要回滚的<code>commitid</code>,再 <code>git push -f</code> 强制推送到远程,这个<code>-f</code>的话就不必<code>pull</code>了,如果不带<code>-f</code>会提示远程有更新,提示你<code>pull</code>.这个强制推送会 覆盖远程的代码</p>
+
 <h3 id="git-rm">git rm</h3>
 
 <p><code>git rm</code></p>
