@@ -216,6 +216,55 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/ffmpeg-build-%E7%9B%B8%E5%85%B3/">Ffmpeg Build 相关</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>09 Nov 2018, 16:44</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  ffmpeg在iOS下的编译(不包括x264,aac的库) 1. 下载gas-preprocessor.pl  下载地址https://github.com/libav/gas-preprocessor 将gas-preprocessor.pl文件拷贝到/usr/local/bin/目录下 chmod 777 /usr/local/bin/gas-preprocessor.pl开启执行权限  2. 安装yasm  brew install yasm  3. 下载编译脚本  下载地址https://github.com/applexiaohao/FFmpeg-iOS-build-script,脚本中有下载ffmpeg的操作. 这步也可用x264,fdk-aac编译到ffmpeg中提到的脚本 脚本中要改下SOURCE=&quot;ffmpeg-4.0.2&quot;为ffmpeg的版本号我当前为4.0.2. 还需要改下DEPLOYMENT_TARGET=&quot;8.0&quot;iOS支持版本. 执行./build-ffmpeg.sh得到FFmpeg-iOS这个文件夹就是我们需要导入的  4. 导入及头文件  导入FFmpeg-iOS文件夹 Header Search Paths中添加$(PROJECT_DIR)/项目名字/FFmpeg-iOS/include 需要的依赖的库如下:
+VideoToolbox.framework //硬解 AudioToolbox.framework libiconv.tbd libbz2.tbd libz.tbd   编译x264 视频编码用的库
+ 下在x264源码,下载地址http://www.videolan.org/developers/x264.html. 或直接git clone http://git.videolan.org/git/x264.git下载 下载编译脚本https://github.com/kewlbear/x264-ios. 执行脚本./build-x264.sh 如果遇到Out of tree builds are impossible with config.h/x264_config.h in source dir.,需要删除x264中的config.h和x264_config.h 如果编译后只有arm64架构的,则需./build-x264.sh armv7这样编译出其他需要的架构库,之后再./build-x264.sh lipo合成 编译x86_64架构的时候需要先brew install nasm 这样i386架构还是编译出来,因为这个架构已经用到,暂时不纠结  编译faac 音频编码用的库
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/ffmpeg-build-%E7%9B%B8%E5%85%B3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/swift-optional-protocol/">Swift实现可选协议</a></h2>
 
     <div class="post-meta">

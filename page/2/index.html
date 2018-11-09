@@ -217,6 +217,68 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">37. Sudoku Solver 求数独的一个解</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 May 2018, 15:18</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Write a program to solve a Sudoku puzzle by filling the empty cells.
+A sudoku solution must satisfy all of the following rules:
+ Each of the digits 1-9 must occur exactly once in each row. Each of the digits 1-9 must occur exactly once in each column. Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.  Empty cells are indicated by the character &lsquo;.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/36-valid-sudoku-%E9%AA%8C%E8%AF%81%E6%95%B0%E7%8B%AC/">36. Valid Sudoku 验证数独</a></h2>
 
     <div class="post-meta">
@@ -803,72 +865,6 @@ Difficulty: Medium
   
   <footer>
     <a href="http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/">28. Implement strStr() 实现strStr()函数</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>06 Feb 2018, 11:37</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Implement strStr().
-Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-Example 1:
-Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot; Output: 2  Example 2:
-Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot; Output: -1  Difficulty: Easy
-这道题让我们找出字符串中某个子字符串第一次出现的index.如果子字符串的长度为0,则返回0,如果子字符传的长度大于母字符串,则返回-1.遍历字符串的时候只需要遍历到剩下的长度等于字符串的位置即可.
-class Solution { public: int strStr(string haystack, string needle) { if (needle.empty()) return 0; int m = haystack.size(),n=needle.size(); if (m&lt;n) return -1; for (int i=0;i&lt;=m-n;++i) { int j=0; for (j=0;j&lt;n;j++) if (haystack[i+j]!
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/28-implement-strstr-%E5%AE%9E%E7%8E%B0strstr%E5%87%BD%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
