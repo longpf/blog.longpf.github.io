@@ -280,7 +280,7 @@ print(aa)
 
 <h1 id="输出">输出</h1>
 
-<pre><code>var name = &quot;666&quot;
+<pre><code class="language-swift">var name = &quot;666&quot;
 var site = &quot;777&quot;
 print(&quot;\(name)dddd\(site)&quot;)
 </code></pre>
@@ -290,20 +290,20 @@ print(&quot;\(name)dddd\(site)&quot;)
 
 <h1 id="区间运算">区间运算</h1>
 
-<pre><code>        for index in 1...5 {
-            print(index)
-        }
-        
-        for index in 1..&lt;5 {
-            print(&quot;\(index)&quot;)
-        }
+<pre><code class="language-swift">for index in 1...5 {
+    print(index)
+}
+    
+for index in 1..&lt;5 {
+    print(&quot;\(index)&quot;)
+}
 </code></pre>
 
 <p><a href="http://www.runoob.com/swift/swift-fallthrough-statement.html">fallthrough 贯穿case</a></p>
 
 <h1 id="字符串">字符串</h1>
 
-<pre><code>//使用字符串字面量
+<pre><code class="language-swift">//使用字符串字面量
 var stringA = &quot;Hello,World!&quot;
 //String实例化
 var stringB = String(&quot;Hello,World!&quot;)
@@ -330,7 +330,7 @@ utf8
 
 <h1 id="字符">字符</h1>
 
-<pre><code>//创建 
+<pre><code class="language-swift">//创建 
 let char1: Character = &quot;A&quot; //不能创建空字符 &quot;&quot;
 
 //遍历
@@ -346,7 +346,7 @@ varA.append( varB )
 
 <h1 id="数组">数组</h1>
 
-<pre><code>var someInts = [Int](repeatElement(0, count: 3))
+<pre><code class="language-swift">var someInts = [Int](repeatElement(0, count: 3))
 someInts[1] = 1
 someInts.append(6)
 someInts += [40,8]
@@ -366,7 +366,7 @@ for (index,item) in someInts.enumerated() {
 
 <h1 id="字典">字典</h1>
 
-<pre><code>var someDict = [Int: String]() //空字典
+<pre><code class="language-swift">var someDict = [Int: String]() //空字典
 ar someDic:[Int:String] = [1:&quot;one&quot;,2:&quot;two&quot;]
 someDic[1] = &quot;999&quot;
 someDic.updateValue(&quot;888&quot;, forKey: 1)
@@ -395,7 +395,7 @@ for (key,value) in someDic.enumerated() {
 
 <h1 id="函数">函数</h1>
 
-<pre><code>func minMax(array:[Int]) -&gt; (min: Int,max: Int) {
+<pre><code class="language-swift">func minMax(array:[Int]) -&gt; (min: Int,max: Int) {
 var currentMin = array[0];
 var currentMax = array[0]
 for value in array[1..&lt;array.count] {
@@ -484,7 +484,7 @@ print(decrem())
 
 <h1 id="闭包">闭包</h1>
 
-<pre><code>{(parameters) -&gt; return type in
+<pre><code class="language-swift">{(parameters) -&gt; return type in
    statements
 }
 
@@ -514,7 +514,7 @@ var reversed = names.sorted(by: &gt;)
 
 <p>尾随闭包是一个书写在函数括号之后的闭包表达式,函数支持将其作为最后一个参数调用</p>
 
-<pre><code>个参数调用
+<pre><code class="language-swift">个参数调用
 func someFunctionThatTakesAClosure(closure: () -&gt; Void) {
     // 函数体部分
     print(&quot;1&quot;);
@@ -539,7 +539,7 @@ someFunctionThatTakesAClosure {
 }
 </code></pre>
 
-<pre><code>let names = [&quot;AT&quot;,&quot;AE&quot;,&quot;D&quot;,&quot;S&quot;,&quot;BE&quot;]
+<pre><code class="language-swift">let names = [&quot;AT&quot;,&quot;AE&quot;,&quot;D&quot;,&quot;S&quot;,&quot;BE&quot;]
         
 //尾随闭包
 var reversed = names.sorted(){$0 &gt; $1}
@@ -553,7 +553,7 @@ reversed = names.sorted { $0 &gt; $1 }
 
 <p>闭包可以在其定义的上下文中捕获常量或变量.即使定义这些常量和变量的原域已经不存在,闭包仍然可以在闭包函数体内引用和修改这些值.swift最简单的闭包形式是嵌套函数,也就是定义在其他函数的函数体内的函数.嵌套函数可以捕获其外部函数所有的参数以及定义的常量和变量.看这个例子:</p>
 
-<pre><code>func  makeIncrementor(forIncrement amount: Int) -&gt; ()-&gt;Int {
+<pre><code class="language-swift">func  makeIncrementor(forIncrement amount: Int) -&gt; ()-&gt;Int {
     var runningTotal = 0;
     func incrementor() -&gt; Int{
         runningTotal += amount
@@ -578,7 +578,7 @@ print(incrementByTen())
 
 <h1 id="枚举">枚举</h1>
 
-<pre><code>enum DaysofaWeek {
+<pre><code class="language-swift">enum DaysofaWeek {
     case Sunday
     case Monday
     case TUESDAY
@@ -632,7 +632,7 @@ weekDay = .THURSDAY //已经知道weekDay是DaysofaWeek类型后,之后的复制
 <li>1 相关值</li>
 </ul>
 
-<pre><code>enum Student {
+<pre><code class="language-swift">enum Student {
     case Name(String)
     case Mark(Int,Int,Int)
 }
@@ -655,7 +655,7 @@ case .Mark(let Mark1, let Mark2, let Mark3):
 在原始值为整数的枚举时，不需要显式的为每一个成员赋值，Swift会自动为你赋值。
 例如，当使用整数作为原始值时，隐式赋值的值依次递增1。如果第一个值没有被赋初值，将会被自动置为0。</p>
 
-<pre><code>enum Month: Int {
+<pre><code class="language-swift">enum Month: Int {
         case January = 1, February, March, April, May, June, July, August, September, October, November, December
 }
 
@@ -676,7 +676,7 @@ print(&quot;数字月份为: \(yearMonth)。&quot;)
 <li>结构体允许我们创建一个单一文件,且系统工会自动生成面向其他代码的外部接口</li>
 </ul>
 
-<pre><code>struct studentMarks {
+<pre><code class="language-swift">struct studentMarks {
    var mark1 = 100
    var mark2 = 78
    var mark3 = 98
@@ -706,7 +706,7 @@ print(&quot;Mark1 是 \(marks.mark1)&quot;)
 
 <p>结构体实例是通过值传递而不是通过引用传递</p>
 
-<pre><code>struct markStruct{
+<pre><code class="language-swift">struct markStruct{
     var mark1: Int
     var mark2: Int
     var mark3: Int
@@ -751,7 +751,7 @@ print(fail.mark3)
 
 <p>类定义:</p>
 
-<pre><code>class student{
+<pre><code class="language-swift">class student{
     var studname: String = &quot;&quot;
     var mark: Int = 0
     var mark2: Int = 0
@@ -765,7 +765,7 @@ print(fail.mark3)
 
 <p>属性访问</p>
 
-<pre><code>class studentMarks {
+<pre><code class="language-swift">class studentMarks {
    var mark1 = 300
    var mark2 = 400
    var mark3 = 900
@@ -799,7 +799,7 @@ print(&quot;Mark3 is \(marks.mark3)&quot;)
 </tbody>
 </table>
 
-<pre><code>let spClass1 = SampleClass(s: &quot;Hello&quot;);
+<pre><code class="language-swift">let spClass1 = SampleClass(s: &quot;Hello&quot;);
 let spClass2 = SampleClass(s: &quot;Hello&quot;)
     
 if spClass1 === spClass2 {// false
@@ -841,7 +841,7 @@ if spClass1 !== spClass2 {// true
 
 <p><strong>存储属性</strong></p>
 
-<pre><code>struct Number
+<pre><code class="language-swift">struct Number
 {
    var digits: Int
    let pi = 3.1415
@@ -865,7 +865,7 @@ print(&quot;\(n.pi)&quot;)
 <li>当属性的值依赖于其他未知类</li>
 </ul>
 
-<pre><code>class sample{
+<pre><code class="language-swift">class sample{
     lazy var no = number();
 }
     
@@ -881,7 +881,7 @@ print(firstsample.no.name)
 
 <p>计算属性不直接存储值,而是提供一个getter来获取值,一个可选的setter来间接设置其他属性或变量的值.</p>
 
-<pre><code>class sample {
+<pre><code class="language-swift">class sample {
     var no1 = 0.0, no2 = 0.0
     var length = 300.0, breadth = 150.0
     
@@ -908,7 +908,7 @@ print(result.no2)
 
 <p>只读计算属性总是返回一个值,可以通过点(.)运算符访问,但不能设置新的值</p>
 
-<pre><code>class film {
+<pre><code class="language-swift">class film {
     var head = &quot;&quot;
     var duration = 0.0
     var metaInfo: [String:String] {
@@ -939,7 +939,7 @@ print(movie.metaInfo[&quot;duration&quot;]!)
 <li>willSet和didSet观察器在属性初始化过程中不回被调用</li>
 </ul>
 
-<pre><code>class Samplepgm {
+<pre><code class="language-swift">class Samplepgm {
     var counter: Int = 0{
         willSet(newTotal){
             print(&quot;计数器: \(newTotal)&quot;)
@@ -968,7 +968,7 @@ NewCounter.counter = 800
 <p>类型属性是作为类型定义的一部分写在类型最外层的花括号{}内.
 使用关键字static来定义值类型的类型属性,关键字class来为类定义类型属性.</p>
 
-<pre><code>struct Structname {
+<pre><code class="language-swift">struct Structname {
    static var storedTypeProperty = &quot; &quot;
    static var computedTypeProperty: Int {
       // 这里返回一个 Int 值
@@ -991,7 +991,7 @@ class Classname {
 
 <p><strong>获取和设置类型属性的值</strong></p>
 
-<pre><code>struct StudMarks {
+<pre><code class="language-swift">struct StudMarks {
    static let markCount = 97
    static var totalCount = 0
    var InternalMarks: Int = 0 {
@@ -1026,7 +1026,7 @@ print(stud1Mark2.InternalMarks)
 但是,如果你确实需要在某个具体的方法中修改结构体或者枚举的属性,你可以选择变异(mutating)这个方法,然后方法就可以从方法内部改变它的属性;并且它做的任何改变在方法结束时还会保留在原始结构中.
 方法还可以给它隐含的属性赋值一个全新的实例,这个新实例在方法结束后替换原来的实例.</p>
 
-<pre><code>struct area {
+<pre><code class="language-swift">struct area {
     var length = 1
     var breadth = 1
     
@@ -1056,7 +1056,7 @@ val.scaleBy(res: 30)
 
 <p><strong>类型方法</strong></p>
 
-<pre><code>class Math
+<pre><code class="language-swift">class Math
 {
     class func abs(number: Int) -&gt; Int
     {
@@ -1113,7 +1113,7 @@ print(num)
 
 <p>与实例方法不同的是下标脚本可以设定为读写或只读.这种方式又有点像计算型属性的setter和getter</p>
 
-<pre><code>struct subexample {
+<pre><code class="language-swift">struct subexample {
     let decrementer: Int
     subscript(index: Int) -&gt; Int {
         return decrementer / index
@@ -1137,7 +1137,7 @@ print(&quot;100 除以 7 等于 \(division[7])&quot;)
 //通过下标脚本来得到结果，比如 division[2] 即为 100 除以 2。
 </code></pre>
 
-<pre><code>class daysofaweek {
+<pre><code class="language-swift">class daysofaweek {
     private var days = [&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;,
         &quot;Thursday&quot;, &quot;Friday&quot;, &quot;saturday&quot;]
     subscript(index: Int) -&gt; String {
@@ -1172,7 +1172,7 @@ Wednesday
 <li>一个类或结构体可以根据机身需要提供多个下标脚本实现,在定义下标脚本时通过入参数的类型进行区分,使用下标脚本时会自动匹配合适的下标脚本实现运行,这就是<strong>下标脚本的重载</strong></li>
 </ul>
 
-<pre><code>struct Matrix {
+<pre><code class="language-swift">struct Matrix {
     let rows: Int, columns: Int
     var print: [Double]
     init(rows: Int, columns: Int) {
@@ -1211,7 +1211,7 @@ print(&quot;\(mat[1,1])&quot;)
 
 <p>关键字 override</p>
 
-<pre><code>class SuperClass {
+<pre><code class="language-swift">class SuperClass {
     func show() {
         print(&quot;这是超类 SuperClass&quot;)
     }
@@ -1243,7 +1243,7 @@ subClass.show()
 <li>如果你不想再重写版本中的getter离修改继承来的属性值,你可以直接通过super.someProperty来返回继承来的值,之中someProperty是你要重写的属性的名字</li>
 </ul>
 
-<pre><code>class Circle {
+<pre><code class="language-swift">class Circle {
     var radius = 12.5
     var area: String {
         return &quot;矩形半径为 \(radius) &quot;
@@ -1284,7 +1284,7 @@ print(&quot;半径: \(sq.area)&quot;)
 
 <p>关键字 final</p>
 
-<pre><code>final class Circle {
+<pre><code class="language-swift">final class Circle {
     final var radius = 12.5
 }
 </code></pre>
@@ -1299,7 +1299,7 @@ print(&quot;半径: \(sq.area)&quot;)
 
 <p>当存储属性声明为可选时,将自动初始化为nil</p>
 
-<pre><code>struct Rectangle {
+<pre><code class="language-swift">struct Rectangle {
     let length: Double?
     
     init(frombreadth breadth: Double) {
@@ -1330,7 +1330,7 @@ print(&quot;面积为：\(rectarea.length)&quot;)
 
 <p>如果结构体对所有存储型属性提供了默认值且自身没有提供定制的构造器,它们能自动获得一个<strong>逐一成员构造器</strong>.我们在调用逐一成员构造器时,通过与成员属性名相同的参数名进行传值来完成对成员属性的初始赋值.</p>
 
-<pre><code>struct Rectangle {
+<pre><code class="language-swift">struct Rectangle {
     var length = 100.0, breadth = 200.0
 }
 let area = Rectangle(length: 24.0, breadth: 32.0)
@@ -1342,7 +1342,7 @@ let area = Rectangle(length: 24.0, breadth: 32.0)
 
 <p>构造器可以通过调用其他构造器来完成实例的部分构造过程.这一过程称为构造器搭理,它能减少多个构造器间的代码重复.</p>
 
-<pre><code>struct Size {
+<pre><code class="language-swift">struct Size {
     var width = 0.0, height = 0.0
 }
 struct Point {
@@ -1398,7 +1398,7 @@ print(&quot;Rect 结构体初始值: \(centerRect.origin.x, centerRect.origin.y)
 
 <p>可以定义便利构造器来调用同一个类中的指定构造器,并未其参数提供默认值.你也可以定义便利构造器来创建一个特殊用途或特定输入的实例.</p>
 
-<pre><code>class mainClass {
+<pre><code class="language-swift">class mainClass {
     var no1 : Int // 局部存储变量
     init(no1 : Int) {
         self.no1 = no1 // 初始化
@@ -1429,7 +1429,7 @@ print(&quot;res2 为: \(res2.no2)&quot;)
 <p>语法为在init关键字后面加添问号(init?)
 或是(init!)</p>
 
-<pre><code>struct Animal {
+<pre><code class="language-swift">struct Animal {
     let species: String
     init?(species:String){
         if species.isEmpty{
@@ -1446,7 +1446,7 @@ let somecreature = Animal(species:&quot;&quot;)
 
 <p><strong>注意</strong></p>
 
-<pre><code>class Outer {
+<pre><code class="language-swift">class Outer {
     let value = &quot;5555&quot;
     var inner = Inner()
     
@@ -1477,7 +1477,7 @@ outer.fooo()
 
 </code></pre>
 
-<pre><code>class Outer_m {
+<pre><code class="language-swift">class Outer_m {
     var counter = 0
     var inner :Inner_m? = Inner_m()
     class Inner_m {
@@ -1507,7 +1507,7 @@ outer.fooo()
 
 <h1 id="可选链">可选链 ? !</h1>
 
-<pre><code>class Person {
+<pre><code class="language-swift">class Person {
     var residence: Residence?
 }
     
@@ -1548,7 +1548,7 @@ if let roomCount = john.residence?.numberOfRooms {
 
 <p>弱引用实例</p>
 
-<pre><code>class Module {
+<pre><code class="language-swift">class Module {
     let name: String
     init(name: String) { self.name = name }
     var sub: SubModule?
@@ -1583,7 +1583,7 @@ ARC 主模块
 
 <p>无主引用实例</p>
 
-<pre><code>
+<pre><code class="language-swift">
 class Student {
     let name: String
     var section: Marks?
@@ -1625,8 +1625,7 @@ ARC
 
 <p>如果捕获的引用绝对不会置为nil,应该用无主引用,而不是弱引用.</p>
 
-<pre><code>
-class HTMLElement {
+<pre><code class="language-swift">class HTMLElement {
     
     let name: String
     let text: String?
@@ -1674,8 +1673,7 @@ p 被析构
 
 <p>操作符is来检查一个实例是否属于特定子类型.</p>
 
-<pre><code>
-class Subjects {
+<pre><code class="language-swift">class Subjects {
     var physics: String
     init(physics: String) {
         self.physics = physics
@@ -1724,8 +1722,7 @@ for item in sa {
 
 <p>只有你可以确定想下转型一定会成功时,才使用强制形式(as!).当你试图下转类型为一个不正确的类型是,强制的类型转换会触发一个运行时错误.</p>
 
-<pre><code>
-for item in sa {
+<pre><code class="language-swift">for item in sa {
     // 类型转换的条件形式
     if let show = item as? Chemistry {
         print(&quot;化学主题是: '\(show.physics)', \(show.equations)&quot;)
@@ -1745,8 +1742,7 @@ for item in sa {
 <li>Any可以表示任何类型,包括方法类型(function types)</li>
 </ul>
 
-<pre><code>
-// 可以存储Any类型的数组 exampleany
+<pre><code class="language-swift">// 可以存储Any类型的数组 exampleany
 var exampleany = [Any]()
 
 exampleany.append(12)
@@ -1777,7 +1773,7 @@ Any 实例
 
 </code></pre>
 
-<pre><code>
+<pre><code class="language-swift">
 // [AnyObject] 类型的数组
 let saprint: [AnyObject] = [
     Chemistry(physics: &quot;固体物理&quot;, equations: &quot;赫兹&quot;),
@@ -1805,14 +1801,14 @@ let saprint: [AnyObject] = [
 
 <p><strong>扩展协议</strong></p>
 
-<pre><code>extension SomeType: SomeProtocol, AnotherProctocol {
+<pre><code class="language-swift">extension SomeType: SomeProtocol, AnotherProctocol {
     // 协议实现写到这里
 }
 </code></pre>
 
 <p><strong>计算型属性</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 extension Int {
    var add: Int {return self + 100 }
 }
@@ -1827,7 +1823,7 @@ print(&quot;加法运算后的值：\(addition)&quot;)
 
 <p><strong>可变实例方法</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 extension Double {
    mutating func square() {
       let pi = 3.1415
@@ -1843,7 +1839,7 @@ print(&quot;圆的面积为: \(Trial1)&quot;)
 
 <p><strong>下标</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 extension Int {
    subscript(var multtable: Int) -&gt; Int {
       var no1 = 1
@@ -1870,7 +1866,7 @@ print(7869[1])
 
 <p>如果类在遵循协议的同时拥有父类，应该将父类名放在协议名之前，以逗号分隔。</p>
 
-<pre><code>
+<pre><code class="language-swift">
 class SomeClass: SomeSuperClass, FirstProtocol, AnotherProtocol {
     // 类的内容
 }
@@ -1883,7 +1879,7 @@ class SomeClass: SomeSuperClass, FirstProtocol, AnotherProtocol {
 
 <p>协议中的通常用var来声明变量属性,在类型声明后加上{set get}来表示属性是可读可写的,只读属性则用{get}来表示.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol classa {
     
     var marks: Int { get set }
@@ -1902,7 +1898,7 @@ protocol classa {
 
 <p>例如: 值类型(结构体,枚举)的实例方法中,将mutating作为函数的前缀,写在func之前,表示可以在该方法中修改它所属的实例及其实例属性的值.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol daysofaweek {
     mutating func show()
 }
@@ -1947,7 +1943,7 @@ res.show()
 
 <p>协议可以要求他的遵循者实现指定的构造器.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol tcpprotocol {
    init(aprot: Int)
 }
@@ -1958,7 +1954,7 @@ protocol tcpprotocol {
 
 <p><strong>makeIterator(),map</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol Generator {
     associatedtype members
     func next() -&gt; members?
@@ -1996,7 +1992,7 @@ print([1,2,3].map({i in i*10}))
 
 <p>协议的继承语法与类的继承想死,多个被继承的协议间用都好分隔:</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
     // 协议定义
 }
@@ -2009,7 +2005,7 @@ protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
 
 <p>该class关键字必须是第一个出现在协议的继承列表中,其后,才是其他继承协议,</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol SomeClassOnlyProtocol: class, SomeInheritedProtocol {
     // 协议定义
 }
@@ -2020,7 +2016,7 @@ protocol SomeClassOnlyProtocol: class, SomeInheritedProtocol {
 
 <p>swift支持合成多个协议,这在我们需要同时遵守多个协议是非常有用</p>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol Stname {
     var name: String { get }
 }
@@ -2064,7 +2060,7 @@ Person(name: &quot;Roshan&quot;, age: 19)
 <li>as用以强制向下转型,如果强转失败,会引起运行时错误.</li>
 </ul>
 
-<pre><code>
+<pre><code class="language-swift">
 protocol HasArea {
     var area: Double { get }
 }
@@ -2115,7 +2111,7 @@ for object in objects {
 
 <h1 id="swift-泛型">swift 泛型</h1>
 
-<pre><code>
+<pre><code class="language-swift">
 // 定义一个交换两个变量的函数
 func swapTwoValues&lt;T&gt;(_ a: inout T, _ b: inout T) {
     let temporaryA = a
@@ -2151,7 +2147,7 @@ print(&quot;交换后数据: \(str1) 和 \(str2)&quot;)
 
 <p><strong>泛型类型</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 struct Stack&lt;Element&gt; {
     var items = [Element]()
     mutating func push(_ item: Element) {
@@ -2190,7 +2186,7 @@ print(stackOfInts.items);
 
 <p><strong>扩展泛型类型</strong></p>
 
-<pre><code>
+<pre><code class="language-swift">
 extension Stack {
     var topItem: Element? {
        return items.isEmpty ? nil : items[items.count - 1]
@@ -2212,7 +2208,7 @@ if let topItem = stackOfStrings.topItem {
 
 <p>类型约束指定了一个必须继承自指定类的类型参数,或者遵循一个特定的协议或协议构成.</p>
 
-<pre><code>func someFunction&lt;T: SomeClass, U: SomeProtocol&gt;(someT: T, someU: U) {
+<pre><code class="language-swift">func someFunction&lt;T: SomeClass, U: SomeProtocol&gt;(someT: T, someU: U) {
     // 这里是泛型函数的函数体部分
 }
 </code></pre>
@@ -2221,7 +2217,7 @@ if let topItem = stackOfStrings.topItem {
 
 <p>实例</p>
 
-<pre><code>
+<pre><code class="language-swift">
 // 非泛型函数，查找指定字符串在数组中的索引
 func findIndex(ofString valueToFind: String, in array: [String]) -&gt; Int? {
     for (index, value) in array.enumerated() {
@@ -2252,7 +2248,7 @@ runoob 的索引为 3
 
 <p>Container协议只指定了三个任何遵从Container协议的类型必须提供的功能.遵从协议的类型在满足这三个条件的情况下也可以提供其他额外的功能.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 // Container 协议
 protocol Container {
     associatedtype ItemType
@@ -2307,7 +2303,7 @@ print( tos.count)
 
 <p>可以在参数列表中通过where语句定义参数的约束.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 // 扩展，将 Array 当作 Container 来使用
 extension Array: Container {}
  
@@ -2391,7 +2387,7 @@ if allItemsMatch(tos, aos) {
 
 <p>public是最高级访问级别,private为最低级访问级别.</p>
 
-<pre><code>
+<pre><code class="language-swift">
 public class SomePublicClass {}
 internal class SomeInternalClass {}
 fileprivate class SomeFilePrivateClass {}
