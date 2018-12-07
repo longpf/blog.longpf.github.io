@@ -3586,7 +3586,7 @@ public:
             pFast = pFast-&gt;next;
         else
             return NULL;
-        while (pFast-&gt;next &amp;&amp; pSlow != pFast)
+        while (pFast &amp;&amp; pSlow != pFast)
         {
             pSlow = pSlow-&gt;next;
             pFast = pFast-&gt;next;
