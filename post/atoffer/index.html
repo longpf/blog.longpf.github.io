@@ -3169,6 +3169,30 @@ public:
 
 <p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
 
+<p>解法1: 先计算出每个字符对应的索引,再赋值字符串. 验证通过</p>
+
+<pre><code class="language-cpp">string LeftRotateString(string str, int n){
+    int size = (int)str.size();
+    if (n&lt;=0||size==0) return str;
+    n %= size; // 需要注意下 size如果等于0,会出浮点错误,跟除0一样
+    if (n==0) return str;
+    string res = string(str);
+    int k = 0; //原来字符串中的字符 在最终 结果中的 索引
+    for (int i=0; i&lt;size; i++) {
+        if (i&gt;=n) {
+            k = i-n;
+            res[k] = str[i];
+        }else{
+            k = size - (n-i);
+            res[k] = str[i];
+        }
+    }
+    return res;
+}
+</code></pre>
+
+<p>解法2 : 两次翻转字符串</p>
+
 <pre><code class="language-cpp">/*
  例:'helloworld' =&gt; 'worldhello'
  可以先翻转前一部分,再翻转后一部分,最后在翻转整个字符串即可
