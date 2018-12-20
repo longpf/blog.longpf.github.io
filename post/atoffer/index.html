@@ -3721,6 +3721,10 @@ public:
         return *string == '\0' ? true : false;
     }
     
+    //这里传 char *&amp;str,引用的指针.是为了可以改变str指针的指向.在这里是引用传递.
+    //形参: 函数定义时候的参数,形参在函数内是局部变量
+    //实参: 函数调用时候传给被调用函数的参数
+    //传值调用: 
     void scanDigit(char*&amp; str)
     {
         while (*str != '\0' &amp;&amp; *str &gt;= '0' &amp;&amp; *str &lt;= '9')
