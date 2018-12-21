@@ -1211,6 +1211,8 @@ public:
 
 <h3 id="18-二叉树的镜像">18. 二叉树的镜像</h3>
 
+<p>跟 <a href="#对称的二叉树">58题 对称的二叉树</a> 有点像</p>
+
 <pre><code class="language-cpp">struct TreeNode {
     int val;
     struct TreeNode* left;
@@ -3949,7 +3951,17 @@ public:
 <img src="https://github.com/LongPF/AtOffer/blob/master/执行文件/57__二叉树的下一个结点/57__二叉树的下一个结点/二叉树.png?raw=true" width="230" height="200">
 </div>
 
-<pre><code class="language-cpp">class Solution {
+<pre><code class="language-cpp">
+struct TreeLinkNode {
+    int val;
+    struct TreeLinkNode *left;
+    struct TreeLinkNode *right;
+    struct TreeLinkNode *next;
+    TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) {      
+    }
+};
+
+class Solution {
 public:
     TreeLinkNode* GetNext(TreeLinkNode* pNode)
     {
@@ -3981,6 +3993,8 @@ public:
 
 <p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的</p>
 
+<p>解法1 : 非递归</p>
+
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 
 struct TreeNode {
@@ -3991,7 +4005,46 @@ struct TreeNode {
         val(x),left(NULL),right(NULL){}
 };
 
+bool isSymmetrical(TreeNode* pRoot){
+    if (pRoot == NULL) return true;
+    stack&lt;TreeNode *&gt; s1{};
+    stack&lt;TreeNode *&gt; s2{};
+    s1.push(pRoot);
+    s2.push(pRoot);
+    while (!s1.empty()&amp;&amp;!s2.empty()) {
+        TreeNode *l = s1.top();
+        TreeNode *r = s2.top();
+        s1.pop();
+        s2.pop();
+        if (l == NULL &amp;&amp; r == NULL) {
+            continue;
+        }else if (l == NULL || r == NULL){
+            return false;
+        }else if (l-&gt;val != r-&gt;val){
+            return false;
+        }else {
+            if (l-&gt;left &amp;&amp; r-&gt;right) {
+                s1.push(l-&gt;left);
+                s2.push(r-&gt;right);
+            }else if ((l-&gt;left!=NULL&amp;&amp;r-&gt;right==NULL)||(l-&gt;left==NULL&amp;&amp;r-&gt;right!=NULL)){
+                return false;
+            }
+            if (l-&gt;right &amp;&amp; r-&gt;left) {
+                s1.push(l-&gt;right);
+                s2.push(r-&gt;left);
+            }else if ((l-&gt;right!=NULL&amp;&amp;r-&gt;left==NULL)&amp;&amp;(l-&gt;right==NULL&amp;&amp;r-&gt;left!=NULL)){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+    
+</code></pre>
 
+<p>解法2 :</p>
+
+<pre><code class="language-cpp">
 /*
  从根结点开始遍历
  如果左右有一个为NULL,那么可定不是对称二叉树
