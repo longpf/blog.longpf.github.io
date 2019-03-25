@@ -393,10 +393,42 @@ git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD,
 
 <p><code>git pull</code> = <code>git fetch</code> + <code>git merge</code> 把取下来的分支的head merge到当前的分支,产生一个新的commit</p>
 
-<p><code>git pull --rebase</code> 这个会让 tree是一条直线,不回出现并行的tree,方便 reset和revert
-&ndash;rebae ,将会执行 git rebase来取代原来的git merge</p>
+<p><code>git pull --rebase</code> 这个会让 tree是一条直线,不回出现并行的tree,方便 reset和revert</p>
+
+<p>这个会将当前提交保存并删除,将远程的commits合并到当前分支,再将保存的commits追加到末尾.  被删除的提交 commit id前后不一样</p>
 
 <h3 id="git-rebase">git rebase</h3>
+
+<ul>
+<li>对比merge</li>
+</ul>
+
+<pre><code>git merge dev 
+这个会将dev合并到当前分支,并在当前分支有一个merge的提交.dev和当前分支是两条并行的线
+</code></pre>
+
+<pre><code>git rebase dev
+这个会将dev合并到当前分支,但不会产生一个新的提交,他会将当前commits保存再删除,将dev的commits合到当前分支,再将保存的commits加到当前分支后面.
+dev中的commit id 都不会变
+当前分支的commit id 会改变.因为是删除之前的提交了,虽然有复制当时 commit id不一样
+所以用git rebase dev合并的时候可能有问题
+因为可能有根据当前分支的某一个commid分出来的分支,这个commid可能在git rebase的时候被删除
+</code></pre>
+
+<p><strong>不要通过rebase对任何已经提交到公共仓库中的commit进行修改</strong></p>
+
+<ul>
+<li>其他</li>
+</ul>
+
+<p><a href="https://www.jianshu.com/p/4a8f4af4e803">https://www.jianshu.com/p/4a8f4af4e803</a></p>
+
+<pre><code>将startpoint到endpoint的提交合并为一次提交左开右闭
+git rebase -i [startpoint] [endpoint]
+
+startpoint到endpoint的提交粘贴到master 左开右闭
+git rebase [startpoint] [endpoint] --onto master
+</code></pre>
 
 <p>&ndash;rebase 不会产生合并的提交,它将会将本地的所有提交临时保存为补丁(patch),放在&rsquo;.git/rebase&rsquo;目录中,然后将当前分支更新到最新的分支尖端,最后把保存的不定应用到分支上.</p>
 
