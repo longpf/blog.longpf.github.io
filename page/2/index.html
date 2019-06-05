@@ -217,6 +217,69 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/">38. Count and Say 计数和读法</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>19 Jun 2018, 18:28</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  The count-and-say sequence is the sequence of integers with the first five terms as following:
+1. 1 2. 11 3. 21 4. 1211 5. 111221  1 is read off as &quot;one 1&quot; or 11.
+11 is read off as &quot;two 1s&quot; or 21.
+21 is read off as &quot;one 2, then one 1&quot; or 1211.
+Given an integer n, generate the nth term of the count-and-say sequence.
+Note: Each term of the sequence of integers will be represented as a string.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/38-count-and-say-%E8%AE%A1%E6%95%B0%E5%92%8C%E8%AF%BB%E6%B3%95/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/37-sudoku-solver-%E6%B1%82%E6%95%B0%E7%8B%AC%E7%9A%84%E4%B8%80%E4%B8%AA%E8%A7%A3/">37. Sudoku Solver 求数独的一个解</a></h2>
 
     <div class="post-meta">
@@ -794,82 +857,6 @@ class Solution { public: vector&lt;int&gt; findSubstring(string s, vector&lt;str
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">29. Divide Two Integers 两数相除</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>07 Feb 2018, 16:45</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/binary-search">Binary Search</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Divide two integers without using multiplication, division and mod operator.
-If it is overflow, return MAX_INT.
-Difficulty: Medium
-这道题让我们求两个数相除A/B,并且不让使用乘法,除法,取余运算.这样我们只能优先想到位运算和加减法了. 假设A&gt;B,最容易想到的是把A-B赋值给A,并且结果+1,然后再把A-B赋值给A,结果+1.这样一直下去.不过如果是2147483647/1这种情况不会不会通过OJ,因为效率太低,会提示Time Limit Exceeded,不可行.回头想想上面的位运算还没用到,如果A&gt;2*B那么结果是不是加2,如果A&gt;2*2*2B结果是不是加2*2.定义t为除数,p为结果的计数m为被除数的绝对值,n为除数的绝对值.例如100/2
-   t
-(除数) p
-(计数) res
-(结果) m
-(被除数) t
-(除数) p
-(计数) res
-(结果) m
-(被除数) t
-(除数) p
-(计数) res
-(结果) m
-(被除数)     2 1 32 36 2 1 48 4 2 1 50 0   4 2   4 2   4 2     8 4   8 4         16 8   16 8         32 16   32 16         64 32              解法1 class Solution { public: int divide(int dividend, int divisor) { if (divisor==0||(dividend==INT_MIN&amp;&amp;divisor==-1)) return INT_MAX; int sign = ((dividend&lt;0)^(divisor&lt;0))?
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -878,7 +865,7 @@ Difficulty: Medium
   
   <a href="http://blog.longpengfei.com/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;2 / 6&nbsp;</span>
+  <span>&nbsp;2 / 7&nbsp;</span>
   
   <a href="http://blog.longpengfei.com/page/3/"><i class="fa fa-chevron-right"></i></a>
   

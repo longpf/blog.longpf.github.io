@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Ffmpeg Build 相关 &middot; long·pf</title>
+  <title>45. Jump Game 2 跳跃游戏2 &middot; long·pf</title>
 
   
   
@@ -209,7 +209,7 @@
 
 
 <div class="header">
-  <h1>Ffmpeg Build 相关</h1>
+  <h1>45. Jump Game 2 跳跃游戏2</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -218,7 +218,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>09 Nov 2018, 16:44</time>
+    <time>05 Jun 2019, 16:55</time>
   </div>
 
   
@@ -231,7 +231,7 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
     
   </div>
 
@@ -239,115 +239,113 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/greedy">Greedy</a>
+    
+  </div>
+
+  
+  
 
 
 </div>
 
-  
+  <p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
 
-<h2 id="ffmpeg在ios下的编译-不包括x264-aac的库">ffmpeg在iOS下的编译(不包括x264,aac的库)</h2>
+<p>Each element in the array represents your maximum jump length at that position.</p>
 
-<h4 id="1-下载gas-preprocessor-pl">1. 下载gas-preprocessor.pl</h4>
+<p>Your goal is to reach the last index in the minimum number of jumps.</p>
 
-<ul>
-<li>下载地址<a href="https://github.com/libav/gas-preprocessor">https://github.com/libav/gas-preprocessor</a></li>
-<li>将gas-preprocessor.pl文件拷贝到<code>/usr/local/bin/</code>目录下</li>
-<li><code>chmod 777 /usr/local/bin/gas-preprocessor.pl</code>开启执行权限</li>
-</ul>
+<p>Example:</p>
 
-<h4 id="2-安装yasm">2. 安装yasm</h4>
+<p>Input: [2,3,1,1,4]
+Output: 2
+Explanation: The minimum number of jumps to reach the last index is 2.
+    Jump 1 step from index 0 to 1, then 3 steps to the last index.</p>
 
-<ul>
-<li><code>brew install yasm</code></li>
-</ul>
+<p>Note:</p>
 
-<h4 id="3-下载编译脚本">3. 下载编译脚本</h4>
+<p>You can assume that you can always reach the last index.</p>
 
-<ul>
-<li>下载地址<a href="https://github.com/applexiaohao/FFmpeg-iOS-build-script">https://github.com/applexiaohao/FFmpeg-iOS-build-script</a>,脚本中有下载ffmpeg的操作. 这步也可用<strong>x264,fdk-aac编译到ffmpeg中</strong>提到的脚本</li>
-<li>脚本中要改下<code>SOURCE=&quot;ffmpeg-4.0.2&quot;</code>为ffmpeg的版本号我当前为4.0.2. 还需要改下<code>DEPLOYMENT_TARGET=&quot;8.0&quot;</code>iOS支持版本.</li>
-<li>执行<code>./build-ffmpeg.sh</code>得到<code>FFmpeg-iOS</code>这个文件夹就是我们需要导入的</li>
-</ul>
+<p>给出一个非负整数数组,数组中的元素大小表示可以从该index向右跳跃的距离.问跳到最后一个元素的最少跳跃次数.</p>
 
-<h4 id="4-导入及头文件">4. 导入及头文件</h4>
+<p>这道题属于贪心算法类.</p>
 
-<ul>
-<li>导入<code>FFmpeg-iOS</code>文件夹</li>
-<li><code>Header Search Paths</code>中添加<code>$(PROJECT_DIR)/项目名字/FFmpeg-iOS/include</code></li>
+<p>写法1:</p>
 
-<li><p>需要的依赖的库如下:</p>
+<pre><code class="language-cpp">int jump(vector&lt;int&gt;&amp; nums) {
+    int res = 0;       // 记录跳d了几次
+    int size = nums.size();
+    if (size&lt;2) return 0;
+    for (int i = 0; i &lt; size; ) {
+        int steps = nums[i]; // 第i个元素可以走的步数
+        int max = 0;
+        int step = 0;        // 第i个元素实际走的步数
+        while (steps &gt; 0) {
+        	// 如果这一步跳出超过边界,直接返回
+            if (i + steps &gt;= (size-1)) {
+                res ++;
+                return res;
+            }else{
+            	// 保存最远到达
+                int tmp = nums[i+steps]+(i+steps);
+                if (tmp &gt; max){
+                    max = tmp;
+                    step = steps;
+                }
+                steps--;
+            }
+        }
+        if (step &gt; 0) {
+            res ++;
+            i += step;
+            if (i&gt;=(size-1))
+                return res;
+        }else{
+            return 0;
+        }
+    }
+    return 0;
+}
+</code></pre>
 
-<pre><code>VideoToolbox.framework //硬解
-AudioToolbox.framework
-libiconv.tbd
-libbz2.tbd
-libz.tbd
-</code></pre></li>
-</ul>
+<p>写法2: 这个是别人的解法,更加的简洁</p>
 
-<h2 id="编译x264">编译x264</h2>
-
-<p>视频编码用的库</p>
-
-<ul>
-<li>下在x264源码,下载地址<a href="http://www.videolan.org/developers/x264.html">http://www.videolan.org/developers/x264.html</a>. 或直接<code>git clone http://git.videolan.org/git/x264.git</code>下载</li>
-<li>下载编译脚本<a href="https://github.com/kewlbear/x264-ios">https://github.com/kewlbear/x264-ios</a>.</li>
-<li>执行脚本<code>./build-x264.sh</code></li>
-<li>如果遇到<code>Out of tree builds are impossible with config.h/x264_config.h in source dir.</code>,需要删除x264中的<code>config.h</code>和<code>x264_config.h</code></li>
-<li>如果编译后只有arm64架构的,则需<code>./build-x264.sh armv7</code>这样编译出其他需要的架构库,之后再<code>./build-x264.sh lipo</code>合成</li>
-<li>编译x86_64架构的时候需要先<code>brew install nasm</code></li>
-<li>这样i386架构还是编译出来,因为这个架构已经用到,暂时不纠结</li>
-</ul>
-
-<h2 id="编译faac">编译faac</h2>
-
-<p>音频编码用的库</p>
-
-<ul>
-<li>1. 去<a href="http://www.linuxfromscratch.org/blfs/view/svn/multimedia/faac.html">http://www.linuxfromscratch.org/blfs/view/svn/multimedia/faac.html</a>下载最新源码,解压并改名为faac</li>
-<li>2. 去<a href="https://github.com/kewlbear/x264-ios/blob/master/build-x264.sh">https://github.com/kewlbear/x264-ios/blob/master/build-x264.sh</a>复制下脚本,和上面的faac文件夹放在同一个目录.执行脚本.</li>
-<li>3. 我这边i386,x86_86架构的库编译失败,可能需要升级xcode.我这边暂时没升级.</li>
-</ul>
-
-<h2 id="编译fdk-aac">编译fdk-aac</h2>
-
-<p>fdk-aac相比 faac以及其他的aac库,好处是输出码率控制精准,而且支持he-aac的编解码</p>
-
-<ul>
-<li>1. 去<a href="https://github.com/mstorsjo/fdk-aac/releases">https://github.com/mstorsjo/fdk-aac/releases</a>下载源码</li>
-<li>2. 去<a href="https://github.com/kewlbear/fdk-aac-build-script-for-iOS">https://github.com/kewlbear/fdk-aac-build-script-for-iOS</a>下载build脚本</li>
-<li>3. 执行脚本之前需要下面2步骤
-
-<ul>
-<li><code>brew install automake libtool</code></li>
-<li>去源码文件夹中执行<code>autogen.sh</code>脚本</li>
-<li>改下build脚本对应的源码版本号</li>
-</ul></li>
-<li>4. 执行build脚本</li>
-<li>5. 执行<code>./build-fdk-aac.sh lipo</code>合成</li>
-</ul>
-
-<h2 id="将x264-fdk-aac编译到ffmpeg中">将x264,fdk-aac编译到ffmpeg中</h2>
-
-<ul>
-<li>1. 去<a href="https://github.com/kewlbear/FFmpeg-iOS-build-script">https://github.com/kewlbear/FFmpeg-iOS-build-script</a>中下载编译脚本. 修改脚本中的的ffmpeg为你的的版本号. 修改脚本中x264,fdk-aac库的路径.</li>
-<li>2. 执行脚本</li>
-<li>3. 编译过程中如果遇到<code>libx264 no found</code>或<code>libfdk-aac no found</code>的错误.问题应该是对应的架构的x264,或aac库没有.应该去对应路径检查下</li>
-<li>4. 最后执行lipo合成</li>
-</ul>
+<pre><code class="language-cpp">int jump2(vector&lt;int&gt;&amp; nums) {
+    // last为上一次到达的最远值
+    int res = 0, n = nums.size(), last = 0, cur = 0;
+    for (int i = 0; i &lt; n - 1; ++i) {
+        // 记录当前能到达的最远值
+        cur = max(cur, i + nums[i]);
+        // 当i到达last的时候,说明结束了上一个最大范围,需要加1
+        if (i == last) {
+            last = cur;
+            ++res;
+            if (cur &gt;= n - 1) break;
+        }
+    }
+    return res;
+}
+</code></pre>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="http://blog.longpengfei.com/post/44-wildcard-matching-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/"><i class="fa fa-chevron-left"></i></a>
+    <a href="http://blog.longpengfei.com/post/ffmpeg-build-%E7%9B%B8%E5%85%B3/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="http://blog.longpengfei.com/post/44-wildcard-matching-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/">44. Wildcard Matching 通配符匹配</a>
+      <a href="http://blog.longpengfei.com/post/ffmpeg-build-%E7%9B%B8%E5%85%B3/">Ffmpeg Build 相关</a>
     </nav>
     
   </div>
@@ -356,14 +354,8 @@ libz.tbd
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="http://blog.longpengfei.com/post/45-jump-game2/">45. Jump Game 2 跳跃游戏2</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="http://blog.longpengfei.com/post/45-jump-game2/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
