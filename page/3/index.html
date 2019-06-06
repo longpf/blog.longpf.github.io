@@ -217,6 +217,77 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/30-substring-with-concatenation-of-all-words-%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2/">30. Substring With Concatenation of All Words 串联所有单词的子串</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Feb 2018, 16:33</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
+For example, given:
+s: &quot;barfoothefoobarman&quot;
+words: [&quot;foo&quot;, &quot;bar&quot;]
+You should return the indices: [0,9].
+(order does not matter).
+Difficulty: Hard
+这道题让我们求串联所有单词的子串.所有单词来自输入的数组.所有单词的长度一样,串联的顺序不一定.如题中的例子,可以串联成foobar, barfoo. 这里我们用两个哈希表,一个用来存输入单词数组的每个单词和其的出现次数.然后遍历输入的字符串.设单词的个数为n,每个单词长度为m.每次遍历检查母字符串从该位置开始,每m截取一下查看在第一个哈希表是否存在.如果存在,存入第二个哈希表.如果n个次截取都匹配则这次遍历是符合要求的,存一下结果.
+解法1 就是上面分析
+class Solution { public: vector&lt;int&gt; findSubstring(string s, vector&lt;string&gt;&amp; words) { vector&lt;int&gt;res; if (s.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/30-substring-with-concatenation-of-all-words-%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%90%E4%B8%B2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/29-divide-two-integers-%E4%B8%A4%E6%95%B0%E7%9B%B8%E9%99%A4/">29. Divide Two Integers 两数相除</a></h2>
 
     <div class="post-meta">
@@ -799,70 +870,6 @@ Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4 Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4  Dif
   
   <footer>
     <a href="http://blog.longpengfei.com/post/21-merge-two-sorted-lists-%E6%B7%B7%E5%90%88%E6%8F%92%E5%85%A5%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">20. Valid Parentheses 验证括号</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>29 Jan 2018, 18:57</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/stack">Stack</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.
-Difficulty: Easy
-这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
-class Solution { public: bool isValid(string s) { stack&lt;char&gt; parentheses; for (int i = 0; i&lt;s.size();i++){ if (s[i]=='('||s[i]=='['||s[i]=='{') parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==')' &amp;&amp; parentheses.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -217,6 +217,70 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">20. Valid Parentheses 验证括号</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jan 2018, 18:57</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/stack">Stack</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+The brackets must close in the correct order, &quot;()&quot; and &quot;()[]{}&quot; are all valid but &quot;(]&quot; and &quot;([)]&quot; are not.
+Difficulty: Easy
+这道题让我们验证字符串是否是可用的括号,这个字符串只有括号.需要用到栈,当遇到左括号的时候压入到栈里,遇到右括号的时候需要检查栈顶元素是否为对应的左括号,如果不是对应的就返回false.
+class Solution { public: bool isValid(string s) { stack&lt;char&gt; parentheses; for (int i = 0; i&lt;s.size();i++){ if (s[i]=='('||s[i]=='['||s[i]=='{') parentheses.push(s[i]); else { if (parentheses.empty()) return false; if (s[i]==')' &amp;&amp; parentheses.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/20-valid-parentheses-%E9%AA%8C%E8%AF%81%E6%8B%AC%E5%8F%B7/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/19-remove-nth-node-from-end-of-list-%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9/">19. Remove Nth Node From End of List 移除链表倒数第N个节点</a></h2>
 
     <div class="post-meta">
@@ -775,68 +839,6 @@ Difficulty: Medium
   
   <footer>
     <a href="http://blog.longpengfei.com/post/12-integer-to-roman-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">11. Container With Most Water 装最多水的容器</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Jan 2018, 14:14</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given n non-negative integers a1, a2, &hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
-Note: You may not slant the container and n is at least 2.
-Difficulty: Medium
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/11-container-with-most-water-%E8%A3%85%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
