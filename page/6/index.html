@@ -217,6 +217,74 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Longest Substring Without Repeating Characters 子字符串的最大不重复长度</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jan 2018, 11:41</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/two-pointers">Two Pointers</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Given a string, find the length of the longest substring without repeating characters.
+Examples:
+Given &quot;abcabcbb&quot;, the answer is &quot;abc&quot;, which the length is 3.
+Given &quot;bbbbb&quot;, the answer is &quot;b&quot;, with the length of 1.
+Given &quot;pwwkew&quot;, the answer is &quot;wke&quot;, with the length of 3. Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
+滑动窗口问题,比如abcabcbb,滑动到abca的时候需要丢弃第一个a变成bca,继续向右滑动,每次滑动都要检查有没有重复.感觉涉及到最大,最多的问题都可以试着网哈希表上靠. 
+class Solution { public: int lengthOfLongestSubstring(string s) { int size = s.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/longest-substring-without-repeating-characters-%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E4%B8%8D%E9%87%8D%E5%A4%8D%E9%95%BF%E5%BA%A6/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/add-twonumbers-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0/">Add TwoNumbers 两个链表相加</a></h2>
 
     <div class="post-meta">
@@ -710,62 +778,6 @@ or
   
   <footer>
     <a href="http://blog.longpengfei.com/post/aspectscocoa/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/git-flow-command/">Git Flow 常用命令</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>30 Dec 2016, 14:52</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/git">git</a>
-    
-  </div>
-
-  
-  
-
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  git flow feature start branchname
- 开始一个featuer分支,feature分支的名字一般为功能+人名,如capture.xiaoming  git flow feature publish branchname
- 将一个featuer分支推到远程,多人开发  git checkout -b feature/branchname origin/feature/branchname * 将远程的featuer分支下到本地开发
-git flow feature finish branchname * 合并至本地develop * 删除任务分支
-git pull --rebase
-git flow release start v6.6.3 * 开始release分支
-git flow release publish v6.6.3
-git flow release finish v6.6.3 * 合并release分支到master * 在master上打上tag * 合并release到develop * 删除release
-git flow hotfix start v6.6.4 * 开始修复分支
-git flow hotfix finish v6.
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/git-flow-command/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
