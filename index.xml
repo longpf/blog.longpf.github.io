@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 Jun 2019 14:44:16 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2019 15:49:38 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>49. Group Anagrams 群组错位词</title>
+      <link>http://blog.longpengfei.com/post/49-group-anagrams-%E7%BE%A4%E7%BB%84%E9%94%99%E4%BD%8D%E8%AF%8D/</link>
+      <pubDate>Wed, 12 Jun 2019 15:49:38 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/49-group-anagrams-%E7%BE%A4%E7%BB%84%E9%94%99%E4%BD%8D%E8%AF%8D/</guid>
+      <description>Given an array of strings, group anagrams together.
+Example: Input: [&amp;quot;eat&amp;quot;, &amp;quot;tea&amp;quot;, &amp;quot;tan&amp;quot;, &amp;quot;ate&amp;quot;, &amp;quot;nat&amp;quot;, &amp;quot;bat&amp;quot;], Output: [ [&amp;quot;ate&amp;quot;,&amp;quot;eat&amp;quot;,&amp;quot;tea&amp;quot;], [&amp;quot;nat&amp;quot;,&amp;quot;tan&amp;quot;], [&amp;quot;bat&amp;quot;] ]  Note:
+All inputs will be in lowercase. The order of your output does not matter.
+解法1
+vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; groupAnagrams(vector&amp;lt;string&amp;gt;&amp;amp; strs) { vector&amp;lt;vector&amp;lt;string&amp;gt;&amp;gt; res; unordered_map&amp;lt;string, vector&amp;lt;string&amp;gt;&amp;gt; m; for (string str : strs) { string t = str; sort(t.begin(), t.end()); // 这里可以不用判断m[t]存不存在 m[t].push_back(str); } for (auto a : m) { res.</description>
+    </item>
     
     <item>
       <title>48. Rotate Image 旋转图像</title>

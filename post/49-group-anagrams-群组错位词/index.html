@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>49. Group Anagrams 群组错位词 &middot; long·pf</title>
 
   
   
@@ -209,93 +209,158 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>49. Group Anagrams 群组错位词</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jun 2019, 15:49</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;18&#41;</span>
-    </li>
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;17&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;11&#41;</span>
-    </li>
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;9&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;9&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/hash-table">Hash Table</a>
+    
+  </div>
+
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;5&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Given an array of strings, group anagrams together.</p>
+
+<pre><code>Example:
+ 
+Input: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],
+Output:
+[
+[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],
+[&quot;nat&quot;,&quot;tan&quot;],
+[&quot;bat&quot;]
+]
+</code></pre>
+
+<p>Note:</p>
+
+<p>All inputs will be in lowercase.
+The order of your output does not matter.</p>
+
+<p>解法1</p>
+
+<pre><code class="language-cpp">vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) {
+    vector&lt;vector&lt;string&gt;&gt; res;
+    unordered_map&lt;string, vector&lt;string&gt;&gt; m;
+    for (string str : strs) {
+        string t = str;
+        sort(t.begin(), t.end());
+        // 这里可以不用判断m[t]存不存在
+        m[t].push_back(str);
+    }
+    for (auto a : m) {
+        res.push_back(a.second);
+    }
+    return res;
+}
+</code></pre>
+
+<p>解法2</p>
+
+<p>不对字符串进行排序后当做key. 不过实际效率没解法1高.</p>
+
+<pre><code class="language-cpp">vector&lt;vector&lt;string&gt;&gt; groupAnagrams2(vector&lt;string&gt;&amp; strs){
+    vector&lt;vector&lt;string&gt;&gt; res{};
+    unordered_map&lt;string,vector&lt;string&gt;&gt; m{};
+    for (string str : strs){
+        vector&lt;int&gt; cnt(26,0);
+        string t = &quot;&quot;;
+        for (char c: str) ++cnt[c-'a'];
+        for (int d : cnt) t+=to_string(d)+&quot;/&quot;;
+        m[t].push_back(str);
+    }
+    for (auto a : m){
+        res.push_back(a.second);
+    }
+    return res;
+}
+</code></pre>
+
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/48-rotate-image-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/48-rotate-image-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">48. Rotate Image 旋转图像</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="greedy">greedy</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="design">design</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'longpf';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -324,3 +389,4 @@
 
 </body>
 </html>
+
