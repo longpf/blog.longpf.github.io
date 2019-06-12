@@ -217,6 +217,69 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/48-rotate-image-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">48 Rotate Image 旋转图像</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jun 2019, 14:44</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Medium
+You are given an n x n 2D matrix representing an image.
+Rotate the image by 90 degrees (clockwise).
+Note:
+You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
+ Example 1: Given input matrix = [ [1,2,3], [4,5,6], [7,8,9] ], rotate the input matrix in-place such that it becomes: [ [7,4,1], [8,5,2], [9,6,3] ] Example 2: Given input matrix = [ [ 5, 1, 9,11], i=0,j=1,n=4 [ 2, 4, 8,10], [13, 3, 6, 7], [15,14,12,16] ], rotate the input matrix in-place such that it becomes: [ [15,13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7,10,11] ]  这道题让我们将一个n*n的二维矩阵顺时针旋转90度.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/48-rotate-image-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/47-permutationsii-%E5%85%A8%E6%8E%92%E5%88%972/">47. PermutationsII 全排列2</a></h2>
 
     <div class="post-meta">
@@ -746,72 +809,6 @@ class Solution { public: int trap(vector&lt;int&gt;&amp; height) { int l=0,r=hei
   
   <footer>
     <a href="http://blog.longpengfei.com/post/42-trapping-rain-water-%E6%94%B6%E9%9B%86%E9%9B%A8%E6%B0%B4/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/">41. First Missing Positive 首个缺失的正数</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>13 Jul 2018, 18:36</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
-    
-  </div>
-
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-codiepie fa-fw"></i>
-    
-      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/array">Array</a>
-    
-  </div>
-
-  
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Given an unsorted integer array, find the smallest missing positive integer.
-Example 1:
-Input: [1,2,0] Output: 3  Example 2:
-Input: [3,4,-1,1] Output: 2  Example 3:
-Input: [7,8,9,11,12] Output: 1  Note:
-Your algorithm should run in O(n) time and uses constant extra space.
-Difficulty: Hard
-这道题让我们找出数组中首个缺失的整数. 并且限定了时间负责度为O(n),空间复杂度为O(1),就是不让新建新的集合. 那这样只能在原数组上进行操作. 这里只能是把对应的数放到对应的索引上.比如例2中,3需要放到index为2的位置上,1要放到index为0的位置上.4和-1因为没有对应的索引被舍弃,-1本来就是负数,4越界了.这样先通过一次for循环排好数值对应的索引.再通过一次for循环找到第一个位置不对的就ok. 
-class Solution { public: int firstMissingPositive(vector&lt;int&gt;&amp; nums) { int n = nums.size(); if (n==0) return 1; for (int i=0;i&lt;n;i++){ while (nums[i]&gt;0 &amp;&amp; nums[i]&lt;=n &amp;&amp; nums[i]!
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/41-first-missing-positive-%E9%A6%96%E4%B8%AA%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%AD%A3%E6%95%B0/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
