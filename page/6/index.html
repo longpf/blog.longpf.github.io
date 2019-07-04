@@ -217,6 +217,63 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher 马拉车算法</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>18 Jan 2018, 12:01</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法&amp;数据结构</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Manacher马拉车算法是解决回文子串长度的算法,可以是时间复杂度为O(n).回文字符串就是正着读,反着读都一样的字符串.aba,abba.
+由于回文串的长度可奇可偶, 为避免奇偶判断,Manacher的第一步预处理为在字符串的首尾和每个字符的间隙中都插入#,如#a#b#a#,#a#b#b#a#,这样转换后的字符串t恒为奇数.接下里加入一个辅助数组p,其中p[i]表示以t[i]字符为中心的回文子串的半径,若p[i]=1,那该回文子串就是t[i]本身.
+#1#2#2#1#2#2# 1212521612321  由于第一个和最后一个字符都是#号,并且也需要搜索回文,为了防止越界,还需要在首尾加上非#号字符,实际操作时,我们只需要给开头加上非#号字符,结尾不用加的原因是字符串的结尾标识为\0,等于默认加过了.从上面可以看出p[i]-1正好为元字符串在i处的回文子串的长度.下面只要求出p数组中的最大值就行.新增两个辅助变量mx和id,其中id为最大回文子串的中心的位置,mx是回文串能延伸到的最右端的位置,这个算法的最核心的一行:
+p[i] = mx&gt;i ? min(p[2*id-1],mx-i) : 1;  如图j是i关于id的对称点.
+  当mx&gt;i时候p[i]=min(p[2*id-i],mx-i)=min(p[j],mx-i),为什么呢?
+此时还需要分开讨论:
+当mx-i&gt;p[j]如上图,红色距离大于黄色距离.以j为中心的回文子串包含在id为中心的回文子串中.i和j对称,所以i为中心的回文子串也在id为中心的回文子串中.所以有p[i]=p[j].
+当mx-i&gt;p[j]的时候,j为中心的回文子串不一定全部包含在id为中心的回文子串中,基于对称性可知i为中心的回文子串最右端可能超出mx处,就是p[i]&gt;=mx-i,如下图,绿色的部分是相同的.至于p[i]具体能在mx右边延伸到多远,就只能循环向右边扩展边比较，直至不为子回文串。
+  对于mx&lt;=i的情况,i在mx的右边未知区域.无法对p[i]做更多的假设,只能p[i]=1,然后去虚幻向右比较扩展。
+参考代码如下:
+#include &lt;vector&gt; #include &lt;string&gt; using namespace std; string Manacher(string s) { //insert '#' string t = &quot;$#&quot;; for (int i = 0;i&lt;s.size();++i){ t += s[i]; t += &quot;#&quot;; } //process t vector&lt;int&gt; p(t.size(),0); int mx = 0,id = 0,resLen = 0,resCenter = 0; for (int i = 1; i &lt; t.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/manacher-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/longest-palindromic-substring-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2/">Longest Palindromic Substring 最长回文子字符串</a></h2>
 
     <div class="post-meta">
@@ -734,71 +791,6 @@ sublime开发python python3 build  1 type -a python3查看pythons路径 2 Sublim
 这样之后如果还报错 在link Binary With Libraries中添加libc++.tbd应该可以搞定
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>12 Jan 2017, 05:49</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
-    
-  </div>
-
-  
-  
-
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  Instrument (command+I) 原文地址
-Core Animation : Color Blended Layers :
-检测哪里发生了图层混合，并用红色标记出来。因此我们需要尽可能减少看到的红色区域。 对于UIImageView来说，不仅它自身需要是不透明的，它的图片也不能含有alpha通道. PS：如果label文字有中文，依然会出现图层混合，这是因为此时label多了一个sublayer，如果有好的解决办法欢迎告诉我。
-Color Hits Green and Misses Red :
-表示如果命中缓存则显示为绿色，否则显示为红色，显然绿色越多越好，红色越少越好. 光栅化的核心在于缓存的思想。
-layer进行光栅化后渲染成位图放在缓存中。当屏幕出现滑动时，我们直接从缓存中读取而不必渲染，所以会看到绿色。当新的label出现时，缓存中没有个这个label的位图，所以会变成红色。第三点比较关键，缓存中的对象有效期只有100ms，即如果在0.1s内没有被使用就会自动从缓存中清理出去
-光栅化的缓存机制是一把双刃剑，先写入缓存再读取有可能消耗较多的时间。因此光栅化仅适用于较复杂的、静态的效果。通过Instrument的调试发现，这里使用光栅化经常出现未命中缓存的情况，如果没有特殊需要则可以关闭光栅化
-// label.layer.shouldRasterize = true
-Color Copied Images :
-像素在内存中的布局和它在磁盘中的存储方式并不相同。考虑一种简单的情况：每个像素有R、G、B和alpha四个值，每个值占用1字节，因此每个像素占用4字节的内存空间。一张1920*1080的照片(iPhone6 Plus的分辨率)一共有2,073,600个像素，因此占用了超过8Mb的内存。但是一张同样分辨率的PNG格式或JPEG格式的图片一般情况下不会有这么大。这是因为JPEG将像素数据进行了一种非常复杂且可逆的转化。 “Color Copied Images”就用来检测这种实时的格式转化，如果有则会将图片标记为蓝色。 当我们打开JPEG格式的图片时，CPU会进行一系列运算，将JPEG图片解压成像素数据。显然这个工作会消耗不少时间，所以不应该在滑动时进行，我们应该预先处理好图片。 CPU主要处理两件事：
-把图片从PNG或JPEG等格式中解压出来，得到像素数据 如果GPU不支持这种颜色各式，CPU需要进行格式转换
-Color Misaligned Images :
-表示如果图片需要缩放则标记为黄色，如果没有像素对齐则标记为紫色 图片的缩放需要占用时间，因此我们要尽可能保证无论是本地图片还是从网络或取得图片的大小，都与其frame保持一致。
-Color Offscreen-Rendered Yellow :
-离屏渲染意味着把渲染结果临时保存，等用到时再取出，因此相对于普通渲染更占用资源。 会把需要离屏渲染的地方标记为黄色，大部分情况下我们需要尽可能避免黄色的出现。离屏渲染可能会自动触发，也可以手动触发。以下情况可能会导致触发离屏渲染： 重写drawRect方法 有mask或者是阴影(layer.masksToBounds, layer.shadow*)，模糊效果也是一种mask layer.shouldRasterize = true
-前两者会自动触发离屏渲染，第三种方法是手动开启离屏渲染
-设置阴影的时候要指定path 要不会离屏渲染
-设置cornerRadius本身并不会导致离屏渲染，但很多时候它还需要配合layer.masksToBounds = true使用。根据之前的总结，设置masksToBounds会导致离屏渲染。解决方案是尽可能在滑动时避免设置圆角，如果必须设置圆角，可以使用光栅化技术将圆角缓存起来：
-Color Compositing Fast-Path Blue:
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 

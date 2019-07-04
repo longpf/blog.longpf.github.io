@@ -217,6 +217,71 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jan 2017, 05:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  Instrument (command+I) 原文地址
+Core Animation : Color Blended Layers :
+检测哪里发生了图层混合，并用红色标记出来。因此我们需要尽可能减少看到的红色区域。 对于UIImageView来说，不仅它自身需要是不透明的，它的图片也不能含有alpha通道. PS：如果label文字有中文，依然会出现图层混合，这是因为此时label多了一个sublayer，如果有好的解决办法欢迎告诉我。
+Color Hits Green and Misses Red :
+表示如果命中缓存则显示为绿色，否则显示为红色，显然绿色越多越好，红色越少越好. 光栅化的核心在于缓存的思想。
+layer进行光栅化后渲染成位图放在缓存中。当屏幕出现滑动时，我们直接从缓存中读取而不必渲染，所以会看到绿色。当新的label出现时，缓存中没有个这个label的位图，所以会变成红色。第三点比较关键，缓存中的对象有效期只有100ms，即如果在0.1s内没有被使用就会自动从缓存中清理出去
+光栅化的缓存机制是一把双刃剑，先写入缓存再读取有可能消耗较多的时间。因此光栅化仅适用于较复杂的、静态的效果。通过Instrument的调试发现，这里使用光栅化经常出现未命中缓存的情况，如果没有特殊需要则可以关闭光栅化
+// label.layer.shouldRasterize = true
+Color Copied Images :
+像素在内存中的布局和它在磁盘中的存储方式并不相同。考虑一种简单的情况：每个像素有R、G、B和alpha四个值，每个值占用1字节，因此每个像素占用4字节的内存空间。一张1920*1080的照片(iPhone6 Plus的分辨率)一共有2,073,600个像素，因此占用了超过8Mb的内存。但是一张同样分辨率的PNG格式或JPEG格式的图片一般情况下不会有这么大。这是因为JPEG将像素数据进行了一种非常复杂且可逆的转化。 “Color Copied Images”就用来检测这种实时的格式转化，如果有则会将图片标记为蓝色。 当我们打开JPEG格式的图片时，CPU会进行一系列运算，将JPEG图片解压成像素数据。显然这个工作会消耗不少时间，所以不应该在滑动时进行，我们应该预先处理好图片。 CPU主要处理两件事：
+把图片从PNG或JPEG等格式中解压出来，得到像素数据 如果GPU不支持这种颜色各式，CPU需要进行格式转换
+Color Misaligned Images :
+表示如果图片需要缩放则标记为黄色，如果没有像素对齐则标记为紫色 图片的缩放需要占用时间，因此我们要尽可能保证无论是本地图片还是从网络或取得图片的大小，都与其frame保持一致。
+Color Offscreen-Rendered Yellow :
+离屏渲染意味着把渲染结果临时保存，等用到时再取出，因此相对于普通渲染更占用资源。 会把需要离屏渲染的地方标记为黄色，大部分情况下我们需要尽可能避免黄色的出现。离屏渲染可能会自动触发，也可以手动触发。以下情况可能会导致触发离屏渲染： 重写drawRect方法 有mask或者是阴影(layer.masksToBounds, layer.shadow*)，模糊效果也是一种mask layer.shouldRasterize = true
+前两者会自动触发离屏渲染，第三种方法是手动开启离屏渲染
+设置阴影的时候要指定path 要不会离屏渲染
+设置cornerRadius本身并不会导致离屏渲染，但很多时候它还需要配合layer.masksToBounds = true使用。根据之前的总结，设置masksToBounds会导致离屏渲染。解决方案是尽可能在滑动时避免设置圆角，如果必须设置圆角，可以使用光栅化技术将圆角缓存起来：
+Color Compositing Fast-Path Blue:
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/understanding-hashtable/">哈希表简记</a></h2>
 
     <div class="post-meta">

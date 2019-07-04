@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>50. Pow(x, n) 求x的n次方 &middot; long·pf</title>
 
   
   
@@ -209,93 +209,137 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>50. Pow(x, n) 求x的n次方</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Jul 2019, 16:51</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;18&#41;</span>
-    </li>
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;17&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;11&#41;</span>
-    </li>
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;10&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;9&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/math">Math</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/binary-search">Binary Search</a>
+    
+  </div>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
+
+</div>
+
+  <p>Implement pow(x, n), which calculates x raised to the power n (xn).</p>
+
+<pre><code> 
+ Example 1:
+ 
+ Input: 2.00000, 10
+ Output: 1024.00000
+ 
+ Example 2:
+ 
+ Input: 2.10000, 3
+ Output: 9.26100
+ 
+ Example 3:
+ 
+ Input: 2.00000, -2
+ Output: 0.25000
+ Explanation: 2-2 = 1/22 = 1/4 = 0.25
+ Note:
+ 
+ -100.0 &lt; x &lt; 100.0
+ n is a 32-bit signed integer, within the range [−231, 231 − 1]
+ 
+</code></pre>
+
+<p>求x的n次方,利用递归这班计算</p>
+
+<pre><code class="language-cpp"> double myPow3(double x,int n){
+    if (n==0) return 1;
+    double half = myPow3(x, n/2);
+    if (n%2==0) return half*half;
+    if (n&gt;0) return half*half*x;
+    return half*half/x;
+}
+</code></pre>
+
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/49-group-anagrams-%E7%BE%A4%E7%BB%84%E9%94%99%E4%BD%8D%E8%AF%8D/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/49-group-anagrams-%E7%BE%A4%E7%BB%84%E9%94%99%E4%BD%8D%E8%AF%8D/">49. Group Anagrams 群组错位词</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="greedy">greedy</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="design">design</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'longpf';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -324,3 +368,4 @@
 
 </body>
 </html>
+

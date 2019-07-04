@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 12 Jun 2019 15:49:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2019 16:51:09 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.longpengfei.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>50. Pow(x, n) 求x的n次方</title>
+      <link>http://blog.longpengfei.com/post/50-pow/</link>
+      <pubDate>Thu, 04 Jul 2019 16:51:09 +0800</pubDate>
+      
+      <guid>http://blog.longpengfei.com/post/50-pow/</guid>
+      <description>Implement pow(x, n), which calculates x raised to the power n (xn).
+ Example 1: Input: 2.00000, 10 Output: 1024.00000 Example 2: Input: 2.10000, 3 Output: 9.26100 Example 3: Input: 2.00000, -2 Output: 0.25000 Explanation: 2-2 = 1/22 = 1/4 = 0.25 Note: -100.0 &amp;lt; x &amp;lt; 100.0 n is a 32-bit signed integer, within the range [−231, 231 − 1]  求x的n次方,利用递归这班计算
+double myPow3(double x,int n){ if (n==0) return 1; double half = myPow3(x, n/2); if (n%2==0) return half*half; if (n&amp;gt;0) return half*half*x; return half*half/x; }  </description>
+    </item>
     
     <item>
       <title>49. Group Anagrams 群组错位词</title>
