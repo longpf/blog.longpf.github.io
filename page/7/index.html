@@ -217,6 +217,52 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/oc-framework-4-swift/">Swift调用objective-c的framework(非pod)需要注意的</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Mar 2017, 20:40</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/oc">OC</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/swift">Swift</a>
+    
+  </div>
+
+  
+  
+
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  swift调用objective-c的framework(非pod)需要注意的  1. 创建AppName-Bridging-Header,并#import&lt;&gt;相关文件 2. General -&gt; Embedded Binaried添加 3. Build Setting -&gt; Swift Compiler-General -&gt; Objective-C Briding Header 添加header的path,如:FaceTube/FaceTube-Bridging-Header.h 4. Link Binary With Libraries 添加相关framework  再就是可以试试把生成framework的项目拖到自己项目中运行生成framework例如这样
+这样之后如果还报错 在link Binary With Libraries中添加libc++.tbd应该可以搞定
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/uikit-performance-optimization/">UIKit性能优化</a></h2>
 
     <div class="post-meta">

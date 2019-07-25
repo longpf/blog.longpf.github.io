@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.longpengfei.com/post/51-n-queens-n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2019-07-25T16:54:49+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.longpengfei.com/post/50-pow/</loc>
     <lastmod>2019-07-04T16:51:09+08:00</lastmod>
   </url>
@@ -351,7 +356,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/leetcode/backtracking/</loc>
-    <lastmod>2019-06-06T17:19:32+08:00</lastmod>
+    <lastmod>2019-07-25T16:54:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -422,14 +427,14 @@
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
-    <lastmod>2019-07-04T16:51:09+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/leetcode/</loc>
+    <lastmod>2019-06-12T14:44:16+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.longpengfei.com/leetcode/</loc>
-    <lastmod>2019-06-12T14:44:16+08:00</lastmod>
+    <loc>http://blog.longpengfei.com/tags/leetcode/</loc>
+    <lastmod>2019-07-25T16:54:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -453,7 +458,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/post/</loc>
-    <lastmod>2019-07-04T16:51:09+08:00</lastmod>
+    <lastmod>2019-07-25T16:54:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -500,7 +505,7 @@
   
   <url>
     <loc>http://blog.longpengfei.com/</loc>
-    <lastmod>2019-07-04T16:51:09+08:00</lastmod>
+    <lastmod>2019-07-25T16:54:49+08:00</lastmod>
     <priority>0</priority>
   </url>
   

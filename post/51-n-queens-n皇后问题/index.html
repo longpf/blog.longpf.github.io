@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.32.1" />
 
-  <title>Leetcode &middot; long·pf</title>
+  <title>51 N Queens N皇后问题 &middot; long·pf</title>
 
   
   
@@ -209,93 +209,189 @@
 
 
 <div class="header">
-  <h1>Leetcode</h1>
+  <h1>51 N Queens N皇后问题</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Jul 2019, 16:54</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="array">array</a>
-      <span>&#40;18&#41;</span>
-    </li>
   
-    <li>
-      <a href="string">string</a>
-      <span>&#40;17&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
   
-    <li>
-      <a href="two-pointers">two-pointers</a>
-      <span>&#40;11&#41;</span>
-    </li>
   
-    <li>
-      <a href="backtracking">backtracking</a>
-      <span>&#40;10&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="math">math</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="hash-table">hash-table</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="binary-search">binary-search</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+    
+  </div>
+
   
-    <li>
-      <a href="linked-list">linked-list</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="dynamic-programming">dynamic-programming</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
+
+</div>
+
+  <p><img src="https://raw.githubusercontent.com/longpf/blog.longpf.github.io/master/asset/8-queens.png" alt="" /></p>
+
+<p>The n-queens puzzle(难题) is the problem of placing n queens on an n×n chessboard(棋盘) such that no two queens attack each other.</p>
+
+<p>Given an integer n, return all distinct(不同的) solutions to the n-queens puzzle.</p>
+
+<p>Each solution contains a distinct board configuration of the n-queens&rsquo; placement, where &lsquo;Q&rsquo; and &lsquo;.&rsquo; both indicate a queen and an empty space respectively(分别地).</p>
+
+<pre><code> Example:
+ 
+ Input: 4
+ Output: [
+ [&quot;.Q..&quot;,  // Solution 1
+ &quot;...Q&quot;,
+ &quot;Q...&quot;,
+ &quot;..Q.&quot;],
+ 
+ [&quot;..Q.&quot;,  // Solution 2
+ &quot;Q...&quot;,
+ &quot;...Q&quot;,
+ &quot;.Q..&quot;]
+ ]
+</code></pre>
+
+<p>Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.</p>
+
+<p>八皇后问题,同一行,同一列,左右对角线上不能排放两个皇后.</p>
+
+<p>回溯算法问题</p>
+
+<pre><code class="language-cpp">vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) {
+    vector&lt;vector&lt;string&gt;&gt; res{};
+    // 下标表示行,值表示列
+    int *result = new int[n]{};
+    solveNQueensCore(n, 0, res, result);
+    return res;
+}
+    
+void solveNQueensCore(int n,int row,vector&lt;vector&lt;string&gt;&gt; &amp;res,int result[]) {
+    // 输出结果
+    if (row==n) {
+        vector&lt;string&gt; sol{};
+        for (int i = 0; i&lt;n; i++) {
+            string str = &quot;&quot;;
+            for (int j = 0; j&lt;n; j++) {
+                if (result[i] == j) {
+                    str += 'Q';
+                }else{
+                    str += '.';
+                }
+            }
+            sol.push_back(str);
+        }
+        res.push_back(sol);
+        return ;
+    }
+    for (int col = 0; col &lt; n; col++) {
+        if (isOk(result, n, row, col)) {
+            result[row] = col;
+            solveNQueensCore(n, row+1, res, result);
+        }
+    }
+}
+    
+bool isOk(int result[],int n,int row,int column){
+    int leftup = column-1, rightup = column+1;
+    for (int i = row-1; i&gt;=0; i--) {
+        // 第i行column有棋子
+        if (result[i] == column){
+            return false;
+        }
+        if (leftup &gt;= 0) {
+            // 左上对角线有棋子
+            if (result[i] == leftup) {
+                return false;
+            }
+        }
+        if (rightup &lt; n) {
+            // 右上对角线有棋子
+            if (result[i] == rightup){
+                return false;
+            }
+        }
+        --leftup;
+        ++rightup;
+    }
+    return true;
+}
+</code></pre>
+
+
   
-    <li>
-      <a href="dfs">dfs</a>
-      <span>&#40;2&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="http://blog.longpengfei.com/post/50-pow/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="http://blog.longpengfei.com/post/50-pow/">50. Pow(x, n) 求x的n次方</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="divide-and-conquer">divide-and-conquer</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="greedy">greedy</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="stack">stack</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="design">design</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="heap">heap</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%9B%AE%E5%BD%95">目录</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'longpf';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -324,3 +420,4 @@
 
 </body>
 </html>
+
