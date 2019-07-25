@@ -217,6 +217,67 @@
   
     <article>
   <header>
+    <h2><a href="http://blog.longpengfei.com/post/52-n-queens-ii-n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C/">52. N Queens II N皇后问题之二</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Jul 2019, 17:22</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/leetcode">leetcode</a>
+    
+  </div>
+
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-codiepie fa-fw"></i>
+    
+      <a class="post-taxonomy-leetcode" href="http://blog.longpengfei.com/leetcode/backtracking">Backtracking</a>
+    
+  </div>
+
+  
+  
+
+
+</div>
+
+  </header>
+
+  <p>
+  The n-queens puzzle(难题) is the problem of placing n queens on an n×n chessboard(棋盘) such that no two queens attack each other.
+Given an integer n, return all distinct(不同的) solutions to the n-queens puzzle.
+Each solution contains a distinct board configuration of the n-queens&rsquo; placement, where &lsquo;Q&rsquo; and &lsquo;.&rsquo; both indicate a queen and an empty space respectively(分别地).
+Example: Input: 4 Output: [ [&quot;.Q..&quot;, // Solution 1 &quot;...Q&quot;, &quot;Q...&quot;, &quot;..Q.&quot;], [&quot;.
+  </p>
+
+  
+  <footer>
+    <a href="http://blog.longpengfei.com/post/52-n-queens-ii-n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98%E4%B9%8B%E4%BA%8C/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="http://blog.longpengfei.com/post/51-n-queens-n%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/">51. N Queens N皇后问题</a></h2>
 
     <div class="post-meta">
@@ -753,56 +814,6 @@ Note:
   
   <footer>
     <a href="http://blog.longpengfei.com/post/44-wildcard-matching-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%8C%B9%E9%85%8D/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="http://blog.longpengfei.com/post/small-algorithm/">Small Algorithm</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>31 Jul 2018, 21:39</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="http://blog.longpengfei.com/tags/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">算法数据结构</a>
-    
-  </div>
-
-  
-  
-
-  
-
-
-</div>
-
-  </header>
-
-  <p>
-  这里简单记录一些常用而又老忘记小算法
- 快排 红黑树 堆排 合并 打印菱形 验证ipv4,ipv6 二维数组中的查找 链表中倒数第k个结点 翻转链表 二叉树镜像 二叉树遍历 最小的k个数  快排 
-https://baike.baidu.com/item/快速排序算法/369842?fr=aladdin
-#include &lt;iostream&gt; using namespace std; void Qsort(int a[], int low, int high) { if(low &gt;= high) { return; } int first = low; int last = high; int key = a[first];/*用字表的第一个记录作为枢轴*/ while(first &lt; last) { while(first &lt; last &amp;&amp; a[last] &gt;= key) { --last; } a[first] = a[last];/*将比第一个小的移到低端*/ while(first &lt; last &amp;&amp; a[first] &lt;= key) { ++first; } a[last] = a[first]; /*将比第一个大的移到高端*/ } a[first] = key;/*枢轴记录到位*/ Qsort(a, low, first-1); Qsort(a, first+1, high); }  合并
-  </p>
-
-  
-  <footer>
-    <a href="http://blog.longpengfei.com/post/small-algorithm/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
