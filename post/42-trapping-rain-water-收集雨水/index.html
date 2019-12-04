@@ -279,6 +279,7 @@ Output: 6
 <pre><code class="language-cpp">class Solution {
 public:
     int trap(vector&lt;int&gt;&amp; height) {
+	//level是已经安全的水位
         int l=0,r=height.size()-1,level=0,water=0;
         while(l &lt; r){
             int lower = height[height[l]&lt;height[r]?l++:r--];
